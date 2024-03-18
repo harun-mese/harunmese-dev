@@ -61,8 +61,14 @@ scaleSelect.addEventListener('change',()=>{
 
 const pagesSelect = document.getElementById('pagesSelect')
 pagesSelect.addEventListener('change',()=>{
+
+    frameContent.querySelector('body').setAttribute("contenteditable","false")
+    var data =  frameContent.documentElement.innerHTML
+    ajax(data)
+    
     frame.src = pagesSelect.value
     //init()
+    
    
 })
 
@@ -147,3 +153,18 @@ function unLink(){
 }
 
 
+function ajax(data) {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        frameContent.getElementById("demo").innerHTML =
+        this.responseText;
+        console.log(this.responseText);
+        frameContent.querySelector('body').setAttribute("contenteditable","true")
+      }
+    };
+   
+    xhttp.open("POST", "save.php" ,true);
+    xhttp.setRequestHeader("Content-Type", "text/html; charset=UTF-8");
+    xhttp.send(data);
+  }

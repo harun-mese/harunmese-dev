@@ -4,6 +4,36 @@
     box-sizing: border-box;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+.login_form{
+    width: calc(100% - 40px);
+    max-width: 500px;
+    margin: 20px;
+    height: fit-content;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    top: 100px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+    box-shadow: 0 0 5px 2px gainsboro;
+    z-index: 11;
+}
+.login_form input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+    margin-bottom: 10px;
+}
+#close_form_btn{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
 header{
     width: 100%;
     display: flex;
