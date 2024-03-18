@@ -62,10 +62,8 @@ scaleSelect.addEventListener('change',()=>{
 const pagesSelect = document.getElementById('pagesSelect')
 pagesSelect.addEventListener('change',()=>{
 
-    frameContent.querySelector('body').setAttribute("contenteditable","false")
-    var data =  frameContent.documentElement.innerHTML
-    ajax(data)
-    
+   
+
     frame.src = pagesSelect.value
     //init()
     
@@ -152,6 +150,15 @@ function unLink(){
     command('unlink')
 }
 
+
+
+const saveBtn = document.getElementById('saveBtn')
+saveBtn.addEventListener('click',()=>{
+    console.log('click save');
+    frameContent.querySelector('body').setAttribute("contenteditable","false")
+    var data =  frameContent.documentElement.innerHTML
+    ajax(data)
+})
 
 function ajax(data) {
     const xhttp = new XMLHttpRequest();
