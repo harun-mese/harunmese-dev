@@ -1,3 +1,10 @@
+<?php
+//include_once 'db.php'
+session_start();
+
+if ($_SESSION["user"] != '' && $_SESSION["pass"] != '') {
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -392,9 +399,9 @@
         </div> 
         <div class="rborder">
             <select id="pagesSelect">
-                <option value="index.html">Home</option>
-                <option value="blog.html">Blog</option>
-                <option value="dev.html">Dev</option>
+                <option value="/">Home</option>
+                <option value="blog.php">Blog</option>
+                <option value="dev.php">Dev</option>
             </select>
           </div> 
 
@@ -403,7 +410,11 @@
           </button>
     </div>
 
-    <iframe id="iframe" width="375" height="500" src="./index.html" frameborder="0"></iframe>
+    <iframe id="iframe" width="375" height="500" src="./index.php" frameborder="0"></iframe>
     
 </body>
 </html>
+
+<?php
+}
+?>

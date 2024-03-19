@@ -10,7 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // İşlemleri gerçekleştirme (örneğin, dosyaya yazma, veritabanına kaydetme vb.)
     // Bu örnekte POST ile gelen HTML içeriğini dosyaya yazıyoruz
     $dosya = fopen("index.html", "w") or die("Dosya açılamadı!");
-    fwrite($dosya, $htmlContent);
+
+    //fwrite($dosya, $htmlContent);
     fclose($dosya);
 
     // İşlem başarılı olduysa bir yanıt gönderme (isteğe bağlı)
