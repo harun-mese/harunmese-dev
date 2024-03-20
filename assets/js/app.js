@@ -4,11 +4,13 @@ const fontBackgroundColorContainer = document.querySelector('.fontBackgroundColo
 const textTypeContainer = document.getElementById('textTypeContainer')
 const createLinkContainer = document.getElementById('createLinkContainer')
 
-let frame,frameContent
+let frame,frameContent, categoryName
 
 frame = document.querySelector('iframe') 
 frameContent = frame.contentDocument || frame.contentWindow.document;
 frameContent.querySelector('body').setAttribute("contenteditable","true")
+
+
 
 let alist = frameContent.querySelectorAll('a')
 alist.forEach(i=>{
@@ -29,6 +31,12 @@ iframe.onload = function() {
     alist.forEach(i=>{
         i.setAttribute("contenteditable","false")
     })
+    frameContent.addEventListener('click', function(event) {
+        if (event.target.tagName === 'A') {
+            categoryName = event.target.href;
+            console.log("Tıklanan linkin URL'si: ", categoryName);
+        }
+    });
 };
 
 function command(aCommandName, aShowDefaultUI='', aValueArgument=''){
@@ -156,22 +164,33 @@ const saveBtn = document.getElementById('saveBtn')
 saveBtn.addEventListener('click',()=>{
     console.log('click save');
     frameContent.querySelector('body').setAttribute("contenteditable","false")
-    var data =  frameContent.documentElement.innerHTML
-    ajax(data)
+    var title =  frameContent.querySelector('h1').innerHTML
+    var description =  frameContent.querySelector('p').innerHTML
+    var content =  frameContent.querySelector('article').innerHTML
+    
+    var veriler = {
+        category : categoryName,
+        title: title,
+        description: description,
+        content: content
+    };
+    var jsonData = JSON.stringify(veriler);
+    ajax(jsonData)
 })
 
 function ajax(data) {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
       if (this.readyState == 4 && this.status == 200) {
-        frameContent.getElementById("demo").innerHTML =
-        this.responseText;
+        //frameContent.getElementById("demo").innerHTML =
+       //this.responseText;
         console.log(this.responseText);
         frameContent.querySelector('body').setAttribute("contenteditable","true")
       }
     };
    
     xhttp.open("POST", "save.php" ,true);
-    xhttp.setRequestHeader("Content-Type", "text/html; charset=UTF-8");
-    xhttp.send(data);
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    //xhttp.setRequestHeader("Content-Type", "text/html; charset=UTF-8");
+    xhttp.send("data=" + data);
   }

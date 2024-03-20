@@ -6,7 +6,7 @@
     scroll-margin-top: 80px;
 }
 :root{
-    --bgc : rgb(61, 200, 161);
+    --bgc : rgb(255, 255, 255);
 }
 body{
     background-color: var(--bgc);
@@ -118,7 +118,7 @@ article img{
     max-width: 800px;
 }
 article a{
-color: rgb(255, 255, 255);
+color: blueviolet;
 }
 
 

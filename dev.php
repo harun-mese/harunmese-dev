@@ -21,11 +21,11 @@
                 <div class="bar b3"></div>
             </div>
             <!-- <span style="font-size: xx-large; color:gainsboro;margin-bottom: 10px; display:block;">Articles</span> -->
-            <li>Kotlin</li>
-            <li>Swift</li>
-            <li>Javascript</li>
-            <li>Nodejs</li>
-            <li>Expressjs</li>
+            <a href="dev.php/Kotlin">Kotlin</a>
+            <a href="dev.php/Swift">Swift</a>
+            <a href="dev.php/Javascript">Javascript</a>
+            <a href="dev.php/Nodejs">Nodejs</a>
+            <a href="dev.php/Expressjs">Expressjs</a>
             <li>Electronjs</li>
             <li>Firebase</li>
             <li>RestApi</li>
