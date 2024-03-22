@@ -95,7 +95,7 @@ window.addEventListener('scroll', function() {
       }
       else if (currentHeaderRect.top >= nextHeaderRect.bottom) {
         currentHeader.style.position = 'sticky';
-        nextHeader.style.position = 'static';
+        nextHeader.style.position = 'static';;
         nextHeader.style.textWrap = 'wrap';
         nextHeader.style.overflow = 'vissible';
       }
