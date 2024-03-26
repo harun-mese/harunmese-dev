@@ -117,6 +117,13 @@ article{
     min-height: 100vh;
     background-color:var(--bgc);
 }
+.center{
+    width: 100%;
+    height: calc(100vh - 64px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 article h1{
     margin: 0px;
     font-size: xx-large;
@@ -137,10 +144,8 @@ article h2,article h3,article h4,article h5{
     border-radius: 5px;
     padding: 0 3px;
 
-    overflow: hidden;
-    white-space: nowrap;
-    -o-text-overflow: ellipsis;
-    -ms-text-overflow: ellipsis;
+    white-space: wrap;
+    text-wrap: wrap;
     text-overflow: ellipsis;
 }
 article p{
@@ -330,8 +335,9 @@ article a::after{
         width: fit-content;
          max-width: 100%;
 
-        overflow: visible;
-        white-space: nowrap;
+         white-space: normal;
+         text-wrap: wrap;
+         
         text-overflow: ellipsis;
 
     }

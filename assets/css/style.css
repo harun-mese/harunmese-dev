@@ -1,4 +1,46 @@
 main{
     margin-top: 64px;
     padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+main section{
+   padding: 0 10px;
+}
+main section:first-child{
+flex: 1;
+width: 100%;
+}
+main section:last-child{
+flex: 1;
+width: 100%;
+}
+
+p{
+    margin: 20px 0;
+}
+
+
+@media screen and (min-width:1024px) {
+    main{
+        margin-top: 64px;
+        padding: 0 10px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: row;
+    }
+    main section{
+        padding: 0 20px;
+     }
+    main section:first-child{
+    flex: 1;
+    max-width: 300px;
+    }
+    main section:last-child{
+    flex: 2;
+    max-width: 800px;
+    } 
 }

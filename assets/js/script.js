@@ -90,18 +90,18 @@ window.addEventListener('scroll', function() {
       if (currentHeaderRect.bottom >= nextHeaderRect.top) {
         currentHeader.style.position = 'static';
         nextHeader.style.position = 'sticky';
-        nextHeader.style.textWrap = 'nowrap';
+        nextHeader.style.whiteSpace = 'nowrap';
         nextHeader.style.overflow = 'hidden';
       }
       else if (currentHeaderRect.top >= nextHeaderRect.bottom) {
         currentHeader.style.position = 'sticky';
-        nextHeader.style.position = 'static';;
-        nextHeader.style.textWrap = 'wrap';
+        nextHeader.style.position = 'static';
+        nextHeader.style.whiteSpace = 'normal';
         nextHeader.style.overflow = 'vissible';
       }
       else {
         nextHeader.style.position = 'sticky';
-        nextHeader.style.textWrap = 'wrap';
+        nextHeader.style.whiteSpace = 'normal';
         nextHeader.style.overflow = 'vissible';
       }
     }
