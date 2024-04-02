@@ -9,7 +9,7 @@
 }
 
 body{
-    background-color: #ffffff;
+    background-color: var(--bgc-light);
 
     display: flex;
     align-items: center;
@@ -22,51 +22,6 @@ iframe{
     border: var(--editor-border);
 }
 
-
-#editor{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-#editor #editBar {
-   border: var(--editor-border);
-   border-radius: 25px;
-   height: 50px;
-   background-color: #fff;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   position: fixed;
-   top: 10px;
-   z-index: 99;
-}
-#editor #editBar button{
-    background-color: transparent;
-    outline: none;
-    border: none;
-    margin: 0 10px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.logout{
-    color: #fff;
-    width: 50px;
-    background-color: tomato !important;
-    margin: 0 0 0 10px !important;
-    border-radius: 50% !important;
-    border :var(--editor-border) !important;
-}
-.save{
-    color: #fff;
-    width: 50px;
-    background-color: lightgreen !important;
-    margin: 0 0 0 10px !important;
-    border-radius: 50% !important;
-    border :var(--editor-border) !important;
-}
 
 
 
@@ -87,19 +42,6 @@ iframe{
     
 }
 
-
-#mobileSelect{
-    display: none;
-    right: 6px;
-}
-#laptopSelect{
-    display: none;
-    right: 36px;
-}
-#desktopSelect{
-    display: none;
-}
-
 #edit_bar button{
     border: none;
     background-color: transparent;
@@ -113,11 +55,13 @@ iframe{
     border: var(--border-gray);
     border-radius: 10px;
     padding: 9px 5px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff00;
-    position: fixed;
+
+    background-color: #ffffff;
+    position: relative;
     left: 50%;
     transform: translateX(-50%);
     top: 6px;
@@ -148,14 +92,6 @@ select{
     padding-left: 10px;
     margin-left: 10px;
 }
-.container{
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    height: 100vh;
-    width: 100%;
-    /* background-color: var(--bgc-light); */
-}
 
 
 ::-webkit-scrollbar-thumb{
@@ -182,12 +118,14 @@ select{
     flex-wrap: wrap;
     position: absolute;
     background-color: #fff;
-    top: 46px;
+    top: 66px;
+    left: calc(48px * 3);
+    transform: translateX(-50%);
     width: 400px;
     max-height: calc(100vh - 200px);
     overflow-y: scroll;
-    border: var(--border-gray);
-    border-radius:0 0 10px 10px;
+    box-shadow: 0 0 9px 0px gainsboro;
+    border-radius:10px;
     padding: 10px;
 }
 .fontsContainer button{
@@ -214,11 +152,13 @@ select{
     flex-wrap: wrap;
     position: absolute;
     background-color: #ffffff;
-    top: 46px;
+    top: 66px;
+    left: calc((48px * 4) - 24px);
+    transform: translateX(-50%);
     max-height: calc(100vh - 200px);
     overflow-y: scroll;
-    border: var(--border-gray);
-    border-radius:0 0 10px 10px;
+    box-shadow: 0 0 9px 0px gainsboro;
+    border-radius:10px;
     padding: 10px;
 }
 .fontBackgroundColorContainer{
@@ -228,11 +168,13 @@ select{
     flex-wrap: wrap;
     position: absolute;
     background-color: #ffffff;
-    top: 46px;
+    top: 66px;
+    left: calc(48px * 5 );
+    transform: translateX(-50%);
     max-height: calc(100vh - 200px);
     overflow-y: scroll;
-    border: var(--border-gray);
-    border-radius:0 0 10px 10px;
+    box-shadow: 0 0 9px 0px gainsboro;
+    border-radius:10px;
     padding: 10px;
 }
 
@@ -243,11 +185,14 @@ select{
     align-items: center;
     position: absolute;
     background-color: #ffffff;
-    top: 46px;
+    
+    top: 66px;
+    left: calc(48px * 5 );
+    transform: translateX(-50%);
     max-height: calc(100vh - 200px);
     overflow-y: scroll;
-    border: var(--border-gray);
-    border-radius:0 0 10px 10px;
+    border-radius:10px;
+    box-shadow: 0 0 9px 0px gainsboro;
     padding: 5px;
 }
 .createLinkContainer input
@@ -287,11 +232,14 @@ select{
     display: none;
     position: absolute;
     background-color: #ffffff;
-    top: 46px;
+    top: 66px;
+    left: calc((48px * 2) - 24px);
+    transform: translateX(-50%);
+  
     max-height: calc(100vh - 200px);
     overflow-y: scroll;
-    border: var(--border-gray);
-    border-radius:0 0 10px 10px;
+    box-shadow: 0 0 9px 0px gainsboro;
+    border-radius: 10px;
     padding:10px;
     
 }
