@@ -45,14 +45,15 @@ body{
     cursor: pointer;
 }
 header{
-    width: calc(100% - 2px);
+    width: calc(100% - 0px);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
+    border: 1px solid black;
     position: fixed;
     top:0px;
+    left: 0px;
+    right: 0px;
     z-index: 10;
     background-color: var(--bgc);
     user-select: none;
