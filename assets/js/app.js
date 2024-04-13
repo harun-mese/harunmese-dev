@@ -194,3 +194,5 @@ function ajax(data) {
     //xhttp.setRequestHeader("Content-Type", "text/html; charset=UTF-8");
     xhttp.send("data=" + data);
   }
+
+  

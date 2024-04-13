@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/css/editable.css">
     <!-- <script src="assets/js/editor.js" defer></script> -->
     <script src="assets/js/app.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
         
     </style>
@@ -47,13 +48,13 @@
                             <path d="M7.991 11.674 9.53 4.455c.123-.595.246-.71 1.347-.807l.11-.52H7.211l-.11.52c1.06.096 1.128.212 1.005.807L6.57 11.674c-.123.595-.246.71-1.346.806l-.11.52h3.774l.11-.52c-1.06-.095-1.129-.211-1.006-.806z"/>
                           </svg>
                     </button>
-                    <button>
+                    <button onclick="command('strikethrough')" title="strikethrough">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-type-strikethrough" viewBox="0 0 16 16">
                         <path d="M6.333 5.686c0 .31.083.581.27.814H5.166a2.8 2.8 0 0 1-.099-.76c0-1.627 1.436-2.768 3.48-2.768 1.969 0 3.39 1.175 3.445 2.85h-1.23c-.11-1.08-.964-1.743-2.25-1.743-1.23 0-2.18.602-2.18 1.607zm2.194 7.478c-2.153 0-3.589-1.107-3.705-2.81h1.23c.144 1.06 1.129 1.703 2.544 1.703 1.34 0 2.31-.705 2.31-1.675 0-.827-.547-1.374-1.914-1.675L8.046 8.5H1v-1h14v1h-3.504c.468.437.675.994.675 1.697 0 1.826-1.436 2.967-3.644 2.967"/>
                       </svg>
                     </button>
-                    <button style="font-weight: bolder;">
-                     <span style="width: 24px; height: 24px;">ID</span>
+                    <button style="font-weight: bolder;" title="Add id">
+                      <span style="width: 24px; height: 24px;">ID</span>
                     </button>
               </div>
                       
@@ -345,14 +346,133 @@
         <div class="flex">
         <input style="width: 275px;" type="range" name="dfgd" id="">
        </div>
-       <span style='display: block; padding: 3px 10px;margin: 10px 0;'>L<img style="display: inline-block;" width="16" src="./verify.png" alt="" srcset="">tter</span> 
+       <span style='display: block; padding: 3px 10px;margin: 10px 0;color :tomato'>L<i class="bi bi-yin-yang"></i>tter</span> 
+       <style>
+        .flex .bi{
+          font-size: 24px;
+          padding: 10px;
+          margin: 5px;
+        }
+       </style>
        <div class="flex">
-        <img src="./verify.png" alt="">
-        <img src="./verify.png" alt="">
-        <img src="./verify.png" alt="">
-        <img src="./verify.png" alt="">
-        <img src="./verify.png" alt="">
-        <img src="./verify.png" alt="">
+        <i class="bi bi-wrench-adjustable-circle-fill"></i>
+        <i class="bi bi-yelp"></i>
+        <i class="bi bi-yin-yang"></i>
+        <i class="bi bi-wind"></i>
+        <i class="bi bi-whatsapp"></i>
+        <i class="bi bi-virus2"></i>
+        <i class="bi bi-vignette"></i>
+        <i class="bi bi-vector-pen"></i>
+        <i class="bi bi-vinyl"></i>
+        <i class="bi bi-upc-scan"></i>
+        <i class="bi bi-universal-access-circle"></i>
+        <i class="bi bi-universal-access"></i>
+        <i class="bi bi-umbrella"></i>
+        <i class="bi bi-ubuntu"></i>
+        <i class="bi bi-truck"></i>
+        <i class="bi bi-tropical-storm"></i>
+        <i class="bi bi-trophy"></i>
+        <i class="bi bi-tree"></i>
+        <i class="bi bi-trash3"></i>
+        <i class="bi bi-tencent-qq"></i>
+        <i class="bi bi-suitcase-lg"></i>
+        <i class="bi bi-suitcase2"></i>
+        <i class="bi bi-suit-heart"></i>
+        <i class="bi bi-stopwatch"></i>
+        <i class="bi bi-stoplights"></i>
+        <i class="bi bi-stop-circle-fill"></i>
+        <i class="bi bi-stop-circle"></i>
+        <i class="bi bi-sticky"></i>
+        <i class="bi bi-stickies"></i>
+        <i class="bi bi-stars"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-soundwave"></i>
+        <i class="bi bi-snow2"></i>
+        <i class="bi bi-signpost-split"></i>
+        <i class="bi bi-signpost-2"></i>
+        <i class="bi bi-signpost"></i>
+        <i class="bi bi-sign-stop"></i>
+        <i class="bi bi-sign-no-parking"></i>
+        <i class="bi bi-sign-do-not-enter"></i>
+        <i class="bi bi-shop"></i>
+        <i class="bi bi-shield-lock"></i>
+        <i class="bi bi-shield-exclamation"></i>
+        <i class="bi bi-shield-check"></i>
+        <i class="bi bi-search"></i>
+        <i class="bi bi-rocket"></i>
+        <i class="bi bi-rocket-takeoff"></i>
+        <i class="bi bi-robot"></i>
+        <i class="bi bi-record-circle-fill"></i>
+        <i class="bi bi-rainbow"></i>
+        <i class="bi bi-radioactive"></i>
+        <i class="bi bi-quote"></i>
+        <i class="bi bi-question-circle"></i>
+        <i class="bi bi-puzzle"></i>
+        <i class="bi bi-pin"></i>
+        <i class="bi bi-pin-angle"></i>
+        <i class="bi bi-pentagon"></i>
+        <i class="bi bi-pause-circle-fill"></i>
+        <i class="bi bi-patch-check"></i>
+        <i class="bi bi-palette"></i>
+        <i class="bi bi-paperclip"></i>
+        <i class="bi bi-music-note-beamed"></i>
+        <i class="bi bi-mic"></i>
+        <i class="bi bi-megaphone"></i>
+        <i class="bi bi-lightning-charge"></i>
+        <i class="bi bi-lightbulb"></i>
+        <i class="bi bi-lamp"></i>
+        <i class="bi bi-info-circle"></i>
+        <i class="bi bi-highlighter"></i>
+        <i class="bi bi-hearts"></i>
+        <i class="bi bi-headphones"></i>
+        <i class="bi bi-hand-thumbs-up"></i>
+        <i class="bi bi-hand-thumbs-down"></i>
+        <i class="bi bi-handbag"></i>
+        <i class="bi bi-hash"></i>
+        <i class="bi bi-graph-up-arrow"></i>
+        <i class="bi bi-graph-down-arrow"></i>
+        <i class="bi bi-globe-americas"></i>
+        <i class="bi bi-globe-europe-africa"></i>
+        <i class="bi bi-globe-central-south-asia"></i>
+        <i class="bi bi-globe-asia-australia"></i>
+        <i class="bi bi-gift"></i>
+        <i class="bi bi-geo-alt"></i>
+        <i class="bi bi-geo"></i>
+        <i class="bi bi-gem"></i>
+        <i class="bi bi-flower3"></i>
+        <i class="bi bi-flower2"></i>
+        <i class="bi bi-flower1"></i>
+        <i class="bi bi-flag"></i>
+        <i class="bi bi-fire"></i>
+        <i class="bi bi-fingerprint"></i>
+        <i class="bi bi-feather"></i>
+        <i class="bi bi-eyeglasses"></i>
+        <i class="bi bi-eye"></i>
+        <i class="bi bi-exclamation-lg"></i>
+        <i class="bi bi-exclamation-square"></i>
+        <i class="bi bi-exclamation-octagon"></i>
+        <i class="bi bi-exclamation-circle"></i>
+        <i class="bi bi-exclamation-diamond"></i>
+        <i class="bi bi-envelope-at"></i>
+        <i class="bi bi-easel2"></i>
+        <i class="bi bi-easel"></i>
+        <i class="bi bi-cup-hot"></i>
+        <i class="bi bi-controller"></i>
+        <i class="bi bi-compass"></i>
+        <i class="bi bi-clock"></i>
+        <i class="bi bi-clipboard2-check"></i>
+        <i class="bi bi-check2-circle"></i>
+        <i class="bi bi-cash-coin"></i>
+        <i class="bi bi-cart"></i>
+        <i class="bi bi-bricks"></i>
+        <i class="bi bi-box-seam"></i>
+        <i class="bi bi-balloon"></i>
+        <i class="bi bi-balloon-heart"></i>
+        <i class="bi bi-balloon-fill"></i>
+        <i class="bi bi-balloon-heart-fill"></i>
+        <i class="bi bi-award"></i>
+        <i class="bi bi-asterisk"></i>
+        <i class="bi bi-at"></i>
       </div>
           <!-- <button onclick="command('backColor',false,'#a52a2a')" style="background-color:#a52a2a"></button>
           <button onclick="command('backColor',false,'#deb887')" style="background-color:#deb887"></button>
@@ -426,7 +546,7 @@
         
         
         <button onclick="openCreateLinkContainer()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
             <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
             <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
           </svg>
@@ -442,25 +562,89 @@
             </svg>
         </div>
 
+<button>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-sliders" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z"/>
+  </svg>
+</button>
+
+<div class="attributesContainer flex-col">
+  <span>Font Size</span>
+  <div class="flex-col borderles-content" style="padding-left: 20px;">
+   <div> font-size : <input type="number" min="0" name="" id="" style="width: 40px;"></div>
+ </div>
+  <span>Padding</span>
+     <div class="flex-col borderles-content" style="padding-left: 20px; align-items: flex-end;">
+      <div class="border-bottom"> padding : <input type="number" min="0" name="" id="" style="width: 40px;" value="0"></div>
+      <div class="border-bottom"> padding-left : <input type="number" min="0" width="" name="" id="" style="width: 40px;" value="0"></div>
+      <div class="border-bottom"> padding-right : <input type="number" min="0" name="" id="" style="width: 40px;" value="0"></div>
+      <div class="border-bottom"> padding-top : <input type="number" min="0" name="" id="" style="width: 40px;" value="0"></div>
+      <div class="border-bottom"> padding-bottom : <input type="number" min="0" name="" id="" style="width: 40px;" value="0"></div>
+    </div>
+  <span>Margin</span>
+  <div class="flex-col borderles-content" style="padding-left: 20px;">
+    <div> margin : <input type="number" min="0" name="" id="" style="width: 40px;"></div>
+    <div> margin-left : <input type="number" min="0" width="" name="" id="" style="width: 40px;"></div>
+    <div> margin-right : <input type="number" min="0" name="" id="" style="width: 40px;"></div>
+    <div> margin-top : <input type="number" min="0" name="" id="" style="width: 40px;"></div>
+    <div> margin-bottom : <input type="number" min="0" name="" id="" style="width: 40px;"></div>
+  </div>
+  <span>Border</span> 
+  <div class="flex-col borderles-content border-bottom" style="padding-left: 20px;">
+    <div> border : <input type="number" min="0" name="" id="" style="width: 40px;"></div>
+    <div> border-left : <input type="number" min="0" width="" name="" id="" style="width: 40px;"></div>
+    <div> border-right : <input type="number" min="0" name="" id="" style="width: 40px;"></div>
+    <div> border-top : <input type="number" min="0" name="" id="" style="width: 40px;"></div>
+    <div> border-bottom : <input type="number" min="0" name="" id="" style="width: 40px;"></div>
+  </div>
+  <span>Border Radius</span> 
+  <div class="flex">
+   
+ </div>
+ <span>Background Color</span> 
+ <div class="flex">
+  
+</div>
+<span>Background Image</span> 
+<div class="flex">
+ 
+</div>
+<span>Position</span> 
+<div class="flex">
+ 
+</div>
+<span>Cursor</span> 
+<div class="flex">
+ 
+</div>
+<span>Width</span> 
+<div class="flex">
+ 
+</div>
+<span>Height</span> 
+<div class="flex">
+ 
+</div>
+
+</div>
 
         <button>
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
             <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
             <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2M14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1M2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1z"/>
           </svg>
-        </button>
-        <button>
           <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-collection-play" viewBox="0 0 16 16">
             <path d="M2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3m2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1m2.765 5.576A.5.5 0 0 0 6 7v5a.5.5 0 0 0 .765.424l4-2.5a.5.5 0 0 0 0-.848z"/>
             <path d="M1.5 14.5A1.5 1.5 0 0 1 0 13V6a1.5 1.5 0 0 1 1.5-1.5h13A1.5 1.5 0 0 1 16 6v7a1.5 1.5 0 0 1-1.5 1.5zm13-1a.5.5 0 0 0 .5-.5V6a.5.5 0 0 0-.5-.5h-13A.5.5 0 0 0 1 6v7a.5.5 0 0 0 .5.5z"/>
           </svg>
-        </button>
-        <button>
           <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-soundwave" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M8.5 2a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-1 0v-11a.5.5 0 0 1 .5-.5m-2 2a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5m4 0a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5m-6 1.5A.5.5 0 0 1 5 6v4a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m8 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m-10 1A.5.5 0 0 1 3 7v2a.5.5 0 0 1-1 0V7a.5.5 0 0 1 .5-.5m12 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0V7a.5.5 0 0 1 .5-.5"/>
+          </svg> -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-collection" viewBox="0 0 16 16">
+            <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5z"/>
           </svg>
         </button>
-        
+       
 
         <button >
           <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-columns-gap" viewBox="0 0 16 16">
@@ -560,15 +744,17 @@
           </select>
         </div> 
         <div class="rborder">
+          <i class="bi bi-files"></i>
             <select id="pagesSelect">
+              
                 <option value="/">Home</option>
                 <option value="blog.html">Blog</option>
                 <option value="dev.html">Dev</option>
             </select>
           </div> 
 
-          <button id="saveBtn" style="background-color: darkseagreen;border-radius:5px;padding: 2px 10px;color:#ffffff">
-            SAVE
+          <button id="saveBtn" style="background-color: rgba(143, 188, 143, 0);border-radius:5px;padding: 2px 10px;color:#16e623">
+            Save
           </button>
     </div>
 </header>
