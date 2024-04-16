@@ -79,7 +79,7 @@ function open_form(){
 }
 
 window.addEventListener('scroll', function() {
-    var headers = document.querySelectorAll('article h1, article h2, article h3, article h4, article h5, article h6');
+    var headers = document.querySelectorAll('.contentHeader');
 
     for (var i = 0; i < headers.length; i++) {
       var currentHeader = headers[i];
@@ -106,3 +106,5 @@ window.addEventListener('scroll', function() {
       }
     }
   });
+
+  

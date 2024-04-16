@@ -4,6 +4,14 @@ const fontBackgroundColorContainer = document.querySelector('.fontBackgroundColo
 const textTypeContainer = document.getElementById('textTypeContainer')
 const createLinkContainer = document.getElementById('createLinkContainer')
 
+const attributesContainer = document.querySelector('.attributesContainer')
+const imageBox = document.querySelector('.imageBox')
+const videoBox = document.querySelector('.videoBox')
+const blockBox = document.querySelector('.blockBox')
+
+const newContentBox = document.querySelector('.newContentBox')
+
+
 let frame,frameContent, categoryName
 
 frame = document.querySelector('iframe') 
@@ -42,6 +50,7 @@ iframe.onload = function() {
 function command(aCommandName, aShowDefaultUI='', aValueArgument=''){
    frameContent.execCommand(aCommandName, aShowDefaultUI, aValueArgument)
 }
+command('defaultParagraphSeparator',false,'p')
 
 var allElements = frameContent.querySelectorAll('.editable')
 allElements.forEach(el=>el.setAttribute('contenteditable','true'))
@@ -101,7 +110,24 @@ function size(width) {
   var fontBackgroundColorContainerBool = false
   var textTypeContainerBool = false
   var createLinkContainerBool = false
- 
+  var attributesContainerBool = false
+
+  var imageBoxBool = false
+  var videoBoxBool = false
+   var blockBoxBool = false
+
+
+   var newContentBoxBool = false   
+   function opennewContentBox(){
+    if (!newContentBoxBool) {
+        newContentBox.style.display='flex' 
+        newContentBoxBool = true
+    }else{
+        newContentBox.style.display='none'
+        newContentBoxBool = false
+    }
+    
+}
 function toggleFontsContainer(){
      if (!fontsContainerBool) {
          fontsContainer.style.display='flex' 
@@ -140,6 +166,7 @@ function openTextTypeContainer(){
          textTypeContainerBool = false
      }
 }
+
 function openCreateLinkContainer(){
      if (!createLinkContainerBool) {
          createLinkContainer.style.display='flex' 
@@ -158,6 +185,43 @@ function unLink(){
     command('unlink')
 }
 
+function openAttributesContainer(){
+    if (!attributesContainerBool) {
+        attributesContainer.style.display='flex' 
+        attributesContainerBool = true
+    }else{
+        attributesContainer.style.display='none'
+        attributesContainerBool = false
+    }
+}
+
+function openImageBox(){
+    if (!imageBoxBool) {
+        imageBox.style.display='flex' 
+        imageBoxBool = true
+    }else{
+        imageBox.style.display='none'
+        imageBoxBool = false
+    }
+}
+function openVideoBox(){
+    if (!videoBoxBool) {
+        videoBox.style.display='flex' 
+        videoBoxBool = true
+    }else{
+        videoBox.style.display='none'
+        videoBoxBool = false
+    }
+}
+function openbBlockBox(){
+    if (!blockBoxBool) {
+        blockBox.style.display='flex' 
+        blockBoxBool = true
+    }else{
+        blockBox.style.display='none'
+        blockBoxBool = false
+    }
+}
 
 
 const saveBtn = document.getElementById('saveBtn')

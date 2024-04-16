@@ -19,18 +19,27 @@
     <!-- <div id="editor"></div> -->
 <header>
   <div id="edit_bar">
-        <button  title="New Content">
+
+        <button title="New Content" onclick="opennewContentBox()">
           <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-plus-circle-dotted" viewBox="0 0 16 16">
             <path d="M8 0q-.264 0-.523.017l.064.998a7 7 0 0 1 .918 0l.064-.998A8 8 0 0 0 8 0M6.44.152q-.52.104-1.012.27l.321.948q.43-.147.884-.237L6.44.153zm4.132.271a8 8 0 0 0-1.011-.27l-.194.98q.453.09.884.237zm1.873.925a8 8 0 0 0-.906-.524l-.443.896q.413.205.793.459zM4.46.824q-.471.233-.905.524l.556.83a7 7 0 0 1 .793-.458zM2.725 1.985q-.394.346-.74.74l.752.66q.303-.345.648-.648zm11.29.74a8 8 0 0 0-.74-.74l-.66.752q.346.303.648.648zm1.161 1.735a8 8 0 0 0-.524-.905l-.83.556q.254.38.458.793l.896-.443zM1.348 3.555q-.292.433-.524.906l.896.443q.205-.413.459-.793zM.423 5.428a8 8 0 0 0-.27 1.011l.98.194q.09-.453.237-.884zM15.848 6.44a8 8 0 0 0-.27-1.012l-.948.321q.147.43.237.884zM.017 7.477a8 8 0 0 0 0 1.046l.998-.064a7 7 0 0 1 0-.918zM16 8a8 8 0 0 0-.017-.523l-.998.064a7 7 0 0 1 0 .918l.998.064A8 8 0 0 0 16 8M.152 9.56q.104.52.27 1.012l.948-.321a7 7 0 0 1-.237-.884l-.98.194zm15.425 1.012q.168-.493.27-1.011l-.98-.194q-.09.453-.237.884zM.824 11.54a8 8 0 0 0 .524.905l.83-.556a7 7 0 0 1-.458-.793zm13.828.905q.292-.434.524-.906l-.896-.443q-.205.413-.459.793zm-12.667.83q.346.394.74.74l.66-.752a7 7 0 0 1-.648-.648zm11.29.74q.394-.346.74-.74l-.752-.66q-.302.346-.648.648zm-1.735 1.161q.471-.233.905-.524l-.556-.83a7 7 0 0 1-.793.458zm-7.985-.524q.434.292.906.524l.443-.896a7 7 0 0 1-.793-.459zm1.873.925q.493.168 1.011.27l.194-.98a7 7 0 0 1-.884-.237zm4.132.271a8 8 0 0 0 1.012-.27l-.321-.948a7 7 0 0 1-.884.237l.194.98zm-2.083.135a8 8 0 0 0 1.046 0l-.064-.998a7 7 0 0 1-.918 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
           </svg>
         </button>
+        <div class="newContentBox">
+            <span>Select For New Content</span>
+            <select style="border: 1px solid gainsboro">
+              <option value="#">Select!</option>
+              <option value="blog">Blog</option>
+              <option value="dev">Dev</option>
+            </select>
+        </div>
 
+<!-- text formating -->
         <button onclick="openTextTypeContainer()">
             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-type" viewBox="0 0 16 16">
               <path d="m2.244 13.081.943-2.803H6.66l.944 2.803H8.86L5.54 3.75H4.322L1 13.081zm2.7-7.923L6.34 9.314H3.51l1.4-4.156zm9.146 7.027h.035v.896h1.128V8.125c0-1.51-1.114-2.345-2.646-2.345-1.736 0-2.59.916-2.666 2.174h1.108c.068-.718.595-1.19 1.517-1.19.971 0 1.518.52 1.518 1.464v.731H12.19c-1.647.007-2.522.8-2.522 2.058 0 1.319.957 2.18 2.345 2.18 1.06 0 1.716-.43 2.078-1.011zm-1.763.035c-.752 0-1.456-.397-1.456-1.244 0-.65.424-1.115 1.408-1.115h1.805v.834c0 .896-.752 1.525-1.757 1.525"/>
             </svg>
           </button>
-
         <div class="textTypeContainer" id="textTypeContainer">
               <div>
                     <button onclick="command('bold')" title="bold">
@@ -126,15 +135,18 @@
           </button>
         </div> 
         
+
+
+<!-- font family -->
         <button onclick="toggleFontsContainer()" title="font family">
             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-fonts" viewBox="0 0 16 16">
                 <path d="M12.258 3h-8.51l-.083 2.46h.479c.26-1.544.758-1.783 2.693-1.845l.424-.013v7.827c0 .663-.144.82-1.3.923v.52h4.082v-.52c-1.162-.103-1.306-.26-1.306-.923V3.602l.431.013c1.934.062 2.434.301 2.693 1.846h.479z"/>
               </svg>
         </button>
         <div class="fontsContainer">
-          Font Family
+         <h2>Font Family</h2> 
           <div class="flex">
-              <button onclick="command('fontName',false,'cursive')" style="font-family: cursive;">Lorem, ipsum dolor.</button>
+              <button onclick="command('fontName',false,'Arial, Helvetica, sans-serif;')" style="font-family: Arial, Helvetica, sans-serif;">Lorem, ipsum dolor.</button>
               <button onclick="command('fontName',false,'monospace')" style="font-family: monospace;">Lorem, ipsum dolor.</button>
               <button onclick="command('fontName',false,'Rubik Doodle Shadow')" style="font-family:Rubik Doodle Shadow">Lorem, ipsum dolor.</button>
               <button onclick="command('fontName',false,'Satisfy')" style="font-family:Satisfy">Lorem, ipsum dolor.</button>
@@ -209,6 +221,8 @@
           </div>
           
         </div>
+
+<!-- font color -->
         <button onclick="toggleFontColorContainer()" title="font color">
             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-marker-tip" viewBox="0 0 16 16">
                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5 6.064-1.281-4.696A.5.5 0 0 0 9.736 9H6.264a.5.5 0 0 0-.483.368l-1.28 4.696A6.968 6.968 0 0 0 8 15c1.275 0 2.47-.34 3.5-.936m.873-.598a7 7 0 1 0-8.746 0l1.19-4.36a1.5 1.5 0 0 1 1.31-1.1l1.155-3.851c.213-.713 1.223-.713 1.436 0l1.156 3.851a1.5 1.5 0 0 1 1.31 1.1l1.189 4.36Z"/>
@@ -309,10 +323,12 @@
           <button onclick="command('foreColor',false,'#32cd32')" style="background-color:#32cd32"></button>
           <button onclick="command('foreColor',false,'#faf0e6')" style="background-color:#faf0e6"></button> -->
         </div>
+
+
+<!-- text styling -->
         <button onclick="toggleFontBackgroundColorContainer()" title="background color">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-award" viewBox="0 0 16 16">
-            <path d="M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702z"/>
-            <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z"/>
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+            <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1"/>
           </svg>
         </button>
         <div class="fontBackgroundColorContainer">
@@ -544,14 +560,13 @@
         </div>
 
         
-        
+<!-- link -->
         <button onclick="openCreateLinkContainer()">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
             <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
             <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
           </svg>
         </button>
-
         <div class="createLinkContainer" id="createLinkContainer">
           <svg onclick="unLink()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
@@ -562,149 +577,184 @@
             </svg>
         </div>
 
-<button>
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-sliders" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z"/>
-  </svg>
-</button>
 
-<div class="attributesContainer flex-col">
-  <span>Font Size</span>
-  <div class="flex-col borderles-content" style="padding-left: 20px;">
-   <div> font-size : <input type="number" min="0" name="" id="" style="width: 40px;"></div>
- </div>
-  <span>Padding</span>
-     <div class="flex-col borderles-content" style="padding-left: 20px; align-items: flex-end;">
-      <div class="border-bottom"> padding : <input type="number" min="0" name="" id="" style="width: 40px;" value="0"></div>
-      <div class="border-bottom"> padding-left : <input type="number" min="0" width="" name="" id="" style="width: 40px;" value="0"></div>
-      <div class="border-bottom"> padding-right : <input type="number" min="0" name="" id="" style="width: 40px;" value="0"></div>
-      <div class="border-bottom"> padding-top : <input type="number" min="0" name="" id="" style="width: 40px;" value="0"></div>
-      <div class="border-bottom"> padding-bottom : <input type="number" min="0" name="" id="" style="width: 40px;" value="0"></div>
-    </div>
-  <span>Margin</span>
-  <div class="flex-col borderles-content" style="padding-left: 20px;">
-    <div> margin : <input type="number" min="0" name="" id="" style="width: 40px;"></div>
-    <div> margin-left : <input type="number" min="0" width="" name="" id="" style="width: 40px;"></div>
-    <div> margin-right : <input type="number" min="0" name="" id="" style="width: 40px;"></div>
-    <div> margin-top : <input type="number" min="0" name="" id="" style="width: 40px;"></div>
-    <div> margin-bottom : <input type="number" min="0" name="" id="" style="width: 40px;"></div>
-  </div>
-  <span>Border</span> 
-  <div class="flex-col borderles-content border-bottom" style="padding-left: 20px;">
-    <div> border : <input type="number" min="0" name="" id="" style="width: 40px;"></div>
-    <div> border-left : <input type="number" min="0" width="" name="" id="" style="width: 40px;"></div>
-    <div> border-right : <input type="number" min="0" name="" id="" style="width: 40px;"></div>
-    <div> border-top : <input type="number" min="0" name="" id="" style="width: 40px;"></div>
-    <div> border-bottom : <input type="number" min="0" name="" id="" style="width: 40px;"></div>
-  </div>
-  <span>Border Radius</span> 
-  <div class="flex">
-   
- </div>
- <span>Background Color</span> 
- <div class="flex">
-  
-</div>
-<span>Background Image</span> 
-<div class="flex">
- 
-</div>
-<span>Position</span> 
-<div class="flex">
- 
-</div>
-<span>Cursor</span> 
-<div class="flex">
- 
-</div>
-<span>Width</span> 
-<div class="flex">
- 
-</div>
-<span>Height</span> 
-<div class="flex">
- 
-</div>
+<!-- css attributes -->
+        <button onclick="openAttributesContainer()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-bounding-box-circles" viewBox="0 0 16 16">
+            <path d="M2 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2M0 2a2 2 0 0 1 3.937-.5h8.126A2 2 0 1 1 14.5 3.937v8.126a2 2 0 1 1-2.437 2.437H3.937A2 2 0 1 1 1.5 12.063V3.937A2 2 0 0 1 0 2m2.5 1.937v8.126c.703.18 1.256.734 1.437 1.437h8.126a2 2 0 0 1 1.437-1.437V3.937A2 2 0 0 1 12.063 2.5H3.937A2 2 0 0 1 2.5 3.937M14 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2M2 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m12 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
+          </svg>
+        </button>
+        <div class="attributesContainer flex-col">
+          <h2>Css attr</h2>
+            <span>padding: <input style="width: min-content;" class="borderless border-bottom" type="text" name="" id=""> ;</span>
+            <span>Margin</span>
+            <span>Border</span>
+            <span>Background Color</span> 
+            <span>Background Image</span> 
+            <span>Position</span>
+            <span>Cursor</span>
+            <span>Width</span>
+            <span>Height</span> 
+        </div>
 
-</div>
-
-        <button>
-          <!-- <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
+<!-- insert Image -->
+        <button onclick="openImageBox()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
             <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
             <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2M14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1M2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1z"/>
           </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-collection-play" viewBox="0 0 16 16">
-            <path d="M2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3m2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1m2.765 5.576A.5.5 0 0 0 6 7v5a.5.5 0 0 0 .765.424l4-2.5a.5.5 0 0 0 0-.848z"/>
-            <path d="M1.5 14.5A1.5 1.5 0 0 1 0 13V6a1.5 1.5 0 0 1 1.5-1.5h13A1.5 1.5 0 0 1 16 6v7a1.5 1.5 0 0 1-1.5 1.5zm13-1a.5.5 0 0 0 .5-.5V6a.5.5 0 0 0-.5-.5h-13A.5.5 0 0 0 1 6v7a.5.5 0 0 0 .5.5z"/>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-soundwave" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M8.5 2a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-1 0v-11a.5.5 0 0 1 .5-.5m-2 2a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5m4 0a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5m-6 1.5A.5.5 0 0 1 5 6v4a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m8 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m-10 1A.5.5 0 0 1 3 7v2a.5.5 0 0 1-1 0V7a.5.5 0 0 1 .5-.5m12 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0V7a.5.5 0 0 1 .5-.5"/>
-          </svg> -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-collection" viewBox="0 0 16 16">
-            <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5z"/>
-          </svg>
         </button>
-       
+        <div class="imageBox container w">
+         <h2>Image</h2>
+         <div class="flex-col">
+          <div class="box">
+            <div onclick='command(`insertHTML`,false,`<div class="imageDiv"><img style="width:100%;" src="./assets/uploads/image1.png" alt="" srcset=""></div>`)'>
+                      <img width="50px" src="./assets/uploads/image1.png" alt="" srcset="">
+            </div>
+          </div>
+          <div class="box">
+            <div onclick='command(`insertHTML`,false,`<div style="width: 100%;display: flex;"><img style="width:calc(50% - 2px);margin-right: 4px;" src="./assets/uploads/image1.png" alt="" srcset=""><img style="width:calc(50% - 2px);" src="./assets/uploads/image1.png" alt="" srcset=""></div>`)'>
 
-        <button >
+                <img width="50px" src="./assets/uploads/image1.png" alt="" srcset="">
+                <img width="50px" src="./assets/uploads/image1.png" alt="" srcset="">
+            </div>
+          </div>
+          <div class="box">
+            <div onclick='command(`insertHTML`,false,`<div style="width: 100%;display: flex;"><img  style="width: calc(100% / 3 - 3px);margin-right: 4px;" src="./assets/uploads/image1.png" alt="" srcset=""><img  style="width: calc(100% / 3 - 2px);margin-right: 4px;" src="./assets/uploads/image1.png" alt="" srcset=""><img style="width: calc(100% / 3 - 3px);" src="./assets/uploads/image1.png" alt="" srcset=""></div>`)'>
+                <img width="50px" src="./assets/uploads/image1.png" alt="" srcset="">
+                <img width="50px" src="./assets/uploads/image1.png" alt="" srcset="">
+                <img width="50px" src="./assets/uploads/image1.png" alt="" srcset="">
+            </div>
+          </div>
+         </div>
+         
+        </div>
+
+
+
+          <button onclick="openVideoBox()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+              <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+            </svg>
+          </button>
+        <div class="videoBox container w">
+          <h2>Video</h2>
+          <div class="flex-col">
+            <div class="box">
+            <div>
+                youtube link <i class="bi bi-youtube"></i>
+            </div>
+          </div>
+          <div class="box">
+            <div>
+                embed youtube <i class="bi bi-youtube"></i>
+            </div>
+          </div>
+          <div class="box">
+            <div>
+                locale video <i class="bi bi-youtube"></i>
+            </div>
+          </div>
+          </div>
+          
+        </div>
+
+
+
+
+          <!-- <button>
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+              <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5"/>
+              <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3"/>
+            </svg>
+          </button> -->
+          
+         
+        <button onclick="openbBlockBox()">
           <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-columns-gap" viewBox="0 0 16 16">
             <path d="M6 1v3H1V1zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1zm14 12v3h-5v-3zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1zM6 8v7H1V8zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1zm14-6v7h-5V1zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/>
           </svg>
         </button>
 
-        <div class="wrapConteiner">
-          <div>
-            horizontal
+        <div class="blockBox container w400p" >
+         <h2>Blocks</h2>
+
+          <div class="box" onclick='command(`insertHTML`,false,`<div class="textAndImage"><div><b style="font-size: medium;">Lorem, ipsum dolor.</b><p style="font-size: x-small;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, itaque tempore unde mollitia natus  fugit in.</p></div><img width="150px" src="./assets/uploads/image1.png" alt="" srcset=""></div>`)'>
+
+            <div class="textAndImage" >
+                <div>
+                  <b style="font-size: medium;">Lorem, ipsum dolor.</b>
+                  <p style="font-size: x-small;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, itaque tempore unde mollitia natus  fugit in.</p>
+                </div>
+
+                <img width="150px" src="./assets/uploads/image1.png" alt="" srcset="">
+            </div>
+
           </div>
-          <div>
-            horizontal
+
+
+          <div class="box">
+
+            <div class="textAndText">
+                <div>
+                  <b style="font-size: medium;">Lorem, ipsum dolor.</b>
+                  <p style="font-size: x-small;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, itaque tempore unde mollitia natus  vitae fugit in.</p>
+                </div>
+
+                <div>
+                  <b style="font-size: medium;">Lorem, ipsum dolor.</b>
+                  <p style="font-size: x-small;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, tempore unde mollitia natus quos itaque tempore unde mollitia natus quos  fugit in.</p>
+                </div>
+            </div>
+
           </div>
-          <div>
-            horizontal
+
+          <div class="box">
+
+            <div class="textAndImageText">
+                <div>
+                  <b style="font-size: medium;">Lorem, ipsum dolor.</b>
+                  <p style="font-size: x-small;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, itaque tempore unde mollitia natus quos omnis modi illum quo inventore soluta atque nesciunt, iure reiciendis, maxime quisquam vitae fugit in.</p>
+                  <p style="font-size: x-small;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam voluptas, ut ipsum, fuga obcaecati alias  quia illum amet labore! Eveniet!</p>
+                </div>
+
+                <div>
+                  <img width="150px" src="./assets/uploads/image1.png" alt="">
+                  <b style="font-size: medium;">Lorem, ipsum dolor.</b>
+                  <p style="font-size: x-small;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, itaque tempore unde fugit in.</p>
+                </div>
+            </div>
+
           </div>
-          <div>
-            horizontal
+
+          <div class="box">
+
+            <div class="textAndImageText">
+                 <div>
+                  <img width="150px" src="./assets/uploads/image1.png" alt="">
+                  <b style="font-size: medium;">Lorem, ipsum dolor.</b>
+                  <p style="font-size: x-small;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, itaque tempore unde mollitia natus.</p>
+                </div>
+
+                <div>
+                  <img width="150px" src="./assets/uploads/image1.png" alt="">
+                  <b style="font-size: medium;">Lorem, ipsum dolor.</b>
+                  <p style="font-size: x-small;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, itaque tempore unde mollitia natus .</p>
+                </div>
+            </div>
+
           </div>
-          <div>
-            horizontal
-          </div>
-          <div>
-            horizontal
-          </div>
-          <div>
-            horizontal
-          </div>
-          <div>
-            horizontal
-          </div>
-          <div>
-            horizontal
-          </div>
-          <div>
-            horizontal
-          </div>
-          <div>
-            horizontal
-          </div>
-          <div>
-            horizontal
-          </div>
-          <div>
-            horizontal
-          </div>
-          <div>
-            horizontal
-          </div>
-          <div>
-            horizontal
-          </div>
+
         </div>
+
 
         <button>
           <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
             <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0"/>
           </svg>
         </button>
+
+
     
       
         <div class="rborder">
@@ -730,6 +780,7 @@
 
           
         </div>
+
         <div class="rborder">
           <select id="scaleSelect">
               <option value="0.25">25%</option>
@@ -743,6 +794,7 @@
               <option value="2.0">200%</option>
           </select>
         </div> 
+
         <div class="rborder">
           <i class="bi bi-files"></i>
             <select id="pagesSelect">
@@ -756,6 +808,8 @@
           <button id="saveBtn" style="background-color: rgba(143, 188, 143, 0);border-radius:5px;padding: 2px 10px;color:#16e623">
             Save
           </button>
+
+
     </div>
 </header>
     

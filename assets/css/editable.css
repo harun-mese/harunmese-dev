@@ -68,7 +68,7 @@ iframe{
     display: flex;
     align-items: center;
     justify-content: center;
-
+cursor: pointer;
     background-color: #ffffff00;
     position: relative;
     left: 50%;
@@ -118,6 +118,161 @@ select{
     height: 0px;
 }
 
+
+
+
+.w100p{width: 100px;}
+.w150p{width: 150px;}
+.w200p{width: 200px;}
+.w250p{width: 250px;}
+.w300p{width: 300px;}
+.w350p{width: 350px;}
+.w400p{width: 400px;}
+.w450p{width: 450px;}
+.w500p{width: 500px;}
+
+.w{width: fit-content;}
+.w1{width: 100%;}
+.w2{width: 50%;}
+.w3{width: calc(100% / 3);}
+.w4{width: 25%;}
+
+.p5{padding: 5px;}
+.p10{padding: 10px;}
+.p15{padding: 15px;}
+.p20{padding: 20px;}
+.p25{padding: 25px;}
+
+.pl5{padding-left: 5px;}
+.pl10{padding-left: 10px;}
+.pl15{padding-left: 15px;}
+.pl20{padding-left: 20px;}
+.pl25{padding-left: 25px;}
+
+.pr5{padding-right: 5px;}
+.pr10{padding-right: 10px;}
+.pr15{padding-right: 15px;}
+.pr20{padding-right: 20px;}
+.pr25{padding-right: 25px;}
+
+.pt5{padding-top: 5px;}
+.pt10{padding-top: 10px;}
+.pt15{padding-top: 15px;}
+.pt20{padding-top: 20px;}
+.pt25{padding-top: 25px;}
+
+.pb5{padding-bottom: 5px;}
+.pb10{padding-bottom: 10px;}
+.pb15{padding-bottom: 15px;}
+.pb20{padding-bottom: 20px;}
+.pb25{padding-bottom: 25px;}
+
+.container{
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: absolute;
+    background-color: #fff;
+    top: var(--top);
+    left: calc(48px * 7);
+    transform: translateX(-50%);
+    max-height: calc(100vh - 200px);
+    overflow-y: scroll;
+    box-shadow: var(--box-shadow);
+    border-radius:10px;
+    padding: 10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    -ms-border-radius:10px;
+    -o-border-radius:10px;
+}
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    width: fit-content;
+    border: 1px dashed gray;
+    border-radius:10px;
+    padding: 10px;
+    margin:3px 1px;
+}
+.twoCol{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 350px;
+}
+.twoCol div{
+    width: 173px;
+    max-width: 50%;
+    height: 100px;
+    border: 1px dotted gainsboro;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    position: relative;
+}
+.twoCol div:empty::after{
+   content: '\2750';
+   position: absolute;
+   top:50%;
+   left: 50%;
+   transform: translateY(-50%) translateX(-50%);
+   -webkit-transform: translateY(-50%) translateX(-50%);
+   -moz-transform: translateY(-50%) translateX(-50%);
+   -ms-transform: translateY(-50%) translateX(-50%);
+   -o-transform: translateY(-50%) translateX(-50%);
+}
+
+.twoRow{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 350px;
+}
+.twoRow div{
+    width: 350px;
+    max-width: 100%;
+    height: 100px;
+    border: 1px dotted gainsboro;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    position: relative;
+}
+.twoRow div:empty::after{
+   content: '\2750';
+   position: absolute;
+   top:50%;
+   left: 50%;
+   transform: translateY(-50%) translateX(-50%);
+   -webkit-transform: translateY(-50%) translateX(-50%);
+   -moz-transform: translateY(-50%) translateX(-50%);
+   -ms-transform: translateY(-50%) translateX(-50%);
+   -o-transform: translateY(-50%) translateX(-50%);
+}
+
+.textAndImage{
+    display: flex;
+    width: 100%;
+}
+.textAndText{
+    display: flex;
+}
+.textAndImageText{
+    display: flex;
+}
+.textAndText h1, .textAndImage, .textAndImageText{
+
+}
+
 .flex{
     display: flex;
     align-items: flex-start;
@@ -140,9 +295,31 @@ select{
     outline: none;
 }
 .border-bottom {
+    border: none;
+    outline: none;
     border-bottom: 1px solid gainsboro;
 }
 
+.newContentBox{
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: absolute;
+    background-color: #fff;
+    top: var(--top);
+    left: calc(24px * 1);
+    transform: translateX(-50%);
+    max-height: calc(100vh - 200px);
+    overflow-y: scroll;
+    box-shadow: var(--box-shadow);
+    border-radius:10px;
+    padding: 10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    -ms-border-radius:10px;
+    -o-border-radius:10px;
+}
 .fontsContainer{
     display: none;
     align-items: flex-start;
@@ -397,3 +574,5 @@ select{
     border-radius: 10px;
     padding:10px;
 }
+
+
