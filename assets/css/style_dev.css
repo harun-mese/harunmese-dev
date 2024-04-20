@@ -110,6 +110,7 @@
 body{
     background-color: var(--bgc);
     border: 1px solid black;
+    position: relative;
    }
 .login_form{
     width: calc(100% - 40px);
@@ -305,7 +306,7 @@ article a::after{
 #toggleArticles{
     width: 20px;
     height: 15px;
-    background-color: var(--bgc);
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -319,7 +320,7 @@ article a::after{
 #toggleContents{
     width: 20px;
     height: 15px;
-    background-color: var(--bgc);
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: space-between;

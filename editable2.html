@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editable</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/editable.css">
+    <link rel="stylesheet" href="assets/css/editable2.css">
     <!-- <script src="assets/js/editor.js" defer></script> -->
     <script src="assets/js/app.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -18,8 +18,8 @@
 <body>
     <!-- <div id="editor"></div> -->
 <header>
-  <div id="edit_bar">
-
+  
+    <div class="left_side">
         <button title="New Content" onclick="opennewContentBox()">
           <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-plus-circle-dotted" viewBox="0 0 16 16">
             <path d="M8 0q-.264 0-.523.017l.064.998a7 7 0 0 1 .918 0l.064-.998A8 8 0 0 0 8 0M6.44.152q-.52.104-1.012.27l.321.948q.43-.147.884-.237L6.44.153zm4.132.271a8 8 0 0 0-1.011-.27l-.194.98q.453.09.884.237zm1.873.925a8 8 0 0 0-.906-.524l-.443.896q.413.205.793.459zM4.46.824q-.471.233-.905.524l.556.83a7 7 0 0 1 .793-.458zM2.725 1.985q-.394.346-.74.74l.752.66q.303-.345.648-.648zm11.29.74a8 8 0 0 0-.74-.74l-.66.752q.346.303.648.648zm1.161 1.735a8 8 0 0 0-.524-.905l-.83.556q.254.38.458.793l.896-.443zM1.348 3.555q-.292.433-.524.906l.896.443q.205-.413.459-.793zM.423 5.428a8 8 0 0 0-.27 1.011l.98.194q.09-.453.237-.884zM15.848 6.44a8 8 0 0 0-.27-1.012l-.948.321q.147.43.237.884zM.017 7.477a8 8 0 0 0 0 1.046l.998-.064a7 7 0 0 1 0-.918zM16 8a8 8 0 0 0-.017-.523l-.998.064a7 7 0 0 1 0 .918l.998.064A8 8 0 0 0 16 8M.152 9.56q.104.52.27 1.012l.948-.321a7 7 0 0 1-.237-.884l-.98.194zm15.425 1.012q.168-.493.27-1.011l-.98-.194q-.09.453-.237.884zM.824 11.54a8 8 0 0 0 .524.905l.83-.556a7 7 0 0 1-.458-.793zm13.828.905q.292-.434.524-.906l-.896-.443q-.205.413-.459.793zm-12.667.83q.346.394.74.74l.66-.752a7 7 0 0 1-.648-.648zm11.29.74q.394-.346.74-.74l-.752-.66q-.302.346-.648.648zm-1.735 1.161q.471-.233.905-.524l-.556-.83a7 7 0 0 1-.793.458zm-7.985-.524q.434.292.906.524l.443-.896a7 7 0 0 1-.793-.459zm1.873.925q.493.168 1.011.27l.194-.98a7 7 0 0 1-.884-.237zm4.132.271a8 8 0 0 0 1.012-.27l-.321-.948a7 7 0 0 1-.884.237l.194.98zm-2.083.135a8 8 0 0 0 1.046 0l-.064-.998a7 7 0 0 1-.918 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
@@ -33,6 +33,9 @@
               <option value="dev">Dev</option>
             </select>
         </div>
+    </div>
+        
+<div class="center_side">
 
 <!-- text formating -->
         <button onclick="openTextTypeContainer()">
@@ -62,27 +65,12 @@
                         <path d="M6.333 5.686c0 .31.083.581.27.814H5.166a2.8 2.8 0 0 1-.099-.76c0-1.627 1.436-2.768 3.48-2.768 1.969 0 3.39 1.175 3.445 2.85h-1.23c-.11-1.08-.964-1.743-2.25-1.743-1.23 0-2.18.602-2.18 1.607zm2.194 7.478c-2.153 0-3.589-1.107-3.705-2.81h1.23c.144 1.06 1.129 1.703 2.544 1.703 1.34 0 2.31-.705 2.31-1.675 0-.827-.547-1.374-1.914-1.675L8.046 8.5H1v-1h14v1h-3.504c.468.437.675.994.675 1.697 0 1.826-1.436 2.967-3.644 2.967"/>
                       </svg>
                     </button>
-                    <button style="font-weight: bolder;" title="Add id">
-                      <span style="width: 24px; height: 24px;">ID</span>
-                    </button>
+                    
               </div>
                       
-              <div style="border-bottom: 1px solid rgba(199, 199, 199, 0.466); padding-bottom: 10px; margin-bottom: 10px;">
-                      <button onclick="command('justifyLeft')" title="justify left">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-justify-left" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
-                          </svg>
-                    </button>
-                    <button onclick="command('justifyCenter')" title="justify center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-text-center" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M4 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
-                          </svg>
-                    </button>
-                    <button onclick="command('justifyRight')" title="justify right">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-justify-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
-                          </svg>
-                    </button>
+             
+
+                    <div>
                     <button>
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-subscript" viewBox="0 0 16 16">
                         <path d="m3.266 12.496.96-2.853H7.76l.96 2.853H10L6.62 3H5.38L2 12.496zm2.748-8.063 1.419 4.23h-2.88l1.426-4.23zm6.132 7.203v-.075c0-.332.234-.618.619-.618.354 0 .618.256.618.58 0 .362-.271.649-.52.898l-1.788 1.832V15h3.59v-.958h-1.923v-.045l.973-1.04c.415-.438.867-.845.867-1.547 0-.8-.701-1.41-1.787-1.41-1.23 0-1.795.8-1.795 1.576v.06z"/>
@@ -93,8 +81,64 @@
                         <path d="m4.266 12.496.96-2.853H8.76l.96 2.853H11L7.62 3H6.38L3 12.496zm2.748-8.063 1.419 4.23h-2.88l1.426-4.23zm5.132-1.797v-.075c0-.332.234-.618.619-.618.354 0 .618.256.618.58 0 .362-.271.649-.52.898l-1.788 1.832V6h3.59v-.958h-1.923v-.045l.973-1.04c.415-.438.867-.845.867-1.547 0-.8-.701-1.41-1.787-1.41C11.565 1 11 1.8 11 2.576v.06z"/>
                       </svg>
                     </button>
+
+                    <button onclick="openCreateLinkContainer()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                          <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                          <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                        </svg>
+                      </button>
+                      <button onclick="toggleFontsContainer()" title="font family">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-fonts" viewBox="0 0 16 16">
+                            <path d="M12.258 3h-8.51l-.083 2.46h.479c.26-1.544.758-1.783 2.693-1.845l.424-.013v7.827c0 .663-.144.82-1.3.923v.52h4.082v-.52c-1.162-.103-1.306-.26-1.306-.923V3.602l.431.013c1.934.062 2.434.301 2.693 1.846h.479z"/>
+                          </svg>
+                    </button>
+                     
               </div>
-            
+
+              <div>
+                <button onclick="command('justifyLeft')" title="justify left">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-justify-left" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
+                    </svg>
+              </button>
+              <button onclick="command('justifyCenter')" title="justify center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-text-center" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M4 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
+                    </svg>
+              </button>
+              <button onclick="command('justifyRight')" title="justify right">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-justify-right" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
+                    </svg>
+              </button>
+              <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-text-indent-left" viewBox="0 0 16 16">
+                    <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708M7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
+                  </svg>
+              </button>
+          </div>
+          <div>
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
+                  <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+                  <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2M14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1M2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1z"/>
+                </svg>
+              </button>
+              <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" class="bi bi-youtube" viewBox="0 0 16 16">
+                  <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+                </svg>
+              </button>
+
+            <button style="width: 38px; height: 38px;" title="Add Id">
+                <span style="width: 24px; height: 24pxfont-weight: 400;font-size: smaller;">Id</span>
+              </button>
+              <button style="width: 38px; height: 38px;" title="Add Class">
+                <span style="font-weight: 400;font-size: smaller;">Class</span>
+              </button>
+          </div>
+              
           <!-- <button onclick="command('insertUnorderedList')" title="unordered list">
               <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
@@ -134,10 +178,100 @@
             - Tire işaretli liste
           </button>
         </div> 
-        
 
 
-<!-- font family -->
+
+        <div class="createLinkContainer" id="createLinkContainer">
+            <svg onclick="unLink()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+            </svg>
+              <input type="text" name="link" id="linkInput" placeholder="Link">
+              <svg onclick="createLink()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+              </svg>
+          </div>
+
+          <div class="fontsContainer">
+            <h2>Font Family</h2> 
+             <div class="flex">
+                 <button onclick="command('fontName',false,'Arial, Helvetica, sans-serif;')" style="font-family: Arial, Helvetica, sans-serif;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'monospace')" style="font-family: monospace;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Doodle Shadow')" style="font-family:Rubik Doodle Shadow">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Satisfy')" style="font-family:Satisfy">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Scribble')" style="font-family:Rubik Scribble">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Black Ops One')" style="font-family:Black Ops One">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'cursive')" style="font-family: cursive;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'monospace')" style="font-family: monospace;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Doodle Shadow')" style="font-family:Rubik Doodle Shadow">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Satisfy')" style="font-family:Satisfy">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Scribble')" style="font-family:Rubik Scribble">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Black Ops One')" style="font-family:Black Ops One">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'cursive')" style="font-family: cursive;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'monospace')" style="font-family: monospace;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Doodle Shadow')" style="font-family:Rubik Doodle Shadow">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Satisfy')" style="font-family:Satisfy">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Scribble')" style="font-family:Rubik Scribble">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Black Ops One')" style="font-family:Black Ops One">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'cursive')" style="font-family: cursive;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'monospace')" style="font-family: monospace;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Doodle Shadow')" style="font-family:Rubik Doodle Shadow">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Satisfy')" style="font-family:Satisfy">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Scribble')" style="font-family:Rubik Scribble">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Black Ops One')" style="font-family:Black Ops One">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'cursive')" style="font-family: cursive;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'monospace')" style="font-family: monospace;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Doodle Shadow')" style="font-family:Rubik Doodle Shadow">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Satisfy')" style="font-family:Satisfy">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Scribble')" style="font-family:Rubik Scribble">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Black Ops One')" style="font-family:Black Ops One">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'cursive')" style="font-family: cursive;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'monospace')" style="font-family: monospace;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Doodle Shadow')" style="font-family:Rubik Doodle Shadow">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Satisfy')" style="font-family:Satisfy">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Scribble')" style="font-family:Rubik Scribble">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Black Ops One')" style="font-family:Black Ops One">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'cursive')" style="font-family: cursive;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'monospace')" style="font-family: monospace;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Doodle Shadow')" style="font-family:Rubik Doodle Shadow">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Satisfy')" style="font-family:Satisfy">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Scribble')" style="font-family:Rubik Scribble">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Black Ops One')" style="font-family:Black Ops One">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'cursive')" style="font-family: cursive;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'monospace')" style="font-family: monospace;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Doodle Shadow')" style="font-family:Rubik Doodle Shadow">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Satisfy')" style="font-family:Satisfy">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Scribble')" style="font-family:Rubik Scribble">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Black Ops One')" style="font-family:Black Ops One">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'cursive')" style="font-family: cursive;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'monospace')" style="font-family: monospace;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Doodle Shadow')" style="font-family:Rubik Doodle Shadow">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Satisfy')" style="font-family:Satisfy">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Scribble')" style="font-family:Rubik Scribble">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Black Ops One')" style="font-family:Black Ops One">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'cursive')" style="font-family: cursive;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'monospace')" style="font-family: monospace;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Doodle Shadow')" style="font-family:Rubik Doodle Shadow">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Satisfy')" style="font-family:Satisfy">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Scribble')" style="font-family:Rubik Scribble">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Black Ops One')" style="font-family:Black Ops One">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'cursive')" style="font-family: cursive;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'monospace')" style="font-family: monospace;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Doodle Shadow')" style="font-family:Rubik Doodle Shadow">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Satisfy')" style="font-family:Satisfy">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Scribble')" style="font-family:Rubik Scribble">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Black Ops One')" style="font-family:Black Ops One">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'cursive')" style="font-family: cursive;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'monospace')" style="font-family: monospace;">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Doodle Shadow')" style="font-family:Rubik Doodle Shadow">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Satisfy')" style="font-family:Satisfy">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Rubik Scribble')" style="font-family:Rubik Scribble">Lorem, ipsum dolor.</button>
+                 <button onclick="command('fontName',false,'Black Ops One')" style="font-family:Black Ops One">Lorem, ipsum dolor.</button>
+             </div>
+             
+           </div>
+
+
+<!-- font family 
         <button onclick="toggleFontsContainer()" title="font family">
             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-fonts" viewBox="0 0 16 16">
                 <path d="M12.258 3h-8.51l-.083 2.46h.479c.26-1.544.758-1.783 2.693-1.845l.424-.013v7.827c0 .663-.144.82-1.3.923v.52h4.082v-.52c-1.162-.103-1.306-.26-1.306-.923V3.602l.431.013c1.934.062 2.434.301 2.693 1.846h.479z"/>
@@ -221,8 +355,9 @@
           </div>
           
         </div>
+-->
 
-<!-- font color -->
+<!-- font color 
         <button onclick="toggleFontColorContainer()" title="font color">
             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-marker-tip" viewBox="0 0 16 16">
                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5 6.064-1.281-4.696A.5.5 0 0 0 9.736 9H6.264a.5.5 0 0 0-.483.368l-1.28 4.696A6.968 6.968 0 0 0 8 15c1.275 0 2.47-.34 3.5-.936m.873-.598a7 7 0 1 0-8.746 0l1.19-4.36a1.5 1.5 0 0 1 1.31-1.1l1.155-3.851c.213-.713 1.223-.713 1.436 0l1.156 3.851a1.5 1.5 0 0 1 1.31 1.1l1.189 4.36Z"/>
@@ -254,7 +389,7 @@
           <button onclick="command('backColor',false,'#ffebcd')" style="background-color:#ffebcd"></button>
           <button onclick="command('backColor',false,'#0000ff')" style="background-color:#0000ff"></button>
          </div>
-         <!-- <button onclick="command('foreColor',false,'#ffebcd')" style="background-color:#ffebcd"></button>
+          <button onclick="command('foreColor',false,'#ffebcd')" style="background-color:#ffebcd"></button>
           <button onclick="command('foreColor',false,'#0000ff')" style="background-color:#0000ff"></button>
           <button onclick="command('foreColor',false,'#a52a2a')" style="background-color:#a52a2a"></button>
           <button onclick="command('foreColor',false,'#deb887')" style="background-color:#deb887"></button>
@@ -321,18 +456,246 @@
           <button onclick="command('foreColor',false,'#ffffe0')" style="background-color:#ffffe0"></button>
           <button onclick="command('foreColor',false,'#00ff00')" style="background-color:#00ff00"></button>
           <button onclick="command('foreColor',false,'#32cd32')" style="background-color:#32cd32"></button>
-          <button onclick="command('foreColor',false,'#faf0e6')" style="background-color:#faf0e6"></button> -->
+          <button onclick="command('foreColor',false,'#faf0e6')" style="background-color:#faf0e6"></button> 
         </div>
-
+-->
 
 <!-- text styling -->
         <button onclick="toggleFontBackgroundColorContainer()" title="background color">
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
-            <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1"/>
-          </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-palette" viewBox="0 0 16 16">
+                <path d="M8 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3m4 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M5.5 7a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m.5 6a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+                <path d="M16 8c0 3.15-1.866 2.585-3.567 2.07C11.42 9.763 10.465 9.473 10 10c-.603.683-.475 1.819-.351 2.92C9.826 14.495 9.996 16 8 16a8 8 0 1 1 8-8m-8 7c.611 0 .654-.171.655-.176.078-.146.124-.464.07-1.119-.014-.168-.037-.37-.061-.591-.052-.464-.112-1.005-.118-1.462-.01-.707.083-1.61.704-2.314.369-.417.845-.578 1.272-.618.404-.038.812.026 1.16.104.343.077.702.186 1.025.284l.028.008c.346.105.658.199.953.266.653.148.904.083.991.024C14.717 9.38 15 9.161 15 8a7 7 0 1 0-7 7"/>
+              </svg>
         </button>
-        <div class="fontBackgroundColorContainer">
-       <span style="display: inline-block; background-color:  black; padding: 3px 10px;border-radius:5px;margin: 10px 0;color: white;">text background</span>
+        <div class="fontBackgroundColorContainer flex-col">
+
+    <style>
+         .fontBackgroundColorContainer{
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-direction: column;
+            flex-wrap: nowrap;
+         }
+        .fontBackgroundColorContainer div{
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+        }
+        .fontBackgroundColorContainer input[type="number"]{
+            border-radius: 10px;
+            width: 50px;
+            border: 1px solid gainsboro;
+            outline: none;
+            text-align: center;
+        }
+    </style>
+    <div class="fontcolordiv">
+        <span style="color: #1c7ce2;display: inline-block;">font color</span>
+        <span style="background-color: #1c7ce2;display: inline-block;border: 1px solid gainsboro;border-radius: 20px;width: 26px;height: 26px;"></span>
+    
+    </div>
+    <div class="markdiv">
+        <span style="background-color: #1c7ce2;color: #ffffff;display: inline-block;">mark</span>
+        <span style="background-color: #1c7ce2;display: inline-block;border: 1px solid gainsboro;border-radius: 20px;width: 26px;height: 26px;"></span>
+    
+    </div>
+    <div class="solidrdiv flex">
+        <span style="color: #8a2be2;display: inline-block;border: 1px solid #8a2be2;border-radius: 20px;padding: 0 10px;">solid</span>
+        <input type="number" name="" id="" value="20" min="0">
+        <input type="number" name="" id="" value="1" min="0">
+        <span style="background-color: #8a2be2;display: inline-block;border: 1px solid gainsboro;border-radius: 20px;width: 26px;height: 26px;"></span>
+    </div>
+    <div class="dotteddiv flex">
+        <span style="color: #8a2be2;display: inline-block;border: 1px dotted #8a2be2;border-radius: 20px;padding: 0 10px;">dotted</span>
+        <input type="number" name="" id="" value="20" min="0">
+        <input type="number" name="" id="" value="1" min="0">
+        <span style="background-color: #8a2be2;display: inline-block;border: 1px solid gainsboro;border-radius: 20px;width: 26px;height: 26px;"></span>
+    
+    </div>
+    <div class="dasheddiv flex">
+        <span style="color: #8a2be2;display: inline-block;border: 1px dashed #8a2be2;border-radius: 20px;padding: 0 10px;">dashed</span>
+        <input type="number" name="" id="" value="20" min="0">
+        <input type="number" name="" id="" value="1" min="0">
+        <span style="background-color: #8a2be2;display: inline-block;border: 1px solid gainsboro;border-radius: 20px;width: 26px;height: 26px;"></span>
+        
+    </div>
+    <div class="rotatediv">
+        <span style="color: #8a2be2;display: inline-block;transform: rotateZ(15deg);">rotate</span>
+        <input type="number" name="" id="" value="15" min="-180" max="180"> 
+    </div>
+    <div class="sizediv">
+        <span style="color: #161616;display: inline-block; font-size: 32px;">Size</span>
+        <input type="number" name="" id="" value="32" min="9" max="100">
+    
+    </div>
+    <div class="shadowdiv">
+        <span style="color: #8a2be2;display: inline-block;box-shadow: 4px 5px 0 0px gainsboro;padding: 5px;border: 1px solid gainsboro;">shadow</span>
+    
+    </div>
+    <div class="backgrounddiv">
+        <span style="color: #ffffff;display: inline-block;background-color: #8a2be2;padding: 5px 15px;border-radius: 5px;">background</span>
+        <input type="number" name="" id="" value="1" min="0">
+        <span style="background-color: #8a2be2;display: inline-block;border: 1px solid gainsboro;border-radius: 20px;width: 26px;height: 26px;"></span>
+    
+    </div>
+    <div class="gradiendbgdiv">
+        <span style="color: #ffffff;display: inline-block;background: linear-gradient(#8a2be2 , #1c7ce2) ;padding: 5px 15px;border-radius: 5px;">gradiend bg</span>
+        <input type="number" name="" id="" value="1" min="0">
+        <span style="background-color: #8a2be2;display: inline-block;border: 1px solid gainsboro;border-radius: 20px;width: 26px;height: 26px;"></span>
+    
+    </div>
+    <div class="gradiendtextdiv">
+        <span style="font-size: large; color: #892be200;display: inline-block;-webkit-background-clip: text;-webkit-text-fill-color: transparent;background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);">gradiend text</span>
+        <select name="" id="" style="border: 1px solid gainsboro;padding: 0 5px;border-radius: 10px;">
+            <option value="">50%-50%</option>
+            <option value="">34%-66%</option>
+            <option value="">25%-75%</option>
+            <option value="">20%-80%</option>
+            <option value="">66%-34%</option>
+            <option value="">75%-25%</option>
+            <option value="">80%-20%</option>
+        </select>
+        <span style="background-color: #8a2be2;display: inline-block;border: 1px solid gainsboro;border-radius: 20px;width: 26px;height: 26px;"></span>
+        <span style="background-color: #b8cbb8;display: inline-block;border: 1px solid gainsboro;border-radius: 20px;width: 26px;height: 26px;"></span>
+    </div>
+    <div class="icondiv">
+        <span style="color: #161616;display: block;border-bottom: 1px solid #161616;margin: 10px 0;width: 30%;">icons</span>
+        <style>
+            .flex .bi{
+              font-size: 24px;
+              padding: 10px;
+              margin: 5px;
+            }
+           </style>
+           <div class="flex">
+            <i class="bi bi-wrench-adjustable-circle-fill"></i>
+            <i class="bi bi-yelp"></i>
+            <i class="bi bi-yin-yang"></i>
+            <i class="bi bi-wind"></i>
+            <i class="bi bi-whatsapp"></i>
+            <i class="bi bi-virus2"></i>
+            <i class="bi bi-vignette"></i>
+            <i class="bi bi-vector-pen"></i>
+            <i class="bi bi-vinyl"></i>
+            <i class="bi bi-upc-scan"></i>
+            <i class="bi bi-universal-access-circle"></i>
+            <i class="bi bi-universal-access"></i>
+            <i class="bi bi-umbrella"></i>
+            <i class="bi bi-ubuntu"></i>
+            <i class="bi bi-truck"></i>
+            <i class="bi bi-tropical-storm"></i>
+            <i class="bi bi-trophy"></i>
+            <i class="bi bi-tree"></i>
+            <i class="bi bi-trash3"></i>
+            <i class="bi bi-tencent-qq"></i>
+            <i class="bi bi-suitcase-lg"></i>
+            <i class="bi bi-suitcase2"></i>
+            <i class="bi bi-suit-heart"></i>
+            <i class="bi bi-stopwatch"></i>
+            <i class="bi bi-stoplights"></i>
+            <i class="bi bi-stop-circle-fill"></i>
+            <i class="bi bi-stop-circle"></i>
+            <i class="bi bi-sticky"></i>
+            <i class="bi bi-stickies"></i>
+            <i class="bi bi-stars"></i>
+            <i class="bi bi-star"></i>
+            <i class="bi bi-soundwave"></i>
+            <i class="bi bi-snow2"></i>
+            <i class="bi bi-signpost-split"></i>
+            <i class="bi bi-signpost-2"></i>
+            <i class="bi bi-signpost"></i>
+            <i class="bi bi-sign-stop"></i>
+            <i class="bi bi-sign-no-parking"></i>
+            <i class="bi bi-sign-do-not-enter"></i>
+            <i class="bi bi-shop"></i>
+            <i class="bi bi-shield-lock"></i>
+            <i class="bi bi-shield-exclamation"></i>
+            <i class="bi bi-shield-check"></i>
+            <i class="bi bi-search"></i>
+            <i class="bi bi-rocket"></i>
+            <i class="bi bi-rocket-takeoff"></i>
+            <i class="bi bi-robot"></i>
+            <i class="bi bi-record-circle-fill"></i>
+            <i class="bi bi-rainbow"></i>
+            <i class="bi bi-radioactive"></i>
+            <i class="bi bi-quote"></i>
+            <i class="bi bi-question-circle"></i>
+            <i class="bi bi-puzzle"></i>
+            <i class="bi bi-pin"></i>
+            <i class="bi bi-pin-angle"></i>
+            <i class="bi bi-pentagon"></i>
+            <i class="bi bi-pause-circle-fill"></i>
+            <i class="bi bi-patch-check"></i>
+            <i class="bi bi-palette"></i>
+            <i class="bi bi-paperclip"></i>
+            <i class="bi bi-music-note-beamed"></i>
+            <i class="bi bi-mic"></i>
+            <i class="bi bi-megaphone"></i>
+            <i class="bi bi-lightning-charge"></i>
+            <i class="bi bi-lightbulb"></i>
+            <i class="bi bi-lamp"></i>
+            <i class="bi bi-info-circle"></i>
+            <i class="bi bi-highlighter"></i>
+            <i class="bi bi-hearts"></i>
+            <i class="bi bi-headphones"></i>
+            <i class="bi bi-hand-thumbs-up"></i>
+            <i class="bi bi-hand-thumbs-down"></i>
+            <i class="bi bi-handbag"></i>
+            <i class="bi bi-hash"></i>
+            <i class="bi bi-graph-up-arrow"></i>
+            <i class="bi bi-graph-down-arrow"></i>
+            <i class="bi bi-globe-americas"></i>
+            <i class="bi bi-globe-europe-africa"></i>
+            <i class="bi bi-globe-central-south-asia"></i>
+            <i class="bi bi-globe-asia-australia"></i>
+            <i class="bi bi-gift"></i>
+            <i class="bi bi-geo-alt"></i>
+            <i class="bi bi-geo"></i>
+            <i class="bi bi-gem"></i>
+            <i class="bi bi-flower3"></i>
+            <i class="bi bi-flower2"></i>
+            <i class="bi bi-flower1"></i>
+            <i class="bi bi-flag"></i>
+            <i class="bi bi-fire"></i>
+            <i class="bi bi-fingerprint"></i>
+            <i class="bi bi-feather"></i>
+            <i class="bi bi-eyeglasses"></i>
+            <i class="bi bi-eye"></i>
+            <i class="bi bi-exclamation-lg"></i>
+            <i class="bi bi-exclamation-square"></i>
+            <i class="bi bi-exclamation-octagon"></i>
+            <i class="bi bi-exclamation-circle"></i>
+            <i class="bi bi-exclamation-diamond"></i>
+            <i class="bi bi-envelope-at"></i>
+            <i class="bi bi-easel2"></i>
+            <i class="bi bi-easel"></i>
+            <i class="bi bi-cup-hot"></i>
+            <i class="bi bi-controller"></i>
+            <i class="bi bi-compass"></i>
+            <i class="bi bi-clock"></i>
+            <i class="bi bi-clipboard2-check"></i>
+            <i class="bi bi-check2-circle"></i>
+            <i class="bi bi-cash-coin"></i>
+            <i class="bi bi-cart"></i>
+            <i class="bi bi-bricks"></i>
+            <i class="bi bi-box-seam"></i>
+            <i class="bi bi-balloon"></i>
+            <i class="bi bi-balloon-heart"></i>
+            <i class="bi bi-balloon-fill"></i>
+            <i class="bi bi-balloon-heart-fill"></i>
+            <i class="bi bi-award"></i>
+            <i class="bi bi-asterisk"></i>
+            <i class="bi bi-at"></i>
+          </div>
+    </div>
+
+
+
+
+
+       <!-- <span style="display: inline-block; background-color:  black; padding: 3px 10px;border-radius:5px;margin: 10px 0;color: white;">text background</span>
           <div class="flex">
           <button onclick="command('backColor',false,'#8a2be2')" style="background-color:#8a2be2"></button>
           <button onclick="command('backColor',false,'#faebd7')" style="background-color:#faebd7"></button>
@@ -489,7 +852,7 @@
         <i class="bi bi-award"></i>
         <i class="bi bi-asterisk"></i>
         <i class="bi bi-at"></i>
-      </div>
+      </div> -->
           <!-- <button onclick="command('backColor',false,'#a52a2a')" style="background-color:#a52a2a"></button>
           <button onclick="command('backColor',false,'#deb887')" style="background-color:#deb887"></button>
           <button onclick="command('backColor',false,'#5f9ea0')" style="background-color:#5f9ea0"></button>
@@ -560,7 +923,7 @@
         </div>
 
         
-<!-- link -->
+<!-- link 
         <button onclick="openCreateLinkContainer()">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
             <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
@@ -576,9 +939,9 @@
               <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
             </svg>
         </div>
+-->
 
-
-<!-- css attributes -->
+<!-- css attributes 
         <button onclick="openAttributesContainer()">
           <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-bounding-box-circles" viewBox="0 0 16 16">
             <path d="M2 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2M0 2a2 2 0 0 1 3.937-.5h8.126A2 2 0 1 1 14.5 3.937v8.126a2 2 0 1 1-2.437 2.437H3.937A2 2 0 1 1 1.5 12.063V3.937A2 2 0 0 1 0 2m2.5 1.937v8.126c.703.18 1.256.734 1.437 1.437h8.126a2 2 0 0 1 1.437-1.437V3.937A2 2 0 0 1 12.063 2.5H3.937A2 2 0 0 1 2.5 3.937M14 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2M2 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m12 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
@@ -596,9 +959,11 @@
             <span>Width</span>
             <span>Height</span> 
         </div>
+-->
+
 
 <!-- insert Image -->
-        <button onclick="openImageBox()">
+        <!-- <button onclick="openImageBox()">
           <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
             <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
             <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2M14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1M2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1z"/>
@@ -628,11 +993,11 @@
           </div>
          </div>
          
-        </div>
+        </div> -->
 
 
 
-          <button onclick="openVideoBox()">
+          <!-- <button onclick="openVideoBox()">
             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
               <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
             </svg>
@@ -657,26 +1022,17 @@
           </div>
           </div>
           
-        </div>
+        </div> -->
 
-
-
-
-          <!-- <button>
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
-              <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5"/>
-              <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3"/>
-            </svg>
-          </button> -->
           
          
         <button onclick="openbBlockBox()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-columns-gap" viewBox="0 0 16 16">
-            <path d="M6 1v3H1V1zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1zm14 12v3h-5v-3zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1zM6 8v7H1V8zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1zm14-6v7h-5V1zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/>
-          </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-boxes" viewBox="0 0 16 16">
+                <path d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434zM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567zM7.5 9.933l-2.75 1.571v3.134l2.75-1.571zm1 3.134 2.75 1.571v-3.134L8.5 9.933zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567zm2.242-2.433V3.504L8.5 5.076V8.21zM7.5 8.21V5.076L4.75 3.504v3.134zM5.258 2.643 8 4.21l2.742-1.567L8 1.076zM15 9.933l-2.75 1.571v3.134L15 13.067zM3.75 14.638v-3.134L1 9.933v3.134z"/>
+              </svg>
         </button>
 
-        <div class="blockBox container" >
+        <div class="blockBox" >
          <h2>Blocks</h2>
 
           <div class="box" onclick='command(`insertHTML`,false,`<div class="textAndImage"><div><h1>Lorem, ipsum dolor.</h1><p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, itaque tempore unde mollitia natus  fugit in.</p></div><img width="100%" src="./assets/uploads/holderimg.jpeg" alt="" srcset=""></div>`)'>
@@ -749,29 +1105,35 @@
 
         </div>
 
-
+<!-- 
         <button>
           <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
             <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0"/>
           </svg>
-        </button>
+        </button> -->
+
+    </div>
 
 
-    
-      
-        <div class="rborder">
-            <button style="display: flex;flex-direction:column;font-size:12px;" onclick="size(1400)" title="Desktop 1440">
+    <div class="right_side">
+       
+            <button style="display: flex;flex-direction:column;font-size:12px;" onclick="size(1440)" title="Desktop 1440">
                 <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-display" viewBox="0 0 16 16">
                     <path d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4q0 1 .25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75Q6 13 6 12H2s-2 0-2-2zm1.398-.855a.76.76 0 0 0-.254.302A1.5 1.5 0 0 0 1 4.01V10c0 .325.078.502.145.602q.105.156.302.254a1.5 1.5 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.76.76 0 0 0 .254-.302 1.5 1.5 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.76.76 0 0 0-.302-.254A1.5 1.5 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145"/>
                   </svg>
             </button>
 
-            <button style="display: flex;flex-direction:column;font-size:12px;" onclick="size(1200)" title="Laptop 1280">
+            <button style="display: flex;flex-direction:column;font-size:12px;" onclick="size(1280)" title="Laptop 1280">
                 <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-laptop" viewBox="0 0 16 16">
                     <path d="M13.5 3a.5.5 0 0 1 .5.5V11H2V3.5a.5.5 0 0 1 .5-.5zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5"/>
                   </svg>
             </button>
-
+            <button style="display: flex;flex-direction:column;font-size:12px;" onclick="size(762)" title="Tablet 762">
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-tablet" viewBox="0 0 16 16">
+                    <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                    <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+                  </svg>
+            </button>
             <button style="display: flex;flex-direction:column;font-size:12px;" onclick="size(375)" title="Mobile 375">
                 <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-phone" viewBox="0 0 16 16">
                     <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
@@ -781,10 +1143,8 @@
           
 
           
-        </div>
-
-        <div class="rborder">
-          <select id="scaleSelect">
+        
+          <!-- <select id="scaleSelect">
               <option value="0.25">25%</option>
               <option value="0.5">50%</option>
               <option value="0.6">60%</option>
@@ -794,27 +1154,23 @@
               <option value="1.0" selected>100%</option>
               <option value="1.5">150%</option>
               <option value="2.0">200%</option>
-          </select>
-        </div> 
-
-        <div class="rborder">
-          <i class="bi bi-files"></i>
+          </select> -->
+      
+          <!-- <i class="bi bi-files"></i>
             <select id="pagesSelect">
               
                 <option value="/">Home</option>
                 <option value="blog.html">Blog</option>
                 <option value="dev.html">Dev</option>
             </select>
-          </div> 
+        -->
 
           <button id="saveBtn" style="background-color: rgba(143, 188, 143, 0);border-radius:5px;padding: 2px 10px;color:#16e623">
             Save
           </button>
-
-
-
-
     </div>
+      
+        
 </header>
 
 

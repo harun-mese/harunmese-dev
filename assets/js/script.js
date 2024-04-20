@@ -25,6 +25,7 @@ articlesHref.forEach(i=>{
     i.addEventListener('click',()=>{ toggleArticle() })
 })
 
+
 toggleArticles.addEventListener('click',()=>{
      toggleArticle()
      if (CONTENTS_STATUS) {
@@ -32,6 +33,7 @@ toggleArticles.addEventListener('click',()=>{
      }
 
     })
+
 toggleContents.addEventListener('click',()=>{
      toggleContent()
      if (ARICLES_STATUS) {

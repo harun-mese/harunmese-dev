@@ -19,6 +19,61 @@ frameContent = frame.contentDocument || frame.contentWindow.document;
 frameContent.querySelector('body').setAttribute("contenteditable","true")
 
 
+var iAttrB = false
+
+function initImages() {
+    let imgs = frameContent.querySelectorAll('img')
+
+    imgs.forEach(i=>{
+
+        var currentStyle = i.getAttribute("style");
+
+        if (currentStyle) {
+            var updatedStyle = currentStyle + "cursor:pointer;" ;
+        } else {
+            var updatedStyle = "cursor:pointer;"
+        }
+    //    var st = i.getAttribute("style")
+    //    st.add("cursor:pointer") 
+  i.setAttribute("style",updatedStyle)
+
+        i.addEventListener('click',(e)=>{
+
+            // e.target.getAttribute('src')
+            // var newUri = prompt("Yeni resim uri",e.target.getAttribute('src'))
+            // if (newUri != null && newUri != '' ) {
+            //     e.target.setAttribute('src',newUri)
+            // }
+
+            console.log(e.view.window.innerWidth);
+            console.log(((window.innerWidth - e.view.window.innerWidth) / 2 ) + e.clientX + "px");
+          
+
+           const iAttr  = document.querySelector('#imgAttr')
+            if (iAttrB == false) {
+                
+                iAttr.style.display = "flex";
+                iAttr.style.top = e.clientY + 60 + "px";
+                iAttr.style.left = ((window.innerWidth - e.view.window.innerWidth) / 2 ) + e.clientX + "px";
+
+                iAttrB = true
+            }else{  
+                iAttr.style.display = "none";
+                iAttrB = false
+            }
+
+            
+
+          })
+
+
+    })
+}
+
+initImages()
+
+
+
 
 let alist = frameContent.querySelectorAll('a')
 alist.forEach(i=>{
@@ -44,27 +99,25 @@ iframe.onload = function() {
             categoryName = event.target.href;
             console.log("Tıklanan linkin URL'si: ", categoryName);
         }
+       
+
+
     });
+
+
+initImages()
 };
 
 function command(aCommandName, aShowDefaultUI='', aValueArgument=''){
    frameContent.execCommand(aCommandName, aShowDefaultUI, aValueArgument)
+   initImages()
 }
 command('defaultParagraphSeparator',false,'p')
 
 var allElements = frameContent.querySelectorAll('.editable')
 allElements.forEach(el=>el.setAttribute('contenteditable','true'))
 
-var images = frameContent.querySelectorAll('img')
-images.forEach(img=>{
-    img.addEventListener('click',(e)=>{
-    e.target.getAttribute('src')
-    var newUri = prompt("Yeni resim uri",e.target.getAttribute('src'))
-    if (newUri != null && newUri != '' ) {
-        e.target.setAttribute('src',newUri)
-    }
-})
-})
+
 
 const scaleSelect = document.getElementById('scaleSelect')
 scaleSelect.addEventListener('change',()=>{
