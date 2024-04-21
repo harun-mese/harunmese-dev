@@ -9,6 +9,11 @@ const imageBox = document.querySelector('.imageBox')
 const videoBox = document.querySelector('.videoBox')
 const blockBox = document.querySelector('.blockBox')
 
+const colorSelectContainer = document.querySelector('.colorSelectContainer')
+
+
+const fontSizeCount = document.getElementById('fontsizeCount')
+
 const newContentBox = document.querySelector('.newContentBox')
 
 
@@ -18,6 +23,11 @@ frame = document.querySelector('iframe')
 frameContent = frame.contentDocument || frame.contentWindow.document;
 frameContent.querySelector('body').setAttribute("contenteditable","true")
 
+console.log(frameContent.defaultView);
+
+
+document.execCommand('defaultParagraphSeparator', false, 'p');
+frameContent.execCommand('defaultParagraphSeparator', false, 'p');
 
 var iAttrB = false
 
@@ -112,8 +122,7 @@ function command(aCommandName, aShowDefaultUI='', aValueArgument=''){
    frameContent.execCommand(aCommandName, aShowDefaultUI, aValueArgument)
    initImages()
 }
-command('defaultParagraphSeparator',false,'p')
-
+command('defaultParagraphSeparator',false,'P')
 var allElements = frameContent.querySelectorAll('.editable')
 allElements.forEach(el=>el.setAttribute('contenteditable','true'))
 
@@ -170,6 +179,8 @@ function size(width) {
    var blockBoxBool = false
 
 
+   var colorSelectContainerBool = false
+
    var newContentBoxBool = false   
    function opennewContentBox(){
     if (!newContentBoxBool) {
@@ -201,24 +212,9 @@ function toggleFontColorContainer(){
      }
      
 }
-function toggleFontBackgroundColorContainer(){
-     if (!fontBackgroundColorContainerBool) {
-         fontBackgroundColorContainer.style.display='flex' 
-         fontBackgroundColorContainerBool = true
-     }else{
-         fontBackgroundColorContainer.style.display='none'
-         fontBackgroundColorContainerBool = false
-     }
-}
-function openTextTypeContainer(){
-     if (!textTypeContainerBool) {
-         textTypeContainer.style.display='flex' 
-         textTypeContainerBool = true
-     }else{
-         textTypeContainer.style.display='none'
-         textTypeContainerBool = false
-     }
-}
+
+
+
 
 function openCreateLinkContainer(){
      if (!createLinkContainerBool) {
@@ -266,16 +262,84 @@ function openVideoBox(){
         videoBoxBool = false
     }
 }
+
+
+
+// left
+function openTextTypeContainer(){
+    if (!textTypeContainerBool) {
+        textTypeContainer.style.display='flex'
+        textTypeContainerBool = true
+
+        fontBackgroundColorContainer.style.display='none'
+        fontBackgroundColorContainerBool = false
+        blockBox.style.display='none'
+        blockBoxBool = false
+
+        createLinkContainer.style.display='none'
+        createLinkContainerBool = false
+        fontsContainer.style.display='none'
+        fontsContainerBool = false
+    }else{
+        textTypeContainer.style.display='none'
+        textTypeContainerBool = false
+        createLinkContainer.style.display='none'
+        createLinkContainerBool = false
+        fontsContainer.style.display='none'
+        fontsContainerBool = false
+    }
+}
+// center
+function toggleFontBackgroundColorContainer(){
+    if (!fontBackgroundColorContainerBool) {
+        fontBackgroundColorContainer.style.display='flex'
+        fontBackgroundColorContainerBool = true
+        blockBox.style.display='none'
+        blockBoxBool = false
+        textTypeContainer.style.display='none'
+        textTypeContainerBool = false 
+
+        createLinkContainer.style.display='none'
+        createLinkContainerBool = false
+        fontsContainer.style.display='none'
+        fontsContainerBool = false
+    }else{
+        fontBackgroundColorContainer.style.display='none'
+        fontBackgroundColorContainerBool = false
+    }
+}
+// right
 function openbBlockBox(){
     if (!blockBoxBool) {
         blockBox.style.display='flex' 
         blockBoxBool = true
+
+        textTypeContainer.style.display='none'
+        textTypeContainerBool = false
+        fontBackgroundColorContainer.style.display='none'
+        fontBackgroundColorContainerBool = false
+
+        createLinkContainer.style.display='none'
+        createLinkContainerBool = false
+        fontsContainer.style.display='none'
+        fontsContainerBool = false
     }else{
         blockBox.style.display='none'
         blockBoxBool = false
     }
 }
 
+
+function openColors(){
+    if (!colorSelectContainerBool) {
+        colorSelectContainer.style.display='flex' 
+        colorSelectContainerBool = true
+    }else{
+        colorSelectContainer.style.display='none'
+        colorSelectContainerBool = false
+    }
+    
+}
 
 const saveBtn = document.getElementById('saveBtn')
 saveBtn.addEventListener('click',()=>{
@@ -313,3 +377,299 @@ function ajax(data) {
   }
 
   
+
+
+function decreaseFontSize() {
+    selection = frameContent.getSelection();
+
+    if (!selection.isCollapsed) {
+        var range = selection.getRangeAt(0);
+        var selectedText = range.toString();
+        
+        if (selectedText) {
+
+            var parentElement = range.commonAncestorContainer.parentElement;
+            var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+            if(parentElement.tagName === "SPAN"){
+               parentElement.style.fontSize = (currentFontSize - 2) + "px";
+               var count = fontSizeCount.innerText
+               fontSizeCount.innerText = (currentFontSize - 2)
+            }else{
+                var span = frameContent.createElement("span");
+                span.innerText = selectedText;
+                span.style.fontSize = (currentFontSize - 2) + "px"; // Font boyutunu 2px artır
+                range.surroundContents(span);
+                var count = fontSizeCount.innerText
+               fontSizeCount.innerText = (currentFontSize - 2)
+
+            }
+                
+        }
+
+    }
+}
+
+function increaseFontSize() {
+  
+    selection = frameContent.getSelection();
+
+    if (!selection.isCollapsed) {
+        var range = selection.getRangeAt(0);
+        var selectedText = range.toString();
+        
+        if (selectedText) {
+
+            var parentElement = range.commonAncestorContainer.parentElement;
+            var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+            if(parentElement.tagName === "SPAN"){
+               parentElement.style.fontSize = (currentFontSize + 2) + "px";
+               var count = fontSizeCount.innerText
+               fontSizeCount.innerText = (currentFontSize + 2)
+            }else{
+                var span = frameContent.createElement("span");
+                span.innerText = selectedText;
+                span.style.fontSize = (currentFontSize + 2) + "px"; // Font boyutunu 2px artır
+                range.surroundContents(span);
+                var count = fontSizeCount.innerText
+               fontSizeCount.innerText = (currentFontSize + 2)
+
+            }
+                
+        }
+
+    }
+}
+
+
+
+
+function withBorder(borderDash ,borderType, borderColor, radius) {
+    selection = frameContent.getSelection();
+
+    if (!selection.isCollapsed) {
+        var range = selection.getRangeAt(0);
+        var selectedText = range.toString();
+        
+        if (selectedText) {
+
+            var parentElement = range.commonAncestorContainer.parentElement;
+            var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+            if(parentElement.tagName === "SPAN"){
+               parentElement.style.border = borderDash + "px " + borderType + " " + borderColor ;
+               parentElement.style.color =  borderColor ;
+               parentElement.style.borderRadius = radius+"px" ;
+               parentElement.style.padding = "0 10px" ;
+               parentElement.style.width = "fit-content";
+               parentElement.style.display = "inline-block" ;
+
+
+               //color: #8a2be2;display: block;border: 1px solid #8a2be2;border-radius: 20px;padding: 0 10px; width: fit-content;
+            }else{
+                var span = frameContent.createElement("span");
+                span.innerText = selectedText;
+                span.style.border = borderDash + "px " + borderType + " " + borderColor ;
+                span.style.color =  borderColor ;
+                span.style.borderRadius = radius+"px" ;
+                span.style.padding = "0 10px" ;
+                span.style.width = "fit-content";
+                span.style.display = "inline-block" ;
+                range.surroundContents(span);
+
+            }
+                
+        }
+
+    }
+}
+
+
+function rotateSpan(deg) {
+    selection = frameContent.getSelection();
+
+    if (!selection.isCollapsed) {
+        var range = selection.getRangeAt(0);
+        var selectedText = range.toString();
+        
+        if (selectedText) {
+
+            var parentElement = range.commonAncestorContainer.parentElement;
+            var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+            if(parentElement.tagName === "SPAN"){
+               parentElement.style.transform = "rotateZ("+ deg + "deg)" ;
+        
+               parentElement.style.width = "fit-content";
+               parentElement.style.display = "inline-block" ;
+            
+
+               //color: #8a2be2;display: block;border: 1px solid #8a2be2;border-radius: 20px;padding: 0 10px; width: fit-content;
+            }else{
+                var span = frameContent.createElement("span");
+                span.innerText = selectedText;
+                span.style.transform = "rotateZ("+ deg + "deg)" ;
+                span.style.width = "fit-content";
+                span.style.display = "inline-block" ;
+                range.surroundContents(span);
+
+            }
+                
+        }
+
+    }
+}
+
+
+function shadowSpan(x="4" ,y="5",blur="", spreed="0", shadowColor="gainsboro") {
+    selection = frameContent.getSelection();
+
+    if (!selection.isCollapsed) {
+        var range = selection.getRangeAt(0);
+        var selectedText = range.toString();
+        
+        if (selectedText) {
+
+            var parentElement = range.commonAncestorContainer.parentElement;
+            var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+            if(parentElement.tagName === "SPAN"){
+               parentElement.style.boxShadow =  x + 'px ' + y + 'px ' +blur + 'px ' + spreed+ 'px ' + shadowColor;
+               parentElement.style.border = "1px solid gainsboro" ;
+               parentElement.style.padding = "5px" ;
+               parentElement.style.width = "fit-content";
+               parentElement.style.display = "inline-block" ;
+
+
+               //box-shadow: 4px 5px 0 0px gainsboro;padding: 5px;
+            }else{
+                var span = frameContent.createElement("span");
+                span.innerText = selectedText;
+                span.style.boxShadow = x + 'px ' + y + 'px ' +blur + 'px ' + spreed+ 'px ' + shadowColor;
+                span.style.border = "1px solid gainsboro" ;
+                span.style.padding = "5px" ;
+                span.style.width = "fit-content";
+                span.style.display = "inline-block" ;
+                range.surroundContents(span);
+
+            }
+                
+        }
+
+    }
+}
+
+function bgSpan(bgColor="gainsboro") {
+    selection = frameContent.getSelection();
+
+    if (!selection.isCollapsed) {
+        var range = selection.getRangeAt(0);
+        var selectedText = range.toString();
+        
+        if (selectedText) {
+
+            var parentElement = range.commonAncestorContainer.parentElement;
+            var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+            if(parentElement.tagName === "SPAN"){
+               parentElement.style.backgroundColor = bgColor;
+               parentElement.style.borderRadius = "5px" ;
+               parentElement.style.padding = "5px 10px" ;
+               parentElement.style.width = "fit-content";
+               parentElement.style.display = "inline-block" ;
+
+            }else{
+                var span = frameContent.createElement("span");
+                span.innerText = selectedText;
+                span.style.backgroundColor = bgColor;
+                span.style.borderRadius = "5px" ;
+                span.style.padding = "5px 10px" ;
+                span.style.width = "fit-content";
+                span.style.display = "inline-block" ;
+                range.surroundContents(span);
+
+            }
+                
+        }
+
+    }
+}
+
+function gradiendBgSpan(color1,color2,deg="to left") {
+    selection = frameContent.getSelection();
+
+    if (!selection.isCollapsed) {
+        var range = selection.getRangeAt(0);
+        var selectedText = range.toString();
+        
+        if (selectedText) {
+
+            var parentElement = range.commonAncestorContainer.parentElement;
+            var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+            if(parentElement.tagName === "SPAN"){
+               parentElement.style.background = "linear-gradient("+deg+","+ color1 +" , " + color2+")";
+               parentElement.style.borderRadius = "5px" ;
+               parentElement.style.padding = "5px 10px" ;
+               parentElement.style.width = "fit-content";
+               parentElement.style.display = "inline-block" ;
+
+            }else{
+                var span = frameContent.createElement("span");
+                span.innerText = selectedText;
+                span.style.background = "linear-gradient("+deg+","+ color1 +" , " + color2+")";
+                span.style.borderRadius = "5px" ;
+                span.style.padding = "5px 10px" ;
+                span.style.width = "fit-content";
+                span.style.display = "inline-block" ;
+                range.surroundContents(span);
+
+            }
+                
+        }
+
+    }
+}
+
+function gradiendTextSpan(color1,color2,deg="to left") {
+    selection = frameContent.getSelection();
+
+    if (!selection.isCollapsed) {
+        var range = selection.getRangeAt(0);
+        var selectedText = range.toString();
+        
+        if (selectedText) {
+
+            var parentElement = range.commonAncestorContainer.parentElement;
+            var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+            if(parentElement.tagName === "SPAN"){
+                parentElement.style.color = "transparent";
+                parentElement.style.backgroundImage = "linear-gradient("+deg+","+ color1 +" , " + color2+")";
+                parentElement.style.webkitBackgroundClip = "text";
+                parentElement.style.webkitTextFillColor = "transparent";
+               parentElement.style.width = "fit-content";
+               parentElement.style.display = "inline-block" ;
+
+               //-webkit-background-clip: text;
+               //-webkit-text-fill-color: transparent;
+              // background-image: linear-gradient(to left, #ff9a9e 33%, #fad0c4 66%);
+
+            }else{
+                var span = frameContent.createElement("span");
+                span.innerText = selectedText;
+                span.style.color = "transparent";
+                span.style.backgroundImage = "linear-gradient("+deg+","+ color1 +" , " + color2+")";
+                span.style.webkitBackgroundClip = "text";
+                span.style.webkitTextFillColor = "transparent";
+                span.style.width = "fit-content";
+                span.style.display = "inline-block" ;
+                range.surroundContents(span);
+
+            }
+                
+        }
+
+    }
+}

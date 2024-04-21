@@ -22,7 +22,13 @@ width: 100%;
 p,li{
     margin: 20px 0;
 }
-
+ul,ol{
+    padding-left: 20px;
+}
+blockquote{
+    padding: 10px 0 10px 20px;
+    border-left: 2px solid gainsboro;
+}
 
 
 @media screen and (min-width:1024px) {

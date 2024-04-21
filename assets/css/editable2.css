@@ -266,6 +266,54 @@ select{
     border-bottom: 1px solid gainsboro;
 }
 
+.flex{
+    display: flex;
+}
+.row{
+    flex-direction: row;
+}
+.col{
+    flex-direction: column;
+}
+
+.astart{
+    align-items: flex-start;
+}
+.acenter{
+    align-items: center;
+}
+.aend{
+    align-items: flex-end;
+}
+.jstart{
+    align-items: flex-start;
+}
+.jcenter{
+    align-items: center;
+}
+.jend{
+    align-items: flex-end;
+}
+.spacebetween{
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .newContentBox{
     display: none;
     align-items: flex-start;
@@ -294,10 +342,11 @@ select{
     position: absolute;
     background-color: #fff;
     top: var(--top);
-    width: 400px;
+    left: 360px;
+    width: 200px;
     max-height: calc(100vh - 200px);
     overflow-y: scroll;
-    box-shadow: var(--box-shadow);
+    border: 1px solid gainsboro;
     border-radius:10px;
     padding: 10px;
 }
@@ -332,7 +381,7 @@ select{
 .fontsContainer button,.fontColorContainer button{
     cursor: pointer;
 }
-.fontColorContainer button, .fontBackgroundColorContainer button{
+.fontColorContainer button{
     width: 30px;
     height: 30px;
     border: 1px solid black;
@@ -365,7 +414,7 @@ select{
     width: 200px;
 }
 .fontBackgroundColorContainer{
-    display: flex;
+    display: none;
     align-items: flex-start;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -377,8 +426,9 @@ select{
     box-shadow: var(--box-shadow);
     border-radius:10px;
     padding: 10px;
-    width: 400px;
+    width: 350px;
 }
+
 
 
 
@@ -388,9 +438,7 @@ select{
     position: absolute;
     background-color: #ffffff;
     
-    top: var(--top);
-    left: calc(48px * 5 );
-    transform: translateX(-50%);
+    top: 150px;
     max-height: calc(100vh - 200px);
     overflow-y: scroll;
     border-radius:10px;
@@ -472,8 +520,26 @@ select{
     padding: 10px;
     width: 400px;
 }
-
-
+.buttonGroupe{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.buttonGroupe button{
+    width: 40px;
+    height: 40px;
+    border: 1px solid #fafafa;
+    outline: none;
+    box-shadow: 0 5px 3px 0px gainsboro;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
 
 
 .wrapConteiner{
@@ -553,3 +619,27 @@ select{
 }
 
 
+.colorSelectContainer{
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    position: absolute;
+    background-color: #fff;
+    top: var(--top);
+    left: 380px;
+    width: 190px;
+    max-height: calc(100vh - 200px);
+    overflow-y: scroll;
+    border: 1px solid gainsboro;
+    border-radius:10px;
+    padding: 10px; 
+}
+.colorSelectContainer button{
+    width: 35px;
+    height: 35px;
+    border:1px solid gainsboro;
+    border-radius: 20%;
+    margin-bottom: 7px;
+
+}
