@@ -29,7 +29,13 @@ blockquote{
     padding: 10px 0 10px 20px;
     border-left: 2px solid gainsboro;
 }
-
+img{
+    width: 100%;
+    min-height: 300px;
+    border-radius: 10px;
+    margin: 15px 0;
+    display: block;
+}
 
 @media screen and (min-width:1024px) {
     main{

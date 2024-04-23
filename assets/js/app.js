@@ -118,8 +118,19 @@ iframe.onload = function() {
 initImages()
 };
 
+
+function ImgName(){
+    const imgNum = Math.floor(Math.random() * 25) + 1
+    return './assets/uploads/img'+imgNum+'.jpeg';
+}
+
 function command(aCommandName, aShowDefaultUI='', aValueArgument=''){
-   frameContent.execCommand(aCommandName, aShowDefaultUI, aValueArgument)
+    if(aCommandName == 'insertImage'){
+        frameContent.execCommand(aCommandName, aShowDefaultUI, ImgName())
+    }else{
+        frameContent.execCommand(aCommandName, aShowDefaultUI, aValueArgument)
+    }
+   
    initImages()
 }
 command('defaultParagraphSeparator',false,'P')
