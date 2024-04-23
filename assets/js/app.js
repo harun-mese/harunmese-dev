@@ -226,9 +226,10 @@ function openCreateLinkContainer(){
      }
 }
 
-const linkInput = document.getElementById('linkInput')
+
 function createLink(){
-    command('createLink','',linkInput.value)
+    const linkInput = document.getElementById('linkInput')
+    command('createLink',false,linkInput.value)
 }
 function unLink(){
     command('unlink')
@@ -672,4 +673,47 @@ function gradiendTextSpan(color1,color2,deg="to left") {
         }
 
     }
+}
+
+function addFontClass(className,array) {
+    selection = frameContent.getSelection();
+
+    if (!selection.isCollapsed) {
+        var range = selection.getRangeAt(0);
+        var selectedText = range.toString();
+        
+        if (selectedText) {
+            var parentElement = range.commonAncestorContainer.parentElement;
+            // var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+            //console.log(parentElement.classList.contains(className));
+            if(parentElement.tagName === "SPAN"){
+        
+                // array.forEach(name=>{
+                //     if (parentElement.classList.includes(name)) {
+                //         console.log(parentElement.classList.includes(name));
+                //         parentElement.classList.toggle(className);
+                //     }else{
+                        
+                //         parentElement.classList.add(className);
+                //     }
+                // });
+                array.forEach(name=>{
+                   parentElement.classList.remove(name)
+                });
+
+                parentElement.classList.add(className);
+                selection.removeAllRanges();
+
+            }else{
+                var span = frameContent.createElement("span");
+                span.innerText = selectedText;
+                span.classList.add(className)
+                range.surroundContents(span);
+
+            }
+                
+        }
+
+    }
+    selection.removeAllRanges();
 }

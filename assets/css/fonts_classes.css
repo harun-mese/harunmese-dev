@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Big+Shoulders+Stencil+Text:wght@100..900&family=Bungee+Inline&family=Bungee+Spice&family=Caveat:wght@400..700&family=Climate+Crisis&family=Coiny&family=Dancing+Script:wght@400..700&family=Edu+QLD+Beginner:wght@400..700&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Expletus+Sans:ital,wght@0,400..700;1,400..700&family=Foldit:wght@100..900&family=Gloria+Hallelujah&family=Gluten:slnt,wght@4,108&family=Honk&family=Jacquard+12+Charted&family=Jacquard+24&family=Jersey+10&family=Jersey+10+Charted&family=Jersey+25&family=Kablammo:MORF@2&family=Kode+Mono:wght@400..700&family=Lugrasimo&family=Nabla:EHLT@24&family=Orbitron:wght@400..900&family=Pacifico&family=Permanent+Marker&family=Pixelify+Sans:wght@400..700&family=Platypi:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,400;1,100;1,200&family=Quicksand:wght@300..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Bubbles&family=Rubik+Glitch+Pop&family=Rubik+Moonrocks&family=Seymour+One&family=Silkscreen:wght@400;700&family=Sixtyfour&family=Stick+No+Bills:wght@200..800&family=Tac+One&family=Tilt+Neon&family=Tilt+Prism&family=Tourney:ital,wght@0,100..900;1,100..900&family=Wallpoet&family=Wavefont:wght@4..1000&family=Workbench&display=swap');
+
+
+
+.tilt-neon-h4m {
+  font-family: "Tilt Neon", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "XROT" 0,
+    "YROT" 0;
+}
+
+.wallpoet-regular {
+    font-family: "Wallpoet", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .coiny-regular {
+    font-family: "Coiny", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .rubik-glitch-pop-regular {
+    font-family: "Rubik Glitch Pop", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .bungee-inline-regular {
+    font-family: "Bungee Inline", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .rubik-moonrocks-regular {
+    font-family: "Rubik Moonrocks", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .gloria-hallelujah-regular {
+    font-family: "Gloria Hallelujah", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .rubik-bubbles-regular {
+    font-family: "Rubik Bubbles", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .silkscreen-regular {
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .silkscreen-bold {
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  .amatic-sc-regular {
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .amatic-sc-bold {
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+ 
+
+
+/* weight : Use a value from 400 to 700 */
+.edu-qld-beginner-h4m {
+  font-family: "Edu QLD Beginner", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* weight: Use a value from 100 to 900 */
+.big-shoulders-stencil-text-h4m {
+  font-family: "Big Shoulders Stencil Text", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+
+/*  <weight>: Use a value from 400 to 700 */
+.expletus-sans-h4m {
+  font-family: "Expletus Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.tilt-prism-h4m {
+  font-family: "Tilt Prism", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "XROT" 0,
+    "YROT" 0;
+}
+
+ /* <weight>: Use a value from 200 to 800 */
+.stick-no-bills-h4m {
+  font-family: "Stick No Bills", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* <weight>: Use a value from 100 to 900 */
+.tourney-h4m {
+  font-family: "Tourney", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+ /* <weight>: Use a value from 400 to 700 */
+.pixelify-sans-h4m {
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.gluten-h4m {
+  font-family: "Gluten", cursive;
+  font-optical-sizing: auto;
+  font-weight: 108;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 4;
+}
+
+
+.climate-crisis-h4m {
+  font-family: "Climate Crisis", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "YEAR" 2000;
+}
+
+
+.workbench-h4m{
+  font-family: "Workbench", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0;
+}
+.sixtyfour-h4m {
+    font-family: "Sixtyfour", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "BLED" 0,
+      "SCAN" 0;
+  }
+
+  .kablammo-h4m {
+    font-family: "Kablammo", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "MORF" 2;
+  }
+  /* <weight>: Use a value from 4 to 1000 */
+  .wavefont-h4m {
+    font-family: "Wavefont", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 4;
+    font-style: normal;
+    font-variation-settings:
+      "ROND" 100,
+      "YELA" -100;
+  }
+  .nabla-h4m{
+    font-family: "Nabla", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "EDPT" 100,
+      "EHLT" 24;
+  }
+
+  /* <weight>: Use a value from 100 to 900 */
+  .foldit-h4m {
+    font-family: "Foldit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+  }
+  .honk-h4m {
+    font-family: "Honk", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "MORF" 15,
+      "SHLN" 50;
+  }
+  .bungee-spice-regular {
+    font-family: "Bungee Spice", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  /* <weight>: Use a value from 400 to 700 */
+.kode-mono-h4m {
+    font-family: "Kode Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  /* <weight>: Use a value from 400 to 900 */
+  .orbitron-h4m {
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .permanent-marker-regular {
+    font-family: "Permanent Marker", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  /* <weight>: Use a value from 400 to 700 */
+.caveat-h4m {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.seymour-one-regular {
+    font-family: "Seymour One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .tac-one-regular {
+    font-family: "Tac One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .lugrasimo-regular {
+    font-family: "Lugrasimo", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .pacifico-regular {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  /* <weight>: Use a value from 400 to 700 */
+.dancing-script-h4m {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+/* <weight>: Use a value from 300 to 700 */
+.quicksand-h4m {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+/* <weight>: Use a value from 300 to 800 */
+.platypi-h4m {
+  font-family: "Platypi", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}  
+/* <weight>: Use a value from 100 to 700 */
+.roboto-mono-h4m {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+.jersey-10-charted-regular {
+    font-family: "Jersey 10 Charted", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .jacquard-12-charted-regular {
+    font-family: "Jacquard 12 Charted", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .jacquard-24-regular {
+    font-family: "Jacquard 24", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .jersey-25-regular {
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .jersey-10-regular {
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .poppins-thin {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  .poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .poppins-thin-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+  }
+  
+  .poppins-extralight-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+  }
+
+  
