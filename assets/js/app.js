@@ -72,8 +72,6 @@ function initImages() {
                 iAttrB = false
             }
 
-            
-
           })
 
 

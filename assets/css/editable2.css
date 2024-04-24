@@ -319,10 +319,10 @@ select{
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-    position: absolute;
+    position: relative;
     background-color: #fff;
-    top: var(--top);
-    left: calc(24px * 1);
+    top: 70px;
+    left: 0;
     transform: translateX(-50%);
     max-height: calc(100vh - 200px);
     overflow-y: scroll;
@@ -650,4 +650,12 @@ select{
     border-radius: 20%;
     margin-bottom: 7px;
 
+}
+
+.block_h4m{
+    width: 100%;
+    margin: 10px 0;
+    border: 1px dotted gainsboro;
+    border-radius: 5px;
+    padding: 5px;
 }
