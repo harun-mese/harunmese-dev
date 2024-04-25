@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style_dev.css">
+    <link rel="stylesheet" href="assets/css/fonts_classes.css">
+    <link rel="stylesheet" href="assets/css/blocks_styles.css">
+    <script src="assets/js/script.js" defer></script> 
+    <title>New Article</title>
+    <style>
+        select[name="Category"]{
+            border: none;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header_wrap">
+            <div class="name">
+                  <svg ondblclick="open_form()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shadows" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-8 7a.5.5 0 0 1 0-1h3.5q.048 0 .093.009A7 7 0 0 0 12.9 13H8a.5.5 0 0 1 0-1h5.745q.331-.474.581-1H8a.5.5 0 0 1 0-1h6.71a7 7 0 0 0 .22-1H8a.5.5 0 0 1 0-1h7q0-.51-.07-1H8a.5.5 0 0 1 0-1h6.71a7 7 0 0 0-.384-1H8a.5.5 0 0 1 0-1h5.745a7 7 0 0 0-.846-1H8a.5.5 0 0 1 0-1h3.608A7 7 0 1 0 8 15"/>
+                  </svg>
+                  <a href="/">HARUN MESE</a></div>
+            <nav>
+                <a href="/blog.html">BLOG</a>
+                <a href="/dev.html" style="color: black; font-weight: bolder;">DEV</a>
+            </nav>
+        </div>
+</header>
+
+<div class="container">
+     <article>
+        <select name="Category" id="" contenteditable="false">
+            <option value="">Category</option>
+            <option value="">#Dev</option>
+            <option value="">#Blog</option>
+        </select>
+        
+        <h1>Title of article</h1>
+        <p>Start</p>
+        
+    </article>
+</div>
+   
+    
+</body>
+</html>

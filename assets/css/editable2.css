@@ -185,16 +185,17 @@ select{
     display: none;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 200px;
     background-color: #fff;
-    width: fit-content;
     border: 1px solid gainsboro;
     border-radius:10px;
     padding: 10px;
     position: absolute;
     z-index: 99999999;
 }
-#imgAttr  button{
+#imgAttr  button, #blockSetting button{
     border: none;
     background-color: transparent;
     margin: 0 3px;
@@ -203,15 +204,39 @@ select{
     display: flex;
     align-items: center;
     justify-content: center;
-
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
-#imgAttr button:hover{
- background-color: rgba(199, 199, 199, 0.466);
+
+#blockSetting{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 200px;
+    background-color: #fff;
+    border: 1px solid gainsboro;
+    border-radius:10px;
+    padding:10px;
+    position: absolute;
+    top: 200px;
+    z-index: 99999999;
 }
+#imgAttr button:hover,#blockSetting button:hover{
+    background-color: rgba(199, 199, 199, 0.466);
+   }
+#blockSetting .bi-x-circle, #imgAttr .bi-x-circle{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+#blockSetting .bi-x-circle:hover,#imgAttr .bi-x-circle:hover{
+color: red;
+}
+
 
 .textAndImage{
     display: flex;
@@ -268,6 +293,7 @@ select{
 
 .flex{
     display: flex;
+    width: 100%;
 }
 .row{
     flex-direction: row;
@@ -377,12 +403,12 @@ select{
     height: 0px;
 }
 .fontsContainer button{
-    font-size: xx-large;
+    font-size: x-large;
     cursor: pointer;
     width: 260px;
 }
 .fontsContainer button:hover{
-    scale: 1.5;
+    scale: 1.05;
 }
 
 
@@ -418,24 +444,103 @@ select{
     overflow-y: scroll;
     box-shadow: var(--box-shadow);
     border-radius:10px;
-    padding: 10px;
+    
     width: 200px;
 }
 .fontBackgroundColorContainer{
     display: none;
     align-items: flex-start;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
     position: absolute;
     background-color: #fafafa;
     top: var(--top);
-    max-height: calc(100vh - 200px);
+    max-height: 500px;
     overflow-y: scroll;
+    overflow-x: hidden;
     box-shadow: var(--box-shadow);
     border-radius:10px;
     padding: 10px;
-    width: 350px;
+    width: 320px;
+}.fontBackgroundColorContainer > div{
+    margin: 15px 0;
+    padding: 10px;
 }
+.fontBackgroundColorContainer div{
+    width: 100%;
+    height: fit-content;
+}
+.fontBackgroundColorContainer input[type="number"]{
+    border-radius: 10px;
+    width: 50px;
+    border: 1px solid rgb(17, 17, 17);
+    outline: none;
+    text-align: center;
+    padding: 0;
+}
+
+.buttonGroupe{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0;
+}
+.buttonGroupe button{
+    width: 35px;
+    height: 35px;
+    border: 1px solid #fafafa;
+    outline: none;
+    box-shadow: 0 5px 3px 0px gainsboro;
+
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.gbg{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0;
+}
+.gbg button{
+    width: 35px;
+    height: 35px;
+    border: 1px solid #fafafa;
+    outline: none;
+    box-shadow: 0 5px 3px 0px gainsboro;
+
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.dubbleColor{
+    width: 70px !important;
+    height: 50px !important;
+    position: relative;
+  }
+  .dubbleColor button{
+    position: absolute;
+  }.dubbleColor button:first-child{
+    position: absolute;
+    left: 0;
+  }.dubbleColor button:last-child{
+    position: absolute;
+    right: 0;
+  }
+
 
 
 
@@ -527,26 +632,6 @@ select{
     border-radius:10px;
     padding: 10px;
     width: 400px;
-}
-.buttonGroupe{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-.buttonGroupe button{
-    width: 40px;
-    height: 40px;
-    border: 1px solid #fafafa;
-    outline: none;
-    box-shadow: 0 5px 3px 0px gainsboro;
-    margin-bottom: 15px;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
 }
 
 

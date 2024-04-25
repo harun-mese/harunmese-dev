@@ -8,6 +8,7 @@
     <title>Editable</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/fonts_classes.css">
+    <link rel="stylesheet" href="assets/css/blocks_styles.css">
     <link rel="stylesheet" href="assets/css/editable2.css">
     <link rel="stylesheet" href="assets/css/blocks_styles.css">
     <!-- <script src="assets/js/editor.js" defer></script> -->
@@ -21,7 +22,7 @@
 <header>
   
     <div class="left_side">
-        <button title="New Content" onclick="opennewContentBox()">
+        <button id="newcontentBtn" title="New Content" onclick="opennewContentBox()">
           <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-plus-circle-dotted" viewBox="0 0 16 16">
             <path d="M8 0q-.264 0-.523.017l.064.998a7 7 0 0 1 .918 0l.064-.998A8 8 0 0 0 8 0M6.44.152q-.52.104-1.012.27l.321.948q.43-.147.884-.237L6.44.153zm4.132.271a8 8 0 0 0-1.011-.27l-.194.98q.453.09.884.237zm1.873.925a8 8 0 0 0-.906-.524l-.443.896q.413.205.793.459zM4.46.824q-.471.233-.905.524l.556.83a7 7 0 0 1 .793-.458zM2.725 1.985q-.394.346-.74.74l.752.66q.303-.345.648-.648zm11.29.74a8 8 0 0 0-.74-.74l-.66.752q.346.303.648.648zm1.161 1.735a8 8 0 0 0-.524-.905l-.83.556q.254.38.458.793l.896-.443zM1.348 3.555q-.292.433-.524.906l.896.443q.205-.413.459-.793zM.423 5.428a8 8 0 0 0-.27 1.011l.98.194q.09-.453.237-.884zM15.848 6.44a8 8 0 0 0-.27-1.012l-.948.321q.147.43.237.884zM.017 7.477a8 8 0 0 0 0 1.046l.998-.064a7 7 0 0 1 0-.918zM16 8a8 8 0 0 0-.017-.523l-.998.064a7 7 0 0 1 0 .918l.998.064A8 8 0 0 0 16 8M.152 9.56q.104.52.27 1.012l.948-.321a7 7 0 0 1-.237-.884l-.98.194zm15.425 1.012q.168-.493.27-1.011l-.98-.194q-.09.453-.237.884zM.824 11.54a8 8 0 0 0 .524.905l.83-.556a7 7 0 0 1-.458-.793zm13.828.905q.292-.434.524-.906l-.896-.443q-.205.413-.459.793zm-12.667.83q.346.394.74.74l.66-.752a7 7 0 0 1-.648-.648zm11.29.74q.394-.346.74-.74l-.752-.66q-.302.346-.648.648zm-1.735 1.161q.471-.233.905-.524l-.556-.83a7 7 0 0 1-.793.458zm-7.985-.524q.434.292.906.524l.443-.896a7 7 0 0 1-.793-.459zm1.873.925q.493.168 1.011.27l.194-.98a7 7 0 0 1-.884-.237zm4.132.271a8 8 0 0 0 1.012-.27l-.321-.948a7 7 0 0 1-.884.237l.194.98zm-2.083.135a8 8 0 0 0 1.046 0l-.064-.998a7 7 0 0 1-.918 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
           </svg>
@@ -145,10 +146,10 @@
                 </svg>
               </button>
 
-            <button style="width: 38px; height: 38px;" title="Add Id">
+            <button onclick="addAttribute('id')" style="width: 38px; height: 38px;" title="Add Id">
                 <span style="width: 24px; height: 24px;font-weight: 400;font-size: smaller;">Id</span>
               </button>
-              <button style="width: 38px; height: 38px;" title="Add Class">
+              <button onclick="addAttribute('class')" style="width: 38px; height: 38px;" title="Add Class">
                 <span style="font-weight: 400;font-size: smaller;">Class</span>
               </button>
           </div>
@@ -195,7 +196,7 @@
           </div>
 
           <div class="fontsContainer">
-           <h4>Font Family</h4> 
+           <div class="flex acenter spacebetween" style="width:260px;"><h4>Font Family</h4> <span title="font for all article">Article<input type="checkbox" name="articleFF" id=""></span></div>
              <div id="fontsContainer" class="flex">
                  <!-- <button onclick="command('fontName',false,'Arial, Helvetica, sans-serif;')" style="font-family: Arial, Helvetica, sans-serif;">Lorem,.</button> -->
               
@@ -303,44 +304,22 @@
 
         <div class="fontBackgroundColorContainer flex-col">
 
-    <style>
-         .fontBackgroundColorContainer{
-            align-items: flex-start;
-            justify-content: space-between;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            overflow-x: hidden;
-         }
-        .fontBackgroundColorContainer>div{
-            margin: 15px 0;
-            width: 326px;
-        }
-        .fontBackgroundColorContainer input[type="number"]{
-            border-radius: 10px;
-            width: 50px;
-            border: 1px solid gainsboro;
-            outline: none;
-            text-align: center;
-            padding: 0;
-        }
-        
-    </style>
-
-
     <div class="sizediv flex row acenter spacebetween">
       <span style="color: #161616;display: inline-block; font-size: 32px; width: fit-content;padding: 0;">size</span>
-      <div class="flex row ajenter jcenter" style="width: fit-content;border: 1px solid gainsboro;border-radius: 10px;">
-        <span style="width: fit-content;border-right: 1px solid gainsboro;padding: 5px;display: inline-block;" onclick="decreaseFontSize()"><i class="bi bi-dash"></i></span>
-        <span style="width: 50px;padding: 10px;display: inline-block;text-align: center;" id="fontsizeCount">0</span>
-        <span style="width: fit-content;border-left: 1px solid gainsboro;padding: 5px;display: inline-block;" onclick="increaseFontSize()"><i class="bi bi-plus"></i></span>
+
+      <div class="flex " style="width: fit-content;border: 1px solid #131313;border-radius: 10px;padding:0px;">
+        <span style="width: fit-content;border-right: 1px solid #131313;padding: 3px;display: inline-block;" onclick="decreaseFontSize()"><i class="bi bi-dash"></i></span>
+        <span style="width: 50px;padding:3px 7px;display: inline-block;text-align: center;" id="fontsizeCount">0</span>
+        <span style="width: fit-content;border-left: 1px solid #131313;padding: 3px;display: inline-block;" onclick="increaseFontSize()"><i class="bi bi-plus"></i></span>
       </div>
+
     </div>
 
 
     <div class="fontcolordiv flex start">
         <span style="color: #1c7ce2;display: inline-block;"   onclick="command('foreColor',false,'#ffffff')">font color</span>
         <!-- <span onclick="openColors()" style="background-color: #1c7ce2;display: inline-block;border: 1px solid gainsboro;border-radius: 20px;width: 30px;height: 30px;"></span> -->
-         <div class="buttonGroupe" style="height: 50px;overflow-y: hidden;">
+         <div class="buttonGroupe">
           <button onclick="command('foreColor',false,'#ffffff')" style="background-color:#ffffff"></button>
           <button onclick="command('foreColor',false,'#8a2be2')" style="background-color:#8a2be2"></button>
           <button onclick="command('foreColor',false,'#faebd7')" style="background-color:#faebd7"></button>
@@ -428,7 +407,7 @@
 
     <div class="markdiv  flex start">
         <span style="background-color: #1c7ce2;color: #ffffff;display: inline-block;">mark</span>
-        <div class="buttonGroupe" style="height: 50px;overflow-y: hidden;">
+        <div class="buttonGroupe">
           <button onclick="command('backColor',false,'#ffffff')" style="background-color:#ffffff"></button>
           <button onclick="command('backColor',false,'#8a2be2')" style="background-color:#8a2be2"></button>
           <button onclick="command('backColor',false,'#faebd7')" style="background-color:#faebd7"></button>
@@ -479,17 +458,16 @@
 
 
     <div class="solidrdiv flex col astart spacebetween">
-      <div class="flex row acenter spacebetween" style="margin: 5px 0;width: 314px;">
+      <div class="flex row acenter spacebetween" style="margin: 5px 0;">
         <span style="color: #8a2be2;display: block;border: 1px solid #8a2be2;border-radius: 20px;padding: 0 10px; width: fit-content;">solid</span>
-        
-        <div class="flex row acenter spacebetween" style="width: 100px;padding: 0;">
+        <div class="flex" style="width: 100px;padding: 0;">
           <input onchange="withBorder(event.target.parentElement.children[1].value ,'solid','#8a2be2',event.target.value)" type="number" name="" id="borderradius" value="20" min="0">
           <input onchange="withBorder(event.target.value ,'solid','#8a2be2',event.target.parentElement.children[0].value)" type="number" name="" id="borderdash" value="1" min="0">
          </div>
       </div>
         
         <div class="col">
-          <div class="buttonGroupe" style="height: 50px;overflow-y: hidden;">
+          <div class="buttonGroupe">
                   <button onclick="withBorder(1,'solid','#ffffff',20)" style="background-color:#ffffff"></button>
                   <button onclick="withBorder(1,'solid','#8a2be2',20)" style="background-color:#8a2be2"></button>
                   <button onclick="command('backColor',false,'#faebd7')" style="background-color:#faebd7"></button>
@@ -575,18 +553,18 @@
 </div>      
 
 
-    <div class="dotteddiv flex col astart spacebetween">
+    <div class="dotteddiv flex col astart ">
         
-        <div class="flex row acenter spacebetween" style="margin: 5px 0;width: 314px;">
-          <span style="color: #8a2be2;display: inline-block;border: 1px dotted #8a2be2;border-radius: 20px;padding: 0 10px; width: fit-content;">dotted</span>
-           <div class="flex row acenter spacebetween" style="width: 100px;padding: 0;">
+        <div class="flex row acenter spacebetween" style="margin: 5px 0;">
+          <span style="color: #8a2be2;display: inline-block;border: 1px dotted #8a2be2;border-radius: 20px;padding: 0 10px;margin: 0 30px 0 0; width: fit-content;">dotted</span>
+           <div class="flex" style="width: 100px;padding: 0;">
             <input type="number" name="" id="" value="20" min="0">
             <input type="number" name="" id="" value="1" min="0">
            </div>
         </div>
           
         <div class="col">
-          <div class="buttonGroupe" style="height: 50px;overflow-y: hidden;">
+          <div class="buttonGroupe" >
                   <button onclick="withBorder(1,'dotted','#ffffff',20)" style="background-color:#ffffff"></button>
                   <button onclick="withBorder(1,'dotted','#8a2be2',20)" style="background-color:#8a2be2"></button>
                   <button onclick="withBorder(1,'dotted','#faebd7',20)" style="background-color:#faebd7"></button>
@@ -675,16 +653,16 @@
 
     <div class="dasheddiv flex col astart spacebetween">
         
-      <div class="flex row acenter spacebetween" style="margin: 5px 0;width: 314px;">
-          <span style="color: #8a2be2;display: inline-block;border: 1px dashed #8a2be2;border-radius: 20px;padding: 0 10px;width: fit-content;">dashed</span>
-          <div class="flex row acenter spacebetween" style="width: 100px;padding: 0;">
+      <div class="flex row acenter spacebetween" style="margin: 5px 0;">
+          <span style="color: #8a2be2;display: inline-block;border: 1px dashed #8a2be2;border-radius: 20px;width: fit-content;">dashed</span>
+          <div class="flex" style="width: 100px;padding: 0;">
             <input type="number" name="" id="" value="20" min="0">
             <input type="number" name="" id="" value="1" min="0">
            </div>
         </div>
           
-        <div class="row">
-          <div class="buttonGroupe" style="height: 50px;overflow-y: hidden;">
+        <div class="col">
+          <div class="buttonGroupe">
                   <button onclick="withBorder(1,'dashed','#ffffff',20)" style="background-color:#ffffff"></button>
                   <button onclick="withBorder(1,'dashed','#000000',20)" style="background-color:#8a2be2"></button>
                   <button onclick="withBorder(1,'dashed','#faebd7',20)" style="background-color:#faebd7"></button>
@@ -781,9 +759,9 @@
 
     <div class="shadowdiv flex col astart spacebetween">
 
-          <div class="flex row acenter spacebetween" style="margin: 5px 0;width: 314px;">
+          <div class="flex row acenter spacebetween" style="margin: 5px 0;">
             <span style="color: #8a2be2;display: inline-block;box-shadow: 4px 5px 0 0px gainsboro;padding: 5px;border: 1px solid gainsboro;width: fit-content;">shadow</span>
-            <div class="flex row acenter spacebetween" style="width: 100px;padding: 0;">
+            <div class="flex" style="width: 100px;padding: 0;">
             
                     <div class="flex col acenter jcenter" style="width: 50px;padding: 0;">
                       x
@@ -805,8 +783,8 @@
             </div>
           </div>
             
-            <div class="flex row">
-              <div class="buttonGroupe" style="height: 50px;overflow-y: hidden;">
+            <div class="flex col">
+              <div class="buttonGroupe">
                       <button onclick="shadowSpan(4, 5, 0, 0, '#dcdcdc')" style="background-color:#dcdcdc"></button>
                       <button onclick="shadowSpan(4, 5,0,0 ,'#8a2be2')" style="background-color:#8a2be2"></button>
                       <button onclick="shadowSpan(4, 5,0,0 ,'#00ffff')" style="background-color:#faebd7"></button>
@@ -895,13 +873,13 @@
     <div class="backgrounddiv flex ">
         
         
-        <div class="flex row acenter spacebetween" style="margin: 5px 0;width: 314px;">
+        <div class="flex row acenter spacebetween" style="margin: 5px 0;">
           <span style="color: #ffffff;display: inline-block;background-color: #8a2be2;padding: 5px 10px;border-radius: 5px;width: fit-content;">background</span>
           <input type="number" name="" id="" value="1" min="0">
         </div>
           
-          <div class="flex row">
-            <div class="buttonGroupe" style="height: 50px;overflow-y: hidden;">
+          <div class="flex col">
+            <div class="buttonGroupe">
                     <button onclick="bgSpan('#ffffff')" style="background-color:#ffffff;"></button>
                     <button onclick="bgSpan('#8a2be2')" style="background-color:#8a2be2"></button>
                     <button onclick="bgSpan('#faebd7')" style="background-color:#faebd7"></button>
@@ -988,41 +966,16 @@
 
 
 
-
-
-
-
-
-
-
     <div class="gradiendbgdiv">
        
         
-        <div class="flex row acenter spacebetween" style="margin: 5px 0;width: 314px;">
+        <div class="flex row acenter spacebetween" style="margin: 5px 0;">
           <span style="color: #ffffff;display: inline-block;background: linear-gradient(to left, #ff9a9e , #fad0c4) ;padding: 5px 15px;border-radius: 5px;width: fit-content;">gradiend bg</span>
           <input type="number" name="" id="" value="1" min="0">
         </div>
           
-            <div class="buttonGroupe" style="overflow-y: hidden;">
-                  <style>
-                    .dubbleColor{
-                      width: 70px;
-                      height: 50px;
-                      position: relative;
-                    }
-                    .dubbleColor button{
-                      position: absolute;
-                    }.dubbleColor button:first-child{
-                      position: absolute;
-                      left: 0;
-                    }.dubbleColor button:last-child{
-                      position: absolute;
-                      right: 0;
-                    }
-                  </style>
-
-
-
+            <div class="gbg">
+                 
                     <div onclick="gradiendBgSpan('#ff9a9e' , '#fad0c4')" class="dubbleColor">
                           <button style="background-color:#ff9a9e;"></button>
                           <button style="background-color:#fad0c4;"></button>
@@ -1083,10 +1036,10 @@
 
         
        
-        <div class="flex row acenter spacebetween" style="margin: 5px 0;width: 314px;">
-          <span style="font-size: xx-large; color: #892be200;display: inline-block;-webkit-background-clip: text;-webkit-text-fill-color: transparent;background-image: linear-gradient(to left, #ff9a9e 33%, #fad0c4 66%);width: fit-content;">gradiend text</span>
+        <div class="flex row acenter spacebetween" style="margin: 5px 0;">
+          <span style="font-size: x-large; color: #892be200;display: inline-block;-webkit-background-clip: text;-webkit-text-fill-color: transparent;background-image: linear-gradient(to left, #ff9a9e 33%, #fad0c4 66%);width: fit-content;padding:0px;">gradiend text</span>
         
-        <select name="" id="" style="border: 1px solid gainsboro;padding: 0 5px;border-radius: 10px; width: fit-content;">
+        <select name="" id="" style="border: 1px solid #131313;padding: 0 5px;border-radius: 10px; width: fit-content;">
             <option value="">50%-50%</option>
             <option value="">34%-66%</option>
             <option value="">25%-75%</option>
@@ -1098,53 +1051,32 @@
         </div>
           
         
-            <div class="buttonGroupe" style="overflow-y: hidden;">
-              <style>
-                .dubbleColor{
-                  width: 70px;
-                  height: 50px;
-                  position: relative;
-                }
-                .dubbleColor button{
-                  position: absolute;
-                }.dubbleColor button:first-child{
-                  position: absolute;
-                  left: 0;
-                }.dubbleColor button:last-child{
-                  position: absolute;
-                  right: 0;
-                }
-              </style>
-
-
-<!-- <div class="dubbleColor">
-  <button style="background-color:#cf6cc9;"></button>
-  <button style="background-color:#ee609c;"></button>
-</div> -->
-<div onclick="gradiendTextSpan('#ff9a9e' , '#fad0c4')" class="dubbleColor">
-  <button style="background-color:#ff9a9e;"></button>
-  <button style="background-color:#fad0c4;"></button>
-</div>
-<div onclick="gradiendTextSpan('#a18cd1' , '#fbc2eb')" class="dubbleColor">
-  <button style="background-color:#a18cd1"></button>
-  <button style="background-color:#fbc2eb"></button>
-</div>
-<div onclick="gradiendTextSpan('#fbc2eb' , '#a6c1ee')" class="dubbleColor">
-  <button style="background-color:#fbc2eb"></button>
-  <button style="background-color:#a6c1ee"></button>
-</div>
-<div onclick="gradiendTextSpan('#84fab0' , '#8fd3f4')" class="dubbleColor">
-  <button style="background-color:#84fab0"></button>
-  <button style="background-color:#8fd3f4"></button>
-</div>
-<div onclick="gradiendTextSpan('#30cfd0' , '#330867')" class="dubbleColor">
-  <button style="background-color:#30cfd0"></button>
-  <button style="background-color:#330867"></button>
-</div>
-<div onclick="gradiendTextSpan('#9890e3' , '#b1f4cf')" class="dubbleColor">
-  <button style="background-color:#9890e3"></button>
-  <button style="background-color:#b1f4cf"></button>
-</div>
+            <div class="gbg">
+            
+                <div onclick="gradiendTextSpan('#ff9a9e' , '#fad0c4')" class="dubbleColor">
+                  <button style="background-color:#ff9a9e;"></button>
+                  <button style="background-color:#fad0c4;"></button>
+                </div>
+                <div onclick="gradiendTextSpan('#a18cd1' , '#fbc2eb')" class="dubbleColor">
+                  <button style="background-color:#a18cd1"></button>
+                  <button style="background-color:#fbc2eb"></button>
+                </div>
+                <div onclick="gradiendTextSpan('#fbc2eb' , '#a6c1ee')" class="dubbleColor">
+                  <button style="background-color:#fbc2eb"></button>
+                  <button style="background-color:#a6c1ee"></button>
+                </div>
+                <div onclick="gradiendTextSpan('#84fab0' , '#8fd3f4')" class="dubbleColor">
+                  <button style="background-color:#84fab0"></button>
+                  <button style="background-color:#8fd3f4"></button>
+                </div>
+                <div onclick="gradiendTextSpan('#30cfd0' , '#330867')" class="dubbleColor">
+                  <button style="background-color:#30cfd0"></button>
+                  <button style="background-color:#330867"></button>
+                </div>
+                <div onclick="gradiendTextSpan('#9890e3' , '#b1f4cf')" class="dubbleColor">
+                  <button style="background-color:#9890e3"></button>
+                  <button style="background-color:#b1f4cf"></button>
+                </div>
                 <div class="dubbleColor">
                       <button style="background-color:#ebc0fd"></button>
                       <button style="background-color:#d9ded8"></button>
@@ -1183,8 +1115,9 @@
               margin: 5px;
             }
            </style>
-           <div class="buttonGroupe">
+           <div id="iconWrap" class="buttonGroupe">
             <span style="color: #161616;display: block;border-bottom: 1px solid #161616;margin: 10px 0;width: 90%;">icons</span>
+           
             <i class="bi bi-wrench-adjustable-circle-fill"></i>
             <i class="bi bi-yelp"></i>
             <i class="bi bi-yin-yang"></i>
@@ -1317,7 +1250,7 @@
         <div class="blockBox" >
          <h2>Blocks</h2>
 
-          <div class="block_h4m text-img" onclick='command(`insertHTML`,false,`<div class="block_h4m text-img"><div><b>Lorem, ipsum dolor.</b><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit...</p> </div><div><img src="./assets/uploads/img10.jpeg" alt=""></div></div></div>`)'>
+          <div class="block_h4m text-img" onclick='command(`insertHTML`,false,`<div class="block_h4m text-img"><div><h2>Lorem, ipsum dolor.</h2><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit...</p> </div><div contenteditable="false"><img src="./assets/uploads/img10.jpeg" alt=""></div></div></div><p>New paragraf</p>`)'>
             <div>
               <b>Lorem, ipsum dolor.</b>
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit...</p>
@@ -1327,7 +1260,7 @@
             </div>
           </div>
 
-          <div class="block_h4m img-text"  onclick='command(`insertHTML`,false,`<div class="block_h4m img-text"><div><img src="./assets/uploads/img10.jpeg" alt=""></div> <div><b>Lorem, ipsum dolor.</b><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit...</p> </div></div>`)'>
+          <div class="block_h4m img-text"  onclick='command(`insertHTML`,false,`<div class="block_h4m img-text"><div contenteditable="false"><img src="./assets/uploads/img10.jpeg" alt=""></div> <div><h2>Lorem, ipsum dolor.</h2><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit...</p> </div></div><p>New paragraf</p>`)'>
             <div><img src="./assets/uploads/img10.jpeg" alt=""></div> <div><b>Lorem, ipsum dolor.</b><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit...</p> </div>
             
           </div>
@@ -1342,10 +1275,22 @@
          
           </div> -->
 
-          <div class="block_h4m tl-text" onclick='command(`insertHTML`,false,`<div class="block_h4m tl-text"><div><span>Timeline.</span></div><div><h2>Lorem, ipsum dolor.</h2><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias quam maiores ipsum molestias atque, delectus voluptate consectetur numquam consequatur. Alias odit nam labore dolor hic vero velit, ipsum aut in.</p></div></div>`)'>
+          <div class="block_h4m tl-text" onclick='command(`insertHTML`,false,`<div class="block_h4m tl-text"><div><div>Timeline.</div></div><div><h2>Lorem, ipsum dolor.</h2><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias quam maiores ipsum molestias atque, delectus voluptate consectetur numquam consequatur. Alias odit nam labore dolor hic vero velit, ipsum aut in.</p></div></div><p>New paragraf</p>`)'>
            
-              <div><span>Timeline.</span></div><div><h2>Lorem, ipsum dolor.</h2><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias quam maiores ipsum molestias atque, delectus voluptate consectetur numquam consequatur. Alias odit nam labore dolor hic vero velit, ipsum aut in.</p></div>
+              <div>
+                <div>Timeline.</div>
+              </div>
+              <div>
+                <h2>Lorem, ipsum dolor.</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias quam maiores ipsum molestias atque, delectus voluptate consectetur numquam consequatur. Alias odit nam labore dolor hic vero velit, ipsum aut in.</p>
+              </div>
             
+          </div>
+          <div class="block_h4m img3" onclick='command(`insertHTML`,false,`<div class="block_h4m img3"><img src="./assets/uploads/img11.jpeg" alt="" srcset=""><img src="./assets/uploads/img17.jpeg" alt="" srcset=""><img src="./assets/uploads/img16.jpeg" alt="" srcset=""></div>`)'>
+           
+              <img src="./assets/uploads/img11.jpeg" alt="" srcset="">
+              <img src="./assets/uploads/img17.jpeg" alt="" srcset="">
+              <img src="./assets/uploads/img16.jpeg" alt="" srcset="">
           </div>
 
 
@@ -1429,15 +1374,25 @@
 
 <div id="imgAttr">
   <i class="bi bi-x-circle"></i>
+  <button>Border</button>
+  <button>Padding</button>
+  <button>Margin</button>
   <button>Change</button>
-  <button>Delete</button>
-  <button>Resize</button>
+  <button><i class="bi bi-trash"></i>Delete</button>
 </div>
     
+<div id="blockSetting">
+  <i class="bi bi-x-circle"></i>
+  <button>Background Color</button>
+  <button>Border</button>
+  <button>Padding</button>
+  <button>Margin</button>
+  <button>Change</button>
+  <button><i class="bi bi-trash"></i>Delete</button>
+</div>
 
 
-
-    <iframe id="iframe" width="100%" height="500" src="./index.html" frameborder="0"></iframe>
+    <iframe id="iframe" width="100%" height="500" src="./dev.html" frameborder="0"></iframe>
     
 </body>
 </html>
