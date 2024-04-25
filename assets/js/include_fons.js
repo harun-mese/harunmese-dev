@@ -1,6 +1,36 @@
 const fontsWrapper = document.getElementById('fontsContainer')
 
 const fonstClassNameArray = [
+
+    'work-sans-h4m',
+    'ubuntu-regular',
+    'source-code-pro-h4m',
+    'rubik-h4m',
+    'roboto-mono-h4m',
+    'roboto-regular',
+    'raleway-h4m',
+    'poppins-thin',
+    'poppins-regular',
+    'poppins-thin-italic',
+    'poppins-extralight-italic',
+
+    'open-sans-h4m',
+    'nanum-gothic-regular',
+    'mulish-h4m',
+    'montserrat-h4m',
+    'manrope-h4m',
+    'lora-h4m',
+    'lato-regular',
+    'lato-regular-italic',
+    'karla-h4m',
+    'josefin-sans-h4m',
+    'inter-h4m',
+    'fira-sans-regular',
+    'fira-sans-regular-italic',
+    'bitter-h4m',
+    'arimo-h4m',
+    'abel-regular-h4m',
+
     'tilt-neon-h4m',
     'wallpoet-regular',
     'coiny-regular',
@@ -45,17 +75,18 @@ const fonstClassNameArray = [
     'jacquard-12-charted-regular',
     'jacquard-24-regular',
     'jersey-25-regular',
-    'jersey-10-regular',
-    'poppins-thin',
-    'poppins-regular',
-    'poppins-thin-italic',
-    'poppins-extralight-italic'
+    'jersey-10-regular'
 ]
 
 fonstClassNameArray.forEach((value,i,arr)=>{
     const btn = document.createElement('button')
     btn.classList.add(value)
-    btn.textContent = "Yazıyorum"
+
+    if (value.includes('-h4m')) {
+        btn.textContent = value.replace(/-h4m/g, "")
+    }else{
+        btn.textContent = value
+    }
      btn.addEventListener('click',()=>{
         addFontClass(value,arr)
      })
