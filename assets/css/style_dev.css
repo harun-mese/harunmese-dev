@@ -256,7 +256,7 @@ article p{
 article img{
     margin: 10px 0;
     display: block;
-    border-radius: 10px;
+    border-radius: 5px;
     width: 100%;
     max-width: 800px;
 }
