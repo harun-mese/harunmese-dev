@@ -13,7 +13,34 @@ const articlesHref = document.querySelectorAll("#articles a")
 let ARICLES_STATUS = false
 let CONTENTS_STATUS = false
 
+window.addEventListener('scroll', function() {
+    var headers = document.querySelectorAll('.contentHeader');
 
+    for (var i = 0; i < headers.length; i++) {
+      var currentHeader = headers[i];
+      var nextHeader = headers[i + 1];
+      var currentHeaderRect = currentHeader.getBoundingClientRect();
+      var nextHeaderRect = nextHeader.getBoundingClientRect();
+      
+      if (currentHeaderRect.bottom >= nextHeaderRect.top) {
+        currentHeader.style.position = 'static';
+        nextHeader.style.position = 'sticky';
+        nextHeader.style.whiteSpace = 'nowrap';
+        nextHeader.style.overflow = 'hidden';
+      }
+      else if (currentHeaderRect.top >= nextHeaderRect.bottom) {
+        currentHeader.style.position = 'sticky';
+        nextHeader.style.position = 'static';
+        nextHeader.style.whiteSpace = 'normal';
+        nextHeader.style.overflow = 'vissible';
+      }
+      else {
+        nextHeader.style.position = 'sticky';
+        nextHeader.style.whiteSpace = 'normal';
+        nextHeader.style.overflow = 'vissible';
+      }
+    }
+  });
 
 contentHref.forEach(i=>{
     i.addEventListener('click',()=>{
@@ -80,33 +107,6 @@ function open_form(){
     loginForm.style.display='flex'
 }
 
-window.addEventListener('scroll', function() {
-    var headers = document.querySelectorAll('.contentHeader');
 
-    for (var i = 0; i < headers.length; i++) {
-      var currentHeader = headers[i];
-      var nextHeader = headers[i + 1];
-      var currentHeaderRect = currentHeader.getBoundingClientRect();
-      var nextHeaderRect = nextHeader.getBoundingClientRect();
-      
-      if (currentHeaderRect.bottom >= nextHeaderRect.top) {
-        currentHeader.style.position = 'static';
-        nextHeader.style.position = 'sticky';
-        nextHeader.style.whiteSpace = 'nowrap';
-        nextHeader.style.overflow = 'hidden';
-      }
-      else if (currentHeaderRect.top >= nextHeaderRect.bottom) {
-        currentHeader.style.position = 'sticky';
-        nextHeader.style.position = 'static';
-        nextHeader.style.whiteSpace = 'normal';
-        nextHeader.style.overflow = 'vissible';
-      }
-      else {
-        nextHeader.style.position = 'sticky';
-        nextHeader.style.whiteSpace = 'normal';
-        nextHeader.style.overflow = 'vissible';
-      }
-    }
-  });
 
   

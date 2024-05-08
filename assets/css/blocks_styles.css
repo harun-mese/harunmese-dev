@@ -28,7 +28,8 @@
     }.block_h4m.text-img div p{
         margin-top: 10px;
     }.block_h4m.text-img div p:last-child{
-        margin: 0px;
+        margin-bottom: 0px;
+        margin-top: 30px;
     }
     .block_h4m.text-img div:first-child img{
         border-radius: 5px;
@@ -61,7 +62,8 @@
         }.block_h4m.img-text div p{
             margin-top: 10px;
         }.block_h4m.img-text div p:last-child{
-            margin: 0px;
+            margin-bottom: 0px;
+            margin-top: 30px;
         }
         .block_h4m.img-text div:last-child img{
             border-radius: 5px;
