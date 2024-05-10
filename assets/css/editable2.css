@@ -169,6 +169,9 @@ select{
 
     width: fit-content;
 }
+
+
+
 .box{
     display: flex;
     align-items: center;
@@ -328,38 +331,6 @@ color: red;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-.newContentBox{
-    display: none;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-    position: relative;
-    background-color: #fff;
-    top: 70px;
-    left: 0;
-    transform: translateX(-50%);
-    max-height: calc(100vh - 200px);
-    overflow-y: scroll;
-    box-shadow: var(--box-shadow);
-    border-radius:10px;
-    padding: 10px;
-    -webkit-border-radius:10px;
-    -moz-border-radius:10px;
-    -ms-border-radius:10px;
-    -o-border-radius:10px;
-}
 .fontsContainer{
     display: none;
     align-items: flex-start;
@@ -495,13 +466,7 @@ color: red;
     height: 35px;
     border: 1px solid #fafafa;
     outline: none;
-    box-shadow: 0 5px 3px 0px gainsboro;
 
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
 }
 
 .gbg{
