@@ -44,8 +44,8 @@ iframe{
 }
 header{
     /* border: var(--border-gray); */
-    border-radius: 10px;
-    padding: 9px 5px;
+    /* border-radius: 10px; */
+    /* padding: 9px 5px; */
 
     display: flex;
     align-items: center;
@@ -57,19 +57,18 @@ header{
     transform: translateX(-50%); */
     width: 100%;
     height: 50px;
-    top: 6px;
+    /* top: 6px; */
     z-index: 999;
 }
 .left_side{
-    width: 300px; 
+    width: fit-content; 
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: absolute;
     left: 20px;
 }
-.center_side{
-width: 450px;  
+.center_side{ 
 display: flex;
 align-items: center;
 justify-content: center;
@@ -103,16 +102,17 @@ header button{
 header button:hover{
  background-color: rgba(199, 199, 199, 0.466);
 }
-
+/* 
 select{
     padding:2px 0px;
     border: none;
     outline: none;
-    /* -webkit-appearance: none; */
+     -webkit-appearance: none; 
     appearance: none;
     background-color: transparent;
     text-align: center;
-}
+} */
+
 #pagesSelect{
     padding: 2px 5px;
     background-color: rgba(137, 43, 226, 0);
@@ -553,17 +553,32 @@ color: red;
 
 
 .textTypeContainer{
-    display: none;
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     position: absolute;
     background-color: #fafafa;
-    top: var(--top);
+   
     overflow-y: scroll;
-    box-shadow: var(--box-shadow);
+    border: 1px solid gainsboro;
+    /* box-shadow: var(--box-shadow); */
     border-radius: 10px;
-    padding:10px;
+    /* padding:0px; */
 }
+.textTypeContainer select{
+   border: 1px solid gainsboro;
+   padding: 5px 10px;
+   border-radius: 5px;
+   margin: 4px;
+}
+.textTypeContainer input[name="fontsize"]{
+    border: 1px solid gainsboro;
+    width: 50px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    margin: 4px;
+}
+
 .textTypeContainer div{
     display: flex;
     align-items: center;
@@ -571,14 +586,13 @@ color: red;
     color:gray;
 }
 .textTypeContainer div button{
-   margin: 0 10px !important;
+   margin: 1px !important;
     color:black;
 }
-.textTypeContainer button{
-    margin-bottom: 5px;
+/* .textTypeContainer button{
     color:gray;
     width: 95%;
-}
+} */
 .textTypeContainer button:hover{
    
     color:black;
