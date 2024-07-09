@@ -18,7 +18,7 @@
 }
 
 body{
-    background-color: var(--bgc-light);
+    background-color: var(--editor-bgc);
 
     display: flex;
     align-items: center;
@@ -51,7 +51,7 @@ header{
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background-color: #ffffff00;
+    background-color: #ffffff;
     /* position: relative;
     left: 50%;
     transform: translateX(-50%); */
