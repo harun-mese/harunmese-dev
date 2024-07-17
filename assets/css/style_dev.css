@@ -3,7 +3,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
+    font-family: 'Helvetica Neue', sans-serif;
+    /* color: rgb(29, 29, 31); */
 }
 :root{
     --bgc : rgb(255, 255, 255);
@@ -21,6 +22,22 @@
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+}
+pre{
+    border-radius: 10px;
+}pre::-webkit-scrollbar{
+    background-color: rgba(255, 255, 0, 0);
+    height: 10px;
+}pre::-webkit-scrollbar-thumb{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: 2px solid #2d2d2d;
+    margin: 3px;
+    height: 6px;
+    margin: 1px;
+}pre::-webkit-scrollbar-track{
+    height: 7px;
+    
 }
 .textAndImage img{
     width: 100%;
@@ -109,9 +126,9 @@
 
 body{
     background-color: var(--bgc);
-    border: 1px solid black;
+    /* border: 1px solid black; */
     position: relative;
-    max-width: 1440px;
+    /* max-width: 1440px; */
     margin: 0 auto;
    }
 .login_form{
@@ -147,21 +164,23 @@ body{
 }
 header{
     width: calc(100% - 0px);
-    max-width: 1440px;
+    /* max-width: 1440px; */
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1818181818);
     position: fixed;
     top:0px;
     left: 0px;
     right: 0px;
     z-index: 10;
-    background-color: var(--bgc);
+    background-color: #fafafccc;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
+    /* filter: blur(20px); */
+    backdrop-filter:saturate(1.8) blur(20px) ;
 }
 header .header_wrap{
     height: 54px;
@@ -173,12 +192,16 @@ header .header_wrap{
     align-items: center;
     justify-content: space-between;
     color: black;
+    /* z-index: 10000000; */
+    /* background-color: #ffffff00; */
+    /* filter: blur(0px); */
 }
 .name{
     font-weight: 800;
     text-decoration: none;
     display: flex;
     align-items: center;
+    color: #2d2d2d;
 }
 .name a{
     font-weight: 800;
@@ -257,6 +280,9 @@ article p{
     margin: 30px 0;
     font-size: large;
 }
+article ul, article ol{
+    padding: 20px;
+}
 article img{
     margin: 10px 0;
     display: block;
@@ -269,29 +295,31 @@ color: blueviolet;
 }
 
 
-article a::before{
-    content: '\21AA';
-    color: blue;
+article blockquote{
+    padding: 20px 10px;
+    margin: 15px 0;
+    background-color: aliceblue;
+    border-radius: 5px;
 }
-article a::after{
-    content: '\22B0';
-    color: blue;
-    text-decoration:wavy;
-}
-
+article blockquote::before{
+    content: '\275D';
+ }article blockquote::after{
+    content: '\275E';
+ }
 
 #articles{
     position: fixed;
     left: -100vw;
     width: 100vw;
     height: calc(100vh - 54px);
-    background-color: var(--bgc);
+    background-color: #fafafccc;
     overflow-y: scroll;
     padding: 10px;
     transition: all .4s ease;
     z-index: 3;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    /* border-left: 1px solid rgba(0, 0, 0, 0.1818181818);
+    border-right: 1px solid rgba(0, 0, 0, 0.1818181818); */
+    backdrop-filter:saturate(1.8) blur(20px) ;
 }
 
 #contents{
@@ -299,14 +327,14 @@ article a::after{
     left:-100vw;
     width: 100vw;
     height: calc(100vh - 54px);
-    background-color: var(--bgc);
+    background-color: #fafafccc;
     overflow-y: scroll;
     padding: 10px;
     transition: all .4s ease;
     z-index: 3;
-
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+ backdrop-filter:saturate(1.8) blur(20px) ;
+    /* border-left: 1px solid rgba(0, 0, 0, 0.1818181818);
+    border-right: 1px solid rgba(0, 0, 0, 0.1818181818); */
 }
 
 #toggleArticles{

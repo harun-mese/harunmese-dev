@@ -9,10 +9,187 @@ const imageBox = document.querySelector('.imageBox')
 const videoBox = document.querySelector('.videoBox')
 const blockBox = document.querySelector('.blockBox')
 
+
+// const selectElement = document.querySelector('#selectElement')
+// selectElement.addEventListener("change",(e)=>{
+
+//    // alert(e.target.value)
+// })
+
+
+        const selected = document.querySelector('#select-selected');
+        const items = document.querySelector('#select-items');
+
+        const fontFamCont = document.querySelector('#font-selected');
+        const fontFamItems = document.querySelector('.fontsContainer-select');
+
+        selected.addEventListener('click', function() {
+            items.style.display = items.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        fontFamCont.addEventListener('click', function() {
+            fontFamItems.style.display = fontFamItems.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        items.addEventListener('click', function(event) {
+            //if (event.target.tagName === 'BUTTON') {
+                selected.textContent = event.target.innerText;
+                items.style.display = 'none';
+                items.querySelectorAll('button').forEach(el=>{
+                    el.classList.remove('active')
+                })
+                event.target.classList.add("active")
+            //}
+        });
+        fontFamItems.addEventListener('click', function(event) {
+            //if (event.target.tagName === 'BUTTON') {
+                fontFamCont.textContent = event.target.innerText;
+                fontFamItems.style.display = 'none';
+                fontFamItems.querySelectorAll('button').forEach(el=>{
+                    el.classList.remove('active')
+                })
+                event.target.classList.add("active")
+            //}
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!event.target.matches('#select-selected')) {
+                items.style.display = 'none';
+            }
+        });
+
+        const input = document.getElementById('custom-input');
+        const datalist = document.getElementById('custom-datalist');
+        const options = datalist.getElementsByTagName('li');
+
+        input.addEventListener('input', function() {
+            const value = input.value.toLowerCase();
+            datalist.style.display = value ? 'block' : 'none';
+            for (let option of options) {
+                const text = option.textContent.toLowerCase();
+                option.style.display = text.includes(value) ? 'block' : 'none';
+            }
+            
+        });
+       
+
+        input.addEventListener('focus', function() {
+            if (input.value) {
+                datalist.style.display = 'block';
+            }
+        });
+
+        input.addEventListener('blur', function() {
+            setTimeout(() => {
+                datalist.style.display = 'none';
+            }, 100);
+        });
+
+        for (let option of options) {
+            option.addEventListener('mousedown', function(e) {
+                input.value = e.target.textContent;
+
+                selection = frameContent.getSelection();
+
+            if (!selection.isCollapsed) {
+                var range = selection.getRangeAt(0);
+                var selectedText = range.toString();
+                
+                if (selectedText) {
+
+                    var parentElement = range.commonAncestorContainer.parentElement;
+                   
+                    if(parentElement.tagName === "SPAN"){
+                    parentElement.style.fontSize = input.value + "px";
+                
+                    }else{
+                        var span = frameContent.createElement("span");
+                        span.innerText = selectedText;
+                        span.style.fontSize = input.value + "px";
+                        range.surroundContents(span);
+
+                    }
+                        
+                }
+
+            }
+                datalist.style.display = 'none';
+            });
+        }
+        const fontSizeCount = document.getElementById('custom-input')
+
+        function increaseValue() {
+            let value = parseInt(input.value, 10);
+            input.value = isNaN(value) ? 0 : value + 1;
+
+            selection = frameContent.getSelection();
+
+            if (!selection.isCollapsed) {
+                var range = selection.getRangeAt(0);
+                var selectedText = range.toString();
+                
+                if (selectedText) {
+
+                    var parentElement = range.commonAncestorContainer.parentElement;
+                    var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+                    if(parentElement.tagName === "SPAN"){
+                    parentElement.style.fontSize = (currentFontSize + 1) + "px";
+                
+                    }else{
+                        var span = frameContent.createElement("span");
+                        span.innerText = selectedText;
+                        span.style.fontSize = (currentFontSize + 1) + "px"; // Font boyutunu 2px artır
+                        range.surroundContents(span);
+
+                    }
+                        
+                }
+
+            }
+        }
+
+        function decreaseValue() {
+            let value = parseInt(input.value, 10);
+            input.value = isNaN(value) ? 0 : value - 1;
+
+            selection = frameContent.getSelection();
+
+            if (!selection.isCollapsed) {
+                var range = selection.getRangeAt(0);
+                var selectedText = range.toString();
+                
+                if (selectedText) {
+
+                    var parentElement = range.commonAncestorContainer.parentElement;
+                    var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+                    if(parentElement.tagName === "SPAN"){
+                    parentElement.style.fontSize = (currentFontSize - 1) + "px";
+                    //var count = fontSizeCount.innerText
+                    //fontSizeCount.innerText = (currentFontSize - 1)
+                    }else{
+                        var span = frameContent.createElement("span");
+                        span.innerText = selectedText;
+                        span.style.fontSize = (currentFontSize - 1) + "px"; // Font boyutunu 2px artır
+                        range.surroundContents(span);
+                        //var count = fontSizeCount.innerText
+                        //fontSizeCount.innerText = (currentFontSize - 1)
+
+                    }
+                        
+                }
+
+            }
+        }
+
+
+
 const colorSelectContainer = document.querySelector('.colorSelectContainer')
 
+const backcolorSelectContainer = document.querySelector('.backcolorSelectContainer')
 
-const fontSizeCount = document.getElementById('fontsizeCount')
+
 
 const newContentBox = document.querySelector('.newContentBox')
 
@@ -31,10 +208,30 @@ frameContent.execCommand('defaultParagraphSeparator', false, 'p');
 
 var iAttrB = false
 
+
+
+
+
+
 function initImages() {
     let imgs = frameContent.querySelectorAll('img')
 
     imgs.forEach(i=>{
+
+        
+
+        // var isdiv = document.createElement('div')
+        // isdiv.classList.add("isDivClass")
+        
+        // var isdivBtn = document.createElement('button')
+        // isdivBtn.textContent = 'denemememe'
+        // isdiv.appendChild(isdivBtn)
+        
+        // console.log(i.nodeName);
+        // var articleBody = frameContent.querySelector('article')
+
+        // articleBody.insertBefore(isdiv,i)
+
 
         var currentStyle = i.getAttribute("style");
 
@@ -43,9 +240,11 @@ function initImages() {
         } else {
             var updatedStyle = "cursor:pointer;"
         }
+
     //    var st = i.getAttribute("style")
     //    st.add("cursor:pointer") 
-  i.setAttribute("style",updatedStyle)
+
+       i.setAttribute("style", updatedStyle)
 
         i.addEventListener('click',(e)=>{
 
@@ -54,6 +253,11 @@ function initImages() {
             // if (newUri != null && newUri != '' ) {
             //     e.target.setAttribute('src',newUri)
             // }
+            imgs.forEach(i=>{
+                i.style.border = "none"
+            })
+
+            i.style.border = "3px dashed gainsboro"
 
             console.log(e.view.window.innerWidth);
             console.log(((window.innerWidth - e.view.window.innerWidth) / 2 ) + e.clientX + "px");
@@ -63,9 +267,10 @@ function initImages() {
             if (iAttrB == false) {
                 
                 iAttr.style.display = "flex";
-                iAttr.style.top = e.clientY + 60 + "px";
-                iAttr.style.left = ((window.innerWidth - e.view.window.innerWidth) / 2 ) + e.clientX + "px";
+                // iAttr.style.top = e.clientY + 60 + "px";
+                // iAttr.style.left = ((window.innerWidth - e.view.window.innerWidth) / 2 ) + e.clientX + "px";
 
+                iAttr.querySelector("img").src = i.src
                 iAttrB = true
             }else{  
                 iAttr.style.display = "none";
@@ -95,6 +300,8 @@ function init(){
 }
 //init()
 
+
+
 iframe.onload = function() {
     frameContent = frame.contentDocument || frame.contentWindow.document;
     frameContent.querySelector('body').setAttribute("contenteditable","true")
@@ -107,14 +314,57 @@ iframe.onload = function() {
             categoryName = event.target.href;
             console.log("Tıklanan linkin URL'si: ", categoryName);
         }
-       
-
-
     });
 
 
 initImages()
 };
+
+frameContent.body.onclick = function(e){
+// console.log(e);
+
+
+const fontSize = getComputedStyle(event.target).fontSize;
+// console.log('Font size of the clicked element:', fontSize);
+input.value = fontSize
+
+
+if (e.target.parentElement.nodeName == "ARTICLE") {
+    switch(e.target.tagName) {
+        case "P":
+            selected.textContent = "Paragraf"
+          break;
+        case "H1":
+          selected.textContent = "H1 Başlık"
+          break;
+          case "H1":
+          selected.textContent = "H1 Başlık"
+          break;
+          case "H2":
+          selected.textContent = "H2 Başlık"
+          break;
+          case "H3":
+          selected.textContent = "H3 Başlık"
+          break;
+          case "BLOCKQUOTE":
+          selected.textContent = "Blocknquote"
+          break;
+        
+        default:
+          selected.textContent = "Paragraf"
+      }
+}else if(e.target.parentElement.nodeName == "OL"){
+    selected.textContent = "1. Numaralı liste"
+}else if(e.target.parentElement.nodeName == "UL"){
+    selected.textContent = "Madde işaretli liste"
+}
+else if(e.target.parentElement.nodeName == "P"){
+    selected.textContent = "Paragraf"
+}
+
+
+
+}
 
 
 function ImgName(){
@@ -137,25 +387,26 @@ allElements.forEach(el=>el.setAttribute('contenteditable','true'))
 
 
 
-const scaleSelect = document.getElementById('scaleSelect')
-scaleSelect.addEventListener('change',()=>{
-    console.log(frame.style.height);
-    frame.style.transform = `scale(${scaleSelect.value})`
-    console.log(scaleSelect.value);
-    frame.style.transformOrigin = '50% 0';
-    frame.style.height = `calc((100vh - 50px) * (1 / ${scaleSelect.value}))`
+// const scaleSelect = document.getElementById('scaleSelect')
+// scaleSelect.addEventListener('change',()=>{
+//     console.log(frame.style.height);
+//     frame.style.transform = `scale(${scaleSelect.value})`
+//     console.log(scaleSelect.value);
+//     frame.style.transformOrigin = '50% 0';
+//     frame.style.height = `calc((100vh - 50px) * (1 / ${scaleSelect.value}))`
    
-})
+// })
 
-const pagesSelect = document.getElementById('pagesSelect')
-pagesSelect.addEventListener('change',()=>{
+// const pagesSelect = document.getElementById('pagesSelect')
+// pagesSelect.addEventListener('change',()=>{
 
-    frame.src = pagesSelect.value
-    //init()
+//     frame.src = pagesSelect.value
+//     //init()
        
-})
+// })
 
 function size(width) { 
+    
    frame.width = width
    console.log(width);
 }
@@ -186,6 +437,7 @@ function size(width) {
 
 
    var colorSelectContainerBool = false
+   var backcolorSelectContainerBool = false
 
    var newContentBoxBool = false   
    function opennewContentBox(){
@@ -306,27 +558,27 @@ function openVideoBox(){
 
 // left
 function openTextTypeContainer(){
-    if (!textTypeContainerBool) {
-        textTypeContainer.style.display='flex'
-        textTypeContainerBool = true
+    // if (!textTypeContainerBool) {
+    //     textTypeContainer.style.display='flex'
+    //     textTypeContainerBool = true
 
-        fontBackgroundColorContainer.style.display='none'
-        fontBackgroundColorContainerBool = false
-        blockBox.style.display='none'
-        blockBoxBool = false
+    //     fontBackgroundColorContainer.style.display='none'
+    //     fontBackgroundColorContainerBool = false
+    //     blockBox.style.display='none'
+    //     blockBoxBool = false
 
-        createLinkContainer.style.display='none'
-        createLinkContainerBool = false
-        fontsContainer.style.display='none'
-        fontsContainerBool = false
-    }else{
-        textTypeContainer.style.display='none'
-        textTypeContainerBool = false
-        createLinkContainer.style.display='none'
-        createLinkContainerBool = false
-        fontsContainer.style.display='none'
-        fontsContainerBool = false
-    }
+    //     createLinkContainer.style.display='none'
+    //     createLinkContainerBool = false
+    //     fontsContainer.style.display='none'
+    //     fontsContainerBool = false
+    // }else{
+    //     textTypeContainer.style.display='none'
+    //     textTypeContainerBool = false
+    //     createLinkContainer.style.display='none'
+    //     createLinkContainerBool = false
+    //     fontsContainer.style.display='none'
+    //     fontsContainerBool = false
+    // }
 }
 // center
 function toggleFontBackgroundColorContainer(){
@@ -335,8 +587,8 @@ function toggleFontBackgroundColorContainer(){
         fontBackgroundColorContainerBool = true
         blockBox.style.display='none'
         blockBoxBool = false
-        textTypeContainer.style.display='none'
-        textTypeContainerBool = false 
+        //textTypeContainer.style.display='none'
+        //textTypeContainerBool = false 
 
         createLinkContainer.style.display='none'
         createLinkContainerBool = false
@@ -353,8 +605,8 @@ function openbBlockBox(){
         blockBox.style.display='flex' 
         blockBoxBool = true
 
-        textTypeContainer.style.display='none'
-        textTypeContainerBool = false
+        //textTypeContainer.style.display='none'
+        //textTypeContainerBool = false
         fontBackgroundColorContainer.style.display='none'
         fontBackgroundColorContainerBool = false
 
@@ -379,7 +631,16 @@ function openColors(){
     }
     
 }
-
+function openBackColors(){
+    if (!backcolorSelectContainerBool) {
+        backcolorSelectContainer.style.display='flex' 
+        backcolorSelectContainerBool = true
+    }else{
+        backcolorSelectContainer.style.display='none'
+        backcolorSelectContainerBool = false
+    }
+    
+}
 const saveBtn = document.getElementById('saveBtn')
 saveBtn.addEventListener('click',()=>{
     console.log('click save');
@@ -755,3 +1016,4 @@ function addFontClass(className,array) {
     }
     selection.removeAllRanges();
 }
+

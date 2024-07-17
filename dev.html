@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Me: dev</title>
     <link rel="stylesheet" href="assets/css/style_dev.css">
+    <link rel="stylesheet" href="assets/css/prism.css">
     <link rel="stylesheet" href="assets/css/fonts_classes.css">
     <link rel="stylesheet" href="assets/css/blocks_styles.css">
     <script src="assets/js/script.js" defer></script> 
+    <script src="assets/js/prism.js" defer></script> 
 </head>
 <body>
 
@@ -31,15 +33,16 @@
         <input type="submit" value="Log in">
     </form>
     <header>
+        
         <div class="header_wrap">
             <div class="name">
                   <svg ondblclick="open_form()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shadows" viewBox="0 0 16 16">
                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-8 7a.5.5 0 0 1 0-1h3.5q.048 0 .093.009A7 7 0 0 0 12.9 13H8a.5.5 0 0 1 0-1h5.745q.331-.474.581-1H8a.5.5 0 0 1 0-1h6.71a7 7 0 0 0 .22-1H8a.5.5 0 0 1 0-1h7q0-.51-.07-1H8a.5.5 0 0 1 0-1h6.71a7 7 0 0 0-.384-1H8a.5.5 0 0 1 0-1h5.745a7 7 0 0 0-.846-1H8a.5.5 0 0 1 0-1h3.608A7 7 0 1 0 8 15"/>
                   </svg>
-                  <a href="/">HARUN MESE</a></div>
+                  <a href="/">harunmese.dev</a></div>
             <nav>
-                <a href="/blog.html">BLOG</a>
-                <a href="/dev.html" style="color: black; font-weight: bolder;">DEV</a>
+                <a href="/">home</a>
+                <a href="/dev.html" style="color: black; font-weight: bolder;">blog</a>
             </nav>
         </div>
         
@@ -67,6 +70,32 @@
             <h1>Kotlin-&#x1F30D;And&#x2606;roid.</h1>
             <h2 id="greeting" class="contentHeader">Greeting<i class="bi bi-bandaid"></i></h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nihil dolor esse facere at quasi voluptas est in quae unde? Fugiat, iusto ab quas nihil vel repellat deserunt ipsa aliquid.</p>
+            
+<pre><code class="language-css">
+p { color: red }
+#select-selected{
+    border: 1px solid gainsboro;
+    padding: 5px ;
+    border-radius: 5px;
+    width: 80px;
+    word-wrap: break-word;
+    word-break: break-all;
+    height:31.5px;
+    text-overflow: ellipsis !important;
+    overflow:hidden;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    font-size: 14px;
+}
+#select-selected:hover{
+    background-color:  gainsboro;  
+}
+#select-selected::after{
+    content: '\269C';
+    padding-left: 5px;
+}
+</code></pre>
+            
             <P>Lorem ipsum dolor sit amet <b>consectetur</b>  adipisicing elit. Quo nostrum, alias error quaerat <a href="www.asdfd.com">veniam quae?</a>  Eligendi <i>deleniti</i> enim  distinctio assumenda expedita iste aliquam fugit hic! Iusto ut dolores molestias ipsam.</P>
             <img width="100%" src="./IMG_2184.jpeg" alt="">
             
