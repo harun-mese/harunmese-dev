@@ -1,3 +1,5 @@
+
+
 const fontsContainer = document.querySelector('.fontsContainer')
 const fontColorContainer = document.querySelector('.fontColorContainer')
 const fontBackgroundColorContainer = document.querySelector('.fontBackgroundColorContainer')
@@ -8,6 +10,14 @@ const attributesContainer = document.querySelector('.attributesContainer')
 const imageBox = document.querySelector('.imageBox')
 const videoBox = document.querySelector('.videoBox')
 const blockBox = document.querySelector('.blockBox')
+
+
+
+var deleteThisElem , selectedText, selectedImageEl
+
+
+
+
 
 
 // const selectElement = document.querySelector('#selectElement')
@@ -208,8 +218,96 @@ frameContent.execCommand('defaultParagraphSeparator', false, 'p');
 
 var iAttrB = false
 
+var baloonTextEditor = document.querySelector('#baloonTextEditor')
+var baloonLink = document.querySelector('#baloonLink')
+var baloonColorBox = document.querySelector('#baloonColorBox')
+var imageEditBox = document.querySelector('#imageEditBox')
+var selectImageBox = document.querySelector('#selectImageBox')
+var sectectableImage = document.querySelectorAll('#selectImageBox div img')
+
+sectectableImage.forEach(el=>{
+    el.addEventListener('click',()=>{
+        selectedImageEl.src = el.src
+    })
+})
 
 
+frameContent.addEventListener('mouseup', function() {
+  
+    const selection = frameContent.getSelection();
+    console.log(selection.toString());
+    // console.log("1");
+    if (selection && selection.rangeCount > 0) {
+        const range = selection.getRangeAt(0);
+        // console.log("2");
+        if (range) {
+            const rect = range.getBoundingClientRect();
+            const iframeRect = iframe.getBoundingClientRect();
+            
+            const width = rect.width;
+            const height = rect.height;
+            const x = rect.left + window.scrollX + iframeRect.left;
+            const y = rect.top + window.scrollY + iframeRect.top;
+
+            // console.log("3");
+
+            baloonTextEditor.style.display = 'flex'
+            baloonTextEditor.style.top = y - 60 + "px"
+            baloonTextEditor.style.left = x  + "px"
+
+            baloonColorBox.style.display = 'none'
+            baloonColorBox.style.top = y + 30 + "px"
+            baloonColorBox.style.left = x + 118 + "px"
+            
+            baloonLink.style.display = 'none'
+            baloonLink.style.top = y + 30 + "px"
+            baloonLink.style.left = x  + "px"
+            
+            // console.log(`Genişlik: ${width}`);
+            // console.log(`Yükseklik: ${height}`);
+            // console.log(`X Koordinatı: ${x}`);
+            // console.log(`Y Koordinatı: ${y}`);
+        }
+    } else {
+        console.warn('Geçerli bir seçim bulunamadı.');
+    }
+});
+
+frameContent.addEventListener('scroll',()=>{
+    baloonTextEditor.style.display = 'none'
+    baloonLink.style.display = 'none'
+    baloonColorBox.style.display = 'none'
+    imageEditBox.style.display = 'none'
+})
+
+function openBaloonLink(){
+  baloonLink.style.display = 'flex'
+  const linkInput = document.querySelector('#baloonLink input')
+
+var selection = frameContent.getSelection();
+console.log(selection);
+
+  if (selection.anchorNode.parentElement.nodeName == 'A') {
+    linkInput.value = selection.anchorNode.parentElement.href
+  }else{
+    linkInput.value = ''
+
+  }
+}
+
+
+function closeBaloonLink(){
+    baloonLink.style.display = 'none'
+    command('unLink')
+}
+function createBaloonLink(){
+    const linkInput = document.querySelector('#baloonLink input')
+    command('createLink',false,linkInput.value)
+    baloonLink.style.display = 'none'
+}
+function openBaloonColorBox(){
+    baloonColorBox.style.display = 'flex'
+  }
 
 
 
@@ -217,8 +315,6 @@ function initImages() {
     let imgs = frameContent.querySelectorAll('img')
 
     imgs.forEach(i=>{
-
-        
 
         // var isdiv = document.createElement('div')
         // isdiv.classList.add("isDivClass")
@@ -248,34 +344,61 @@ function initImages() {
 
         i.addEventListener('click',(e)=>{
 
+            deleteThisElem = i
+            selectedImageEl = i
             // e.target.getAttribute('src')
             // var newUri = prompt("Yeni resim uri",e.target.getAttribute('src'))
             // if (newUri != null && newUri != '' ) {
             //     e.target.setAttribute('src',newUri)
             // }
-            imgs.forEach(i=>{
-                i.style.border = "none"
-            })
+            // imgs.forEach(i=>{
+            //     i.style.border = "none"
+            // })
 
-            i.style.border = "3px dashed gainsboro"
+            // i.style.border = "3px dashed gainsboro"
 
             console.log(e.view.window.innerWidth);
             console.log(((window.innerWidth - e.view.window.innerWidth) / 2 ) + e.clientX + "px");
           
+           // if (e.target.parentElement.nodeName == "IMG") {
+                //    var rect = e.target.getBoundingClientRect()
+                //    console.log(rect.width);
+                // }
+
+                imageEditBox.style.display = 'flex'
+                imageEditBox.style.top =  e.clientY  + 'px'
+                imageEditBox.style.left = ((window.innerWidth - e.view.window.innerWidth) / 2 ) + e.clientX - 47 + "px"
 
            const iAttr  = document.querySelector('#imgAttr')
-            if (iAttrB == false) {
-                
-                iAttr.style.display = "flex";
-                // iAttr.style.top = e.clientY + 60 + "px";
-                // iAttr.style.left = ((window.innerWidth - e.view.window.innerWidth) / 2 ) + e.clientX + "px";
 
-                iAttr.querySelector("img").src = i.src
-                iAttrB = true
-            }else{  
-                iAttr.style.display = "none";
-                iAttrB = false
-            }
+            // if (iAttrB == false) {
+            //     //frameContent.body.style.overflowY = 'hidden'
+            //     // frameContent.querySelector('article').style.backgroundColor = 'black'
+            //     // frameContent.querySelector('#articles').style.backgroundColor = 'black'
+            //     // frameContent.querySelector('#contents').style.backgroundColor = 'black'
+
+            //     // i.style.boxShadow = "0 0 15px 5px rgba(0, 0, 0, 0.1818181818)"
+            //     iAttr.style.width = "300px" 
+            //     iAttr.style.padding = "10px 5px" 
+            //     iAttr.style.border = "1px solid rgba(0, 0, 0, 0.1818181818)" 
+            //     // iAttr.style.top = e.clientY + 60 + "px";
+            //     // iAttr.style.left = ((window.innerWidth - e.view.window.innerWidth) / 2 ) + e.clientX + "px";
+
+            //     iAttr.querySelector("img").src = i.src
+            //     iAttrB = true
+            // }else{  
+            //      //frameContent.body.style.overflowY = 'initial'
+            //     // frameContent.body.style.backgroundColor = 'initial'
+            //     // frameContent.querySelector('article').style.backgroundColor = 'initial'
+            //     // frameContent.querySelector('#articles').style.backgroundColor = 'initial'
+            //     // frameContent.querySelector('#contents').style.backgroundColor = 'initial'
+
+            //     // i.style.boxShadow = "none"
+            //     iAttr.style.width = "0px" 
+            //     iAttr.style.padding = "0px" 
+            //     iAttr.style.border = "none" 
+            //     iAttrB = false
+            // }
 
           })
 
@@ -284,6 +407,19 @@ function initImages() {
 }
 
 initImages()
+
+function deleteImage(){
+ deleteThisElem.remove()
+}
+function openSelectImageBox(){
+    console.log('open image box');
+    selectImageBox.style.display = 'block'
+}
+
+function closeImageBox(){
+    selectImageBox.style.display = 'none'
+    console.log('close image box');
+}
 
 
 
@@ -362,6 +498,11 @@ else if(e.target.parentElement.nodeName == "P"){
     selected.textContent = "Paragraf"
 }
 
+
+// if (e.target.parentElement.nodeName == "IMG") {
+//    var rect = e.target.getBoundingClientRect()
+//    console.log(rect.width);
+// }
 
 
 }
@@ -537,10 +678,12 @@ function openAttributesContainer(){
 
 function openImageBox(){
     if (!imageBoxBool) {
-        imageBox.style.display='flex' 
+        // imageBox.style.display='flex' 
+        // imageBox.style.width = "300px" 
         imageBoxBool = true
     }else{
-        imageBox.style.display='none'
+        // imageBox.style.display='none'
+        // imageBox.style.width ='0' 
         imageBoxBool = false
     }
 }
@@ -676,7 +819,102 @@ function ajax(data) {
     xhttp.send("data=" + data);
   }
 
+  var codeEditorContainer = document.getElementById('codeEditorContainer')
+
+    function openCode(){
+        codeEditorContainer.style.display= 'flex'
+    }
   
+    function closeCode(){
+        codeEditorContainer.style.display= 'none'
+    }
+
+  const editor = document.getElementById('codeEditor');
+  const outputPre = document.getElementById('out');
+  const preTag = document.getElementById('preTag');
+  const language = document.getElementById('language_select');
+  const linenumber = document.getElementById('line_numbers');
+
+
+  
+  language.addEventListener('change',()=>{
+    const code = editor.value;
+    outputPre.textContent = code;
+    if (linenumber.checked) {
+        preTag.classList.add('line-numbers')
+    } else {
+        preTag.classList.remove('line-numbers')
+    }
+    const language = document.getElementById('language_select').value;
+    outputPre.className = `${language}`;
+    Prism.highlightElement(outputPre);
+  })
+
+  linenumber.addEventListener('change',()=>{
+    const code = editor.value;
+    outputPre.textContent = code;
+
+    const language = document.getElementById('language_select').value;
+    outputPre.className = `${language}`;
+    if (linenumber.checked) {
+        preTag.classList.add('line-numbers')
+    } else {
+        preTag.classList.remove('line-numbers')
+    }
+    Prism.highlightElement(outputPre);
+  })
+  
+
+  editor.addEventListener('input',()=>{
+    const code = editor.value;
+    outputPre.textContent = code;
+
+    if (linenumber.checked) {
+        preTag.classList.add('line-numbers')
+    } else {
+        preTag.classList.remove('line-numbers')
+    }
+
+    
+    const language = document.getElementById('language_select').value;
+    outputPre.className = `${language}`;
+    Prism.highlightElement(outputPre);
+  })
+
+  function changeTheme() {
+    const theme = document.getElementById('theme_select').value;
+    themeLink.href = `./assets/css/${theme}.css`;
+}
+  function insertCode() {
+     
+      const language = document.getElementById('language_select').value;
+      const theme = document.getElementById('theme_select').value;
+
+    
+
+      const themeLink = frameContent.getElementById('themeLink');
+      if (themeLink) {
+          themeLink.href = `./assets/css/${theme}.css`;
+      } else {
+          const link = frameContent.createElement('link');
+          link.rel = 'stylesheet';
+          link.id = 'themeLink';
+          link.href = `./assets/css/${theme}.css`;
+          frameContent.head.appendChild(link);
+      }
+      console.log(outputPre.innerHTML);
+     
+      if (linenumber.checked) {
+        command("insertHTML",false ,`<pre class="${language} line-numbers" tabindex="0"><code class="${language}">${outputPre.innerHTML}</code></pre>`)
+    } else {
+        command("insertHTML",false ,`<pre class="${language}" tabindex="0"><code class="${language}">${outputPre.innerHTML}</code></pre>`)
+    }
+
+    const article = frameContent.getElementsByTagName('article')[0];
+    Prism.highlightAllUnder(article);
+
+      codeEditorContainer.style.display = "none"
+  }
 
 
 function decreaseFontSize() {

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prism.js Çoklu Dil ve Tema Kullanımı</title>
+    <!-- Prism.js Temaları -->
+    <link id="prism-default" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
+    <link id="prism-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-dark.min.css" disabled>
+    <link id="prism-funky" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-funky.min.css" disabled>
+    <!-- Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-css.min.js"></script>
+    <style>
+        .default-theme { --prism-theme: url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css'); }
+        .dark-theme { --prism-theme: url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-dark.min.css'); }
+        .funky-theme { --prism-theme: url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-funky.min.css'); }
+    </style>
+</head>
+<body>
+
+<article>
+    <section class="default-theme">
+        <pre><code class="language-markup">
+&lt;!-- HTML Kodu --&gt;
+&lt;div&gt;Merhaba Dünya&lt;/div&gt;
+        </code></pre>
+    </section>
+    <section class="dark-theme">
+        <pre><code class="language-javascript">
+// JavaScript Kodu
+console.log('Merhaba Dünya');
+        </code></pre>
+    </section>
+    <section class="funky-theme">
+        <pre><code class="language-css">
+/* CSS Kodu */
+body {
+    background-color: #fff;
+}
+        </code></pre>
+    </section>
+</article>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Tema sınıfına göre uygun CSS dosyasını yükleyin
+        const sections = document.querySelectorAll('article section');
+        sections.forEach(section => {
+            const theme = section.classList[0];
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = getComputedStyle(section).getPropertyValue('--prism-theme').trim();
+            document.head.appendChild(link);
+        });
+        // Prism.js ile kodu renklendirin
+        Prism.highlightAll();
+    });
+</script>
+
+</body>
+</html>

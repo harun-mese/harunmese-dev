@@ -5,8 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Editable</title>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <link id="themeLink" rel="stylesheet" href="./assets/css/prism.css">
+
   <link rel="stylesheet" href="assets/css/fonts_classes.css">
   <link rel="stylesheet" href="assets/css/blocks_styles.css">
   <link rel="stylesheet" href="assets/css/editable2.css">
@@ -16,6 +20,7 @@
   <script src="assets/js/symbols.js" defer></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+  <script src="./assets/js/prism.js" defer></script>
 </head>
 
 <body>
@@ -43,10 +48,9 @@
             d="M16 8c0 3.15-1.866 2.585-3.567 2.07C11.42 9.763 10.465 9.473 10 10c-.603.683-.475 1.819-.351 2.92C9.826 14.495 9.996 16 8 16a8 8 0 1 1 8-8m-8 7c.611 0 .654-.171.655-.176.078-.146.124-.464.07-1.119-.014-.168-.037-.37-.061-.591-.052-.464-.112-1.005-.118-1.462-.01-.707.083-1.61.704-2.314.369-.417.845-.578 1.272-.618.404-.038.812.026 1.16.104.343.077.702.186 1.025.284l.028.008c.346.105.658.199.953.266.653.148.904.083.991.024C14.717 9.38 15 9.161 15 8a7 7 0 1 0-7 7" />
         </svg>
       </button>
-
       <div class="fontBackgroundColorContainer flex-col">
 
-        <div class="sizediv flex row acenter spacebetween">
+        <!-- <div class="sizediv flex row acenter spacebetween">
           <span
             style="color: #161616;display: inline-block; font-size: 32px; width: fit-content;padding: 0;">size</span>
 
@@ -65,7 +69,7 @@
         <div class="fontcolordiv flex start">
           <span style="color: #1c7ce2;display: inline-block;" onclick="command('foreColor',false,'#ffffff')">font
             color</span>
-          <!-- <span onclick="openColors()" style="background-color: #1c7ce2;display: inline-block;border: 1px solid gainsboro;border-radius: 20px;width: 30px;height: 30px;"></span> -->
+         <span onclick="openColors()" style="background-color: #1c7ce2;display: inline-block;border: 1px solid gainsboro;border-radius: 20px;width: 30px;height: 30px;"></span> 
           <div class="buttonGroupe">
             <button onclick="command('foreColor',false,'#ffffff')" style="background-color:#ffffff"></button>
             <button onclick="command('foreColor',false,'#8a2be2')" style="background-color:#8a2be2"></button>
@@ -198,7 +202,7 @@
             <button onclick="command('backColor',false,'#00bfff')" style="background-color:#00bfff"></button>
           </div>
 
-        </div>
+        </div> -->
 
 
 
@@ -954,8 +958,6 @@
         </svg>
       </button>
 
-
-
       <button onclick="openTextTypeContainer()">
         <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-type"
           viewBox="0 0 16 16">
@@ -968,15 +970,6 @@
     <div class="center_side">
 
 
-
-
-
-
-
-      <!-- text formating -->
-
-
-
       <div class="textTypeContainer" id="textTypeContainer">
 
         <button onclick="command('undo')">
@@ -986,6 +979,7 @@
               d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5" />
           </svg>
         </button>
+
         <button onclick="command('redo')">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
             class="bi bi-arrow-right-short" viewBox="0 0 16 16">
@@ -993,7 +987,6 @@
               d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
           </svg>
         </button>
-
 
 
         <div id="tagSelectCobtainer">
@@ -1091,282 +1084,287 @@
         </div>
 
 
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-type" viewBox="0 0 16 16">
+            <path d="m2.244 13.081.943-2.803H6.66l.944 2.803H8.86L5.54 3.75H4.322L1 13.081zm2.7-7.923L6.34 9.314H3.51l1.4-4.156zm9.146 7.027h.035v.896h1.128V8.125c0-1.51-1.114-2.345-2.646-2.345-1.736 0-2.59.916-2.666 2.174h1.108c.068-.718.595-1.19 1.517-1.19.971 0 1.518.52 1.518 1.464v.731H12.19c-1.647.007-2.522.8-2.522 2.058 0 1.319.957 2.18 2.345 2.18 1.06 0 1.716-.43 2.078-1.011zm-1.763.035c-.752 0-1.456-.397-1.456-1.244 0-.65.424-1.115 1.408-1.115h1.805v.834c0 .896-.752 1.525-1.757 1.525"/>
+          </svg>
+        </button>
 
+        <div id="typeText">
+              <div>
+                <button onclick="command('bold')" title="bold">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-type-bold"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M8.21 13c2.106 0 3.412-1.087 3.412-2.823 0-1.306-.984-2.283-2.324-2.386v-.055a2.176 2.176 0 0 0 1.852-2.14c0-1.51-1.162-2.46-3.014-2.46H3.843V13zM5.908 4.674h1.696c.963 0 1.517.451 1.517 1.244 0 .834-.629 1.32-1.73 1.32H5.908V4.673zm0 6.788V8.598h1.73c1.217 0 1.88.492 1.88 1.415 0 .943-.643 1.449-1.832 1.449H5.907z" />
+                  </svg>
+                </button>
+                <button onclick="command('underline')" title="underline">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
+                    class="bi bi-type-underline" viewBox="0 0 16 16">
+                    <path
+                      d="M5.313 3.136h-1.23V9.54c0 2.105 1.47 3.623 3.917 3.623s3.917-1.518 3.917-3.623V3.136h-1.23v6.323c0 1.49-.978 2.57-2.687 2.57-1.709 0-2.687-1.08-2.687-2.57V3.136zM12.5 15h-9v-1h9z" />
+                  </svg>
+                </button>
+                <button onclick="command('italic')" title="italik">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-type-italic"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M7.991 11.674 9.53 4.455c.123-.595.246-.71 1.347-.807l.11-.52H7.211l-.11.52c1.06.096 1.128.212 1.005.807L6.57 11.674c-.123.595-.246.71-1.346.806l-.11.52h3.774l.11-.52c-1.06-.095-1.129-.211-1.006-.806z" />
+                  </svg>
+                </button>
+                <button onclick="command('strikethrough')" title="strikethrough">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
+                    class="bi bi-type-strikethrough" viewBox="0 0 16 16">
+                    <path
+                      d="M6.333 5.686c0 .31.083.581.27.814H5.166a2.8 2.8 0 0 1-.099-.76c0-1.627 1.436-2.768 3.48-2.768 1.969 0 3.39 1.175 3.445 2.85h-1.23c-.11-1.08-.964-1.743-2.25-1.743-1.23 0-2.18.602-2.18 1.607zm2.194 7.478c-2.153 0-3.589-1.107-3.705-2.81h1.23c.144 1.06 1.129 1.703 2.544 1.703 1.34 0 2.31-.705 2.31-1.675 0-.827-.547-1.374-1.914-1.675L8.046 8.5H1v-1h14v1h-3.504c.468.437.675.994.675 1.697 0 1.826-1.436 2.967-3.644 2.967" />
+                  </svg>
+                </button>
+              </div>
+              <div>
+                <button onclick="openColors()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-marker-tip"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5 6.064-1.281-4.696A.5.5 0 0 0 9.736 9H6.264a.5.5 0 0 0-.483.368l-1.28 4.696A6.97 6.97 0 0 0 8 15c1.275 0 2.47-.34 3.5-.936m.873-.598a7 7 0 1 0-8.746 0l1.19-4.36a1.5 1.5 0 0 1 1.31-1.1l1.155-3.851c.213-.713 1.223-.713 1.436 0l1.156 3.851a1.5 1.5 0 0 1 1.31 1.1z" />
+                  </svg>
+                </button>
+               
 
-        <div>
-
-
-          <button onclick="command('bold')" title="bold">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-type-bold"
-              viewBox="0 0 16 16">
-              <path
-                d="M8.21 13c2.106 0 3.412-1.087 3.412-2.823 0-1.306-.984-2.283-2.324-2.386v-.055a2.176 2.176 0 0 0 1.852-2.14c0-1.51-1.162-2.46-3.014-2.46H3.843V13zM5.908 4.674h1.696c.963 0 1.517.451 1.517 1.244 0 .834-.629 1.32-1.73 1.32H5.908V4.673zm0 6.788V8.598h1.73c1.217 0 1.88.492 1.88 1.415 0 .943-.643 1.449-1.832 1.449H5.907z" />
-            </svg>
-          </button>
-          <button onclick="command('underline')" title="underline">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
-              class="bi bi-type-underline" viewBox="0 0 16 16">
-              <path
-                d="M5.313 3.136h-1.23V9.54c0 2.105 1.47 3.623 3.917 3.623s3.917-1.518 3.917-3.623V3.136h-1.23v6.323c0 1.49-.978 2.57-2.687 2.57-1.709 0-2.687-1.08-2.687-2.57V3.136zM12.5 15h-9v-1h9z" />
-            </svg>
-          </button>
-          <button onclick="command('italic')" title="italik">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-type-italic"
-              viewBox="0 0 16 16">
-              <path
-                d="M7.991 11.674 9.53 4.455c.123-.595.246-.71 1.347-.807l.11-.52H7.211l-.11.52c1.06.096 1.128.212 1.005.807L6.57 11.674c-.123.595-.246.71-1.346.806l-.11.52h3.774l.11-.52c-1.06-.095-1.129-.211-1.006-.806z" />
-            </svg>
-          </button>
-          <button onclick="command('strikethrough')" title="strikethrough">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
-              class="bi bi-type-strikethrough" viewBox="0 0 16 16">
-              <path
-                d="M6.333 5.686c0 .31.083.581.27.814H5.166a2.8 2.8 0 0 1-.099-.76c0-1.627 1.436-2.768 3.48-2.768 1.969 0 3.39 1.175 3.445 2.85h-1.23c-.11-1.08-.964-1.743-2.25-1.743-1.23 0-2.18.602-2.18 1.607zm2.194 7.478c-2.153 0-3.589-1.107-3.705-2.81h1.23c.144 1.06 1.129 1.703 2.544 1.703 1.34 0 2.31-.705 2.31-1.675 0-.827-.547-1.374-1.914-1.675L8.046 8.5H1v-1h14v1h-3.504c.468.437.675.994.675 1.697 0 1.826-1.436 2.967-3.644 2.967" />
-            </svg>
-          </button>
-          <button onclick="openColors()" style="color:  #b3b4e1;">
-
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-type"
-              viewBox="0 0 16 16">
-              <path
-                d="m2.244 13.081.943-2.803H6.66l.944 2.803H8.86L5.54 3.75H4.322L1 13.081zm2.7-7.923L6.34 9.314H3.51l1.4-4.156zm9.146 7.027h.035v.896h1.128V8.125c0-1.51-1.114-2.345-2.646-2.345-1.736 0-2.59.916-2.666 2.174h1.108c.068-.718.595-1.19 1.517-1.19.971 0 1.518.52 1.518 1.464v.731H12.19c-1.647.007-2.522.8-2.522 2.058 0 1.319.957 2.18 2.345 2.18 1.06 0 1.716-.43 2.078-1.011zm-1.763.035c-.752 0-1.456-.397-1.456-1.244 0-.65.424-1.115 1.408-1.115h1.805v.834c0 .896-.752 1.525-1.757 1.525" />
-            </svg>
-          </button>
-          <div class="colorSelectContainer">
-            <div class="flex">
-              <button onclick="command('foreColor',false,'#ffffff')" style="background-color:#ffffff"></button>
-              <button onclick="command('foreColor',false,'#8a2be2')" style="background-color:#8a2be2"></button>
-              <button onclick="command('foreColor',false,'#faebd7')" style="background-color:#faebd7"></button>
-              <button onclick="command('foreColor',false,'#00ffff')" style="background-color:#00ffff"></button>
-              <button onclick="command('foreColor',false,'#7fffd4')" style="background-color:#7fffd4"></button>
-              <button onclick="command('foreColor',false,'#f0ffff')" style="background-color:#f0ffff"></button>
-              <button onclick="command('foreColor',false,'#f5f5dc')" style="background-color:#f5f5dc"></button>
-              <button onclick="command('foreColor',false,'#ffe4c4')" style="background-color:#ffe4c4"></button>
-              <button onclick="command('foreColor',false,'#000000')" style="background-color:#000000"></button>
-              <button onclick="command('foreColor',false,'#ffebcd')" style="background-color:#ffebcd"></button>
-              <button onclick="command('foreColor',false,'#0000ff')" style="background-color:#0000ff"></button>
-              <button onclick="command('foreColor',false,'#ffebcd')" style="background-color:#ffebcd"></button>
-              <button onclick="command('foreColor',false,'#0000ff')" style="background-color:#0000ff"></button>
-              <button onclick="command('foreColor',false,'#a52a2a')" style="background-color:#a52a2a"></button>
-              <button onclick="command('foreColor',false,'#deb887')" style="background-color:#deb887"></button>
-              <button onclick="command('foreColor',false,'#5f9ea0')" style="background-color:#5f9ea0"></button>
-              <button onclick="command('foreColor',false,'#7fff00')" style="background-color:#7fff00"></button>
-              <button onclick="command('foreColor',false,'#d2691e')" style="background-color:#d2691e"></button>
-              <button onclick="command('foreColor',false,'#ff7f50')" style="background-color:#ff7f50"></button>
-              <button onclick="command('foreColor',false,'#6495ed')" style="background-color:#6495ed"></button>
-              <button onclick="command('foreColor',false,'#fff8dc')" style="background-color:#fff8dc"></button>
-              <button onclick="command('foreColor',false,'#dc143c')" style="background-color:#dc143c"></button>
-              <button onclick="command('foreColor',false,'#00ffff')" style="background-color:#00ffff"></button>
-              <button onclick="command('foreColor',false,'#00008b')" style="background-color:#00008b"></button>
-              <button onclick="command('foreColor',false,'#008b8b')" style="background-color:#008b8b"></button>
-              <button onclick="command('foreColor',false,'#b8860b')" style="background-color:#b8860b"></button>
-              <button onclick="command('foreColor',false,'#a9a9a9')" style="background-color:#a9a9a9"></button>
-              <button onclick="command('foreColor',false,'#006400')" style="background-color:#006400"></button>
-              <button onclick="command('foreColor',false,'#bdb76b')" style="background-color:#bdb76b"></button>
-              <button onclick="command('foreColor',false,'#8b008b')" style="background-color:#8b008b"></button>
-              <button onclick="command('foreColor',false,'#556b2f')" style="background-color:#556b2f"></button>
-              <button onclick="command('foreColor',false,'#ff8c00')" style="background-color:#ff8c00"></button>
-              <button onclick="command('foreColor',false,'#9932cc')" style="background-color:#9932cc"></button>
-              <button onclick="command('foreColor',false,'#8b0000')" style="background-color:#8b0000"></button>
-              <button onclick="command('foreColor',false,'#e9967a')" style="background-color:#e9967a"></button>
-              <button onclick="command('foreColor',false,'#8fbc8f')" style="background-color:#8fbc8f"></button>
-              <button onclick="command('foreColor',false,'#483d8b')" style="background-color:#483d8b"></button>
-              <button onclick="command('foreColor',false,'#2f4f4f')" style="background-color:#2f4f4f"></button>
-              <button onclick="command('foreColor',false,'#00ced1')" style="background-color:#00ced1"></button>
-              <button onclick="command('foreColor',false,'#9400d3')" style="background-color:#9400d3"></button>
-              <button onclick="command('foreColor',false,'#ff1493')" style="background-color:#ff1493"></button>
-              <button onclick="command('foreColor',false,'#00bfff')" style="background-color:#00bfff"></button>
-              <button onclick="command('foreColor',false,'#696969')" style="background-color:#696969"></button>
-              <button onclick="command('foreColor',false,'#1e90ff')" style="background-color:#1e90ff"></button>
-              <button onclick="command('foreColor',false,'#b22222')" style="background-color:#b22222"></button>
-              <button onclick="command('foreColor',false,'#fffaf0')" style="background-color:#fffaf0"></button>
-              <button onclick="command('foreColor',false,'#228b22')" style="background-color:#228b22"></button>
-              <button onclick="command('foreColor',false,'#ff00ff')" style="background-color:#ff00ff"></button>
-              <button onclick="command('foreColor',false,'#dcdcdc')" style="background-color:#dcdcdc"></button>
-              <button onclick="command('foreColor',false,'#f8f8ff')" style="background-color:#f8f8ff"></button>
-              <button onclick="command('foreColor',false,'#ffd700')" style="background-color:#ffd700"></button>
-              <button onclick="command('foreColor',false,'#daa520')" style="background-color:#daa520"></button>
-              <button onclick="command('foreColor',false,'#808080')" style="background-color:#808080"></button>
-              <button onclick="command('foreColor',false,'#008000')" style="background-color:#008000"></button>
-              <button onclick="command('foreColor',false,'#adff2f')" style="background-color:#adff2f"></button>
-              <button onclick="command('foreColor',false,'#f0fff0')" style="background-color:#f0fff0"></button>
-              <button onclick="command('foreColor',false,'#ff69b4')" style="background-color:#ff69b4"></button>
-              <button onclick="command('foreColor',false,'#cd5c5c')" style="background-color:#cd5c5c"></button>
-              <button onclick="command('foreColor',false,'#4b0082')" style="background-color:#4b0082"></button>
-              <button onclick="command('foreColor',false,'#fffff0')" style="background-color:#fffff0"></button>
-              <button onclick="command('foreColor',false,'#f0e68c')" style="background-color:#f0e68c"></button>
-              <button onclick="command('foreColor',false,'#e6e6fa')" style="background-color:#e6e6fa"></button>
-              <button onclick="command('foreColor',false,'#fff0f5')" style="background-color:#fff0f5"></button>
-              <button onclick="command('foreColor',false,'#7cfc00')" style="background-color:#7cfc00"></button>
-              <button onclick="command('foreColor',false,'#fffacd')" style="background-color:#fffacd"></button>
-              <button onclick="command('foreColor',false,'#add8e6')" style="background-color:#add8e6"></button>
-              <button onclick="command('foreColor',false,'#f08080')" style="background-color:#f08080"></button>
-              <button onclick="command('foreColor',false,'#e0ffff')" style="background-color:#e0ffff"></button>
-              <button onclick="command('foreColor',false,'#fafad2')" style="background-color:#fafad2"></button>
-              <button onclick="command('foreColor',false,'#d3d3d3')" style="background-color:#d3d3d3"></button>
-              <button onclick="command('foreColor',false,'#90ee90')" style="background-color:#90ee90"></button>
-              <button onclick="command('foreColor',false,'#ffb6c1')" style="background-color:#ffb6c1"></button>
-              <button onclick="command('foreColor',false,'#ffa07a')" style="background-color:#ffa07a"></button>
-              <button onclick="command('foreColor',false,'#20b2aa')" style="background-color:#20b2aa"></button>
-              <button onclick="command('foreColor',false,'#87cefa')" style="background-color:#87cefa"></button>
-              <button onclick="command('foreColor',false,'#ffffe0')" style="background-color:#ffffe0"></button>
-              <button onclick="command('foreColor',false,'#00ff00')" style="background-color:#00ff00"></button>
-              <button onclick="command('foreColor',false,'#32cd32')" style="background-color:#32cd32"></button>
-              <button onclick="command('foreColor',false,'#faf0e6')" style="background-color:#faf0e6"></button>
-            </div>
-          </div>
-
-          <button onclick="openBackColors()">
-            <svg style="background-color:  #b3b4e1;" xmlns="http://www.w3.org/2000/svg" width="21" height="21"
-              fill="white" class="bi bi-type" viewBox="0 0 16 16">
-              <path
-                d="m2.244 13.081.943-2.803H6.66l.944 2.803H8.86L5.54 3.75H4.322L1 13.081zm2.7-7.923L6.34 9.314H3.51l1.4-4.156zm9.146 7.027h.035v.896h1.128V8.125c0-1.51-1.114-2.345-2.646-2.345-1.736 0-2.59.916-2.666 2.174h1.108c.068-.718.595-1.19 1.517-1.19.971 0 1.518.52 1.518 1.464v.731H12.19c-1.647.007-2.522.8-2.522 2.058 0 1.319.957 2.18 2.345 2.18 1.06 0 1.716-.43 2.078-1.011zm-1.763.035c-.752 0-1.456-.397-1.456-1.244 0-.65.424-1.115 1.408-1.115h1.805v.834c0 .896-.752 1.525-1.757 1.525" />
-            </svg>
-          </button>
-          <div class="backcolorSelectContainer">
-            <div class="flex">
-              <button onclick="command('backColor',false,'#ffffff')" style="background-color:#ffffff"></button>
-              <button onclick="command('backColor',false,'#8a2be2')" style="background-color:#8a2be2"></button>
-              <button onclick="command('backColor',false,'#faebd7')" style="background-color:#faebd7"></button>
-              <button onclick="command('backColor',false,'#00ffff')" style="background-color:#00ffff"></button>
-              <button onclick="command('backColor',false,'#7fffd4')" style="background-color:#7fffd4"></button>
-              <button onclick="command('backColor',false,'#f0ffff')" style="background-color:#f0ffff"></button>
-              <button onclick="command('backColor',false,'#f5f5dc')" style="background-color:#f5f5dc"></button>
-              <button onclick="command('backColor',false,'#ffe4c4')" style="background-color:#ffe4c4"></button>
-              <button onclick="command('backColor',false,'#000000')" style="background-color:#000000"></button>
-              <button onclick="command('backColor',false,'#ffebcd')" style="background-color:#ffebcd"></button>
-              <button onclick="command('backColor',false,'#0000ff')" style="background-color:#0000ff"></button>
-              <button onclick="command('backColor',false,'#ffebcd')" style="background-color:#ffebcd"></button>
-              <button onclick="command('backColor',false,'#0000ff')" style="background-color:#0000ff"></button>
-              <button onclick="command('backColor',false,'#a52a2a')" style="background-color:#a52a2a"></button>
-              <button onclick="command('backColor',false,'#deb887')" style="background-color:#deb887"></button>
-              <button onclick="command('backColor',false,'#5f9ea0')" style="background-color:#5f9ea0"></button>
-              <button onclick="command('backColor',false,'#7fff00')" style="background-color:#7fff00"></button>
-              <button onclick="command('backColor',false,'#d2691e')" style="background-color:#d2691e"></button>
-              <button onclick="command('backColor',false,'#ff7f50')" style="background-color:#ff7f50"></button>
-              <button onclick="command('backColor',false,'#6495ed')" style="background-color:#6495ed"></button>
-              <button onclick="command('backColor',false,'#fff8dc')" style="background-color:#fff8dc"></button>
-              <button onclick="command('backColor',false,'#dc143c')" style="background-color:#dc143c"></button>
-              <button onclick="command('backColor',false,'#00ffff')" style="background-color:#00ffff"></button>
-              <button onclick="command('backColor',false,'#00008b')" style="background-color:#00008b"></button>
-              <button onclick="command('backColor',false,'#008b8b')" style="background-color:#008b8b"></button>
-              <button onclick="command('backColor',false,'#b8860b')" style="background-color:#b8860b"></button>
-              <button onclick="command('backColor',false,'#a9a9a9')" style="background-color:#a9a9a9"></button>
-              <button onclick="command('backColor',false,'#006400')" style="background-color:#006400"></button>
-              <button onclick="command('backColor',false,'#bdb76b')" style="background-color:#bdb76b"></button>
-              <button onclick="command('backColor',false,'#8b008b')" style="background-color:#8b008b"></button>
-              <button onclick="command('backColor',false,'#556b2f')" style="background-color:#556b2f"></button>
-              <button onclick="command('backColor',false,'#ff8c00')" style="background-color:#ff8c00"></button>
-              <button onclick="command('backColor',false,'#9932cc')" style="background-color:#9932cc"></button>
-              <button onclick="command('backColor',false,'#8b0000')" style="background-color:#8b0000"></button>
-              <button onclick="command('backColor',false,'#e9967a')" style="background-color:#e9967a"></button>
-              <button onclick="command('backColor',false,'#8fbc8f')" style="background-color:#8fbc8f"></button>
-              <button onclick="command('backColor',false,'#483d8b')" style="background-color:#483d8b"></button>
-              <button onclick="command('backColor',false,'#2f4f4f')" style="background-color:#2f4f4f"></button>
-              <button onclick="command('backColor',false,'#00ced1')" style="background-color:#00ced1"></button>
-              <button onclick="command('backColor',false,'#9400d3')" style="background-color:#9400d3"></button>
-              <button onclick="command('backColor',false,'#ff1493')" style="background-color:#ff1493"></button>
-              <button onclick="command('backColor',false,'#00bfff')" style="background-color:#00bfff"></button>
-              <button onclick="command('backColor',false,'#696969')" style="background-color:#696969"></button>
-              <button onclick="command('backColor',false,'#1e90ff')" style="background-color:#1e90ff"></button>
-              <button onclick="command('backColor',false,'#b22222')" style="background-color:#b22222"></button>
-              <button onclick="command('backColor',false,'#fffaf0')" style="background-color:#fffaf0"></button>
-              <button onclick="command('backColor',false,'#228b22')" style="background-color:#228b22"></button>
-              <button onclick="command('backColor',false,'#ff00ff')" style="background-color:#ff00ff"></button>
-              <button onclick="command('backColor',false,'#dcdcdc')" style="background-color:#dcdcdc"></button>
-              <button onclick="command('backColor',false,'#f8f8ff')" style="background-color:#f8f8ff"></button>
-              <button onclick="command('backColor',false,'#ffd700')" style="background-color:#ffd700"></button>
-              <button onclick="command('backColor',false,'#daa520')" style="background-color:#daa520"></button>
-              <button onclick="command('backColor',false,'#808080')" style="background-color:#808080"></button>
-              <button onclick="command('backColor',false,'#008000')" style="background-color:#008000"></button>
-              <button onclick="command('backColor',false,'#adff2f')" style="background-color:#adff2f"></button>
-              <button onclick="command('backColor',false,'#f0fff0')" style="background-color:#f0fff0"></button>
-              <button onclick="command('backColor',false,'#ff69b4')" style="background-color:#ff69b4"></button>
-              <button onclick="command('backColor',false,'#cd5c5c')" style="background-color:#cd5c5c"></button>
-              <button onclick="command('backColor',false,'#4b0082')" style="background-color:#4b0082"></button>
-              <button onclick="command('backColor',false,'#fffff0')" style="background-color:#fffff0"></button>
-              <button onclick="command('backColor',false,'#f0e68c')" style="background-color:#f0e68c"></button>
-              <button onclick="command('backColor',false,'#e6e6fa')" style="background-color:#e6e6fa"></button>
-              <button onclick="command('backColor',false,'#fff0f5')" style="background-color:#fff0f5"></button>
-              <button onclick="command('backColor',false,'#7cfc00')" style="background-color:#7cfc00"></button>
-              <button onclick="command('backColor',false,'#fffacd')" style="background-color:#fffacd"></button>
-              <button onclick="command('backColor',false,'#add8e6')" style="background-color:#add8e6"></button>
-              <button onclick="command('backColor',false,'#f08080')" style="background-color:#f08080"></button>
-              <button onclick="command('backColor',false,'#e0ffff')" style="background-color:#e0ffff"></button>
-              <button onclick="command('backColor',false,'#fafad2')" style="background-color:#fafad2"></button>
-              <button onclick="command('backColor',false,'#d3d3d3')" style="background-color:#d3d3d3"></button>
-              <button onclick="command('backColor',false,'#90ee90')" style="background-color:#90ee90"></button>
-              <button onclick="command('backColor',false,'#ffb6c1')" style="background-color:#ffb6c1"></button>
-              <button onclick="command('backColor',false,'#ffa07a')" style="background-color:#ffa07a"></button>
-              <button onclick="command('backColor',false,'#20b2aa')" style="background-color:#20b2aa"></button>
-              <button onclick="command('backColor',false,'#87cefa')" style="background-color:#87cefa"></button>
-              <button onclick="command('backColor',false,'#ffffe0')" style="background-color:#ffffe0"></button>
-              <button onclick="command('backColor',false,'#00ff00')" style="background-color:#00ff00"></button>
-              <button onclick="command('backColor',false,'#32cd32')" style="background-color:#32cd32"></button>
-              <button onclick="command('backColor',false,'#faf0e6')" style="background-color:#faf0e6"></button>
-            </div>
-          </div>
+                <button onclick="openBackColors()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-highlighter"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M11.096.644a2 2 0 0 1 2.791.036l1.433 1.433a2 2 0 0 1 .035 2.791l-.413.435-8.07 8.995a.5.5 0 0 1-.372.166h-3a.5.5 0 0 1-.234-.058l-.412.412A.5.5 0 0 1 2.5 15h-2a.5.5 0 0 1-.354-.854l1.412-1.412A.5.5 0 0 1 1.5 12.5v-3a.5.5 0 0 1 .166-.372l8.995-8.07zm-.115 1.47L2.727 9.52l3.753 3.753 7.406-8.254zm3.585 2.17.064-.068a1 1 0 0 0-.017-1.396L13.18 1.387a1 1 0 0 0-1.396-.018l-.068.065zM5.293 13.5 2.5 10.707v1.586L3.707 13.5z" />
+                  </svg>
+                </button>
+                
+              </div>
+              <div>
+                <button onclick="command('subscript')" title="subscript">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-subscript"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="m3.266 12.496.96-2.853H7.76l.96 2.853H10L6.62 3H5.38L2 12.496zm2.748-8.063 1.419 4.23h-2.88l1.426-4.23zm6.132 7.203v-.075c0-.332.234-.618.619-.618.354 0 .618.256.618.58 0 .362-.271.649-.52.898l-1.788 1.832V15h3.59v-.958h-1.923v-.045l.973-1.04c.415-.438.867-.845.867-1.547 0-.8-.701-1.41-1.787-1.41-1.23 0-1.795.8-1.795 1.576v.06z" />
+                  </svg>
+                </button>
+                <button onclick="command('superscript')" title="superscript">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-superscript"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="m4.266 12.496.96-2.853H8.76l.96 2.853H11L7.62 3H6.38L3 12.496zm2.748-8.063 1.419 4.23h-2.88l1.426-4.23zm5.132-1.797v-.075c0-.332.234-.618.619-.618.354 0 .618.256.618.58 0 .362-.271.649-.52.898l-1.788 1.832V6h3.59v-.958h-1.923v-.045l.973-1.04c.415-.438.867-.845.867-1.547 0-.8-.701-1.41-1.787-1.41C11.565 1 11 1.8 11 2.576v.06z" />
+                  </svg>
+                </button>
+              </div>
+              <div>
+                <button onclick="openCreateLinkContainer()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-link-45deg"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
+                    <path
+                      d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
+                  </svg>
+                </button>
+              </div>
+              <div>
+                <button onclick="command('justifyLeft')" title="justify left">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
+                    class="bi bi-justify-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
+                  </svg>
+                </button>
+                <button onclick="command('justifyCenter')" title="justify center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-text-center"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M4 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
+                  </svg>
+                </button>
+                <button onclick="command('justifyRight')" title="justify right">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
+                    class="bi bi-justify-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
+                  </svg>
+                </button>
+              </div>
         </div>
 
+        <div class="colorSelectContainer">
+          <button onclick="command('foreColor',false,'#ffffff')" style="background-color:#ffffff"></button>
+          <button onclick="command('foreColor',false,'#8a2be2')" style="background-color:#8a2be2"></button>
+          <button onclick="command('foreColor',false,'#faebd7')" style="background-color:#faebd7"></button>
+          <button onclick="command('foreColor',false,'#00ffff')" style="background-color:#00ffff"></button>
+          <button onclick="command('foreColor',false,'#7fffd4')" style="background-color:#7fffd4"></button>
+          <button onclick="command('foreColor',false,'#f0ffff')" style="background-color:#f0ffff"></button>
+          <button onclick="command('foreColor',false,'#f5f5dc')" style="background-color:#f5f5dc"></button>
+          <button onclick="command('foreColor',false,'#ffe4c4')" style="background-color:#ffe4c4"></button>
+          <button onclick="command('foreColor',false,'#000000')" style="background-color:#000000"></button>
+          <button onclick="command('foreColor',false,'#ffebcd')" style="background-color:#ffebcd"></button>
+          <button onclick="command('foreColor',false,'#0000ff')" style="background-color:#0000ff"></button>
+          <button onclick="command('foreColor',false,'#ffebcd')" style="background-color:#ffebcd"></button>
+          <button onclick="command('foreColor',false,'#0000ff')" style="background-color:#0000ff"></button>
+          <button onclick="command('foreColor',false,'#a52a2a')" style="background-color:#a52a2a"></button>
+          <button onclick="command('foreColor',false,'#deb887')" style="background-color:#deb887"></button>
+          <button onclick="command('foreColor',false,'#5f9ea0')" style="background-color:#5f9ea0"></button>
+          <button onclick="command('foreColor',false,'#7fff00')" style="background-color:#7fff00"></button>
+          <button onclick="command('foreColor',false,'#d2691e')" style="background-color:#d2691e"></button>
+          <button onclick="command('foreColor',false,'#ff7f50')" style="background-color:#ff7f50"></button>
+          <button onclick="command('foreColor',false,'#6495ed')" style="background-color:#6495ed"></button>
+          <button onclick="command('foreColor',false,'#fff8dc')" style="background-color:#fff8dc"></button>
+          <button onclick="command('foreColor',false,'#dc143c')" style="background-color:#dc143c"></button>
+          <button onclick="command('foreColor',false,'#00ffff')" style="background-color:#00ffff"></button>
+          <button onclick="command('foreColor',false,'#00008b')" style="background-color:#00008b"></button>
+          <button onclick="command('foreColor',false,'#008b8b')" style="background-color:#008b8b"></button>
+          <button onclick="command('foreColor',false,'#b8860b')" style="background-color:#b8860b"></button>
+          <button onclick="command('foreColor',false,'#a9a9a9')" style="background-color:#a9a9a9"></button>
+          <button onclick="command('foreColor',false,'#006400')" style="background-color:#006400"></button>
+          <button onclick="command('foreColor',false,'#bdb76b')" style="background-color:#bdb76b"></button>
+          <button onclick="command('foreColor',false,'#8b008b')" style="background-color:#8b008b"></button>
+          <button onclick="command('foreColor',false,'#556b2f')" style="background-color:#556b2f"></button>
+          <button onclick="command('foreColor',false,'#ff8c00')" style="background-color:#ff8c00"></button>
+          <button onclick="command('foreColor',false,'#9932cc')" style="background-color:#9932cc"></button>
+          <button onclick="command('foreColor',false,'#8b0000')" style="background-color:#8b0000"></button>
+          <button onclick="command('foreColor',false,'#e9967a')" style="background-color:#e9967a"></button>
+          <button onclick="command('foreColor',false,'#8fbc8f')" style="background-color:#8fbc8f"></button>
+          <button onclick="command('foreColor',false,'#483d8b')" style="background-color:#483d8b"></button>
+          <button onclick="command('foreColor',false,'#2f4f4f')" style="background-color:#2f4f4f"></button>
+          <button onclick="command('foreColor',false,'#00ced1')" style="background-color:#00ced1"></button>
+          <button onclick="command('foreColor',false,'#9400d3')" style="background-color:#9400d3"></button>
+          <button onclick="command('foreColor',false,'#ff1493')" style="background-color:#ff1493"></button>
+          <button onclick="command('foreColor',false,'#00bfff')" style="background-color:#00bfff"></button>
+          <button onclick="command('foreColor',false,'#696969')" style="background-color:#696969"></button>
+          <button onclick="command('foreColor',false,'#1e90ff')" style="background-color:#1e90ff"></button>
+          <button onclick="command('foreColor',false,'#b22222')" style="background-color:#b22222"></button>
+          <button onclick="command('foreColor',false,'#fffaf0')" style="background-color:#fffaf0"></button>
+          <button onclick="command('foreColor',false,'#228b22')" style="background-color:#228b22"></button>
+          <button onclick="command('foreColor',false,'#ff00ff')" style="background-color:#ff00ff"></button>
+          <button onclick="command('foreColor',false,'#dcdcdc')" style="background-color:#dcdcdc"></button>
+          <button onclick="command('foreColor',false,'#f8f8ff')" style="background-color:#f8f8ff"></button>
+          <button onclick="command('foreColor',false,'#ffd700')" style="background-color:#ffd700"></button>
+          <button onclick="command('foreColor',false,'#daa520')" style="background-color:#daa520"></button>
+          <button onclick="command('foreColor',false,'#808080')" style="background-color:#808080"></button>
+          <button onclick="command('foreColor',false,'#008000')" style="background-color:#008000"></button>
+          <button onclick="command('foreColor',false,'#adff2f')" style="background-color:#adff2f"></button>
+          <button onclick="command('foreColor',false,'#f0fff0')" style="background-color:#f0fff0"></button>
+          <button onclick="command('foreColor',false,'#ff69b4')" style="background-color:#ff69b4"></button>
+          <button onclick="command('foreColor',false,'#cd5c5c')" style="background-color:#cd5c5c"></button>
+          <button onclick="command('foreColor',false,'#4b0082')" style="background-color:#4b0082"></button>
+          <button onclick="command('foreColor',false,'#fffff0')" style="background-color:#fffff0"></button>
+          <button onclick="command('foreColor',false,'#f0e68c')" style="background-color:#f0e68c"></button>
+          <button onclick="command('foreColor',false,'#e6e6fa')" style="background-color:#e6e6fa"></button>
+          <button onclick="command('foreColor',false,'#fff0f5')" style="background-color:#fff0f5"></button>
+          <button onclick="command('foreColor',false,'#7cfc00')" style="background-color:#7cfc00"></button>
+          <button onclick="command('foreColor',false,'#fffacd')" style="background-color:#fffacd"></button>
+          <button onclick="command('foreColor',false,'#add8e6')" style="background-color:#add8e6"></button>
+          <button onclick="command('foreColor',false,'#f08080')" style="background-color:#f08080"></button>
+          <button onclick="command('foreColor',false,'#e0ffff')" style="background-color:#e0ffff"></button>
+          <button onclick="command('foreColor',false,'#fafad2')" style="background-color:#fafad2"></button>
+          <button onclick="command('foreColor',false,'#d3d3d3')" style="background-color:#d3d3d3"></button>
+          <button onclick="command('foreColor',false,'#90ee90')" style="background-color:#90ee90"></button>
+          <button onclick="command('foreColor',false,'#ffb6c1')" style="background-color:#ffb6c1"></button>
+          <button onclick="command('foreColor',false,'#ffa07a')" style="background-color:#ffa07a"></button>
+          <button onclick="command('foreColor',false,'#20b2aa')" style="background-color:#20b2aa"></button>
+          <button onclick="command('foreColor',false,'#87cefa')" style="background-color:#87cefa"></button>
+          <button onclick="command('foreColor',false,'#ffffe0')" style="background-color:#ffffe0"></button>
+          <button onclick="command('foreColor',false,'#00ff00')" style="background-color:#00ff00"></button>
+          <button onclick="command('foreColor',false,'#32cd32')" style="background-color:#32cd32"></button>
+          <button onclick="command('foreColor',false,'#faf0e6')" style="background-color:#faf0e6"></button>
+         </div>
+        <div class="backcolorSelectContainer">
+            <button onclick="command('backColor',false,'#ffffff')" style="background-color:#ffffff"></button>
+            <button onclick="command('backColor',false,'#8a2be2')" style="background-color:#8a2be2"></button>
+            <button onclick="command('backColor',false,'#faebd7')" style="background-color:#faebd7"></button>
+            <button onclick="command('backColor',false,'#00ffff')" style="background-color:#00ffff"></button>
+            <button onclick="command('backColor',false,'#7fffd4')" style="background-color:#7fffd4"></button>
+            <button onclick="command('backColor',false,'#f0ffff')" style="background-color:#f0ffff"></button>
+            <button onclick="command('backColor',false,'#f5f5dc')" style="background-color:#f5f5dc"></button>
+            <button onclick="command('backColor',false,'#ffe4c4')" style="background-color:#ffe4c4"></button>
+            <button onclick="command('backColor',false,'#000000')" style="background-color:#000000"></button>
+            <button onclick="command('backColor',false,'#ffebcd')" style="background-color:#ffebcd"></button>
+            <button onclick="command('backColor',false,'#0000ff')" style="background-color:#0000ff"></button>
+            <button onclick="command('backColor',false,'#ffebcd')" style="background-color:#ffebcd"></button>
+            <button onclick="command('backColor',false,'#0000ff')" style="background-color:#0000ff"></button>
+            <button onclick="command('backColor',false,'#a52a2a')" style="background-color:#a52a2a"></button>
+            <button onclick="command('backColor',false,'#deb887')" style="background-color:#deb887"></button>
+            <button onclick="command('backColor',false,'#5f9ea0')" style="background-color:#5f9ea0"></button>
+            <button onclick="command('backColor',false,'#7fff00')" style="background-color:#7fff00"></button>
+            <button onclick="command('backColor',false,'#d2691e')" style="background-color:#d2691e"></button>
+            <button onclick="command('backColor',false,'#ff7f50')" style="background-color:#ff7f50"></button>
+            <button onclick="command('backColor',false,'#6495ed')" style="background-color:#6495ed"></button>
+            <button onclick="command('backColor',false,'#fff8dc')" style="background-color:#fff8dc"></button>
+            <button onclick="command('backColor',false,'#dc143c')" style="background-color:#dc143c"></button>
+            <button onclick="command('backColor',false,'#00ffff')" style="background-color:#00ffff"></button>
+            <button onclick="command('backColor',false,'#00008b')" style="background-color:#00008b"></button>
+            <button onclick="command('backColor',false,'#008b8b')" style="background-color:#008b8b"></button>
+            <button onclick="command('backColor',false,'#b8860b')" style="background-color:#b8860b"></button>
+            <button onclick="command('backColor',false,'#a9a9a9')" style="background-color:#a9a9a9"></button>
+            <button onclick="command('backColor',false,'#006400')" style="background-color:#006400"></button>
+            <button onclick="command('backColor',false,'#bdb76b')" style="background-color:#bdb76b"></button>
+            <button onclick="command('backColor',false,'#8b008b')" style="background-color:#8b008b"></button>
+            <button onclick="command('backColor',false,'#556b2f')" style="background-color:#556b2f"></button>
+            <button onclick="command('backColor',false,'#ff8c00')" style="background-color:#ff8c00"></button>
+            <button onclick="command('backColor',false,'#9932cc')" style="background-color:#9932cc"></button>
+            <button onclick="command('backColor',false,'#8b0000')" style="background-color:#8b0000"></button>
+            <button onclick="command('backColor',false,'#e9967a')" style="background-color:#e9967a"></button>
+            <button onclick="command('backColor',false,'#8fbc8f')" style="background-color:#8fbc8f"></button>
+            <button onclick="command('backColor',false,'#483d8b')" style="background-color:#483d8b"></button>
+            <button onclick="command('backColor',false,'#2f4f4f')" style="background-color:#2f4f4f"></button>
+            <button onclick="command('backColor',false,'#00ced1')" style="background-color:#00ced1"></button>
+            <button onclick="command('backColor',false,'#9400d3')" style="background-color:#9400d3"></button>
+            <button onclick="command('backColor',false,'#ff1493')" style="background-color:#ff1493"></button>
+            <button onclick="command('backColor',false,'#00bfff')" style="background-color:#00bfff"></button>
+            <button onclick="command('backColor',false,'#696969')" style="background-color:#696969"></button>
+            <button onclick="command('backColor',false,'#1e90ff')" style="background-color:#1e90ff"></button>
+            <button onclick="command('backColor',false,'#b22222')" style="background-color:#b22222"></button>
+            <button onclick="command('backColor',false,'#fffaf0')" style="background-color:#fffaf0"></button>
+            <button onclick="command('backColor',false,'#228b22')" style="background-color:#228b22"></button>
+            <button onclick="command('backColor',false,'#ff00ff')" style="background-color:#ff00ff"></button>
+            <button onclick="command('backColor',false,'#dcdcdc')" style="background-color:#dcdcdc"></button>
+            <button onclick="command('backColor',false,'#f8f8ff')" style="background-color:#f8f8ff"></button>
+            <button onclick="command('backColor',false,'#ffd700')" style="background-color:#ffd700"></button>
+            <button onclick="command('backColor',false,'#daa520')" style="background-color:#daa520"></button>
+            <button onclick="command('backColor',false,'#808080')" style="background-color:#808080"></button>
+            <button onclick="command('backColor',false,'#008000')" style="background-color:#008000"></button>
+            <button onclick="command('backColor',false,'#adff2f')" style="background-color:#adff2f"></button>
+            <button onclick="command('backColor',false,'#f0fff0')" style="background-color:#f0fff0"></button>
+            <button onclick="command('backColor',false,'#ff69b4')" style="background-color:#ff69b4"></button>
+            <button onclick="command('backColor',false,'#cd5c5c')" style="background-color:#cd5c5c"></button>
+            <button onclick="command('backColor',false,'#4b0082')" style="background-color:#4b0082"></button>
+            <button onclick="command('backColor',false,'#fffff0')" style="background-color:#fffff0"></button>
+            <button onclick="command('backColor',false,'#f0e68c')" style="background-color:#f0e68c"></button>
+            <button onclick="command('backColor',false,'#e6e6fa')" style="background-color:#e6e6fa"></button>
+            <button onclick="command('backColor',false,'#fff0f5')" style="background-color:#fff0f5"></button>
+            <button onclick="command('backColor',false,'#7cfc00')" style="background-color:#7cfc00"></button>
+            <button onclick="command('backColor',false,'#fffacd')" style="background-color:#fffacd"></button>
+            <button onclick="command('backColor',false,'#add8e6')" style="background-color:#add8e6"></button>
+            <button onclick="command('backColor',false,'#f08080')" style="background-color:#f08080"></button>
+            <button onclick="command('backColor',false,'#e0ffff')" style="background-color:#e0ffff"></button>
+            <button onclick="command('backColor',false,'#fafad2')" style="background-color:#fafad2"></button>
+            <button onclick="command('backColor',false,'#d3d3d3')" style="background-color:#d3d3d3"></button>
+            <button onclick="command('backColor',false,'#90ee90')" style="background-color:#90ee90"></button>
+            <button onclick="command('backColor',false,'#ffb6c1')" style="background-color:#ffb6c1"></button>
+            <button onclick="command('backColor',false,'#ffa07a')" style="background-color:#ffa07a"></button>
+            <button onclick="command('backColor',false,'#20b2aa')" style="background-color:#20b2aa"></button>
+            <button onclick="command('backColor',false,'#87cefa')" style="background-color:#87cefa"></button>
+            <button onclick="command('backColor',false,'#ffffe0')" style="background-color:#ffffe0"></button>
+            <button onclick="command('backColor',false,'#00ff00')" style="background-color:#00ff00"></button>
+            <button onclick="command('backColor',false,'#32cd32')" style="background-color:#32cd32"></button>
+            <button onclick="command('backColor',false,'#faf0e6')" style="background-color:#faf0e6"></button>
+        </div>
+        
         <div>
-          <!-- <button onclick="command('subscript')" title="subscript">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-subscript" viewBox="0 0 16 16">
-                        <path d="m3.266 12.496.96-2.853H7.76l.96 2.853H10L6.62 3H5.38L2 12.496zm2.748-8.063 1.419 4.23h-2.88l1.426-4.23zm6.132 7.203v-.075c0-.332.234-.618.619-.618.354 0 .618.256.618.58 0 .362-.271.649-.52.898l-1.788 1.832V15h3.59v-.958h-1.923v-.045l.973-1.04c.415-.438.867-.845.867-1.547 0-.8-.701-1.41-1.787-1.41-1.23 0-1.795.8-1.795 1.576v.06z"/>
-                      </svg>
-                    </button>
-                    <button onclick="command('superscript')" title="superscript">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-superscript" viewBox="0 0 16 16">
-                        <path d="m4.266 12.496.96-2.853H8.76l.96 2.853H11L7.62 3H6.38L3 12.496zm2.748-8.063 1.419 4.23h-2.88l1.426-4.23zm5.132-1.797v-.075c0-.332.234-.618.619-.618.354 0 .618.256.618.58 0 .362-.271.649-.52.898l-1.788 1.832V6h3.59v-.958h-1.923v-.045l.973-1.04c.415-.438.867-.845.867-1.547 0-.8-.701-1.41-1.787-1.41C11.565 1 11 1.8 11 2.576v.06z"/>
-                      </svg>
-                    </button> -->
-
-          <button onclick="openCreateLinkContainer()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-link-45deg"
+          <button onclick="openCode()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-code-square"
               viewBox="0 0 16 16">
               <path
-                d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
+                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
               <path
-                d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
+                d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0m2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0" />
             </svg>
           </button>
-          <!-- <button onclick="toggleFontsContainer()" title="font family">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-fonts" viewBox="0 0 16 16">
-                            <path d="M12.258 3h-8.51l-.083 2.46h.479c.26-1.544.758-1.783 2.693-1.845l.424-.013v7.827c0 .663-.144.82-1.3.923v.52h4.082v-.52c-1.162-.103-1.306-.26-1.306-.923V3.602l.431.013c1.934.062 2.434.301 2.693 1.846h.479z"/>
-                          </svg>
-                    </button> -->
-
-        </div>
-
-        <div>
-          <button onclick="command('justifyLeft')" title="justify left">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
-              class="bi bi-justify-left" viewBox="0 0 16 16">
-              <path fill-rule="evenodd"
-                d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
-            </svg>
-          </button>
-          <button onclick="command('justifyCenter')" title="justify center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-text-center"
-              viewBox="0 0 16 16">
-              <path fill-rule="evenodd"
-                d="M4 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
-            </svg>
-          </button>
-          <button onclick="command('justifyRight')" title="justify right">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
-              class="bi bi-justify-right" viewBox="0 0 16 16">
-              <path fill-rule="evenodd"
-                d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
-            </svg>
-          </button>
-          <!-- hazir degil -->
-          <!-- <button onclick="command('justifyFull')" title="justify full">
-                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-justify" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
-                </svg>
-              </button> -->
-        </div>
-        <div>
           <button onclick="command('insertImage')">
             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-images"
               viewBox="0 0 16 16">
@@ -1383,7 +1381,8 @@
             </svg>
           </button>
 
-          <!-- <button onclick="addAttribute('id')" style="width: 38px; height: 38px;" title="Add Id">
+          <!-- 
+          <button onclick="addAttribute('id')" style="width: 38px; height: 38px;" title="Add Id">
                 <span style="font-weight: 400;font-size: smaller;">Id</span>
               </button>
               <button onclick="addAttribute('class')" style="width: 38px; height: 38px;" title="Add Class">
@@ -1397,12 +1396,9 @@
                 d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
             </svg>
           </button>
+
         </div>
 
-
-        <!-- <button>
-            - Tire işaretli liste
-          </button> -->
       </div>
 
 
@@ -1420,19 +1416,6 @@
             d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z" />
         </svg>
       </div>
-
-      <!-- <div class="fontsContainer">
-           <div class="flex acenter spacebetween" style="width:260px;"><h4>Font Family</h4> <span title="font for all article">Article<input type="checkbox" name="articleFF" id=""></span></div>
-             <div id="fontsContainer" class="flex">
-                 <button onclick="command('fontName',false,'Arial, Helvetica, sans-serif;')" style="font-family: Arial, Helvetica, sans-serif;">Lorem,.</button> 
-              
-             </div>
-             
-           </div> -->
-
-
-
-
 
 
 
@@ -1494,68 +1477,42 @@
   </header>
 
 
-
-
   <div id="imgAttr">
-    <i class="bi bi-x-circle"> iptal</i>
+    <!-- <i class="bi bi-x-circle"> iptal</i> -->
+
     <div>
-      <img height="" width="370" style="border-radius: 10px;margin-top:10px" src="" alt="">
-      <button>Border</button>
-      <button>Padding</button>
-      <button>Margin</button>
-      <button><i class="bi bi-trash"></i>Delete</button>
+      <img style="border-radius: 5px;width:100%" src="" alt="">
+
+      <select name="" id="imageStyle" style="border-radius: 3px;width:100% ;margin-top:10px;padding:10px;">
+        <option value="">--default style--</option>
+        <option value="">style 1</option>
+        <option value="">style 2</option>
+        <option value="">style 3</option>
+        <option value="">style 4</option>
+        <option value="">style 5</option>
+        <option value="">style 6</option>
+        <option value="">style 7</option>
+        <option value="">style 8</option>
+        <option value="">style 9</option>
+      </select>
+      <button style="width: 100%;margin:10px 0;border:1px solid gainsboro;"><i class="bi bi-trash"></i>Delete</button>
+      <hr>
     </div>
 
-    <div
-      style="display: flex;align-items: center;justify-content: flex-start;flex-direction: row;flex-wrap: wrap;overflow-y:scroll;height: 100%;">
+    <div style="display: flex;align-items: center;justify-content: flex-start;flex-direction: row;flex-wrap: wrap;">
 
       <div
-        style="height: 80px; width:calc(33% - 30px);border:1px solid rgba(0, 0, 0, 0.1818181818);border-radius:20px;display: flex;align-items: center;justify-content: center;font-size:32px;background-color: #b3b4e1;margin:0 15px;">
-        <i class="bi bi-folder-plus"></i>
+        style="height: 100px; width:calc(49% - 30px);border:1px solid rgba(0, 0, 0, 0.1818181818);border-radius:20px;display: flex;align-items: center;justify-content: center;font-size:32px;background-color: #fff;margin:0 15px;">
+        <i class="bi bi-plus-lg"></i>
       </div>
       <img src="./assets/uploads/img12.jpeg" alt="">
       <img src="./assets/uploads/img11.jpeg" alt="">
-      <img src="./IMG_2184.jpeg" alt="">
-      <img src="./IMG_2184.jpeg" alt="">
-        <img src="./IMG_2184.jpeg" alt="">
-        <img src="./assets/uploads/img11.jpeg" alt=""><img
-        src="./IMG_2184.jpeg" alt="">
-        <img src="./IMG_2184.jpeg" alt=""><img src="./IMG_2184.jpeg" alt=""><img
-        src="./IMG_2184.jpeg" alt="">
-        <img src="./IMG_2184.jpeg" alt=""><img src="./IMG_2184.jpeg" alt=""><img
-        src="./IMG_2184.jpeg" alt="">
-        <img src="./IMG_2184.jpeg" alt=""><img src="./IMG_2184.jpeg" alt=""><img
-        src="./IMG_2184.jpeg" alt="">
-        <img src="./IMG_2184.jpeg" alt=""><img src="./IMG_2184.jpeg" alt=""><img
-        src="./assets/uploads/img11.jpeg" alt="">
-        <img src="./IMG_2184.jpeg" alt=""><img src="./IMG_2184.jpeg" alt=""><img
-        src="./IMG_2184.jpeg" alt="">
-        <img src="./assets/uploads/img15.jpeg" alt=""><img src="./IMG_2184.jpeg" alt=""><img
-        src="./IMG_2184.jpeg" alt="">
-        <img src="./IMG_2184.jpeg" alt=""><img src="./IMG_2184.jpeg" alt=""><img
-        src="./IMG_2184.jpeg" alt="">
-        <img src="./IMG_2184.jpeg" alt=""><img src="./IMG_2184.jpeg" alt=""><img
-        src="./IMG_2184.jpeg" alt="">
-        <img src="./IMG_2184.jpeg" alt=""><img src="./IMG_2184.jpeg" alt=""><img
-        src="./IMG_2184.jpeg" alt=""><img src="./IMG_2184.jpeg" alt=""><img src="./IMG_2184.jpeg" alt=""><img
-        src="./IMG_2184.jpeg" alt=""><img src="./IMG_2184.jpeg" alt=""><img src="./IMG_2184.jpeg" alt=""><img
-        src="./IMG_2184.jpeg" alt=""><img src="./IMG_2184.jpeg" alt=""><img src="./IMG_2184.jpeg" alt=""><img
-        src="./IMG_2184.jpeg" alt=""><img src="./IMG_2184.jpeg" alt=""><img src="./IMG_2184.jpeg" alt=""><img
-        src="./IMG_2184.jpeg" alt=""><img src="./IMG_2184.jpeg" alt=""><img src="./IMG_2184.jpeg" alt=""><img
-        src="./IMG_2184.jpeg" alt=""><img src="./IMG_2184.jpeg" alt="">
+      <img src="./assets/uploads/img14.jpeg" alt="">
+      <img src="./assets/uploads/img22.jpeg" alt="">
+      <img src="./assets/uploads/img19.jpeg" alt="">
     </div>
 
   </div>
-
-
-
-
-
-
-
-
-
-
 
   <div id="blockSetting">
     <i class="bi bi-x-circle"></i>
@@ -1568,13 +1525,207 @@
   </div>
 
 
+  <div class="baloonTextEditor" id="baloonTextEditor">
+    <button onclick="command('removeFormat')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-eraser-fill"
+        viewBox="0 0 16 16">
+        <path
+          d="M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828zm.66 11.34L3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293z" />
+      </svg>
+    </button>
+    <button onclick="command('bold')" title="bold">
+      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-type-bold"
+        viewBox="0 0 16 16">
+        <path
+          d="M8.21 13c2.106 0 3.412-1.087 3.412-2.823 0-1.306-.984-2.283-2.324-2.386v-.055a2.176 2.176 0 0 0 1.852-2.14c0-1.51-1.162-2.46-3.014-2.46H3.843V13zM5.908 4.674h1.696c.963 0 1.517.451 1.517 1.244 0 .834-.629 1.32-1.73 1.32H5.908V4.673zm0 6.788V8.598h1.73c1.217 0 1.88.492 1.88 1.415 0 .943-.643 1.449-1.832 1.449H5.907z" />
+      </svg>
+    </button>
+    <button onclick="command('underline')" title="underline">
+      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-type-underline"
+        viewBox="0 0 16 16">
+        <path
+          d="M5.313 3.136h-1.23V9.54c0 2.105 1.47 3.623 3.917 3.623s3.917-1.518 3.917-3.623V3.136h-1.23v6.323c0 1.49-.978 2.57-2.687 2.57-1.709 0-2.687-1.08-2.687-2.57V3.136zM12.5 15h-9v-1h9z" />
+      </svg>
+    </button>
+    <button onclick="command('italic')" title="italik">
+      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-type-italic"
+        viewBox="0 0 16 16">
+        <path
+          d="M7.991 11.674 9.53 4.455c.123-.595.246-.71 1.347-.807l.11-.52H7.211l-.11.52c1.06.096 1.128.212 1.005.807L6.57 11.674c-.123.595-.246.71-1.346.806l-.11.52h3.774l.11-.52c-1.06-.095-1.129-.211-1.006-.806z" />
+      </svg>
+    </button>
+    <button onclick="command('strikethrough')" title="strikethrough">
+      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
+        class="bi bi-type-strikethrough" viewBox="0 0 16 16">
+        <path
+          d="M6.333 5.686c0 .31.083.581.27.814H5.166a2.8 2.8 0 0 1-.099-.76c0-1.627 1.436-2.768 3.48-2.768 1.969 0 3.39 1.175 3.445 2.85h-1.23c-.11-1.08-.964-1.743-2.25-1.743-1.23 0-2.18.602-2.18 1.607zm2.194 7.478c-2.153 0-3.589-1.107-3.705-2.81h1.23c.144 1.06 1.129 1.703 2.544 1.703 1.34 0 2.31-.705 2.31-1.675 0-.827-.547-1.374-1.914-1.675L8.046 8.5H1v-1h14v1h-3.504c.468.437.675.994.675 1.697 0 1.826-1.436 2.967-3.644 2.967" />
+      </svg>
+    </button>
+    <button onclick="openBaloonLink()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-link-45deg"
+        viewBox="0 0 16 16">
+        <path
+          d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
+        <path
+          d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
+      </svg>
+    </button>
 
+    <button onclick="openBaloonColorBox()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-marker-tip"
+        viewBox="0 0 16 16">
+        <path
+          d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5 6.064-1.281-4.696A.5.5 0 0 0 9.736 9H6.264a.5.5 0 0 0-.483.368l-1.28 4.696A6.97 6.97 0 0 0 8 15c1.275 0 2.47-.34 3.5-.936m.873-.598a7 7 0 1 0-8.746 0l1.19-4.36a1.5 1.5 0 0 1 1.31-1.1l1.155-3.851c.213-.713 1.223-.713 1.436 0l1.156 3.851a1.5 1.5 0 0 1 1.31 1.1z" />
+      </svg>
+    </button>
+
+  </div>
+
+  <div id="baloonLink">
+    <i onclick="closeBaloonLink()" class="bi bi-x-circle-fill"></i>
+    <input type="text" placeholder="link">
+    <i onclick="createBaloonLink()" class="bi bi-check-circle"></i>
+  </div>
+
+  <div id="baloonColorBox">
+    <button onclick="command('foreColor',false,'#ffffff')" style="background-color:#ffffff"></button>
+    <button onclick="command('foreColor',false,'#fafafa')" style="background-color:#fafafa"></button>
+    <button onclick="command('foreColor',false,'#f5f5f5')" style="background-color:#f5f5f5"></button>
+    <button onclick="command('foreColor',false,'#e0e0e0')" style="background-color:#e0e0e0"></button>
+    <button onclick="command('foreColor',false,'#bdbdbd')" style="background-color:#bdbdbd"></button>
+    <button onclick="command('foreColor',false,'#9e9e9e')" style="background-color:#9e9e9e"></button>
+
+    <button onclick="command('foreColor',false,'#757575')" style="background-color:#757575"></button>
+    <button onclick="command('foreColor',false,'#616161')" style="background-color:#616161"></button>
+    <button onclick="command('foreColor',false,'#424242')" style="background-color:#424242"></button>
+    <button onclick="command('foreColor',false,'#212121')" style="background-color:#212121"></button>
+    <button onclick="command('foreColor',false,'#000000')" style="background-color:#000000"></button>
+    <button onclick="command('foreColor',false,'#f44336')" style="background-color:#f44336"></button>
+
+    <button onclick="command('foreColor',false,'#e91e63')" style="background-color:#e91e63"></button>
+    <button onclick="command('foreColor',false,'#9c27b0')" style="background-color:#9c27b0"></button>
+    <button onclick="command('foreColor',false,'#1c7ce2')" style="background-color:#1c7ce2"></button>
+    <button onclick="command('foreColor',false,'#3f51b5')" style="background-color:#3f51b5"></button>
+    <button onclick="command('foreColor',false,'#2196f3')" style="background-color:#2196f3"></button>
+    <button onclick="command('foreColor',false,'#03a9f4')" style="background-color:#03a9f4"></button>
+
+
+    <button onclick="command('foreColor',false,'#00bcd4')" style="background-color:#00bcd4"></button>
+    <button onclick="command('foreColor',false,'#009688')" style="background-color:#009688"></button>
+    <button onclick="command('foreColor',false,'#4caf50')" style="background-color:#4caf50"></button>
+    <button onclick="command('foreColor',false,'#8bc34a')" style="background-color:#8bc34a"></button>
+    <button onclick="command('foreColor',false,'#cddc39')" style="background-color:#cddc39"></button>
+    <button onclick="command('foreColor',false,'#ffeb3b')" style="background-color:#ffeb3b"></button>
+
+    <button onclick="command('foreColor',false,'#ff9800')" style="background-color:#ff9800"></button>
+    <button onclick="command('foreColor',false,'#795548')" style="background-color:#795548"></button>
+    <button onclick="command('foreColor',false,'#607d8b')" style="background-color:#607d8b"></button>
+  </div>
+
+
+  <div id="imageEditBox">
+    <i onclick="deleteImage()" class="bi bi-trash"></i>
+
+    <i onclick="openSelectImageBox()" class="bi bi-image"></i>
+  </div>
+
+  <div id="selectImageBox">
+    <div class="head">
+      <span>Resim seç</span>
+      <button onclick="closeImageBox()">Kapat</button>
+    </div>
+    <div class="flex">
+      <button>
+        <i class="bi bi-folder-symlink"></i>
+      </button>
+      <img src="./assets//uploads/img1.jpeg" alt="">
+      <img src="./assets//uploads/img2.jpeg" alt="">
+      <img src="./assets//uploads/img3.jpeg" alt="">
+      <img src="./assets//uploads/img4.jpeg" alt="">
+      <img src="./assets//uploads/img5.jpeg" alt="">
+      <img src="./assets//uploads/img6.jpeg" alt="">
+      <img src="./assets//uploads/img7.jpeg" alt="">
+      <img src="./assets//uploads/img8.jpeg" alt="">
+      <img src="./assets//uploads/img9.jpeg" alt="">
+      <img src="./assets//uploads/img10.jpeg" alt="">
+      <img src="./assets//uploads/img11.jpeg" alt="">
+      <img src="./assets//uploads/img12.jpeg" alt="">
+      <img src="./assets//uploads/img13.jpeg" alt="">
+    </div>
+  </div>
+
+
+  <div id="codeEditorContainer">
+
+    <div id="codeEditorBox">
+      <div class="head">
+        <h3>Code Editor</h3>
+        <div>
+          <button onclick="insertCode()">insert code</button>
+          <button style="margin-left: 10px;color:red;" onclick="closeCode()">
+            close
+          </button>
+        </div>
+      </div>
+      <div class="body">
+        <span>Editor</span>
+        <textarea name="" id="codeEditor" placeholder="//code"></textarea>
+        <div>
+          <span>Output -> </span>
+          <label for="language_select">Language : </label>
+          <select name="" id="language_select">
+            <option value="language-markup">Markup</option>
+            <option value="language-javascript">JavaScript</option>
+            <option value="language-typescript">TypeScript</option>
+            <option value="language-jsx">React JSX</option>
+            <option value="language-tsx">React TSX</option>
+            <option value="language-css">CSS</option>
+            <option value="language-kotlin">kotlin</option>
+            <option value="language-swift">swift</option>
+            <option value="language-php">PHP</option>
+            <option value="language-json">JSON</option>
+            <option value="language-sql">SQL</option>
+            <option value="language-python">Python</option>
+            <option value="language-arduino">Arduino</option>
+            <option value="language-c">C</option>
+            <option value="language-csharp">C#</option>
+            <option value="language-cpp">C++</option>
+            <option value="language-aspnet">ASP.NET (C#)</option>
+            <option value="language-dart">Dart</option>
+            <option value="language-java">Java</option>
+            <option value="language-graphql">GraphQL</option>
+            <option value="language-git">Git</option>
+          </select>
+          <label for="theme_select">Theme : </label>
+          <select name="" id="theme_select" onchange="changeTheme()">
+            <option value="prism">Default</option>
+            <option value="prism-dark">Dark</option>
+            <option value="prism-funky">Funky</option>
+            <option value="prism-okaidia">Okaidia</option>
+            <option value="prism-twilight">Twilight</option>
+            <option value="prism-coy">Coy</option>
+            <option value="prism-solarizedlight">Solarized Light</option>
+            <option value="prism-tomorrow">Tomorrow Night</option>
+          </select>
+          <label for="line_numbers">Line Numbers</label>
+          <input type="checkbox" name="" id="line_numbers" checked>
+        </div>
+
+        <pre id="preTag" class="line-numbers"><code id="out" class="language-markup"></code></pre>
+      </div>
+
+    </div>
+
+
+  </div>
 
 
 
 
 
   <iframe id="iframe" width="100%" height="500" src="./dev.html" frameborder="0"></iframe>
+
+
 
 </body>
 

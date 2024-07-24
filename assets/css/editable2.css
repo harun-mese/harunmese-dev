@@ -16,7 +16,22 @@
     --box-shadow: 0 0 5px 2px rgb(147, 147, 147);
     
 }
-
+pre{
+    border-radius: 10px;
+}pre::-webkit-scrollbar{
+    background-color: rgba(255, 255, 0, 0);
+    height: 10px;
+}pre::-webkit-scrollbar-thumb{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: 2px solid #2d2d2d;
+    margin: 3px;
+    height: 6px;
+    margin: 1px;
+}pre::-webkit-scrollbar-track{
+    height: 7px;
+    
+}
 body{
     background-color: var(--editor-bgc);
 
@@ -25,6 +40,8 @@ body{
     justify-content: center;
     position: relative;
 }
+
+
 iframe{
     height: calc(100vh - 60px);
     position: absolute;
@@ -32,7 +49,37 @@ iframe{
     border: 0px;
     /* box-shadow: 0 0 15px 5px gainsboro; */
     border: 1px solid rgba(0, 0, 0, 0.1818181818);
+    /* margin: 0 auto; */
+    align-self: center !important;
+    justify-self: center !important;
 }
+#imgAttr{
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    /* width: 100%; */
+    width: 0px;
+    /* transition: width .1s linear; */
+    height: calc(100vh - 70px);
+    /* border: 1px solid rgba(0, 0, 0, 0.1818181818); */
+    background: #ffffff;
+    backdrop-filter:saturate(1.8) blur(20px) ;
+
+    overflow-y: scroll;
+    /* border: 1px solid gainsboro; */
+    /* box-shadow: var(--box-shadow); */
+    border-radius:3px;
+    position: absolute;
+    top: 0px;
+    left:  10px;
+    /* padding: 20px 10px; */
+    /* z-index: 99999999; */
+}
+
 .isDivClass{
     width: 200px;
     height: 200px;
@@ -87,9 +134,6 @@ position: relative;
     position: absolute;
     right: 20px;
 }
-
-
-
 header button{
     border: none;
     background-color: transparent;
@@ -193,30 +237,7 @@ select{
     margin:3px 1px;
 }
 
-#imgAttr{
-    display: none;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    max-width: 800px;
-    height: 600px;
-    border: 1px solid rgba(0, 0, 0, 0.1818181818);
-    background: #a2a2dccc;
-    backdrop-filter:saturate(1.8) blur(20px) ;
 
-
-    /* border: 1px solid gainsboro; */
-    /* box-shadow: var(--box-shadow); */
-    border-radius:10px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    padding:30px 15px 15px 15px;
-    z-index: 99999999;
-}
 
 #imgAttr::-webkit-scrollbar-button{
     width: 0px;
@@ -225,13 +246,13 @@ select{
 } 
 
 #imgAttr div{
-    width: 50%;
+    width: 100%;
     display: block;
     align-items: center;
     justify-content: center;
 }
 #imgAttr div:last-child img{
-    width: 33%;
+    width: 50%;
     height: 150px;
     padding: 5px;
     border-radius: 10px;
@@ -511,28 +532,7 @@ color: red;
 
 }
 
-.gbg{
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    padding: 0;
-}
-.gbg button{
-    width: 35px;
-    height: 35px;
-    border: 1px solid #fafafa;
-    outline: none;
-    box-shadow: 0 5px 3px 0px gainsboro;
 
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-}
 .dubbleColor{
     width: 70px !important;
     height: 50px !important;
@@ -709,6 +709,62 @@ color: red;
     color:black;
 }
 
+#typeText{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: fit-content;
+    background-color: #fff;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    position: fixed;
+    top: 100px;
+    padding:0px;
+    z-index: 999999999999999999;
+
+}
+#typeText div{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid gainsboro;
+}
+#typeText div:last-child{
+    border-bottom: none;
+}
+
+.colorSelectContainer, .backcolorSelectContainer{
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    position: fixed;
+    background-color: #fff;
+    top: 55px;
+    width: 168px;
+    max-height: 400px;
+    overflow-y: scroll;
+    border: 1px solid gainsboro;
+    border-radius:10px;
+    padding: 5px;
+}
+
+.colorSelectContainer button,.backcolorSelectContainer button{
+    width: 20px;
+    height: 20px;
+    border: none !important;
+    border-radius: 2px;
+    margin: 1px;
+    padding: 0px !important;
+
+}
+
+
+
+
+
 
 .fontsContainer-select{
     display: none;
@@ -730,10 +786,11 @@ color: red;
     width: 3px;
     border-radius:10px;
     border: 1px solid #fff;
-    background-color: #6a6a6a;
+    background-color: #373737;
 
-}    ::-webkit-scrollbar{
-    width: 6px;
+}    
+::-webkit-scrollbar{
+    width: 5px;
 }
 ::-webkit-scrollbar-button{
     width: 0px;
@@ -913,29 +970,7 @@ color: red;
 }
 
 
-.colorSelectContainer,.backcolorSelectContainer{
-    display: none;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    position: fixed;
-    background-color: #fff;
-    top: 55px;
-    width: 250px;
-    max-height: calc(100vh - 200px);
-    overflow-y: scroll;
-    border: 1px solid gainsboro;
-    border-radius:10px;
-    padding: 10px; 
-}
-.colorSelectContainer button,.backcolorSelectContainer button{
-    width: 30px;
-    height: 30px;
-    border:1px solid gainsboro;
-    border-radius: 50px;
-    margin-bottom: 7px;
 
-}
 
 .block_h4m{
     width: 100%;
@@ -943,4 +978,242 @@ color: red;
     border: 1px dotted gainsboro;
     border-radius: 5px;
     padding: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#baloonTextEditor{
+    position: fixed;
+    z-index: 1000000000;
+    border: 1px solid rgb(0, 0, 0, 0.18181818);
+    width: fit-content;
+    height: 50px;
+    padding: 5px 10px;
+    border-radius: 50px;
+    background-color: #ffffff;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+#baloonTextEditor button {
+    background-color: transparent;
+    border: none;
+    padding: 0 10px;
+}
+#baloonLink{
+    position: fixed;
+    z-index: 1000000000;
+    border: 1px solid rgb(0, 0, 0, 0.18181818);
+    width: 268px;
+    padding: 5px 10px;
+    border-radius: 50px;
+    background-color: #ffffff;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+#baloonLink .bi{
+    padding: 0 10px;
+}
+#baloonLink input{
+    border: 1px solid rgb(0, 0, 0, 0.18181818);
+    border-radius: 5px;
+    padding-left: 10px;
+    color: #212121;
+}
+
+#baloonColorBox{
+    position: fixed;
+    top: 100px;
+    z-index: 1000000000;
+    border: 1px solid rgb(0, 0, 0, 0.18181818);
+    width: 150px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+#baloonColorBox button{
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 2px;
+    margin: 1px;
+}
+#baloonColorBox button:hover{
+    scale: 1.3;
+    border: 3px dashed salmon ;
+}
+
+#imageEditBox{
+    position: fixed;
+    z-index: 1000000000;
+    border: 1px solid rgb(0, 0, 0, 0.18181818);
+    width: fit-content;
+    padding: 5px;
+    border-radius: 50px;
+    background-color: #ffffff;
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+#imageEditBox .bi{
+    font-size: 21px;
+    margin: 0 10px;
+}
+#imageEditBox div{
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#imageEditBox div span{
+   font-size: x-small;
+}
+
+#selectImageBox{
+    z-index: 1000000000;
+    background-color: #fff;
+    width: 500px;
+    height: 350px;
+    border-radius: 5px;
+    padding: 0px 7px 0px 7px;
+    border: 1px solid rgb(0, 0, 0, 0.18181818);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+}
+#selectImageBox div button{
+    border: none;
+    background-color: transparent;
+    width: 25%;
+    height: 120px;
+    font-size: xx-large;
+    /* border: 1px solid rgb(0, 0, 0, 0.18181818); */
+}
+#selectImageBox div button:hover{
+    /* background-color: rgba(208, 208, 208, 0.182); */
+    border: 1px solid rgba(0, 0, 0, 0);
+    font-size: 50px;
+}
+#selectImageBox .head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:3px 0px;
+    height: fit-content;
+}
+#selectImageBox .head button{
+    border: none;
+    background-color: transparent;
+    color: red; 
+    font-size: initial;
+    width: fit-content;
+    height: initial;opacity: .6;
+}#selectImageBox .head button:hover{
+    /* background-color: rgba(208, 208, 208, 0.182); */
+    border: none;
+    font-size: initial;
+    opacity: 1;
+}
+#selectImageBox div{
+    width: 100%;
+    height: 310px;
+    overflow-y: scroll;
+    border-radius: 5px;
+}
+#selectImageBox div img{
+width: 25%;
+height: 120px;
+padding: 1px;
+border-radius:5px ;
+border: 1px solid rgb(0, 0, 0, 0.18181818);
+object-fit: cover;
+}
+#selectImageBox div img:hover{
+    object-fit: contain;
+}
+
+#codeEditorContainer{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000000000000;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.536);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: none;
+}
+#codeEditorBox{
+    width: 800px;
+    height: fit-content;
+    min-height: 300px;
+    margin: 70px auto;
+    background-color: white;
+    border: 5px solid gainsboro;
+    border-radius: 5px;
+    padding: 5px;
+}
+#codeEditorBox .head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    height: fit-content;
+}
+#codeEditorBox .head div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#codeEditorBox .head button{
+    border: none;
+    background-color: transparent;
+    color: green;
+}
+#codeEditorBox .body{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 5px;
+}
+#codeEditorBox .body textarea{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 500px;
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    resize: vertical;
+    background-color:rgba(255, 255, 255, 0.302);
+}
+#codeEditorBox .body pre{
+    width: 100%;
+    min-height: 100px;
+    border-radius: 10px;
+    margin: 10px 0;
 }
