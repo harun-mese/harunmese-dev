@@ -134,6 +134,10 @@ position: relative;
     position: absolute;
     right: 20px;
 }
+#scaleSelect{
+    padding: 5px 10px;
+    border-radius: 5px;
+}
 header button{
     border: none;
     background-color: transparent;
@@ -626,10 +630,10 @@ color: red;
 }
 #select-selected,#font-selected{
     border: 1px solid gainsboro;
-    padding: 5px ;
+    padding: 5px 10px !important;
     margin: 0 2px;
     border-radius: 5px;
-    width: 80px;
+    width: 170px;
     word-wrap: break-word;
     word-break: break-all;
     height:31.5px;
@@ -682,6 +686,21 @@ color: red;
     font-size: 20px;
  }
 
+ #denemeStyle1{
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    border: 1px solid gainsboro;
+    background-color: #fff;
+    border-radius: 5px;
+    position: fixed;
+    top: 55px;
+    z-index: 99999999999;
+    width: 200px;
+    padding: 10px;
+  }
+
 .textTypeContainer input[name="fontsize"]{
     border: 1px solid gainsboro;
     width: 50px;
@@ -709,31 +728,6 @@ color: red;
     color:black;
 }
 
-#typeText{
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: fit-content;
-    background-color: #fff;
-    border: 1px solid gainsboro;
-    border-radius: 10px;
-    position: fixed;
-    top: 100px;
-    padding:0px;
-    z-index: 999999999999999999;
-
-}
-#typeText div{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    border-bottom: 1px solid gainsboro;
-}
-#typeText div:last-child{
-    border-bottom: none;
-}
 
 .colorSelectContainer, .backcolorSelectContainer{
     display: none;

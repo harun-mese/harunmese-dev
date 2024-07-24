@@ -3,7 +3,7 @@
 const fontsContainer = document.querySelector('.fontsContainer')
 const fontColorContainer = document.querySelector('.fontColorContainer')
 const fontBackgroundColorContainer = document.querySelector('.fontBackgroundColorContainer')
-const textTypeContainer = document.getElementById('textTypeContainer')
+const textTypeContainer = document.getElementById('denemeStyle1')
 const createLinkContainer = document.getElementById('createLinkContainer')
 
 const attributesContainer = document.querySelector('.attributesContainer')
@@ -149,9 +149,8 @@ var deleteThisElem , selectedText, selectedImageEl
                     }else{
                         var span = frameContent.createElement("span");
                         span.innerText = selectedText;
-                        span.style.fontSize = (currentFontSize + 1) + "px"; // Font boyutunu 2px artır
+                        span.style.fontSize = (currentFontSize + 1) + "px";
                         range.surroundContents(span);
-
                     }
                         
                 }
@@ -528,15 +527,15 @@ allElements.forEach(el=>el.setAttribute('contenteditable','true'))
 
 
 
-// const scaleSelect = document.getElementById('scaleSelect')
-// scaleSelect.addEventListener('change',()=>{
-//     console.log(frame.style.height);
-//     frame.style.transform = `scale(${scaleSelect.value})`
-//     console.log(scaleSelect.value);
-//     frame.style.transformOrigin = '50% 0';
-//     frame.style.height = `calc((100vh - 50px) * (1 / ${scaleSelect.value}))`
-   
-// })
+ const scaleSelect = document.getElementById('scaleSelect')
+ scaleSelect.addEventListener('change',()=>{
+    // console.log(frame.style.height);
+     //frame.style.transform = `scale(${scaleSelect.value})`
+     //console.log(scaleSelect.value);
+    // frame.style.transformOrigin = '50% 0';
+    // frame.style.height = `calc((100vh - 50px) * (1 / ${scaleSelect.value}))`
+    size(scaleSelect.value)
+ })
 
 // const pagesSelect = document.getElementById('pagesSelect')
 // pagesSelect.addEventListener('change',()=>{
@@ -701,9 +700,9 @@ function openVideoBox(){
 
 // left
 function openTextTypeContainer(){
-    // if (!textTypeContainerBool) {
-    //     textTypeContainer.style.display='flex'
-    //     textTypeContainerBool = true
+    if (!textTypeContainerBool) {
+         textTypeContainer.style.display='flex'
+        textTypeContainerBool = true
 
     //     fontBackgroundColorContainer.style.display='none'
     //     fontBackgroundColorContainerBool = false
@@ -714,14 +713,14 @@ function openTextTypeContainer(){
     //     createLinkContainerBool = false
     //     fontsContainer.style.display='none'
     //     fontsContainerBool = false
-    // }else{
-    //     textTypeContainer.style.display='none'
-    //     textTypeContainerBool = false
+   }else{
+        textTypeContainer.style.display='none'
+         textTypeContainerBool = false
     //     createLinkContainer.style.display='none'
     //     createLinkContainerBool = false
     //     fontsContainer.style.display='none'
     //     fontsContainerBool = false
-    // }
+    }
 }
 // center
 function toggleFontBackgroundColorContainer(){
