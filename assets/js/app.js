@@ -308,6 +308,9 @@ function openBaloonColorBox(){
     baloonColorBox.style.display = 'flex'
   }
 
+  function insertYoutube(){
+    command('insertHTML',false,`<iframe style="width:100%;border-radius:10px;"  height="315" src="https://www.youtube.com/embed/I--_2qtgMgs?si=N0STCCZUeZ3YnPGH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`)
+  }
 
 
 function initImages() {

@@ -185,6 +185,29 @@ body {
     cursor: pointer;
 }
 
+@supports ((-webkit-backdrop-filter: initial) or (backdrop-filter: initial)){
+    header {
+        width: calc(100% - 0px);
+        /* max-width: 1440px; */
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1818181818);
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        z-index: 10;
+        background-color: #fafafccc;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        /* filter: blur(20px); */
+        backdrop-filter: saturate(1.8) blur(20px);
+        -webkit-backdrop-filter: saturate(1.8) blur(20px);
+    }  
+}
 header {
     width: calc(100% - 0px);
     /* max-width: 1440px; */
@@ -204,6 +227,7 @@ header {
     -moz-user-select: none;
     /* filter: blur(20px); */
     backdrop-filter: saturate(1.8) blur(20px);
+    -webkit-backdrop-filter: saturate(1.8) blur(20px);
 }
 
 header .header_wrap {
@@ -512,7 +536,7 @@ article blockquote::after {
     .contentHeader {
         position: -webkit-sticky;
         position: sticky;
-        top: 18px;
+        top: 13px;
         scroll-margin-top: 18px;
 
         z-index: 999999999;
