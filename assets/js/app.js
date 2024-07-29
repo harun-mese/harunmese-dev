@@ -229,10 +229,61 @@ sectectableImage.forEach(el=>{
         selectedImageEl.src = el.src
     })
 })
+const stylingBox = document.querySelector("#stylingBox");
+const blocksBox = document.querySelector("#blocksBox");
+
+const stylingHandler = document.getElementById("stylingHandler");
+const blocksHandler = document.getElementById("blocksHandler");
+
+let isDraggingstyling = false;
+let isDraggingblocks = false;
+// let offsetX, offsetY;
+
+stylingHandler.addEventListener("mousedown", () => {
+    isDraggingstyling = true;
+    frame.style.zIndex = "-2"
+    stylingBox.style.zIndex = 5
+    blocksBox.style.zIndex = 2
+});
+blocksHandler.addEventListener("mousedown", () => {
+    isDraggingblocks = true;
+    frame.style.zIndex = "-2"
+    stylingBox.style.zIndex = 2
+    blocksBox.style.zIndex = 5
+});
+
+document.addEventListener("mousemove", (e)=> {
+    if (isDraggingstyling) {
+        stylingBox.style.left = e.clientX  - 150 + "px";
+        stylingBox.style.top = e.clientY - 10 + "px";
+    }
+    if (isDraggingblocks) {
+        blocksBox.style.left = e.clientX  - 150 + "px";
+        blocksBox.style.top = e.clientY - 10 + "px";
+    }
+});
+
+// frameContent.addEventListener("mousemove", (e)=> {
+//     if (isDragging) {
+//         stylingBox.style.left = e.clientX  - 150 + "px";
+//         stylingBox.style.top = e.clientY - 10 + "px";
+//     }
+// });
+
+document.addEventListener("mouseup", function() {
+    isDraggingstyling = false;
+    isDraggingblocks = false;
+    frame.style.zIndex = "initial"
+
+});
 
 
 frameContent.addEventListener('mouseup', function() {
-  
+
+    isDraggingstyling = false;
+    isDraggingblocks = false;
+    frame.style.zIndex = "initial"
+
     const selection = frameContent.getSelection();
     console.log(selection.toString());
     // console.log("1");
@@ -705,7 +756,7 @@ function openVideoBox(){
 function openTextTypeContainer(){
     if (!textTypeContainerBool) {
          textTypeContainer.style.display='flex'
-        textTypeContainerBool = true
+         textTypeContainerBool = true
 
     //     fontBackgroundColorContainer.style.display='none'
     //     fontBackgroundColorContainerBool = false
@@ -726,43 +777,45 @@ function openTextTypeContainer(){
     }
 }
 // center
-function toggleFontBackgroundColorContainer(){
-    if (!fontBackgroundColorContainerBool) {
-        fontBackgroundColorContainer.style.display='flex'
-        fontBackgroundColorContainerBool = true
-        blockBox.style.display='none'
-        blockBoxBool = false
-        //textTypeContainer.style.display='none'
-        //textTypeContainerBool = false 
 
-        createLinkContainer.style.display='none'
-        createLinkContainerBool = false
-        fontsContainer.style.display='none'
-        fontsContainerBool = false
+
+function toggleFontBackgroundColorContainer(el){
+    if (!fontBackgroundColorContainerBool) {
+        stylingBox.style.display='block'
+        el.classList.toggle('active')
+        fontBackgroundColorContainerBool = true
+    
     }else{
-        fontBackgroundColorContainer.style.display='none'
+        stylingBox.style.display='none'
+        el.classList.toggle('active')
         fontBackgroundColorContainerBool = false
     }
 }
 // right
-function openbBlockBox(){
+function openbBlockBox(el){
     if (!blockBoxBool) {
-        blockBox.style.display='flex' 
+        blocksBox.style.display='block' 
         blockBoxBool = true
-
-        //textTypeContainer.style.display='none'
-        //textTypeContainerBool = false
-        fontBackgroundColorContainer.style.display='none'
-        fontBackgroundColorContainerBool = false
-
-        createLinkContainer.style.display='none'
-        createLinkContainerBool = false
-        fontsContainer.style.display='none'
-        fontsContainerBool = false
+        el.classList.toggle('active')
     }else{
-        blockBox.style.display='none'
+        blocksBox.style.display='none'
         blockBoxBool = false
+        el.classList.toggle('active')
     }
+}
+var settingState = false
+const settingsBox = document.getElementById('settingsBox')
+function openSettings(el) {
+    if (!settingState) {
+        settingsBox.style.display='block' 
+        settingState = true
+        el.classList.toggle('active')
+    }else{
+        settingsBox.style.display='none'
+        settingState = false
+        el.classList.toggle('active')
+    }
+    
 }
 
 
