@@ -335,6 +335,9 @@ article p {
     margin: 30px 0;
     font-size: large;
 }
+article iframe{
+    width: 100%;border-radius: 10px;
+}
 
 article ul, article ol {
     padding: 20px;

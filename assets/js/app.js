@@ -1,9 +1,7 @@
-
-
 const fontsContainer = document.querySelector('.fontsContainer')
 const fontColorContainer = document.querySelector('.fontColorContainer')
 const fontBackgroundColorContainer = document.querySelector('.fontBackgroundColorContainer')
-const textTypeContainer = document.getElementById('denemeStyle1')
+const textTypeBox = document.getElementById('textTypeBox')
 const createLinkContainer = document.getElementById('createLinkContainer')
 
 const attributesContainer = document.querySelector('.attributesContainer')
@@ -11,11 +9,47 @@ const imageBox = document.querySelector('.imageBox')
 const videoBox = document.querySelector('.videoBox')
 const blockBox = document.querySelector('.blockBox')
 
+const colorSelectContainer = document.querySelector('.colorSelectContainer')
+const backcolorSelectContainer = document.querySelector('.backcolorSelectContainer')
+const newContentBox = document.querySelector('.newContentBox')
+
+let frame,frameContent, categoryName
+
+frame = document.querySelector('iframe') 
+frameContent = frame.contentDocument || frame.contentWindow.document;
+frameContent.querySelector('body').setAttribute("contenteditable","true")
 
 
 var deleteThisElem , selectedText, selectedImageEl
 
+var selection, range
+const selected = document.querySelector('#select-selected');
+const items = document.querySelector('#select-items');
 
+const fontFamCont = document.querySelector('#font-selected');
+const fontFamItems = document.querySelector('.fontsContainer-select');
+var iAttrB = false
+
+var baloonTextEditor = document.querySelector('#baloonTextEditor')
+var baloonLink = document.querySelector('#baloonLink')
+var baloonColorBox = document.querySelector('#baloonColorBox')
+var imageEditBox = document.querySelector('#imageEditBox')
+var selectImageBox = document.querySelector('#selectImageBox')
+var sectectableImage = document.querySelectorAll('#selectImageBox div img')
+const stylingBox = document.querySelector("#stylingBox");
+const blocksBox = document.querySelector("#blocksBox");
+
+const stylingHandler = document.getElementById("stylingHandler");
+const blocksHandler = document.getElementById("blocksHandler");
+
+let isDraggingstyling = false;
+let isDraggingblocks = false;
+
+
+const input = document.getElementById('custom-input');
+const datalist = document.getElementById('custom-datalist');
+const options = datalist.getElementsByTagName('li');
+const fontSizeCount = document.getElementById('custom-input')
 
 
 
@@ -27,217 +61,198 @@ var deleteThisElem , selectedText, selectedImageEl
 // })
 
 
-        const selected = document.querySelector('#select-selected');
-        const items = document.querySelector('#select-items');
+  
+selected.addEventListener('click', function() {
+    items.style.display = items.style.display === 'flex' ? 'none' : 'flex';
+});
 
-        const fontFamCont = document.querySelector('#font-selected');
-        const fontFamItems = document.querySelector('.fontsContainer-select');
+fontFamCont.addEventListener('click', function() {
+    fontFamItems.style.display = fontFamItems.style.display === 'flex' ? 'none' : 'flex';
+});
 
-        selected.addEventListener('click', function() {
-            items.style.display = items.style.display === 'flex' ? 'none' : 'flex';
-        });
+items.addEventListener('click', function(event) {
+    //if (event.target.tagName === 'BUTTON') {
+        selected.textContent = event.target.innerText;
+        items.style.display = 'none';
+        items.querySelectorAll('button').forEach(el=>{
+            el.classList.remove('active')
+        })
+        event.target.classList.add("active")
+    //}
+});
+fontFamItems.addEventListener('click', function(event) {
+    //if (event.target.tagName === 'BUTTON') {
+        fontFamCont.textContent = event.target.innerText;
+        fontFamItems.style.display = 'none';
+        fontFamItems.querySelectorAll('button').forEach(el=>{
+            el.classList.remove('active')
+        })
+        event.target.classList.add("active")
+    //}
+});
 
-        fontFamCont.addEventListener('click', function() {
-            fontFamItems.style.display = fontFamItems.style.display === 'flex' ? 'none' : 'flex';
-        });
+document.addEventListener('click', function(event) {
+    if (!event.target.matches('#select-selected')) {
+        items.style.display = 'none';
+    }
+});
 
-        items.addEventListener('click', function(event) {
-            //if (event.target.tagName === 'BUTTON') {
-                selected.textContent = event.target.innerText;
-                items.style.display = 'none';
-                items.querySelectorAll('button').forEach(el=>{
-                    el.classList.remove('active')
-                })
-                event.target.classList.add("active")
-            //}
-        });
-        fontFamItems.addEventListener('click', function(event) {
-            //if (event.target.tagName === 'BUTTON') {
-                fontFamCont.textContent = event.target.innerText;
-                fontFamItems.style.display = 'none';
-                fontFamItems.querySelectorAll('button').forEach(el=>{
-                    el.classList.remove('active')
-                })
-                event.target.classList.add("active")
-            //}
-        });
 
-        document.addEventListener('click', function(event) {
-            if (!event.target.matches('#select-selected')) {
-                items.style.display = 'none';
-            }
-        });
+input.addEventListener('input', function() {
+    const value = input.value.toLowerCase();
+    datalist.style.display = value ? 'block' : 'none';
+    for (let option of options) {
+        const text = option.textContent.toLowerCase();
+        option.style.display = text.includes(value) ? 'block' : 'none';
+    }
+    
+});
 
-        const input = document.getElementById('custom-input');
-        const datalist = document.getElementById('custom-datalist');
-        const options = datalist.getElementsByTagName('li');
 
-        input.addEventListener('input', function() {
-            const value = input.value.toLowerCase();
-            datalist.style.display = value ? 'block' : 'none';
-            for (let option of options) {
-                const text = option.textContent.toLowerCase();
-                option.style.display = text.includes(value) ? 'block' : 'none';
-            }
+input.addEventListener('focus', function() {
+    if (input.value) {
+        datalist.style.display = 'block';
+    }
+});
+
+input.addEventListener('blur', function() {
+    setTimeout(() => {
+        datalist.style.display = 'none';
+    }, 100);
+});
+
+for (let option of options) {
+    option.addEventListener('mousedown', function(e) {
+        input.value = e.target.textContent;
+
+        selection = frameContent.getSelection();
+
+    if (!selection.isCollapsed) {
+        var range = selection.getRangeAt(0);
+        var selectedText = range.toString();
+        
+        if (selectedText) {
+
+            var parentElement = range.commonAncestorContainer.parentElement;
             
-        });
-       
-
-        input.addEventListener('focus', function() {
-            if (input.value) {
-                datalist.style.display = 'block';
-            }
-        });
-
-        input.addEventListener('blur', function() {
-            setTimeout(() => {
-                datalist.style.display = 'none';
-            }, 100);
-        });
-
-        for (let option of options) {
-            option.addEventListener('mousedown', function(e) {
-                input.value = e.target.textContent;
-
-                selection = frameContent.getSelection();
-
-            if (!selection.isCollapsed) {
-                var range = selection.getRangeAt(0);
-                var selectedText = range.toString();
-                
-                if (selectedText) {
-
-                    var parentElement = range.commonAncestorContainer.parentElement;
-                   
-                    if(parentElement.tagName === "SPAN"){
-                    parentElement.style.fontSize = input.value + "px";
-                
-                    }else{
-                        var span = frameContent.createElement("span");
-                        span.innerText = selectedText;
-                        span.style.fontSize = input.value + "px";
-                        range.surroundContents(span);
-
-                    }
-                        
-                }
+            if(parentElement.tagName === "SPAN"){
+            parentElement.style.fontSize = input.value + "px";
+        
+            }else{
+                var span = frameContent.createElement("span");
+                span.innerText = selectedText;
+                span.style.fontSize = input.value + "px";
+                range.surroundContents(span);
 
             }
-                datalist.style.display = 'none';
-            });
-        }
-        const fontSizeCount = document.getElementById('custom-input')
-
-        function increaseValue() {
-            let value = parseInt(input.value, 10);
-            input.value = isNaN(value) ? 0 : value + 1;
-
-            selection = frameContent.getSelection();
-
-            if (!selection.isCollapsed) {
-                var range = selection.getRangeAt(0);
-                var selectedText = range.toString();
                 
-                if (selectedText) {
-
-                    var parentElement = range.commonAncestorContainer.parentElement;
-                    var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
-
-                    if(parentElement.tagName === "SPAN"){
-                    parentElement.style.fontSize = (currentFontSize + 1) + "px";
-                
-                    }else{
-                        var span = frameContent.createElement("span");
-                        span.innerText = selectedText;
-                        span.style.fontSize = (currentFontSize + 1) + "px";
-                        range.surroundContents(span);
-                    }
-                        
-                }
-
-            }
         }
 
-        function decreaseValue() {
-            let value = parseInt(input.value, 10);
-            input.value = isNaN(value) ? 0 : value - 1;
+    }
+        datalist.style.display = 'none';
+    });
+}
 
-            selection = frameContent.getSelection();
+function increaseValue() {
+    
+    let value = parseInt(input.value, 10);
+    input.value = isNaN(value) ? 0 : value + 1;
 
-            if (!selection.isCollapsed) {
-                var range = selection.getRangeAt(0);
-                var selectedText = range.toString();
+    selection = frameContent.getSelection();
+    range = selection.getRangeAt(0);
+    var selectedText = range.toString();
+
+
+    if (!selection.isCollapsed) {
+        
+
+        if (selectedText) {
+            // Kontrol edilen span
+            var parentElement = range.commonAncestorContainer.parentElement;  
+            var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+            let newFontSize;
+
+             if (selection.anchorNode.nodeName !== "SPAN") {
+                // Yeni bir span oluştur ve seçili metni bu span ile sar
+                var span = frameContent.createElement("span");
+                newFontSize = (currentFontSize + 1) + "px";
+                span.style.fontSize = newFontSize;
+                span.innerText = selectedText;
+
+                range.deleteContents();
+                range.insertNode(span);
+   
+                const newRange = frameContent.createRange();
+                newRange.selectNodeContents(span);
+                selection.removeAllRanges();
+                selection.addRange(newRange);
+
+               
+            } else {
                 
-                if (selectedText) {
-
-                    var parentElement = range.commonAncestorContainer.parentElement;
-                    var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
-
-                    if(parentElement.tagName === "SPAN"){
-                    parentElement.style.fontSize = (currentFontSize - 1) + "px";
-                    //var count = fontSizeCount.innerText
-                    //fontSizeCount.innerText = (currentFontSize - 1)
-                    }else{
-                        var span = frameContent.createElement("span");
-                        span.innerText = selectedText;
-                        span.style.fontSize = (currentFontSize - 1) + "px"; // Font boyutunu 2px artır
-                        range.surroundContents(span);
-                        //var count = fontSizeCount.innerText
-                        //fontSizeCount.innerText = (currentFontSize - 1)
-
-                    }
-                        
-                }
-
+                var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(selection.anchorNode.firstChild.parentElement).getPropertyValue('font-size'));
+                newFontSize = (currentFontSize + 1) + "px";
+                selection.anchorNode.firstChild.parentElement.style.fontSize = newFontSize;
             }
+
+        }
+    }
+}
+
+function decreaseValue() {
+    let value = parseInt(input.value, 10);
+    input.value = isNaN(value) ? 0 : value - 1;
+
+    selection = frameContent.getSelection();
+
+    if (!selection.isCollapsed) {
+        var range = selection.getRangeAt(0);
+        var selectedText = range.toString();
+        
+        if (selectedText) {
+
+            var parentElement = range.commonAncestorContainer.parentElement;
+            var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+            if (selection.anchorNode.nodeName !== "SPAN") {
+                // Yeni bir span oluştur ve seçili metni bu span ile sar
+                var span = frameContent.createElement("span");
+                newFontSize = (currentFontSize - 1) + "px";
+                span.style.fontSize = newFontSize;
+                span.innerText = selectedText;
+
+                range.deleteContents();
+                range.insertNode(span);
+   
+                const newRange = frameContent.createRange();
+                newRange.selectNodeContents(span);
+                selection.removeAllRanges();
+                selection.addRange(newRange);
+
+               
+            } else {
+                
+                var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(selection.anchorNode.firstChild.parentElement).getPropertyValue('font-size'));
+                newFontSize = (currentFontSize - 1) + "px";
+                selection.anchorNode.firstChild.parentElement.style.fontSize = newFontSize;
+            }
+                
         }
 
-
-
-const colorSelectContainer = document.querySelector('.colorSelectContainer')
-
-const backcolorSelectContainer = document.querySelector('.backcolorSelectContainer')
-
-
-
-const newContentBox = document.querySelector('.newContentBox')
-
-
-let frame,frameContent, categoryName
-
-frame = document.querySelector('iframe') 
-frameContent = frame.contentDocument || frame.contentWindow.document;
-frameContent.querySelector('body').setAttribute("contenteditable","true")
-
-console.log(frameContent.defaultView);
+    }
+}
 
 
 document.execCommand('defaultParagraphSeparator', false, 'p');
 frameContent.execCommand('defaultParagraphSeparator', false, 'p');
 
-var iAttrB = false
-
-var baloonTextEditor = document.querySelector('#baloonTextEditor')
-var baloonLink = document.querySelector('#baloonLink')
-var baloonColorBox = document.querySelector('#baloonColorBox')
-var imageEditBox = document.querySelector('#imageEditBox')
-var selectImageBox = document.querySelector('#selectImageBox')
-var sectectableImage = document.querySelectorAll('#selectImageBox div img')
 
 sectectableImage.forEach(el=>{
     el.addEventListener('click',()=>{
         selectedImageEl.src = el.src
     })
 })
-const stylingBox = document.querySelector("#stylingBox");
-const blocksBox = document.querySelector("#blocksBox");
 
-const stylingHandler = document.getElementById("stylingHandler");
-const blocksHandler = document.getElementById("blocksHandler");
-
-let isDraggingstyling = false;
-let isDraggingblocks = false;
-// let offsetX, offsetY;
 
 stylingHandler.addEventListener("mousedown", () => {
     isDraggingstyling = true;
@@ -263,13 +278,6 @@ document.addEventListener("mousemove", (e)=> {
     }
 });
 
-// frameContent.addEventListener("mousemove", (e)=> {
-//     if (isDragging) {
-//         stylingBox.style.left = e.clientX  - 150 + "px";
-//         stylingBox.style.top = e.clientY - 10 + "px";
-//     }
-// });
-
 document.addEventListener("mouseup", function() {
     isDraggingstyling = false;
     isDraggingblocks = false;
@@ -284,9 +292,9 @@ frameContent.addEventListener('mouseup', function() {
     isDraggingblocks = false;
     frame.style.zIndex = "initial"
 
-    const selection = frameContent.getSelection();
-    console.log(selection.toString());
-    // console.log("1");
+    selection = frameContent.getSelection();
+    range = selection.getRangeAt(0);
+
     if (selection && selection.rangeCount > 0) {
         const range = selection.getRangeAt(0);
         // console.log("2");
@@ -330,12 +338,14 @@ frameContent.addEventListener('scroll',()=>{
     imageEditBox.style.display = 'none'
 })
 
+
+
 function openBaloonLink(){
   baloonLink.style.display = 'flex'
   const linkInput = document.querySelector('#baloonLink input')
 
-var selection = frameContent.getSelection();
-console.log(selection);
+    var selection = frameContent.getSelection();
+    console.log(selection);
 
   if (selection.anchorNode.parentElement.nodeName == 'A') {
     linkInput.value = selection.anchorNode.parentElement.href
@@ -360,7 +370,9 @@ function openBaloonColorBox(){
   }
 
   function insertYoutube(){
-    command('insertHTML',false,`<iframe style="width:100%;border-radius:10px;"  height="315" src="https://www.youtube.com/embed/I--_2qtgMgs?si=N0STCCZUeZ3YnPGH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`)
+    command('insertHTML',false,`<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/UCysoeahJME?si=JjC58hSqSzgKx40N&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+`)
   }
 
 
@@ -487,9 +499,6 @@ function init(){
     frameContent = frame.contentDocument || frame.contentWindow.document;
     frameContent.querySelector('body').setAttribute("contenteditable","true")
 }
-//init()
-
-
 
 iframe.onload = function() {
     frameContent = frame.contentDocument || frame.contentWindow.document;
@@ -575,6 +584,7 @@ function command(aCommandName, aShowDefaultUI='', aValueArgument=''){
    
    initImages()
 }
+
 command('defaultParagraphSeparator',false,'P')
 var allElements = frameContent.querySelectorAll('.editable')
 allElements.forEach(el=>el.setAttribute('contenteditable','true'))
@@ -605,35 +615,33 @@ function size(width) {
    console.log(width);
 }
 
+
   
-//   frameContent.body.addEventListener('click',(event)=>{
-//    init()
-//  })
-  
-  
-  var Menu = true
-  var Attributes = true
-  var Editting = true
-  let mobileSelectStatus = true
-  let laptopSelectStatus = true
-  let DesktopSelectStatus = true
+var Menu = true
+var Attributes = true
+var Editting = true
+let mobileSelectStatus = true
+let laptopSelectStatus = true
+let DesktopSelectStatus = true
 
-  var fontsContainerBool = false
-  var fontColorContainerBool = false
-  var fontBackgroundColorContainerBool = false
-  var textTypeContainerBool = false
-  var createLinkContainerBool = false
-  var attributesContainerBool = false
+var fontsContainerBool = false
+var fontColorContainerBool = false
+var fontBackgroundColorContainerBool = false
+var textTypeContainerBool = false
+var createLinkContainerBool = false
+var attributesContainerBool = false
 
-  var imageBoxBool = false
-  var videoBoxBool = false
-   var blockBoxBool = false
+var imageBoxBool = false
+var videoBoxBool = false
+var blockBoxBool = false
 
 
-   var colorSelectContainerBool = false
-   var backcolorSelectContainerBool = false
+var colorSelectContainerBool = false
+var backcolorSelectContainerBool = false
 
-   var newContentBoxBool = false   
+var newContentBoxBool = false   
+
+
    function opennewContentBox(){
    
 
@@ -700,11 +708,14 @@ function addAttribute(attr){
     }
 }
 
+const linkBtn = document.getElementById('linkBtn')
 function openCreateLinkContainer(){
      if (!createLinkContainerBool) {
+         linkBtn.classList.toggle('active')
          createLinkContainer.style.display='flex' 
          createLinkContainerBool = true
      }else{
+        linkBtn.classList.toggle('active')
          createLinkContainer.style.display='none'
          createLinkContainerBool = false
      }
@@ -752,28 +763,20 @@ function openVideoBox(){
 
 
 
+const textTypeBtn = document.getElementById('textTypeBtn')
 // left
-function openTextTypeContainer(){
+function opentextTypeBox(){
     if (!textTypeContainerBool) {
-         textTypeContainer.style.display='flex'
+        textTypeBtn.classList.toggle('active')
+        textTypeBox.style.display='flex'
          textTypeContainerBool = true
 
-    //     fontBackgroundColorContainer.style.display='none'
-    //     fontBackgroundColorContainerBool = false
-    //     blockBox.style.display='none'
-    //     blockBoxBool = false
-
-    //     createLinkContainer.style.display='none'
-    //     createLinkContainerBool = false
-    //     fontsContainer.style.display='none'
-    //     fontsContainerBool = false
    }else{
-        textTypeContainer.style.display='none'
+
+         textTypeBtn.classList.toggle('active')
+         textTypeBox.style.display='none'
          textTypeContainerBool = false
-    //     createLinkContainer.style.display='none'
-    //     createLinkContainerBool = false
-    //     fontsContainer.style.display='none'
-    //     fontsContainerBool = false
+
     }
 }
 // center
@@ -804,14 +807,15 @@ function openbBlockBox(el){
     }
 }
 var settingState = false
-const settingsBox = document.getElementById('settingsBox')
+const settingBox = document.getElementById('settingBox')
+
 function openSettings(el) {
     if (!settingState) {
-        settingsBox.style.display='block' 
+        settingBox.style.display='block' 
         settingState = true
         el.classList.toggle('active')
     }else{
-        settingsBox.style.display='none'
+        settingBox.style.display='none'
         settingState = false
         el.classList.toggle('active')
     }
@@ -819,11 +823,21 @@ function openSettings(el) {
 }
 
 
+const colorBtn = document.getElementById('colorBtn')
+const backColorBtn = document.getElementById('backColorBtn')
 function openColors(){
     if (!colorSelectContainerBool) {
+        colorBtn.classList.toggle('active')
         colorSelectContainer.style.display='flex' 
         colorSelectContainerBool = true
+        if (backcolorSelectContainerBool) {
+            backColorBtn.classList.toggle('active')
+            backcolorSelectContainer.style.display='none' 
+            backcolorSelectContainerBool = false
+        }
+    
     }else{
+        colorBtn.classList.toggle('active')
         colorSelectContainer.style.display='none'
         colorSelectContainerBool = false
     }
@@ -831,9 +845,18 @@ function openColors(){
 }
 function openBackColors(){
     if (!backcolorSelectContainerBool) {
+        backColorBtn.classList.toggle('active')
         backcolorSelectContainer.style.display='flex' 
         backcolorSelectContainerBool = true
+
+        if (colorSelectContainerBool) {
+            colorBtn.classList.toggle('active')
+            colorSelectContainer.style.display='none'
+            colorSelectContainerBool = false
+        }
+
     }else{
+        backColorBtn.classList.toggle('active')
         backcolorSelectContainer.style.display='none'
         backcolorSelectContainerBool = false
     }
@@ -874,23 +897,21 @@ function ajax(data) {
     xhttp.send("data=" + data);
   }
 
-  var codeEditorContainer = document.getElementById('codeEditorContainer')
+var codeEditorContainer = document.getElementById('codeEditorContainer')
 
-    function openCode(){
-        codeEditorContainer.style.display= 'flex'
-    }
-  
-    function closeCode(){
-        codeEditorContainer.style.display= 'none'
-    }
+function openCode(){
+    codeEditorContainer.style.display= 'flex'
+}
+
+function closeCode(){
+    codeEditorContainer.style.display= 'none'
+}
 
   const editor = document.getElementById('codeEditor');
   const outputPre = document.getElementById('out');
   const preTag = document.getElementById('preTag');
   const language = document.getElementById('language_select');
   const linenumber = document.getElementById('line_numbers');
-
-
   
   language.addEventListener('change',()=>{
     const code = editor.value;
@@ -936,10 +957,11 @@ function ajax(data) {
     Prism.highlightElement(outputPre);
   })
 
-  function changeTheme() {
-    const theme = document.getElementById('theme_select').value;
-    themeLink.href = `./assets/css/${theme}.css`;
+function changeTheme() {
+const theme = document.getElementById('theme_select').value;
+themeLink.href = `./assets/css/${theme}.css`;
 }
+
   function insertCode() {
      
       const language = document.getElementById('language_select').value;
@@ -1075,9 +1097,26 @@ function withBorder(borderDash ,borderType, borderColor, radius) {
                 
         }
 
+    }else{
+        var range = selection.getRangeAt(0);
+        
+
+            var parentElement = range.commonAncestorContainer.parentElement;
+            var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+            // if(parentElement.tagName === "SPAN"){
+               parentElement.style.border = borderDash + "px " + borderType + " " + borderColor ;
+               parentElement.style.color =  borderColor ;
+               parentElement.style.borderRadius = radius+"px" ;
+               parentElement.style.padding = "0 10px" ;
+               parentElement.style.width = "fit-content";
+               parentElement.style.display = "inline-block" ;
+            // }
     }
 }
 
+
+var rotateSpantext = document.getElementById('rotateSpantext')
 
 function rotateSpan(deg) {
     selection = frameContent.getSelection();
@@ -1091,8 +1130,12 @@ function rotateSpan(deg) {
             var parentElement = range.commonAncestorContainer.parentElement;
             var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
 
+          
+           rotateSpantext.style.transform ="rotateZ("+ deg  + "deg)"
+
+
             if(parentElement.tagName === "SPAN"){
-               parentElement.style.transform = "rotateZ("+ deg + "deg)" ;
+               parentElement.style.transform = "rotateZ("+ deg  + "deg)" ;
         
                parentElement.style.width = "fit-content";
                parentElement.style.display = "inline-block" ;
@@ -1111,6 +1154,19 @@ function rotateSpan(deg) {
                 
         }
 
+    }else{
+        var range = selection.getRangeAt(0);
+        
+
+            var parentElement = range.commonAncestorContainer.parentElement;
+            var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+            // if(parentElement.tagName === "SPAN"){
+                parentElement.style.transform = "rotateZ("+ deg  + "deg)" ;
+        
+                parentElement.style.width = "fit-content";
+                parentElement.style.display = "inline-block" ;
+            // }
     }
 }
 
@@ -1167,25 +1223,37 @@ function bgSpan(bgColor="gainsboro") {
 
             if(parentElement.tagName === "SPAN"){
                parentElement.style.backgroundColor = bgColor;
-               parentElement.style.borderRadius = "5px" ;
-               parentElement.style.padding = "5px 10px" ;
-               parentElement.style.width = "fit-content";
-               parentElement.style.display = "inline-block" ;
+               parentElement.style.borderRadius = "50px" ;
+               parentElement.style.padding = "0px 10px" ;
+            //    parentElement.style.width = "fit-content";
+            //    parentElement.style.display = "inline-block" ;
 
             }else{
                 var span = frameContent.createElement("span");
                 span.innerText = selectedText;
                 span.style.backgroundColor = bgColor;
-                span.style.borderRadius = "5px" ;
-                span.style.padding = "5px 10px" ;
-                span.style.width = "fit-content";
-                span.style.display = "inline-block" ;
+                span.style.borderRadius = "50px" ;
+                span.style.padding = "0px 10px" ;
+                // span.style.width = "fit-content";
+                // span.style.display = "inline-block" ;
                 range.surroundContents(span);
 
             }
                 
         }
 
+    }else{
+        var range = selection.getRangeAt(0);
+        
+
+            var parentElement = range.commonAncestorContainer.parentElement;
+            var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+            parentElement.style.backgroundColor = bgColor;
+            parentElement.style.borderRadius = "50px" ;
+           parentElement.style.padding = "0px 10px" ;
+            // parentElement.style.width = "fit-content";
+            // parentElement.style.display = "inline-block" ;
     }
 }
 
@@ -1203,8 +1271,8 @@ function gradiendBgSpan(color1,color2,deg="to left") {
 
             if(parentElement.tagName === "SPAN"){
                parentElement.style.background = "linear-gradient("+deg+","+ color1 +" , " + color2+")";
-               parentElement.style.borderRadius = "5px" ;
-               parentElement.style.padding = "5px 10px" ;
+               parentElement.style.borderRadius = "50px" ;
+               parentElement.style.padding = "0px 10px" ;
                parentElement.style.width = "fit-content";
                parentElement.style.display = "inline-block" ;
 
@@ -1212,8 +1280,8 @@ function gradiendBgSpan(color1,color2,deg="to left") {
                 var span = frameContent.createElement("span");
                 span.innerText = selectedText;
                 span.style.background = "linear-gradient("+deg+","+ color1 +" , " + color2+")";
-                span.style.borderRadius = "5px" ;
-                span.style.padding = "5px 10px" ;
+                span.style.borderRadius = "50px" ;
+                span.style.padding = "0px 10px" ;
                 span.style.width = "fit-content";
                 span.style.display = "inline-block" ;
                 range.surroundContents(span);
@@ -1222,6 +1290,18 @@ function gradiendBgSpan(color1,color2,deg="to left") {
                 
         }
 
+    }else{
+        var range = selection.getRangeAt(0);
+        
+
+            var parentElement = range.commonAncestorContainer.parentElement;
+            var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+            parentElement.style.background = "linear-gradient("+deg+","+ color1 +" , " + color2+")";
+            parentElement.style.borderRadius = "50px" ;
+            parentElement.style.padding = "0px 10px" ;
+            parentElement.style.width = "fit-content";
+            parentElement.style.display = "inline-block" ;
     }
 }
 
@@ -1264,6 +1344,19 @@ function gradiendTextSpan(color1,color2,deg="to left") {
                 
         }
 
+    }else{
+        var range = selection.getRangeAt(0);
+        
+
+            var parentElement = range.commonAncestorContainer.parentElement;
+            var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+            parentElement.style.color = "transparent";
+            parentElement.style.backgroundImage = "linear-gradient("+deg+","+ color1 +" , " + color2+")";
+            parentElement.style.webkitBackgroundClip = "text";
+            parentElement.style.webkitTextFillColor = "transparent";
+           parentElement.style.width = "fit-content";
+           parentElement.style.display = "inline-block" ;
     }
 }
 
@@ -1276,19 +1369,10 @@ function addFontClass(className,array) {
         
         if (selectedText) {
             var parentElement = range.commonAncestorContainer.parentElement;
-            // var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
-            //console.log(parentElement.classList.contains(className));
+            
             if(parentElement.tagName === "SPAN"){
         
-                // array.forEach(name=>{
-                //     if (parentElement.classList.includes(name)) {
-                //         console.log(parentElement.classList.includes(name));
-                //         parentElement.classList.toggle(className);
-                //     }else{
-                        
-                //         parentElement.classList.add(className);
-                //     }
-                // });
+            
                 array.forEach(name=>{
                    parentElement.classList.remove(name)
                 });
@@ -1306,6 +1390,19 @@ function addFontClass(className,array) {
                 
         }
 
+    }else{
+        var range = selection.getRangeAt(0);
+        
+
+            var parentElement = range.commonAncestorContainer.parentElement;
+            var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+            array.forEach(name=>{
+                parentElement.classList.remove(name)
+             });
+
+             parentElement.classList.add(className);
+             selection.removeAllRanges();
     }
     selection.removeAllRanges();
 }

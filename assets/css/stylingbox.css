@@ -59,7 +59,7 @@
 
 
 .styling_title{
-    font-size: x-large;
+    font-size: medium;
 }
 
 .horizontal{
@@ -68,7 +68,12 @@
   justify-content: space-between;
   flex-direction: row;
 }
-
+.horizontal button{
+    margin-left: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #fff;
+}
 .vertical{
     display: flex;
     align-items: flex-start;
@@ -102,31 +107,49 @@
     flex-wrap: wrap;
     padding: 5px;
 }
+/* .box button{
+    width: 50px;
+    height: 50px;
+    border: 0px solid gainsboro;
+    border-radius: 50%;
+} */
 .colorBox{
-    width: 25px;
-    height: 25px;
-    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+    border: 0px solid black;
     border-radius: 50%;
 }
 
 .gradiendBox{
 
-    width: 50px;
-    height: 50px;
-    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+    border: 0px solid gainsboro;
     border-radius: 50%;
 }
 
-
+.cssBox textarea{
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #202020;
+    color: #fff;
+}
 
 
 /* border box */
 .col3{
-    width: 33%;
+    width: 30%;
 }
 .borderBox{
     padding: 7px 20px;
     margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.shadowBoxitem{
+    padding: 3px 10px;
+    margin: 10px;
     display: flex;
     align-items: center;
     justify-content: center;

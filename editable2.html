@@ -41,7 +41,7 @@
       </button>
 
 
-      <button>
+      <button onclick="openSettings(this)">
         <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-gear"
           viewBox="0 0 16 16">
           <path
@@ -1064,7 +1064,7 @@
         </div>
  -->
 
-        <button onclick="openTextTypeContainer()">
+        <button id="textTypeBtn" onclick="opentextTypeBox()">
           <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-type"
             viewBox="0 0 16 16">
             <path
@@ -1072,7 +1072,7 @@
           </svg>
         </button>
         
-        <div id="denemeStyle1">
+        <div id="textTypeBox">
 
           <span>Style</span>
           <div id="tagSelectCobtainer">
@@ -1157,8 +1157,17 @@
                 <li>10</li>
                 <li>11</li>
                 <li>12</li>
+                <li>13</li>
                 <li>14</li>
+                <li>15</li>
+                <li>16</li>
+                <li>17</li>
                 <li>18</li>
+                <li>19</li>
+                <li>20</li>
+                <li>21</li>
+                <li>22</li>
+                <li>23</li>
                 <li>24</li>
                 <li>36</li>
                 <li>48</li>
@@ -1208,7 +1217,7 @@
             </svg>
           </button>
 
-          <button onclick="openColors()">
+          <button id="colorBtn" onclick="openColors()">
             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-marker-tip"
               viewBox="0 0 16 16">
               <path
@@ -1249,7 +1258,7 @@
             <button onclick="command('foreColor',false,'#795548')" style="background-color:#795548"></button>
             <button onclick="command('foreColor',false,'#607d8b')" style="background-color:#607d8b"></button>
           </div>
-          <button onclick="openBackColors()">
+          <button id="backColorBtn" onclick="openBackColors()">
             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-highlighter"
               viewBox="0 0 16 16">
               <path fill-rule="evenodd"
@@ -1326,7 +1335,7 @@
                 d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
             </svg>
           </button>
-          <button onclick="openCreateLinkContainer()">
+          <button id="linkBtn" onclick="openCreateLinkContainer()">
             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-link-45deg"
               viewBox="0 0 16 16">
               <path
@@ -1354,10 +1363,9 @@
             </svg>
           </button>
           <button onclick="insertYoutube()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="red" class="bi bi-youtube"
-              viewBox="0 0 16 16">
-              <path
-                d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-play-btn" viewBox="0 0 16 16">
+              <path d="M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"/>
+              <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
             </svg>
           </button>
          
@@ -1366,16 +1374,13 @@
       </div>
 
       <div class="createLinkContainer" id="createLinkContainer">
-        <svg onclick="unLink()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-          class="bi bi-x" viewBox="0 0 16 16">
-          <path
-            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+        <svg onclick="unLink()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
         </svg>
         <input type="text" name="link" id="linkInput" placeholder="Link">
-        <svg onclick="createLink()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-          class="bi bi-check-lg" viewBox="0 0 16 16">
-          <path
-            d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z" />
+        <svg onclick="createLink()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
         </svg>
       </div>
 
@@ -1437,7 +1442,7 @@
       <select name="scaleSelect" id="scaleSelect">
        
         <optgroup label="Full">
-          <option value="100%">100%</option>
+          <option value="98%">98%</option>
         </optgroup>
 
         <optgroup label="Desktop">
@@ -1739,17 +1744,30 @@
       </svg>
 
     </div>
+
+    <div class="cssBox">
+      <div class="vertical">
+        <div class="horizontal" style="display: flex;justify-content:space-between;align-items:center;width:100%;">
+          <span class="styling_title">css</span>
+          <button style="color:#b9ec84;">apply</button>
+        </div>
+        
+        <textarea name="" id="" rows="10" cols="30"></textarea> 
+      </div>
+    </div>
+
+
     <!-- font size box -->
-    <div class="horizontal">
+    <!-- <div class="horizontal">
       <span class="styling_title">font size</span>
       <div class="border50 wfit padding">
         <i class="bi bi-dash-circle-fill"></i>
         <span>14</span>
         <i class="bi bi-plus-circle-fill"></i>
       </div>
-    </div>
+    </div> -->
     <!--  font color box -->
-    <div class="vertical">
+    <!-- <div class="vertical">
       <span class="styling_title">font color</span>
       <div class="box">
         <div class="colorBox"></div>
@@ -1795,11 +1813,9 @@
 
       </div>
 
-    </div>
-
-
+    </div> -->
     <!--  mark box -->
-    <div>
+    <!-- <div>
       <mark class="styling_title">mark</mark>
       <div class="box">
         <div class="colorBox"></div>
@@ -1844,64 +1860,105 @@
         <div class="colorBox"></div>
 
       </div>
-    </div>
+    </div> -->
 
     <!--  gradiend bgc box -->
     <div>
-      <span class="styling_title">gradiend bgc</span>
+      <span style="color: #ffffff;display: inline-block;background: linear-gradient(to left, #ff9a9e , #fad0c4) ;padding: 0px 10px;border-radius: 50px;width: fit-content;" class="styling_title">gradiend bgc</span>
       <div class="box">
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
+        <div style="background: linear-gradient(to left, #ff9a9e , #fad0c4) ;" class="colorBox"  onclick="gradiendBgSpan('#ff9a9e' , '#fad0c4')"></div>
+        <div  onclick="gradiendBgSpan('#a18cd1' , '#fbc2eb')" style="background: linear-gradient(to left, #a18cd1 , #fbc2eb) ;" class="colorBox"></div>
+        <div onclick="gradiendBgSpan('#fbc2eb' , '#a6c1ee')" style="background: linear-gradient(to left, #fbc2eb , #a6c1ee) ;" class="colorBox"></div>
+        <div onclick="gradiendBgSpan('#84fab0' , '#8fd3f4')" style="background: linear-gradient(to left, #84fab0 , #8fd3f4) ;" class="colorBox"></div>
+        <div onclick="gradiendBgSpan('#30cfd0' , '#330867')" style="background: linear-gradient(to left, #30cfd0 , #330867) ;" class="colorBox"></div>
+        <div onclick="gradiendBgSpan('#9890e3' , '#b1f4cf')" style="background: linear-gradient(to left, #9890e3 , #b1f4cf) ;" class="colorBox"></div>
+       
+        <div onclick="gradiendBgSpan('#96fbc4' , '#f9f586')" style="background: linear-gradient(to left, #96fbc4 , #f9f586) ;" class="colorBox"></div>
+        <div onclick="gradiendBgSpan('#37ecba' , '#72afd3')" style="background: linear-gradient(to left, #37ecba , #72afd3) ;" class="colorBox"></div>
+        <div onclick="gradiendBgSpan('#ebbba7' , '#cfc7f8')" style="background: linear-gradient(to left, #ebbba7 , #cfc7f8) ;" class="colorBox"></div>
+        <div onclick="gradiendBgSpan('#9795f0' , '#fbc8d4')" style="background: linear-gradient(to left, #9795f0 , #fbc8d4) ;" class="colorBox"></div>
       </div>
     </div>
 
     <!--  gradiend text box -->
     <div>
-      <span class="styling_title">gradiend text</span>
-      <div class="box">
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-
+      <span style="color: #892be200;display: inline-block;-webkit-background-clip: text;-webkit-text-fill-color: transparent;background-image: linear-gradient(to left, #ff9a9e 33%, #fad0c4 66%);width: fit-content;padding:0px;" class="styling_title">gradiend text</span>
+      <div class="box"> 
+       <div style="background: linear-gradient(to left, #ff9a9e , #fad0c4) ;" class="colorBox"  onclick="gradiendTextSpan('#ff9a9e' , '#fad0c4')"></div>
+        <div  onclick="gradiendTextSpan('#a18cd1' , '#fbc2eb')" style="background: linear-gradient(to left, #a18cd1 , #fbc2eb) ;" class="colorBox"></div>
+        <div onclick="gradiendTextSpan('#fbc2eb' , '#a6c1ee')" style="background: linear-gradient(to left, #fbc2eb , #a6c1ee) ;" class="colorBox"></div>
+        <div onclick="gradiendTextSpan('#84fab0' , '#8fd3f4')" style="background: linear-gradient(to left, #84fab0 , #8fd3f4) ;" class="colorBox"></div>
+        <div onclick="gradiendTextSpan('#30cfd0' , '#330867')" style="background: linear-gradient(to left, #30cfd0 , #330867) ;" class="colorBox"></div>
+        <div onclick="gradiendTextSpan('#9890e3' , '#b1f4cf')" style="background: linear-gradient(to left, #9890e3 , #b1f4cf) ;" class="colorBox"></div>
+       
+        <div onclick="gradiendTextSpan('#96fbc4' , '#f9f586')" style="background: linear-gradient(to left, #96fbc4 , #f9f586) ;" class="colorBox"></div>
+        <div onclick="gradiendTextSpan('#37ecba' , '#72afd3')" style="background: linear-gradient(to left, #37ecba , #72afd3) ;" class="colorBox"></div>
+        <div onclick="gradiendTextSpan('#ebbba7' , '#cfc7f8')" style="background: linear-gradient(to left, #ebbba7 , #cfc7f8) ;" class="colorBox"></div>
+        <div onclick="gradiendTextSpan('#9795f0' , '#fbc8d4')" style="background: linear-gradient(to left, #9795f0 , #fbc8d4) ;" class="colorBox"></div>
       </div>
     </div>
+    <!--  background color box -->
+    <div>
+        <span style="color: #ffffff;display: inline-block;background-color: #8a2be2;padding: 0px 10px;border-radius: 50px;width: fit-content;" class="styling_title">background</span>
+        <div class="box">
+            <button class="colorBox" onclick="bgSpan('#ffffff')" style="background-color:#ffffff;border: 1px solid gainsboro;"></button>
+            <button class="colorBox" onclick="bgSpan('#e0e0e0')" style="background-color:#e0e0e0"></button>
+            <button class="colorBox" onclick="bgSpan('#bdbdbd')" style="background-color:#bdbdbd"></button>
+            <button class="colorBox" onclick="bgSpan('#9e9e9e')" style="background-color:#9e9e9e"></button>
 
+            <button class="colorBox" onclick="bgSpan('#757575')" style="background-color:#757575"></button>
+            <button class="colorBox" onclick="bgSpan('#616161')" style="background-color:#616161"></button>
+            <button class="colorBox" onclick="bgSpan('#424242')" style="background-color:#424242"></button>
+            <button class="colorBox" onclick="bgSpan('#212121')" style="background-color:#212121"></button>
+            <button class="colorBox" onclick="bgSpan('#000000')" style="background-color:#000000"></button>
+            <button class="colorBox" onclick="bgSpan('#f44336')" style="background-color:#f44336"></button>
+
+            <button class="colorBox" onclick="bgSpan('#e91e63')" style="background-color:#e91e63"></button>
+            <button class="colorBox" onclick="bgSpan('#9c27b0')" style="background-color:#9c27b0"></button>
+            <button class="colorBox" onclick="bgSpan('#1c7ce2')" style="background-color:#1c7ce2"></button>
+            <button class="colorBox" onclick="bgSpan('#3f51b5')" style="background-color:#3f51b5"></button>
+            <button class="colorBox" onclick="bgSpan('#2196f3')" style="background-color:#2196f3"></button>
+            <button class="colorBox" onclick="bgSpan('#03a9f4')" style="background-color:#03a9f4"></button>
+
+
+            <button class="colorBox" onclick="bgSpan('#00bcd4')" style="background-color:#00bcd4"></button>
+            <button class="colorBox" onclick="bgSpan('#009688')" style="background-color:#009688"></button>
+            <button class="colorBox" onclick="bgSpan('#4caf50')" style="background-color:#4caf50"></button>
+            <button class="colorBox" onclick="bgSpan('#8bc34a')" style="background-color:#8bc34a"></button>
+            <button class="colorBox" onclick="bgSpan('#cddc39')" style="background-color:#cddc39"></button>
+            <button class="colorBox" onclick="bgSpan('#ffeb3b')" style="background-color:#ffeb3b"></button>
+
+            <button class="colorBox" onclick="bgSpan('#ff9800')" style="background-color:#ff9800"></button>
+            <button class="colorBox" onclick="bgSpan('#795548')" style="background-color:#795548"></button>
+            <button class="colorBox" onclick="bgSpan('#607d8b')" style="background-color:#607d8b"></button>
+        </div>
+    </div>
+
+    <!-- <div>
+      <h1>Lorem <span style="width: 70px; font-size:10px;display:inline-block;height:100%;">Lorem ipsum dolor sit amet.</span> i p s u m, d o l o r sit amet consectetur adipisicing elit. Perspiciatis, aliquid!</h1>
+    </div> -->
+             
     <!--  border box -->
     <div>
       <span class="styling_title">border</span>
       <div class="box">
         <div class="col3">
-          <div class="solidBorder0 borderBox">0px</div>
-          <div class="solidBorder5 borderBox">5px</div>
-          <div class="solidBorder10 borderBox">10px</div>
-          <div class="solidBorder50 borderBox">50px</div>
+          <div onclick="withBorder(1,'solid','#000',0)" class="solidBorder0 borderBox">0px</div>
+          <div onclick="withBorder(1,'solid','#000',5)" class="solidBorder5 borderBox">5px</div>
+          <div onclick="withBorder(1,'solid','#000',10)" class="solidBorder10 borderBox">10px</div>
+          <div onclick="withBorder(1,'solid','#000',50)" class="solidBorder50 borderBox">50px</div>
         </div>
         <div class="col3">
-          <div class="dashedBorder0 borderBox">dashed</div>
-          <div class="dashedBorder5 borderBox">border</div>
-          <div class="dashedBorder10 borderBox">border</div>
-          <div class="dashedBorder50 borderBox">border</div>
+          <div onclick="withBorder(1,'dashed','#000',0)" class="dashedBorder0 borderBox">dashed</div>
+          <div onclick="withBorder(1,'dashed','#000',5)" class="dashedBorder5 borderBox">border</div>
+          <div onclick="withBorder(1,'dashed','#000',10)" class="dashedBorder10 borderBox">border</div>
+          <div onclick="withBorder(1,'dashed','#000',50)" class="dashedBorder50 borderBox">border</div>
         </div>
         <div class="col3">
-          <div class="dottedBorder0 borderBox">dotted</div>
-          <div class="dottedBorder5 borderBox">border</div>
-          <div class="dottedBorder10 borderBox">border</div>
-          <div class="dottedBorder50 borderBox">border</div>
+          <div onclick="withBorder(1,'dotted','#000',0)" class="dottedBorder0 borderBox">dotted</div>
+          <div onclick="withBorder(1,'dotted','#000',5)" class="dottedBorder5 borderBox">border</div>
+          <div onclick="withBorder(1,'dotted','#000',10)" class="dottedBorder10 borderBox">border</div>
+          <div onclick="withBorder(1,'dotted','#000',50)" class="dottedBorder50 borderBox">border</div>
         </div>
       </div>
 
@@ -1910,35 +1967,27 @@
     <!--  shadow box -->
     <div class="vertical shadowBox">
       <span class="styling_title">shadow</span>
-      <div class="previewShadow" style="margin-top: 10px;">
-        preview
-      </div>
-
-      <div class="box horizontal" style="width: 100%;">
-        <div class="centerCol">
-          <span>x</span>
-          <input type="number" name="" id="" value="0">
+  
+      <div class="box">
+        <div class="col3">
+          <div onclick="shadowSpan(-1, 2, 0, 0, '#dcdcdc')" class="solidBorder0 shadowBoxitem" style="box-shadow: -1px 2px 0px 0px gainsboro;">shadow</div>
+          <div onclick="shadowSpan(-2, 3, 0, 0, '#dcdcdc')" class="solidBorder0 shadowBoxitem" style="box-shadow: -2px 3px 0px 0px gainsboro;">shadow</div>
+          <div onclick="shadowSpan(-3, 4, 0, 0, '#dcdcdc')" class="solidBorder0 shadowBoxitem" style="box-shadow: -3px 4px 0px 0px gainsboro;">shadow</div>
+          <div onclick="shadowSpan(-4, 5, 0, 0, '#dcdcdc')" class="solidBorder0 shadowBoxitem" style="box-shadow: -4px 5px 0px 0px gainsboro;">shadow</div>
         </div>
-
-        <div class="centerCol">
-          <span>y</span>
-          <input type="number" name="" id="" value="0">
+        <div class="col3">
+          <div onclick="shadowSpan(1, 2, 0, 0, '#dcdcdc')" class="solidBorder0 shadowBoxitem" style="box-shadow: 1px 2px 0px 0px gainsboro;">shadow</div>
+          <div onclick="shadowSpan(2, 3, 0, 0, '#dcdcdc')" class="solidBorder0 shadowBoxitem" style="box-shadow: 2px 3px 0px 0px gainsboro;">shadow</div>
+          <div onclick="shadowSpan(3, 4, 0, 0, '#dcdcdc')" class="solidBorder0 shadowBoxitem" style="box-shadow: 3px 4px 0px 0px gainsboro;">shadow</div>
+          <div onclick="shadowSpan(4, 5, 0, 0, '#dcdcdc')" class="solidBorder0 shadowBoxitem" style="box-shadow: 4px 5px 0px 0px gainsboro;">shadow</div>
         </div>
-
-        <div class="centerCol">
-          <span>blur</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-
-        <div class="centerCol">
-          <span>spread</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-        <div class="shadowColor" style="margin-top: 8px;">
-
+        <div class="col3">
+          <div onclick="shadowSpan(4, 4, 0, 0, '#dcdcdc')" class="solidBorder0 shadowBoxitem" style="box-shadow: 4px 4px 0px 0px gainsboro;">shadow</div>
+          <div onclick="shadowSpan(-4, 4, 0, 0, '#dcdcdc')" class="solidBorder0 shadowBoxitem" style="box-shadow: -4px 4px 0px 0px gainsboro;">shadow</div>
+          <div onclick="shadowSpan(4, -4, 0, 0, '#dcdcdc')" class="solidBorder0 shadowBoxitem" style="box-shadow: 4px -4px 0px 0px gainsboro;">shadow</div>
+          <div onclick="shadowSpan(-4, -4, 0, 0, '#dcdcdc')" class="solidBorder0 shadowBoxitem" style="box-shadow: -4px -4px 0px 0px gainsboro;">shadow</div>
         </div>
       </div>
-
 
     </div>
 
@@ -1946,83 +1995,18 @@
     <div>
       <span class="styling_title">rotation</span>
       <div class="horizontal" style="margin-top: 20px; width:100px;font-size:large;">
-        <span style="rotate: 30deg;">rotate</span>
-        <i class="bi bi-arrow-clockwise"></i>
+        <span id="rotateSpantext">rotate</span>
+        <!-- <i onclick="rotateSpan(5)" class="bi bi-arrow-clockwise"></i> -->
+        <button onclick="rotateSpan(0)">0</button>
+        <button onclick="rotateSpan(10)">10</button>
+        <button onclick="rotateSpan(-10)">-10</button>
+        <button onclick="rotateSpan(20)">20</button>
+        <button onclick="rotateSpan(-20)">-20</button>
+        <button onclick="rotateSpan(30)">30</button>
+        <button onclick="rotateSpan(-30)">-30</button>
       </div>
 
     </div>
-
-    <!--  margin box -->
-    <div class="shadowBox">
-      <span class="styling_title">margin</span>
-
-      <div class="box horizontal" style="width: 100%;">
-        <div class="centerCol">
-          <span>all</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-        <div class="centerCol">
-          <span>top</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-
-        <div class="centerCol">
-          <span>bottom</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-
-        <div class="centerCol">
-          <span>left</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-
-        <div class="centerCol">
-          <span>right</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-      </div>
-    </div>
-
-    <!--  padding box -->
-    <div class="shadowBox">
-      <span class="styling_title">padding</span>
-
-      <div class="box horizontal" style="width: 100%;">
-        <div class="centerCol">
-          <span>all</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-        <div class="centerCol">
-          <span>top</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-
-        <div class="centerCol">
-          <span>bottom</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-
-        <div class="centerCol">
-          <span>left</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-
-        <div class="centerCol">
-          <span>right</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-      </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
 
   </div>
 
@@ -2038,289 +2022,9 @@
       </svg>
       
     </div>
-    <!-- font size box -->
-    <div class="horizontal">
-      <span class="styling_title">blocksBox</span>
-      <div class="border50 wfit padding">
-        <i class="bi bi-dash-circle-fill"></i>
-        <span>14</span>
-        <i class="bi bi-plus-circle-fill"></i>
-      </div>
-    </div>
-    <!--  font color box -->
-    <div class="vertical">
-      <span class="styling_title">font color</span>
-      <div class="box">
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
 
-      </div>
-
-    </div>
-
-
-    <!--  mark box -->
-    <div>
-      <mark class="styling_title">mark</mark>
-      <div class="box">
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-
-      </div>
-    </div>
-
-    <!--  gradiend bgc box -->
-    <div>
-      <span class="styling_title">gradiend bgc</span>
-      <div class="box">
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-      </div>
-    </div>
-
-    <!--  gradiend text box -->
-    <div>
-      <span class="styling_title">gradiend text</span>
-      <div class="box">
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-        <div class="gradiendBox"></div>
-
-      </div>
-    </div>
-
-    <!--  border box -->
-    <div>
-      <span class="styling_title">border</span>
-      <div class="box">
-        <div class="col3">
-          <div class="solidBorder0 borderBox">0px</div>
-          <div class="solidBorder5 borderBox">5px</div>
-          <div class="solidBorder10 borderBox">10px</div>
-          <div class="solidBorder50 borderBox">50px</div>
-        </div>
-        <div class="col3">
-          <div class="dashedBorder0 borderBox">dashed</div>
-          <div class="dashedBorder5 borderBox">border</div>
-          <div class="dashedBorder10 borderBox">border</div>
-          <div class="dashedBorder50 borderBox">border</div>
-        </div>
-        <div class="col3">
-          <div class="dottedBorder0 borderBox">dotted</div>
-          <div class="dottedBorder5 borderBox">border</div>
-          <div class="dottedBorder10 borderBox">border</div>
-          <div class="dottedBorder50 borderBox">border</div>
-        </div>
-      </div>
-
-    </div>
-
-    <!--  shadow box -->
-    <div class="vertical shadowBox">
-      <span class="styling_title">shadow</span>
-      <div class="previewShadow" style="margin-top: 10px;">
-        preview
-      </div>
-
-      <div class="box horizontal" style="width: 100%;">
-        <div class="centerCol">
-          <span>x</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-
-        <div class="centerCol">
-          <span>y</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-
-        <div class="centerCol">
-          <span>blur</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-
-        <div class="centerCol">
-          <span>spread</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-        <div class="shadowColor" style="margin-top: 8px;">
-
-        </div>
-      </div>
-
-
-    </div>
-
-    <!--  rotation box -->
-    <div>
-      <span class="styling_title">rotation</span>
-      <div class="horizontal" style="margin-top: 20px; width:100px;font-size:large;">
-        <span style="rotate: 30deg;">rotate</span>
-        <i class="bi bi-arrow-clockwise"></i>
-      </div>
-
-    </div>
-
-    <!--  margin box -->
-    <div class="shadowBox">
-      <span class="styling_title">margin</span>
-
-      <div class="box horizontal" style="width: 100%;">
-        <div class="centerCol">
-          <span>all</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-        <div class="centerCol">
-          <span>top</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-
-        <div class="centerCol">
-          <span>bottom</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-
-        <div class="centerCol">
-          <span>left</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-
-        <div class="centerCol">
-          <span>right</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-      </div>
-    </div>
-
-    <!--  padding box -->
-    <div class="shadowBox">
-      <span class="styling_title">padding</span>
-
-      <div class="box horizontal" style="width: 100%;">
-        <div class="centerCol">
-          <span>all</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-        <div class="centerCol">
-          <span>top</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-
-        <div class="centerCol">
-          <span>bottom</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-
-        <div class="centerCol">
-          <span>left</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-
-        <div class="centerCol">
-          <span>right</span>
-          <input type="number" name="" id="" value="0">
-        </div>
-      </div>
-    </div>
-
-
-
-
-
-
-
-
-
+    <!-- blocklari buraya ekle -->
+  
 
 
   </div>
@@ -2330,7 +2034,7 @@
 
 
 
-  <iframe id="iframe" width="100%" height="500" src="./dev.html" frameborder="0"></iframe>
+  <iframe id="iframe" width="98%" height="500" src="./dev.html" frameborder="0"></iframe>
 
 
 

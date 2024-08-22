@@ -5,7 +5,7 @@
     --editor-border:2px solid gainsboro;
     --editor-border-radius:5px;
     --editor-padding:20px;
-    --editor-bgc: rgb(250, 250, 250);
+    --editor-bgc: rgb(254, 254, 254);
     --editor-button-color: rgb(24, 24, 24);
     --top : 50px;
     --border-gray:1px solid #c1c1c1;
@@ -208,11 +208,7 @@ header button{
     align-items: center;
     justify-content: center;
     color: var(--editor-button-color);
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+    border-radius: 150px;
 }
 header button:active{
     scale: 0.95;
@@ -601,43 +597,33 @@ color: red;
 .createLinkContainer{
     display: none;
     align-items: center;
-    position: fixed;
+    position: absolute;
+    top: 44px;
+    right: 0px;
     background-color: #ffffff;
-    border: 1px solid gainsboro;
-    
-    top: 55px;
-    max-height: calc(100vh - 200px);
-    overflow-y: scroll;
-    border-radius:10px;
-    /* box-shadow: var(--box-shadow); */
+    border: 1px solid rgb(0, 0, 0, 0.18181818);
     padding: 5px;
+    border-radius:50px;
 }
 .createLinkContainer input
 {
-    padding: 5px 10px;
-    outline: none;
-    color: tomato;
-    margin: 10px 0;
-    border: none;
-    border-bottom: 1px solid tomato;
-    height: 30px;
+    padding: 0px 10px;
+    border: 1px solid rgb(0, 0, 0, 0.18181818);
+    border-radius: 5px;
 }
 .createLinkContainer input:hover{
     background-color: rgba(243, 243, 243, 0.699);
 }
 .createLinkContainer svg{
-    height: 30px;
-    width: 35px;
-    padding: 5px;
+margin: 0 10px;
+color: #000;
 }
-.createLinkContainer svg:first-child{
-    margin-right: 5px;
-}
-.createLinkContainer svg:last-child{
-    margin-left: 5px;
-}
+
 .createLinkContainer svg:hover{
-    background-color: rgba(243, 243, 243, 0.699);
+    scale: 1.1;
+}
+.createLinkContainer svg:active{
+    scale: 0.9;
 }
 
 
@@ -651,8 +637,8 @@ color: red;
     width: fit-content;
     border: 1px solid rgba(0, 0, 0, 0.1818181818);
     /* box-shadow: var(--box-shadow); */
-    border-radius: 5px;
-    padding:2px;
+    border-radius: 30px;
+    padding:4px;
 }
 .textTypeContainer select{
    border: 1px solid gainsboro;
@@ -728,7 +714,7 @@ color: red;
     font-size: 20px;
  }
 
- #denemeStyle1{
+ #textTypeBox{
     display: none;
     align-items: flex-start;
     justify-content: flex-start;
@@ -738,12 +724,12 @@ color: red;
     border-radius: 5px;
     position: absolute;
     left: 0;
-    top: 40px;
-    z-index: 99999999999;
+    top: 44px;
+    z-index: 2;
     width: 200px;
     padding: 10px;
   }
-  #denemeStyle1 div{
+  #textTypeBox div{
     margin: 5px 0;
   }
 
@@ -776,9 +762,9 @@ color: red;
 */
 
 .colorSelectContainer, .backcolorSelectContainer{
-    position: fixed;
-    top: 55px;
-    z-index: 99999;
+    position: absolute;
+    top: 44px;
+    z-index: 2;
     border: 1px solid rgb(0, 0, 0, 0.18181818);
     width: 144px;
     padding: 5px;
@@ -788,6 +774,9 @@ color: red;
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
+}
+.backcolorSelectContainer{
+    left: 300px;
 }
 
 .colorSelectContainer button,.backcolorSelectContainer button{
@@ -822,6 +811,7 @@ color: red;
     border: 1px solid gainsboro;
     border-radius:5px;
     padding: 5px;
+    z-index: 2;
 }
 ::-webkit-scrollbar-thumb{
     width: 3px;
@@ -880,17 +870,11 @@ color: red;
     position: relative;
 }
 
-/* .custom-datalist input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-} */
-
 .custom-datalist ul {
-    position: fixed;
-    top: 50px;
+    position: absolute;
+    top: -33px;
     width: 40px;
+    height: 99px;
     border: 1px solid #ccc;
     border-radius: 4px;
     background: white;
@@ -900,11 +884,14 @@ color: red;
     z-index: 1000;
     display: none;
     text-align: center;
+    overflow-y: scroll;
 }
-
+.custom-datalist ul::-webkit-scrollbar{
+    width: 3px;
+}
 .custom-datalist ul li {
     cursor: pointer;
-    padding: 3px 0;
+    padding:3px 0 ;
     border-radius: 5px;
 }
 
@@ -1265,7 +1252,7 @@ object-fit: cover;
     border-radius: 10px;
     background-color: #fff;
     z-index: 2;
-
+    display: none;
     position: fixed;
     left: 10px;
     top: 55px;
