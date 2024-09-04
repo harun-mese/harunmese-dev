@@ -904,7 +904,7 @@
       </button>
 
 
-      <div class="blockBox">
+    <div class="blockBox">
         <h2>Blocks</h2>
 
         <div class="block_h4m text-img"
@@ -1587,6 +1587,12 @@
       </svg>
     </button>
 
+    <button>
+      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="red" class="bi bi-x-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+      </svg>
+    </button>
   </div>
 
   <div id="baloonLink">
@@ -1633,14 +1639,17 @@
 
   <div id="imageEditBox">
     <i onclick="deleteImage()" class="bi bi-trash"></i>
-
     <i onclick="openSelectImageBox()" class="bi bi-image"></i>
+    <i class="bi bi-x-circle" style="color:red"></i>
   </div>
 
   <div id="selectImageBox">
     <div class="head">
       <span>Resim seç</span>
-      <button onclick="closeImageBox()">Kapat</button>
+      <button onclick="closeImageBox()"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+      </svg></button>
     </div>
     <div class="flex">
       <button>
@@ -1669,9 +1678,17 @@
       <div class="head">
         <h3>Code Editor</h3>
         <div>
-          <button onclick="insertCode()">insert code</button>
+          <button onclick="insertCode()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+              <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
+            </svg>
+          </button>
           <button style="margin-left: 10px;color:red;" onclick="closeCode()">
-            close
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+            </svg>
           </button>
         </div>
       </div>
@@ -1745,161 +1762,372 @@
 
     </div>
 
+
     <div class="cssBox">
       <div class="vertical">
         <div class="horizontal" style="display: flex;justify-content:space-between;align-items:center;width:100%;">
-          <span class="styling_title">css</span>
-          <button style="color:#b9ec84;">apply</button>
+          <h2 class="styling_title">Css - <a href="#">Daha fazlası</a></h2>
+          <button style="color:#b9ec84; background-color:transparent;">Uygula</button>
         </div>
         
-        <textarea name="" id="" rows="10" cols="30"></textarea> 
+        <textarea name="" id="" placeholder="#css{
+    margin: 0px;
+    padding:0px;
+}"></textarea> 
       </div>
     </div>
 
 
+
+    <style>
+    .inline-image {
+        vertical-align: middle;/* Resmin metinle aynı hizada olmasını sağlar */
+        height: 20px; /* Metin yüksekliğiyle aynı yükseklikte olmasını sağlar */
+        width: 40px; /* Genişliği orantılı olarak ayarlar */
+        object-fit: cover;
+        border-radius: 50px;
+        display: inline-block;
+       /*  position: relative; Resmi konumlandırılabilir hale getirir */
+        cursor:row-resize; /* Fare simgesini değiştirir */
+        user-select: none;
+        z-index: 0;
+    }
+    .inlineImages{
+      vertical-align: middle;/* Resmin metinle aynı hizada olmasını sağlar */
+      height: 30px; /* Metin yüksekliğiyle aynı yükseklikte olmasını sağlar */
+      width: 60px; /* Genişliği orantılı olarak ayarlar */
+      object-fit: cover;
+      border-radius: 50px;
+      display: inline-block;
+     /*  position: relative; Resmi konumlandırılabilir hale getirir */
+      cursor:pointer; /* Fare simgesini değiştirir */
+      user-select: none;
+      z-index: 0 !important;
+    }
+    .inline-image-style1{
+      border-radius: 50px;
+      border: none;
+    }
+    .inline-image-style2{
+      border-radius: 50px;
+      border: 2px solid black;
+    }
+    .inline-image-style3{
+      border-radius: 50px;
+      border: 2px dotted black;
+    }
+    .inline-image-style4{
+      border-radius: 50px;
+      border: 2px dashed black;
+    }
+    .inline-image-style5{
+      border-radius: 10px;
+      border: none;
+    }
+    .inline-image-style6{
+      border-radius: 10px;
+      border: 2px solid black;
+    }
+    .inline-image-style7{
+      border-radius: 10px;
+      border: 2px dotted black;
+    }
+    .inline-image-style8{
+      border-radius: 10px;
+      border: 2px dashed black;
+    }
+
+    .twoCol{
+      font-size: 5px;
+      line-height: 1;
+      width: 40px;
+      height: initial;
+      display: inline-block;
+  }
+
+  .styleBtn:hover, .colorBox:hover, .grdColorBox:hover, .borderBox:hover, .shadowBoxitem:hover{
+    scale: 1.05;
+  }
+  .styleBtn:active, .colorBox:active, .grdColorBox:active, .borderBox:active .shadowBoxitem:active{
+    scale: .98;
+  }
+    </style>
+
+    <div class="vertical">
+      <span class="styling_title">Metin içi  <img  src="./assets/uploads/img12.jpeg" alt="resim" class="draggable inline-image" id="draggableImage"> resim</span>
+      <div class="box">
+        <span style="width: 100%;margin :5px 0px;font-size:12px">50px radius</span>
+        <img  src="./assets/uploads/img1.jpeg" alt="resim" class="inlineImages inline-image-style1 styleBtn" id="draggableImage">
+        <img  src="./assets/uploads/dunya-haritasi-2.jpg" alt="resim" class="inlineImages inline-image-style2 styleBtn" id="draggableImage">
+        <img  src="./assets/uploads/img3.jpeg" alt="resim" class="inlineImages inline-image-style3 styleBtn" id="draggableImage">
+        <img  src="./assets/uploads/img5.jpeg" alt="resim" class="inlineImages inline-image-style4 styleBtn" id="draggableImage">
+        <hr style="width: 100%;margin :2px 0px;border:none;">
+
+        <span style="width: 100%;margin :5px 0px;font-size:12px">10px radius</span>
+        <img  src="./assets/uploads/img11.jpeg" alt="resim" class="inlineImages inline-image-style5 styleBtn" id="draggableImage">
+        <img  src="./assets/uploads/img7.jpeg" alt="resim" class="inlineImages inline-image-style6 styleBtn" id="draggableImage">
+        <img  src="./assets/uploads/img9.jpeg" alt="resim" class="inlineImages inline-image-style7 styleBtn" id="draggableImage">
+        <img  src="./assets/uploads/img2.jpeg" alt="resim" class="inlineImages inline-image-style8 styleBtn" id="draggableImage">
+      </div>
+
+    </div> 
+    <div class="vertical">
+      <span class="styling_title">Metin içi  <span class="twoCol">Lorem ipsum dolor sit amet</span> metin</span>
+      <div class="box" style="padding: 15px 0;">
+
+        <style>
+          .inlineSpan{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+          }
+          .inlineText3{
+            display: inline-flex; 
+            width:100px;
+            align-items: center;
+            justify-content: space-between;
+          }
+          .inlineSpan3{ 
+            display: inline-flex; 
+            vertical-align: middle;
+            font-size: 5px;
+            width:100px;
+            margin-left: 5px;
+          }.inlineText3.border50{ 
+            width:140px;
+            padding: 5px 7px;
+          }
+        </style>
+
+        <div class="inlineSpan">
+          <span class="inlineSpan3">
+            Lorem ipsum dolo. Tempore nostrum cumque asperiores architecto ex.
+          </span>
+        </div>
+        <div class="inlineSpan">
+          <span class="inlineText3 border50">
+           <span class="inlineSpan3">Lorem ipsum d Tempore nostrum cumque asperiores architecto ex. Laboriosam asperiores architecto.</span> <img width="20" src="./assets/uploads/scooter.png" alt="" style="display: inline;">
+          </span>
+        </div>
+
+        <hr style="width: 100%;margin:15px 0px;">
+
+        <div class="inlineSpan">
+          <span style="" class="inlineText3">
+            <img width="20" src="./assets/uploads/meditation.png" alt="" style="display: inline;"> <span class="inlineSpan3">Lorem ipsum dolor sit, amet asperiores architecto ex. Laboriosam.</span> 
+          </span>
+        </div>
+        <div class="inlineSpan">
+          <span class="inlineSpan3">
+            Lorem ipsum dolor sit, mque asperiores architecto ex. Laboriosam.<img width="20" src="./assets/uploads/sheep.png" alt="" style="display: inline;">
+          </span>
+        </div>
+
+      </div>
+
+    </div> 
+    <div class="vertical">
+      <span class="styling_title">Metin içi <img width="27" src="./assets/uploads/sheep.png" alt=""> icon - <a target="_blank" href="https://www.flaticon.com/stickers">Daha fazla</a></span>
+      <div class="box">
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+        <div class="colorBox"></div>
+      </div>
+
+    </div> 
+   <!-- <h2>Metin içi  <img  src="./assets/uploads/dunya-haritasi-2.jpg" alt="resim" class="draggable inline-image" id="draggableImage"> resim</h2>
+   <h2>Metin içi <span class="twoCol">Lorem ipsum dolor sit amet</span> metin</h2>
+   <h2>Metin içi <img width="40" src="./assets/uploads/sheep.png" alt=""> icon</h2> -->
+
+
+
+
     <!-- font size box -->
     <!-- <div class="horizontal">
-      <span class="styling_title">font size</span>
+      <span class="styling_title">Font size</span>
       <div class="border50 wfit padding">
-        <i class="bi bi-dash-circle-fill"></i>
+        <i class="styleBtn bi bi-dash-circle-fill"></i>
         <span>14</span>
-        <i class="bi bi-plus-circle-fill"></i>
+        <i class="styleBtn bi bi-plus-circle-fill"></i>
       </div>
-    </div> -->
+    </div>  -->
+
+
+  <!-- font type box -->
+   <div class="vertical">
+    <span class="styling_title">Font type</span>
+    <div class="box">
+      <button class="colorBox" onclick="bgSpan('#ffffff')" style="background-color:#ffffff;border: 1px solid gainsboro;"></button>
+      <button class="colorBox" onclick="bgSpan('#e0e0e0')" style="background-color:#e0e0e0"></button>
+      <button class="colorBox" onclick="bgSpan('#bdbdbd')" style="background-color:#bdbdbd"></button>
+      <button class="colorBox" onclick="bgSpan('#9e9e9e')" style="background-color:#9e9e9e"></button>
+
+      <button class="colorBox" onclick="bgSpan('#757575')" style="background-color:#757575"></button>
+      <button class="colorBox" onclick="bgSpan('#616161')" style="background-color:#616161"></button>
+      <button class="colorBox" onclick="bgSpan('#424242')" style="background-color:#424242"></button>
+      <button class="colorBox" onclick="bgSpan('#212121')" style="background-color:#212121"></button>
+      <button class="colorBox" onclick="bgSpan('#000000')" style="background-color:#000000"></button>
+      <button class="colorBox" onclick="bgSpan('#f44336')" style="background-color:#f44336"></button>
+
+      <button class="colorBox" onclick="bgSpan('#e91e63')" style="background-color:#e91e63"></button>
+      <button class="colorBox" onclick="bgSpan('#9c27b0')" style="background-color:#9c27b0"></button>
+      <button class="colorBox" onclick="bgSpan('#1c7ce2')" style="background-color:#1c7ce2"></button>
+      <button class="colorBox" onclick="bgSpan('#3f51b5')" style="background-color:#3f51b5"></button>
+      <button class="colorBox" onclick="bgSpan('#2196f3')" style="background-color:#2196f3"></button>
+      <button class="colorBox" onclick="bgSpan('#03a9f4')" style="background-color:#03a9f4"></button>
+
+
+      <button class="colorBox" onclick="bgSpan('#00bcd4')" style="background-color:#00bcd4"></button>
+      <button class="colorBox" onclick="bgSpan('#009688')" style="background-color:#009688"></button>
+      <button class="colorBox" onclick="bgSpan('#4caf50')" style="background-color:#4caf50"></button>
+      <button class="colorBox" onclick="bgSpan('#8bc34a')" style="background-color:#8bc34a"></button>
+      <button class="colorBox" onclick="bgSpan('#cddc39')" style="background-color:#cddc39"></button>
+      <button class="colorBox" onclick="bgSpan('#ffeb3b')" style="background-color:#ffeb3b"></button>
+
+      <button class="colorBox" onclick="bgSpan('#ff9800')" style="background-color:#ff9800"></button>
+      <button class="colorBox" onclick="bgSpan('#795548')" style="background-color:#795548"></button>
+      <!-- <button class="colorBox" onclick="bgSpan('#607d8b')" style="background-color:#607d8b"></button> -->
+    </div>
+  </div> 
+
     <!--  font color box -->
-    <!-- <div class="vertical">
-      <span class="styling_title">font color</span>
-      <div class="box">
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
+     <div class="vertical">
+      <span class="styling_title">Font <font color="red">color</font></span>
+        <div class="box">
+          <button class="colorBox" onclick="bgSpan('#ffffff')" style="background-color:#ffffff;border: 1px solid gainsboro;"></button>
+          <button class="colorBox" onclick="bgSpan('#e0e0e0')" style="background-color:#e0e0e0"></button>
+          <button class="colorBox" onclick="bgSpan('#bdbdbd')" style="background-color:#bdbdbd"></button>
+          <button class="colorBox" onclick="bgSpan('#9e9e9e')" style="background-color:#9e9e9e"></button>
 
-      </div>
+          <button class="colorBox" onclick="bgSpan('#757575')" style="background-color:#757575"></button>
+          <button class="colorBox" onclick="bgSpan('#616161')" style="background-color:#616161"></button>
+          <button class="colorBox" onclick="bgSpan('#424242')" style="background-color:#424242"></button>
+          <button class="colorBox" onclick="bgSpan('#212121')" style="background-color:#212121"></button>
+          <button class="colorBox" onclick="bgSpan('#000000')" style="background-color:#000000"></button>
+          <button class="colorBox" onclick="bgSpan('#f44336')" style="background-color:#f44336"></button>
 
-    </div> -->
+          <button class="colorBox" onclick="bgSpan('#e91e63')" style="background-color:#e91e63"></button>
+          <button class="colorBox" onclick="bgSpan('#9c27b0')" style="background-color:#9c27b0"></button>
+          <button class="colorBox" onclick="bgSpan('#1c7ce2')" style="background-color:#1c7ce2"></button>
+          <button class="colorBox" onclick="bgSpan('#3f51b5')" style="background-color:#3f51b5"></button>
+          <button class="colorBox" onclick="bgSpan('#2196f3')" style="background-color:#2196f3"></button>
+          <button class="colorBox" onclick="bgSpan('#03a9f4')" style="background-color:#03a9f4"></button>
+
+
+          <button class="colorBox" onclick="bgSpan('#00bcd4')" style="background-color:#00bcd4"></button>
+          <button class="colorBox" onclick="bgSpan('#009688')" style="background-color:#009688"></button>
+          <button class="colorBox" onclick="bgSpan('#4caf50')" style="background-color:#4caf50"></button>
+          <button class="colorBox" onclick="bgSpan('#8bc34a')" style="background-color:#8bc34a"></button>
+          <button class="colorBox" onclick="bgSpan('#cddc39')" style="background-color:#cddc39"></button>
+          <button class="colorBox" onclick="bgSpan('#ffeb3b')" style="background-color:#ffeb3b"></button>
+
+          <button class="colorBox" onclick="bgSpan('#ff9800')" style="background-color:#ff9800"></button>
+          <button class="colorBox" onclick="bgSpan('#795548')" style="background-color:#795548"></button>
+          <!-- <button class="colorBox" onclick="bgSpan('#607d8b')" style="background-color:#607d8b"></button> -->
+        </div>
+    </div> 
     <!--  mark box -->
-    <!-- <div>
-      <mark class="styling_title">mark</mark>
+    <div>
+      <mark class="styling_title">Marker</mark>
       <div class="box">
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
-        <div class="colorBox"></div>
+          <button class="colorBox" onclick="bgSpan('#ffffff')" style="background-color:#ffffff;border: 1px solid gainsboro;"></button>
+          <button class="colorBox" onclick="bgSpan('#e0e0e0')" style="background-color:#e0e0e0"></button>
+          <button class="colorBox" onclick="bgSpan('#bdbdbd')" style="background-color:#bdbdbd"></button>
+          <button class="colorBox" onclick="bgSpan('#9e9e9e')" style="background-color:#9e9e9e"></button>
 
+          <button class="colorBox" onclick="bgSpan('#757575')" style="background-color:#757575"></button>
+          <button class="colorBox" onclick="bgSpan('#616161')" style="background-color:#616161"></button>
+          <button class="colorBox" onclick="bgSpan('#424242')" style="background-color:#424242"></button>
+          <button class="colorBox" onclick="bgSpan('#212121')" style="background-color:#212121"></button>
+          <button class="colorBox" onclick="bgSpan('#000000')" style="background-color:#000000"></button>
+          <button class="colorBox" onclick="bgSpan('#f44336')" style="background-color:#f44336"></button>
+
+          <button class="colorBox" onclick="bgSpan('#e91e63')" style="background-color:#e91e63"></button>
+          <button class="colorBox" onclick="bgSpan('#9c27b0')" style="background-color:#9c27b0"></button>
+          <button class="colorBox" onclick="bgSpan('#1c7ce2')" style="background-color:#1c7ce2"></button>
+          <button class="colorBox" onclick="bgSpan('#3f51b5')" style="background-color:#3f51b5"></button>
+          <button class="colorBox" onclick="bgSpan('#2196f3')" style="background-color:#2196f3"></button>
+          <button class="colorBox" onclick="bgSpan('#03a9f4')" style="background-color:#03a9f4"></button>
+
+
+          <button class="colorBox" onclick="bgSpan('#00bcd4')" style="background-color:#00bcd4"></button>
+          <button class="colorBox" onclick="bgSpan('#009688')" style="background-color:#009688"></button>
+          <button class="colorBox" onclick="bgSpan('#4caf50')" style="background-color:#4caf50"></button>
+          <button class="colorBox" onclick="bgSpan('#8bc34a')" style="background-color:#8bc34a"></button>
+          <button class="colorBox" onclick="bgSpan('#cddc39')" style="background-color:#cddc39"></button>
+          <button class="colorBox" onclick="bgSpan('#ffeb3b')" style="background-color:#ffeb3b"></button>
+
+          <button class="colorBox" onclick="bgSpan('#ff9800')" style="background-color:#ff9800"></button>
+          <button class="colorBox" onclick="bgSpan('#795548')" style="background-color:#795548"></button>
+          <!-- <button class="colorBox" onclick="bgSpan('#607d8b')" style="background-color:#607d8b"></button> -->
+    
       </div>
-    </div> -->
+    </div> 
 
     <!--  gradiend bgc box -->
     <div>
-      <span style="color: #ffffff;display: inline-block;background: linear-gradient(to left, #ff9a9e , #fad0c4) ;padding: 0px 10px;border-radius: 50px;width: fit-content;" class="styling_title">gradiend bgc</span>
+      <span class="styling_title">Gradient background - <a target="_blank" href="https://cssgradient.io/gradient-backgrounds/">Daha fazla renk</a></span>
       <div class="box">
-        <div style="background: linear-gradient(to left, #ff9a9e , #fad0c4) ;" class="colorBox"  onclick="gradiendBgSpan('#ff9a9e' , '#fad0c4')"></div>
-        <div  onclick="gradiendBgSpan('#a18cd1' , '#fbc2eb')" style="background: linear-gradient(to left, #a18cd1 , #fbc2eb) ;" class="colorBox"></div>
-        <div onclick="gradiendBgSpan('#fbc2eb' , '#a6c1ee')" style="background: linear-gradient(to left, #fbc2eb , #a6c1ee) ;" class="colorBox"></div>
-        <div onclick="gradiendBgSpan('#84fab0' , '#8fd3f4')" style="background: linear-gradient(to left, #84fab0 , #8fd3f4) ;" class="colorBox"></div>
-        <div onclick="gradiendBgSpan('#30cfd0' , '#330867')" style="background: linear-gradient(to left, #30cfd0 , #330867) ;" class="colorBox"></div>
-        <div onclick="gradiendBgSpan('#9890e3' , '#b1f4cf')" style="background: linear-gradient(to left, #9890e3 , #b1f4cf) ;" class="colorBox"></div>
-       
-        <div onclick="gradiendBgSpan('#96fbc4' , '#f9f586')" style="background: linear-gradient(to left, #96fbc4 , #f9f586) ;" class="colorBox"></div>
-        <div onclick="gradiendBgSpan('#37ecba' , '#72afd3')" style="background: linear-gradient(to left, #37ecba , #72afd3) ;" class="colorBox"></div>
-        <div onclick="gradiendBgSpan('#ebbba7' , '#cfc7f8')" style="background: linear-gradient(to left, #ebbba7 , #cfc7f8) ;" class="colorBox"></div>
-        <div onclick="gradiendBgSpan('#9795f0' , '#fbc8d4')" style="background: linear-gradient(to left, #9795f0 , #fbc8d4) ;" class="colorBox"></div>
+        <div style="background: linear-gradient(to left, #ff9a9e , #fad0c4) ;" class="grdColorBox"  onclick="gradiendBgSpan('#ff9a9e' , '#fad0c4')"></div>
+        <div  onclick="gradiendBgSpan('#a18cd1' , '#fbc2eb')" style="background: linear-gradient(to left, #a18cd1 , #fbc2eb) ;" class="grdColorBox"></div>
+        <div onclick="gradiendBgSpan('#fbc2eb' , '#a6c1ee')" style="background: linear-gradient(to left, #fbc2eb , #a6c1ee) ;" class="grdColorBox"></div>
+        <div onclick="gradiendBgSpan('#84fab0' , '#8fd3f4')" style="background: linear-gradient(to left, #84fab0 , #8fd3f4) ;" class="grdColorBox"></div>
+        <hr style="width: 100%;margin :2px 0px;border:none;">
+        <div onclick="gradiendBgSpan('#30cfd0' , '#330867')" style="background: linear-gradient(to left, #30cfd0 , #330867) ;" class="grdColorBox"></div>
+        <div onclick="gradiendBgSpan('#9890e3' , '#b1f4cf')" style="background: linear-gradient(to left, #9890e3 , #b1f4cf) ;" class="grdColorBox"></div>
+        <div onclick="gradiendBgSpan('#96fbc4' , '#f9f586')" style="background: linear-gradient(to left, #96fbc4 , #f9f586) ;" class="grdColorBox"></div>
+        <div onclick="gradiendBgSpan('#37ecba' , '#72afd3')" style="background: linear-gradient(to left, #37ecba , #72afd3) ;" class="grdColorBox"></div>
+        <hr style="width: 100%;margin :2px 0px;border:none;">
+        <div onclick="gradiendBgSpan('#ebbba7' , '#cfc7f8')" style="background: linear-gradient(to left, #ebbba7 , #cfc7f8) ;" class="grdColorBox"></div>
+        <div onclick="gradiendBgSpan('#9795f0' , '#fbc8d4')" style="background: linear-gradient(to left, #9795f0 , #fbc8d4) ;" class="grdColorBox"></div>
+        <div onclick="gradiendBgSpan('#8EC5FC' , '#E0C3FC')" style="background: linear-gradient(to left, #8EC5FC , #E0C3FC) ;" class="grdColorBox"></div>
+        <div onclick="gradiendBgSpan('#D9AFD9' , '#97D9E1')" style="background: linear-gradient(to left, #D9AFD9 , #97D9E1) ;" class="grdColorBox"></div>
       </div>
     </div>
 
     <!--  gradiend text box -->
     <div>
-      <span style="color: #892be200;display: inline-block;-webkit-background-clip: text;-webkit-text-fill-color: transparent;background-image: linear-gradient(to left, #ff9a9e 33%, #fad0c4 66%);width: fit-content;padding:0px;" class="styling_title">gradiend text</span>
+      <span style="color: #892be200;display: inline-block;-webkit-background-clip: text;-webkit-text-fill-color: transparent;background-image: linear-gradient(to left, #ff9a9e 33%, #fad0c4 66%);width: fit-content;padding:0px;" class="styling_title">Gradient text</span>
       <div class="box"> 
-       <div style="background: linear-gradient(to left, #ff9a9e , #fad0c4) ;" class="colorBox"  onclick="gradiendTextSpan('#ff9a9e' , '#fad0c4')"></div>
-        <div  onclick="gradiendTextSpan('#a18cd1' , '#fbc2eb')" style="background: linear-gradient(to left, #a18cd1 , #fbc2eb) ;" class="colorBox"></div>
-        <div onclick="gradiendTextSpan('#fbc2eb' , '#a6c1ee')" style="background: linear-gradient(to left, #fbc2eb , #a6c1ee) ;" class="colorBox"></div>
-        <div onclick="gradiendTextSpan('#84fab0' , '#8fd3f4')" style="background: linear-gradient(to left, #84fab0 , #8fd3f4) ;" class="colorBox"></div>
-        <div onclick="gradiendTextSpan('#30cfd0' , '#330867')" style="background: linear-gradient(to left, #30cfd0 , #330867) ;" class="colorBox"></div>
-        <div onclick="gradiendTextSpan('#9890e3' , '#b1f4cf')" style="background: linear-gradient(to left, #9890e3 , #b1f4cf) ;" class="colorBox"></div>
-       
-        <div onclick="gradiendTextSpan('#96fbc4' , '#f9f586')" style="background: linear-gradient(to left, #96fbc4 , #f9f586) ;" class="colorBox"></div>
-        <div onclick="gradiendTextSpan('#37ecba' , '#72afd3')" style="background: linear-gradient(to left, #37ecba , #72afd3) ;" class="colorBox"></div>
-        <div onclick="gradiendTextSpan('#ebbba7' , '#cfc7f8')" style="background: linear-gradient(to left, #ebbba7 , #cfc7f8) ;" class="colorBox"></div>
-        <div onclick="gradiendTextSpan('#9795f0' , '#fbc8d4')" style="background: linear-gradient(to left, #9795f0 , #fbc8d4) ;" class="colorBox"></div>
+        <div style="background: linear-gradient(to left, #ff9a9e , #fad0c4) ;" class="grdColorBox"  onclick="gradiendTextSpan('#ff9a9e' , '#fad0c4')"></div>
+        <div  onclick="gradiendTextSpan('#a18cd1' , '#fbc2eb')" style="background: linear-gradient(to left, #a18cd1 , #fbc2eb) ;" class="grdColorBox"></div>
+        <div onclick="gradiendTextSpan('#fbc2eb' , '#a6c1ee')" style="background: linear-gradient(to left, #fbc2eb , #a6c1ee) ;" class="grdColorBox"></div>
+        <div onclick="gradiendTextSpan('#84fab0' , '#8fd3f4')" style="background: linear-gradient(to left, #84fab0 , #8fd3f4) ;" class="grdColorBox"></div>
+       <hr style="width: 100%;margin :2px 0px;border:none;">
+        <div onclick="gradiendTextSpan('#30cfd0' , '#330867')" style="background: linear-gradient(to left, #30cfd0 , #330867) ;" class="grdColorBox"></div>
+        <div onclick="gradiendTextSpan('#9890e3' , '#b1f4cf')" style="background: linear-gradient(to left, #9890e3 , #b1f4cf) ;" class="grdColorBox"></div>
+        <div onclick="gradiendTextSpan('#96fbc4' , '#f9f586')" style="background: linear-gradient(to left, #96fbc4 , #f9f586) ;" class="grdColorBox"></div>
+        <div onclick="gradiendTextSpan('#37ecba' , '#72afd3')" style="background: linear-gradient(to left, #37ecba , #72afd3) ;" class="grdColorBox"></div>
+        <hr style="width: 100%;margin :2px 0px;border:none;">
+        <div onclick="gradiendTextSpan('#ebbba7' , '#cfc7f8')" style="background: linear-gradient(to left, #ebbba7 , #cfc7f8) ;" class="grdColorBox"></div>
+        <div onclick="gradiendTextSpan('#9795f0' , '#fbc8d4')" style="background: linear-gradient(to left, #9795f0 , #fbc8d4) ;" class="grdColorBox"></div>
+        <div onclick="gradiendTextSpan('#8EC5FC' , '#E0C3FC')" style="background: linear-gradient(to left, #8EC5FC , #E0C3FC) ;" class="grdColorBox"></div>
+        <div onclick="gradiendTextSpan('#D9AFD9' , '#97D9E1')" style="background: linear-gradient(to left, #D9AFD9 , #97D9E1) ;" class="grdColorBox"></div>
       </div>
     </div>
     <!--  background color box -->
     <div>
-        <span style="color: #ffffff;display: inline-block;background-color: #8a2be2;padding: 0px 10px;border-radius: 50px;width: fit-content;" class="styling_title">background</span>
+        <span style="color: #ffffff;display: inline-block;background-color: #8a2be2;padding: 0px 10px;border-radius: 50px;width: fit-content;" class="styling_title"> Solid background</span>
         <div class="box">
             <button class="colorBox" onclick="bgSpan('#ffffff')" style="background-color:#ffffff;border: 1px solid gainsboro;"></button>
             <button class="colorBox" onclick="bgSpan('#e0e0e0')" style="background-color:#e0e0e0"></button>
@@ -1930,7 +2158,7 @@
 
             <button class="colorBox" onclick="bgSpan('#ff9800')" style="background-color:#ff9800"></button>
             <button class="colorBox" onclick="bgSpan('#795548')" style="background-color:#795548"></button>
-            <button class="colorBox" onclick="bgSpan('#607d8b')" style="background-color:#607d8b"></button>
+            <!-- <button class="colorBox" onclick="bgSpan('#607d8b')" style="background-color:#607d8b"></button> -->
         </div>
     </div>
 
@@ -1940,10 +2168,10 @@
              
     <!--  border box -->
     <div>
-      <span class="styling_title">border</span>
-      <div class="box">
+      <span class="styling_title">Border</span>
+      <div class="box" style="align-items: center;width:100%">
         <div class="col3">
-          <div onclick="withBorder(1,'solid','#000',0)" class="solidBorder0 borderBox">0px</div>
+          <div onclick="withBorder(0,'solid','#000',0)" class="solidBorder0 borderBox">0px</div>
           <div onclick="withBorder(1,'solid','#000',5)" class="solidBorder5 borderBox">5px</div>
           <div onclick="withBorder(1,'solid','#000',10)" class="solidBorder10 borderBox">10px</div>
           <div onclick="withBorder(1,'solid','#000',50)" class="solidBorder50 borderBox">50px</div>
@@ -1960,15 +2188,61 @@
           <div onclick="withBorder(1,'dotted','#000',10)" class="dottedBorder10 borderBox">border</div>
           <div onclick="withBorder(1,'dotted','#000',50)" class="dottedBorder50 borderBox">border</div>
         </div>
+<hr style="width: 100%;margin :5px 0px">
+
+        <div class="borderSelectBox">
+          <div>&#9581;</div>
+          <div>&#9582;</div>
+          <div>&#9584;</div>
+          <div>&#9583;</div>
+          <div class="borderSelectCenter ">&#9635;</div>
+          <!-- activeBorder -->
+         </div>
+
+        <div>
+          <div class="horizontal" style="font-size: 12px;">Border width : <input type="number" name="" id="" min="0" value="0" style="width: 40px;height:20px"></div>
+          <div class="horizontal" style="font-size: 12px;margin:5px 0px">Border Style : <select name="" id="" style="width: 40px;height:20px">
+            <option value="solid">&#9472;&#9472;</option>
+            <option value="solid">.......</option>
+            <option value="solid">- - -</option>
+          </select></div>
+          <div class="horizontal" style="font-size: 12px;">Border Color : <input type="color" name="" id="" style="width: 40px;height:20px"></div>
+        </div>
+              
+      </div>
+
+    </div>
+
+    <!--  Radius box -->
+    <div>
+      <span class="styling_title">Radius</span>
+      <div class="box" style="align-items: center;width:100%">
+        <div class="borderSelectBox">
+          <div>&#9581;</div>
+          <div>&#9582;</div>
+          <div>&#9584;</div>
+          <div>&#9583;</div>
+          <div class="borderSelectCenter ">&#9635;</div>
+          <!-- activeBorder -->
+       </div>
+      <div>
+       
+        <div class="horizontal" style="font-size: 12px;"> Value : <input type="number" name="" id="" min="0" value="0" style="width: 40px;"></div>
+      </div>
       </div>
 
     </div>
 
     <!--  shadow box -->
     <div class="vertical shadowBox">
-      <span class="styling_title">shadow</span>
+      <span class="styling_title">Shadow - <a target="_blank" href="https://htmlcssfreebies.com/css-box-shadow-examples/">Daha fazlası</a></span>
   
       <div class="box">
+            <div  style="width: 100%;padding:5px 10px;text-align:center;">
+               <input type="text" name="" id=""  style="width: 85%;padding:5px 10px;text-align:center;" placeholder="Kodu yapıştır">
+               <i style="font-size: 25px;color:green;" class="bi bi-check2-circle"></i>
+            </div>
+          
         <div class="col3">
           <div onclick="shadowSpan(-1, 2, 0, 0, '#dcdcdc')" class="solidBorder0 shadowBoxitem" style="box-shadow: -1px 2px 0px 0px gainsboro;">shadow</div>
           <div onclick="shadowSpan(-2, 3, 0, 0, '#dcdcdc')" class="solidBorder0 shadowBoxitem" style="box-shadow: -2px 3px 0px 0px gainsboro;">shadow</div>
@@ -1994,16 +2268,16 @@
     <!--  rotation box -->
     <div>
       <span class="styling_title">rotation</span>
-      <div class="horizontal" style="margin-top: 20px; width:100px;font-size:large;">
-        <span id="rotateSpantext">rotate</span>
+      <div class="horizontal box" style=" width:100%;font-size:large;">
+        <!-- <span id="rotateSpantext">rotate</span> -->
         <!-- <i onclick="rotateSpan(5)" class="bi bi-arrow-clockwise"></i> -->
-        <button onclick="rotateSpan(0)">0</button>
-        <button onclick="rotateSpan(10)">10</button>
-        <button onclick="rotateSpan(-10)">-10</button>
-        <button onclick="rotateSpan(20)">20</button>
-        <button onclick="rotateSpan(-20)">-20</button>
-        <button onclick="rotateSpan(30)">30</button>
-        <button onclick="rotateSpan(-30)">-30</button>
+        <button class="styleBtn" onclick="rotateSpan(0)">0</button>
+        <button class="styleBtn" onclick="rotateSpan(10)">10</button>
+        <button class="styleBtn" onclick="rotateSpan(-10)">-10</button>
+        <button class="styleBtn" onclick="rotateSpan(20)">20</button>
+        <button class="styleBtn" onclick="rotateSpan(-20)">-20</button>
+        <button class="styleBtn" onclick="rotateSpan(30)">30</button>
+        <button class="styleBtn" onclick="rotateSpan(-30)">-30</button>
       </div>
 
     </div>

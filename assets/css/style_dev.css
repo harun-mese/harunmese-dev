@@ -199,11 +199,11 @@ body {
         left: 0px;
         right: 0px;
         z-index: 10;
-        background-color: #fafafccc;
         user-select: none;
         -webkit-user-select: none;
         -moz-user-select: none;
         /* filter: blur(20px); */
+        background-color: #fafafccc;
         backdrop-filter: saturate(1.8) blur(20px);
         -webkit-backdrop-filter: saturate(1.8) blur(20px);
     }  

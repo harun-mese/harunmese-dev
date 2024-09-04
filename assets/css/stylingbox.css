@@ -1,13 +1,13 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
 .stylingBox{
-    display: none;
+    display: block;
     width: 300px;
     height: 500px;
     overflow-y: scroll;
-    background-color: #fff;
-    border: 1px solid rgb(220, 220, 220);
-    box-shadow: 0 0 1px 0px gainsboro;
+    background-color: #fefefe;
+    border: 0px solid rgb(220, 220, 220);
+    box-shadow: 0 0 10px 2px gainsboro;
     border-radius: 10px;
     position: absolute;
     left: 10px;
@@ -21,8 +21,8 @@
     height: 500px;
     overflow-y: scroll;
     background-color: #fff;
-    border: 1px solid rgb(220, 220, 220);
-    box-shadow: 0 0 1px 0px gainsboro;
+    border: 0px solid rgb(220, 220, 220);
+    box-shadow: 0 0 10px 2px gainsboro;
     border-radius: 10px;
     position: absolute;
     left: 20px;
@@ -41,6 +41,10 @@
 .stylingHandler,.blocksHandler{
     height: 30px;
     background-color: rgb(245, 245, 245);
+
+    background-color: #fafafccc;
+    backdrop-filter: saturate(1.8) blur(20px);
+    -webkit-backdrop-filter: saturate(1.8) blur(20px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,6 +52,7 @@
     position: sticky;
     top: 0;
     cursor: move;
+    z-index: 99;
 }
 
 #closeStylingBox,#closeblocksBox{
@@ -61,12 +66,15 @@
 .styling_title{
     font-size: medium;
 }
-
+.styling_title a{
+    font-size: smaller;
+}
 .horizontal{
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
+  
 }
 .horizontal button{
     margin-left: 10px;
@@ -100,12 +108,17 @@
 }
 
 .box{
-    width: fit-content;
+    width: 100%;
+    height: fit-content;
     display: flex;
     align-items: flex-start;
     justify-content: space-around;
     flex-wrap: wrap;
     padding: 5px;
+    border: 1px solid rgb(255, 255, 255);
+    box-sizing: border-box;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.03);
+    margin-top: 10px;
 }
 /* .box button{
     width: 50px;
@@ -119,7 +132,12 @@
     border: 0px solid black;
     border-radius: 50%;
 }
-
+.grdColorBox{
+    width: 60px;
+    height: 30px;
+    border: 0px solid black;
+    border-radius: 30px;
+}
 .gradiendBox{
 
     width: 30px;
@@ -131,10 +149,15 @@
 .cssBox textarea{
     border-radius: 5px;
     padding: 5px;
-    background-color: #202020;
-    color: #fff;
+    border: 1px solid rgb(255, 255, 255);
+    box-sizing: border-box;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.03);
+    margin-top: 10px;
+    color: #000;
+    line-height: 1;
+    width: 100%;
+    min-height: 80px;
 }
-
 
 /* border box */
 .col3{
@@ -229,4 +252,58 @@
     background-color: gainsboro;
     border: 2px solid black;
     border-radius: 50px;
+}
+
+
+
+.borderSelectBox{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+    box-sizing: border-box;
+    z-index: 0 !important;
+}
+.borderSelectBox div{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100%;
+    line-height: 1;
+    background-color: rgb(255, 255, 255);
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    cursor: pointer;
+    user-select: none;
+    z-index: 0px !important;
+}
+.borderSelectBox div:hover{
+    /* background-color: rgb(214, 214, 214) !important;
+    border-radius: 5px; */
+    font-size: 40px !important;
+}
+.borderSelectBox div:active{
+    scale: .9;
+}
+.borderSelectCenter{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 25% !important;
+    height: 25% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%,-50%);
+    font-size: 20px !important;
+    z-index: 0px !important;
+}
+.activeBorder{
+    font-size: 40px !important;
 }

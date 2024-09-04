@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+      
+        h1{
+            vertical-align: middle;
+            font-size: 10px;
+            background-color: blueviolet;
+            text-transform:uppercase;
+         position: relative;
+        }
+        
+        .inline-image {
+            vertical-align: middle;
+            
+             /* Resmin metinle aynı hizada olmasını sağlar */
+            height: 1em; /* Metin yüksekliğiyle aynı yükseklikte olmasını sağlar */
+            width: 2em; /* Genişliği orantılı olarak ayarlar */
+            object-fit: cover;
+            border-radius: 50px;
+            display: inline-block;
+            position: relative; /* Resmi konumlandırılabilir hale getirir */
+                cursor:row-resize; /* Fare simgesini değiştirir */
+                user-select: none;
+        }
+        .twoCol{
+            font-size: small;
+            width: 200px;
+            height: fit-content;
+            height: initial;
+            display: inline-block;
+            background-color: rgba(242, 242, 242, 0);
+            border: none;
+           align-items: center;
+           vertical-align: middle;
+           justify-content: center;
+           resize: both;
+        }::-webkit-resizer{
+            width: 0;
+        }
+
+
+        .borderSelectBox{
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items:center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            position: relative;
+            border: 1px solid gainsboro;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .borderSelectBox div{
+            width: 50%;
+            height: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100%;
+            line-height: 1;
+            background-color: rgb(255, 255, 255);
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            cursor: pointer;
+            user-select: none;
+        }
+        .borderSelectBox div:hover{
+            background-color: rgb(214, 214, 214) !important;
+            border-radius: 5px;
+        }
+        .borderSelectBox div:active{
+            scale: .9;
+        }
+        .borderSelectCenter{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 25% !important;
+            height: 25% !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translate(-50%,-50%);
+            font-size: 10px !important;
+        }
+        .activeBorder{
+            background-color: rgb(214, 214, 214) !important;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="borderSelectBox">
+        <div>&#9581;</div>
+        <div>&#9582;</div>
+        <div>&#9584;</div>
+        <div>&#9583;</div>
+        <div class="borderSelectCenter">&#9635;</div>
+    </div>
+
+    <hr>
+    <h1>Lorem ipsum dolor <img  src="https://images.unsplash.com/photo-1724515811766-b11ec99e9e11?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="resim" class="draggable inline-image" id="draggableImage"> sit amet consectetur adipisicing elit. Repellat esse ab aliquam exptum.</h1>
+
+        <style>
+           
+            .draggable {
+                position: relative; /* Resmi konumlandırılabilir hale getirir */
+                cursor:row-resize; /* Fare simgesini değiştirir */
+                user-select: none;
+            }
+        </style>
+
+
+
+
+
+    
+        <script>
+            const img = document.getElementById('draggableImage');
+    
+            let isDragging = false;
+            let  startY, initialY;
+    
+            img.addEventListener('click', (e) => {
+                if(isDragging == false){
+                    isDragging = true;
+                    startY = e.clientY;
+                    initialY = img.offsetTop;
+                }else{
+                    isDragging = false;
+                }
+                
+            });
+    
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    const dy = e.clientY - startY;
+                    img.style.top = `${initialY + dy}px`;
+                }
+            });
+    
+        
+        </script>
+    </body>
+    </html>
+    
