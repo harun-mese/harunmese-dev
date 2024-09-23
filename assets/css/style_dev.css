@@ -576,3 +576,89 @@ article blockquote::after {
         margin: 5px 0;
     }
 }
+
+
+
+.inline-image {
+    vertical-align: middle;/* Resmin metinle aynı hizada olmasını sağlar */
+    height: 20px; /* Metin yüksekliğiyle aynı yükseklikte olmasını sağlar */
+    width: 40px; /* Genişliği orantılı olarak ayarlar */
+    object-fit: cover;
+    border-radius: 50px;
+    display: inline-block;
+   /*  position: relative; Resmi konumlandırılabilir hale getirir */
+    cursor:row-resize; /* Fare simgesini değiştirir */
+    user-select: none;
+    z-index: 0;
+}
+.inlineImages{
+  vertical-align: middle;/* Resmin metinle aynı hizada olmasını sağlar */
+  height: 1em; /* Metin yüksekliğiyle aynı yükseklikte olmasını sağlar */
+  width: 2em; /* Genişliği orantılı olarak ayarlar */
+  object-fit: cover;
+  display: inline;
+  margin: 0px !important;
+  position: relative; /* Resmi konumlandırılabilir hale getirir */
+  top: -3px;
+  cursor:pointer; /* Fare simgesini değiştirir */
+  user-select: none;
+  z-index: 0 !important;
+}
+.inline-image-style1{
+  border-radius: 50px;
+  border: none;
+}
+.inline-image-style2{
+  border-radius: 50px;
+  border: 2px solid black;
+}
+.inline-image-style3{
+  border-radius: 50px;
+  border: 2px dotted black;
+}
+.inline-image-style4{
+  border-radius: 50px;
+  border: 2px dashed black;
+}
+.inline-image-style5{
+  border-radius: 10px;
+  border: none;
+}
+.inline-image-style6{
+  border-radius: 10px;
+  border: 2px solid black;
+}
+.inline-image-style7{
+  border-radius: 10px;
+  border: 2px dotted black;
+}
+.inline-image-style8{
+  border-radius: 10px;
+  border: 2px dashed black;
+}
+
+.twoCol{
+  font-size: 5px;
+  line-height: 1;
+  width: 40px;
+  height: initial;
+  display: inline-block;
+}
+
+
+  .inlineText3{
+    display: inline-flex; 
+    width:100px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .inlineSpan3{ 
+    display: inline-flex; 
+    vertical-align: middle;
+    font-size: 5px;
+    width:100px;
+    margin-left: 5px;
+  }.inlineText3.border50{ 
+    width:140px;
+    padding: 5px 7px;
+  }

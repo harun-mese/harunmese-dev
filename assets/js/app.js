@@ -148,7 +148,13 @@ for (let option of options) {
                 
         }
 
+    }else{
+        var range = selection.getRangeAt(0);
+        
+        var parentElement = range.commonAncestorContainer.parentElement;
+         parentElement.style.fontSize = input.value + "px";
     }
+
         datalist.style.display = 'none';
     });
 }
@@ -196,6 +202,14 @@ function increaseValue() {
             }
 
         }
+    }else{
+        var range = selection.getRangeAt(0);
+        
+
+            var parentElement = range.commonAncestorContainer.parentElement;
+            var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+        parentElement.style.fontSize = (currentFontSize + 1) + "px";
     }
 }
 
@@ -239,6 +253,14 @@ function decreaseValue() {
                 
         }
 
+    }else{
+        var range = selection.getRangeAt(0);
+        
+
+            var parentElement = range.commonAncestorContainer.parentElement;
+            var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+        parentElement.style.fontSize = (currentFontSize - 1) + "px";
     }
 }
 
@@ -1407,3 +1429,12 @@ function addFontClass(className,array) {
     selection.removeAllRanges();
 }
 
+
+
+function insertInlineImage(classes){
+    command("insertHTML",false , `<img  src="./assets/uploads/img3.jpeg" alt="resim" class="${classes}" id="draggableImage">`)
+}
+
+function insertInlineText(div){
+    command("insertHTML",false , div )
+}
