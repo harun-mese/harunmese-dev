@@ -645,20 +645,35 @@ article blockquote::after {
   display: inline-block;
 }
 
-
+.inlineSpan{
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
   .inlineText3{
     display: inline-flex; 
     width:100px;
     align-items: center;
     justify-content: space-between;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
   }
   .inlineSpan3{ 
-    display: inline-flex; 
+    display: inline-block; 
     vertical-align: middle;
     font-size: 5px;
     width:100px;
     margin-left: 5px;
-  }.inlineText3.border50{ 
+  }
+  .inlineText3.border50{ 
     width:140px;
     padding: 5px 7px;
+    border: 1px solid black;
+    border-radius: 50px;
+  }
+
+  .border50{
+    border: 1px solid black;
+    border-radius: 50px;
   }

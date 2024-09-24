@@ -1435,6 +1435,18 @@ function insertInlineImage(classes){
     command("insertHTML",false , `<img  src="./assets/uploads/img3.jpeg" alt="resim" class="${classes}" id="draggableImage">`)
 }
 
-function insertInlineText(div){
-    command("insertHTML",false , div )
+function insertInlineText(html){
+  //  command("insertHTML",false , div )
+ // Mevcut seçimi al
+ const selection = frameContent.getSelection();
+ if (selection.rangeCount > 0) {
+   const range = selection.getRangeAt(0);
+   const span = document.createElement("span");
+   span.classList.add('inlineSpan')
+   span.innerHTML = html;
+   range.insertNode(span);
+   //range.surroundContents(span)
+ }
+
+
 }
