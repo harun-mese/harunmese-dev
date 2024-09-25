@@ -1291,3 +1291,18 @@ object-fit: cover;
     margin-left: 10px;
     margin-top: 5px;
 }
+
+#iconContainer{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 300px;
+    overflow-y: scroll;
+}#iconContainer button{
+    border: none;
+    background-color: transparent;
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 27px;
+    font-size: x-large;
+}
