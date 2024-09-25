@@ -1,4 +1,5 @@
 const fontsWrapper = document.getElementById('fontsContainer')
+const secondFontContainer = document.getElementById('secondFontContainer')
 
 const fonstClassNameArray = [
 
@@ -87,9 +88,26 @@ fonstClassNameArray.forEach((value,i,arr)=>{
     }else{
         btn.textContent = value
     }
+
      btn.addEventListener('click',()=>{
         addFontClass(value,arr)
      })
 
     fontsWrapper.appendChild(btn)
+})
+fonstClassNameArray.forEach((value,i,arr)=>{
+    const btn = document.createElement('button')
+    btn.classList.add(value)
+
+    if (value.includes('-h4m')) {
+        btn.textContent = value.replace(/-h4m/g, "")
+    }else{
+        btn.textContent = value
+    }
+    
+     btn.addEventListener('click',()=>{
+        addFontClass(value,arr)
+     })
+
+    secondFontContainer.appendChild(btn)
 })

@@ -46,6 +46,8 @@ let isDraggingstyling = false;
 let isDraggingblocks = false;
 
 
+const secondFontInput = document.getElementById('secondFontInput');
+
 const input = document.getElementById('custom-input');
 const datalist = document.getElementById('custom-datalist');
 const options = datalist.getElementsByTagName('li');
@@ -163,6 +165,7 @@ function increaseValue() {
     
     let value = parseInt(input.value, 10);
     input.value = isNaN(value) ? 0 : value + 1;
+    secondFontInput.innerHTML = isNaN(value) ? 0 : value + 1;
 
     selection = frameContent.getSelection();
     range = selection.getRangeAt(0);
@@ -216,7 +219,7 @@ function increaseValue() {
 function decreaseValue() {
     let value = parseInt(input.value, 10);
     input.value = isNaN(value) ? 0 : value - 1;
-
+    secondFontInput.innerHTML = isNaN(value) ? 0 : value - 1;
     selection = frameContent.getSelection();
 
     if (!selection.isCollapsed) {
@@ -547,7 +550,7 @@ frameContent.body.onclick = function(e){
 const fontSize = getComputedStyle(event.target).fontSize;
 // console.log('Font size of the clicked element:', fontSize);
 input.value = fontSize
-
+secondFontInput.innerHTML = fontSize
 
 if (e.target.parentElement.nodeName == "ARTICLE") {
     switch(e.target.tagName) {

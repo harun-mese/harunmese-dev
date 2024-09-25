@@ -1270,3 +1270,24 @@ object-fit: cover;
     left: 10px;
     top: 55px;
 }
+
+
+
+
+
+
+#secondFontContainer{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 300px;
+    overflow-y: scroll;
+}
+#secondFontContainer button{
+    border: none;
+    background-color: transparent;
+    margin-left: 10px;
+    margin-top: 5px;
+}
