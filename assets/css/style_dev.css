@@ -646,7 +646,7 @@ article blockquote::after {
 }
 
 
-  .inlineSpan {
+.inlineSpan {
     display: inline;
     position: relative;
     margin: 0;
@@ -657,6 +657,7 @@ article blockquote::after {
    width: 1em;
    height: 1em;
    object-fit: cover;
+   align-self: center;
 }
   .inlineText3{
     display: inline-flex; 
@@ -669,7 +670,7 @@ article blockquote::after {
   }
   .inlineSpan3{ 
     display: inline-block;
-    font-size: 0.1em;
+    font-size: 5px;
     min-width: 120px;
     width: min-content;
     /* max-width: min-content; */

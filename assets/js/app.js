@@ -8,6 +8,7 @@ const attributesContainer = document.querySelector('.attributesContainer')
 const imageBox = document.querySelector('.imageBox')
 const videoBox = document.querySelector('.videoBox')
 const blockBox = document.querySelector('.blockBox')
+const inlineSpanBox = document.querySelector('#inlineSpanBox')
 
 const colorSelectContainer = document.querySelector('.colorSelectContainer')
 const backcolorSelectContainer = document.querySelector('.backcolorSelectContainer')
@@ -361,6 +362,7 @@ frameContent.addEventListener('scroll',()=>{
     baloonLink.style.display = 'none'
     baloonColorBox.style.display = 'none'
     imageEditBox.style.display = 'none'
+    inlineSpanBox.style.display = 'none'
 })
 
 
@@ -394,6 +396,13 @@ function openBaloonColorBox(){
     baloonColorBox.style.display = 'flex'
   }
 
+  function closeBaloonTextEditor(){
+    baloonTextEditor.style.display = "none"
+  }
+  function openBaloonTextEditor(){
+    baloonTextEditor.style.display = "flex"
+  }
+
   function insertYoutube(){
     command('insertHTML',false,`<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/UCysoeahJME?si=JjC58hSqSzgKx40N&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -403,7 +412,7 @@ function openBaloonColorBox(){
 
 function initImages() {
     let imgs = frameContent.querySelectorAll('img')
-
+    let inlineSpan = frameContent.querySelectorAll('.inlineSpan')
     imgs.forEach(i=>{
 
         // var isdiv = document.createElement('div')
@@ -490,6 +499,34 @@ function initImages() {
             //     iAttrB = false
             // }
 
+          })
+
+
+    })
+
+    inlineSpan.forEach(i=>{
+
+        var currentStyle = i.getAttribute("style");
+
+        if (currentStyle) {
+            var updatedStyle = currentStyle + "cursor:pointer;" ;
+        } else {
+            var updatedStyle = "cursor:pointer;"
+        }
+
+       i.setAttribute("style", updatedStyle)
+
+        i.addEventListener('click',(e)=>{
+
+            deleteThisElem = i
+            selectedImageEl = i
+
+            console.log(e.view.window.innerWidth);
+            console.log(((window.innerWidth - e.view.window.innerWidth) / 2 ) + e.clientX + "px");
+          
+            inlineSpanBox.style.display = 'flex'
+            inlineSpanBox.style.top =  e.clientY + 90  + 'px'
+            inlineSpanBox.style.left = ((window.innerWidth - e.view.window.innerWidth) / 2 ) + e.clientX - 200 + "px"
           })
 
 
@@ -1133,9 +1170,9 @@ function withBorder(borderDash ,borderType, borderColor, radius) {
                parentElement.style.border = borderDash + "px " + borderType + " " + borderColor ;
                parentElement.style.color =  borderColor ;
                parentElement.style.borderRadius = radius+"px" ;
-               parentElement.style.padding = "0 10px" ;
-               parentElement.style.width = "fit-content";
-               parentElement.style.display = "inline-block" ;
+               parentElement.style.padding = "10px 20px" ;
+               //parentElement.style.width = "fit-content";
+              // parentElement.style.display = "inline-block" ;
             // }
     }
 }
@@ -1275,8 +1312,8 @@ function bgSpan(bgColor="gainsboro") {
             var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
 
             parentElement.style.backgroundColor = bgColor;
-            parentElement.style.borderRadius = "50px" ;
-           parentElement.style.padding = "0px 10px" ;
+            parentElement.style.borderRadius = "5px" ;
+            parentElement.style.padding = "5px 5px" ;
             // parentElement.style.width = "fit-content";
             // parentElement.style.display = "inline-block" ;
     }
@@ -1323,10 +1360,11 @@ function gradiendBgSpan(color1,color2,deg="to left") {
             var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
 
             parentElement.style.background = "linear-gradient("+deg+","+ color1 +" , " + color2+")";
-            parentElement.style.borderRadius = "50px" ;
-            parentElement.style.padding = "0px 10px" ;
-            parentElement.style.width = "fit-content";
-            parentElement.style.display = "inline-block" ;
+            parentElement.style.borderRadius = "5px" ;
+            parentElement.style.padding = "5px 5px" ;
+            //parentElement.style.margin = "15px 0px" ;
+            //parentElement.style.width = "fit-content";
+            //parentElement.style.display = "inline-block" ;
     }
 }
 
@@ -1380,8 +1418,8 @@ function gradiendTextSpan(color1,color2,deg="to left") {
             parentElement.style.backgroundImage = "linear-gradient("+deg+","+ color1 +" , " + color2+")";
             parentElement.style.webkitBackgroundClip = "text";
             parentElement.style.webkitTextFillColor = "transparent";
-           parentElement.style.width = "fit-content";
-           parentElement.style.display = "inline-block" ;
+            //parentElement.style.width = "fit-content";
+           //parentElement.style.display = "inline-block" ;
     }
 }
 
@@ -1435,7 +1473,20 @@ function addFontClass(className,array) {
 
 
 function insertInlineImage(classes){
-    command("insertHTML",false , `<img  src="./assets/uploads/img3.jpeg" alt="resim" class="${classes}" id="draggableImage">`)
+   // command("insertHTML",false , `<img  src="./assets/uploads/img3.jpeg" alt="resim" class="${classes}" id="draggableImage">`)
+
+const selection = frameContent.getSelection();
+ if (selection.rangeCount > 0) {
+   const range = selection.getRangeAt(0);
+   const img = document.createElement("img");
+   //img.classList.add(classes)
+   classes.split(' ').forEach(cls => img.classList.add(cls.trim())); 
+   img.src="./assets/uploads/img3.jpeg"
+   img.alt = "altText";
+   //img.innerHTML = html;
+   range.insertNode(img);
+   //range.surroundContents(span)
+ }
 }
 
 function insertInlineText(html){
@@ -1451,5 +1502,40 @@ function insertInlineText(html){
    //range.surroundContents(span)
  }
 
+ initImages()
+}
 
+
+function clearAll(){
+    selection = frameContent.getSelection();
+
+    if (!selection.isCollapsed) {
+        var range = selection.getRangeAt(0);
+        var selectedText = range.toString();
+        
+        if (selectedText) {
+
+            var parentElement = range.commonAncestorContainer.parentElement;
+            //var currentFontSize = parseFloat(frameContent.defaultView.getComputedStyle(parentElement).getPropertyValue('font-size'));
+
+            if(parentElement.tagName === "SPAN"){
+                parentElement.style = "";
+                command('removeFormat')
+            }else{
+                parentElement.style = "";
+                command('removeFormat')
+            }
+                
+        }else{
+            var parentElement = range.commonAncestorContainer.parentElement;
+            parentElement.style = "";
+            command('removeFormat')
+        }
+
+    }else{
+            var range = selection.getRangeAt(0);
+            var parentElement = range.commonAncestorContainer.parentElement;
+            parentElement.style = ""
+            command('removeFormat')
+    }
 }

@@ -34,6 +34,9 @@
   <header>
 
     <div class="left_side">
+
+      
+
       <button id="newcontentBtn" title="New Content" onclick="opennewContentBox()">
         <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
           class="bi bi-plus-circle-dotted" viewBox="0 0 16 16">
@@ -964,6 +967,19 @@
 
       </div>
 
+
+      <button>
+        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-hand-index" viewBox="0 0 16 16">
+          <path d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 1 0 1 0V6.435l.106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 0 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.035a.5.5 0 0 1-.416-.223l-1.433-2.15a1.5 1.5 0 0 1-.243-.666l-.345-3.105a.5.5 0 0 1 .399-.546L5 8.11V9a.5.5 0 0 0 1 0V1.75A.75.75 0 0 1 6.75 1M8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v5.34l-1.2.24a1.5 1.5 0 0 0-1.196 1.636l.345 3.106a2.5 2.5 0 0 0 .405 1.11l1.433 2.15A1.5 1.5 0 0 0 6.035 16h6.385a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5 5 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.6 2.6 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046zm2.094 2.025"/>
+        </svg>
+      </button>
+
+      <button onclick="openBaloonTextEditor()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-balloon" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8 9.984C10.403 9.506 12 7.48 12 5a4 4 0 0 0-8 0c0 2.48 1.597 4.506 4 4.984M13 5c0 2.837-1.789 5.227-4.52 5.901l.244.487a.25.25 0 1 1-.448.224l-.008-.017c.008.11.02.202.037.29.054.27.161.488.419 1.003.288.578.235 1.15.076 1.629-.157.469-.422.867-.588 1.115l-.004.007a.25.25 0 1 1-.416-.278c.168-.252.4-.6.533-1.003.133-.396.163-.824-.049-1.246l-.013-.028c-.24-.48-.38-.758-.448-1.102a3 3 0 0 1-.052-.45l-.04.08a.25.25 0 1 1-.447-.224l.244-.487C4.789 10.227 3 7.837 3 5a5 5 0 0 1 10 0m-6.938-.495a2 2 0 0 1 1.443-1.443C7.773 2.994 8 2.776 8 2.5s-.226-.504-.498-.459a3 3 0 0 0-2.46 2.461c-.046.272.182.498.458.498s.494-.227.562-.495"/>
+        </svg>
+      </button>
+
     </div>
 
     <div class="center_side">
@@ -1531,7 +1547,7 @@
 
 
   <div class="baloonTextEditor" id="baloonTextEditor">
-    <button onclick="command('removeFormat')">
+    <button onclick="clearAll()">
       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-eraser-fill"
         viewBox="0 0 16 16">
         <path
@@ -1584,7 +1600,7 @@
       </svg>
     </button>
 
-    <button>
+    <button onclick="closeBaloonTextEditor()">
       <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="red" class="bi bi-x-circle" viewBox="0 0 16 16">
         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
         <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
@@ -1850,6 +1866,7 @@
   }
     </style>
 
+    <!-- metin ici resim -->
     <div class="vertical">
       <span class="styling_title">Metin içi  <img  src="./assets/uploads/img12.jpeg" alt="resim" class="draggable inline-image" id="draggableImage"> resim</span>
       <div class="box">
@@ -1868,6 +1885,8 @@
       </div>
 
     </div> 
+
+  <!-- metin ici metin -->
     <div class="vertical">
       <span class="styling_title">Metin içi  <span class="twoCol">Lorem ipsum dolor sit amet</span> metin</span>
       <div class="box" style="padding: 15px 0;">
@@ -1928,7 +1947,7 @@
 
     </div> 
 
-
+<!-- metin ici icon -->
     <div class="vertical">
       <span class="styling_title">Metin içi &#x2701; Entities - <a target="_blank" href="https://www.w3schools.com/cssref/css_entities.php">Daha fazla</a></span>
       <div class="box" id="iconContainer">
@@ -2279,18 +2298,18 @@
           <div onclick="withBorder(1,'dotted','#000',10)" class="dottedBorder10 borderBox">border</div>
           <div onclick="withBorder(1,'dotted','#000',50)" class="dottedBorder50 borderBox">border</div>
         </div>
-<hr style="width: 100%;margin :5px 0px">
+     <!-- <hr style="width: 100%;margin :5px 0px"> -->
 
-        <div class="borderSelectBox">
+        <!-- <div class="borderSelectBox">
           <div>&#9581;</div>
           <div>&#9582;</div>
           <div>&#9584;</div>
           <div>&#9583;</div>
           <div class="borderSelectCenter ">&#9635;</div>
-          <!-- activeBorder -->
-         </div>
+         
+         </div> -->
 
-        <div>
+        <!-- <div>
           <div class="horizontal" style="font-size: 12px;">Border width : <input type="number" name="" id="" min="0" value="0" style="width: 40px;height:20px"></div>
           <div class="horizontal" style="font-size: 12px;margin:5px 0px">Border Style : <select name="" id="" style="width: 40px;height:20px">
             <option value="solid">&#9472;&#9472;</option>
@@ -2298,14 +2317,14 @@
             <option value="solid">- - -</option>
           </select></div>
           <div class="horizontal" style="font-size: 12px;">Border Color : <input type="color" name="" id="" style="width: 40px;height:20px"></div>
-        </div>
+        </div> -->
               
       </div>
 
     </div>
 
     <!--  Radius box -->
-    <div>
+    <!-- <div>
       <span class="styling_title">Radius</span>
       <div class="box" style="align-items: center;width:100%">
         <div class="borderSelectBox">
@@ -2314,7 +2333,6 @@
           <div>&#9584;</div>
           <div>&#9583;</div>
           <div class="borderSelectCenter ">&#9635;</div>
-          <!-- activeBorder -->
        </div>
       <div>
        
@@ -2322,7 +2340,7 @@
       </div>
       </div>
 
-    </div>
+    </div> -->
 
     <!--  shadow box -->
     <!-- <div class="vertical shadowBox">
@@ -2373,11 +2391,9 @@
 
     </div>
  <!--  padding box -->
- <div>
+ <!-- <div>
   <span class="styling_title">padding</span>
   <div class="horizontal box" style=" width:100%;font-size:large;">
-    <!-- <span id="rotateSpantext">rotate</span> -->
-    <!-- <i onclick="rotateSpan(5)" class="bi bi-arrow-clockwise"></i> -->
     <button class="styleBtn" onclick="rotateSpan(0)">0</button>
     <button class="styleBtn" onclick="rotateSpan(10)">10</button>
     <button class="styleBtn" onclick="rotateSpan(-10)">-10</button>
@@ -2387,12 +2403,11 @@
     <button class="styleBtn" onclick="rotateSpan(-30)">-30</button>
   </div>
 
-</div> <!--  margin box -->
-<div>
+</div> -->
+ <!--  margin box -->
+<!-- <div>
   <span class="styling_title">margin</span>
   <div class="horizontal box" style=" width:100%;font-size:large;">
-    <!-- <span id="rotateSpantext">rotate</span> -->
-    <!-- <i onclick="rotateSpan(5)" class="bi bi-arrow-clockwise"></i> -->
     <button class="styleBtn" onclick="rotateSpan(0)">0</button>
     <button class="styleBtn" onclick="rotateSpan(10)">10</button>
     <button class="styleBtn" onclick="rotateSpan(-10)">-10</button>
@@ -2402,14 +2417,12 @@
     <button class="styleBtn" onclick="rotateSpan(-30)">-30</button>
   </div>
 
-</div>
+</div> -->
 
  <!--  display box -->
- <div>
+ <!-- <div>
   <span class="styling_title">display</span>
   <div class="horizontal box" style=" width:100%;font-size:large;">
-    <!-- <span id="rotateSpantext">rotate</span> -->
-    <!-- <i onclick="rotateSpan(5)" class="bi bi-arrow-clockwise"></i> -->
     <button class="styleBtn" onclick="rotateSpan(0)">0</button>
     <button class="styleBtn" onclick="rotateSpan(10)">10</button>
     <button class="styleBtn" onclick="rotateSpan(-10)">-10</button>
@@ -2419,13 +2432,11 @@
     <button class="styleBtn" onclick="rotateSpan(-30)">-30</button>
   </div>
 
-</div>
+</div> -->
  <!--  position box -->
- <div>
+ <!-- <div>
   <span class="styling_title">position</span>
   <div class="horizontal box" style=" width:100%;font-size:large;">
-    <!-- <span id="rotateSpantext">rotate</span> -->
-    <!-- <i onclick="rotateSpan(5)" class="bi bi-arrow-clockwise"></i> -->
     <button class="styleBtn" onclick="rotateSpan(0)">0</button>
     <button class="styleBtn" onclick="rotateSpan(10)">10</button>
     <button class="styleBtn" onclick="rotateSpan(-10)">-10</button>
@@ -2433,7 +2444,7 @@
     <button class="styleBtn" onclick="rotateSpan(-20)">-20</button>
     <button class="styleBtn" onclick="rotateSpan(30)">30</button>
     <button class="styleBtn" onclick="rotateSpan(-30)">-30</button>
-  </div>
+  </div> -->
 
 </div>
 
@@ -2459,7 +2470,14 @@
 
   </div>
 
-
+<div id="inlineSpanBox">
+  <h3>inline span box</h3>
+  <p>width</p>
+  <p>height</p>
+  <p>font-size</p>
+  <p>border</p>
+  <p>border-radius</p>
+</div>
 
 
 
