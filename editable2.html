@@ -2469,14 +2469,71 @@
 
 
   </div>
+<style>
+  #inlineSpanBox{
+    width: 400px;
+    height: auto;
+    background-color: #fff;
+    border: 1px solid gainsboro;
+    box-shadow:   0 0 10px 2px gainsboro;
+    border-radius: 10px;
+    position: fixed;
+    left: 400px;
+    top: 400px;
 
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 10px;
+
+    z-index: 9999;
+}
+  #inlineSpanBox p{
+    font-size: small;
+    margin: 2px;
+    padding: 0;
+    width: 100%;
+    display: flex;
+  }#inlineSpanBox hr{
+    margin: 10px 0;
+    width: 100%;
+  }
+  #inlineSpanBox p span{
+    font-size: small;
+    margin: 0;
+    padding: 0;
+    width:100px;
+  }
+  #inlineSpanBox p input[type="range"]{
+    width: 100%;
+    flex: 6;
+    margin-right: 5px;
+  }#inlineSpanBox p input[type="number"],#inlineSpanBox p input[type="color"]{
+    width: 40px;
+  }
+</style>
 <div id="inlineSpanBox">
   <h3>inline span box</h3>
-  <p>width</p>
-  <p>height</p>
-  <p>font-size</p>
-  <p>border</p>
-  <p>border-radius</p>
+  <p><span>Box width</span> <input type="range" name="" id=""><input type="number" name="" id=""></p>
+  <p><span>Box height</span> <input type="range" name="" id=""><input type="number" name="" id=""></p>
+  <p><span>Border-width</span> <input type="number" name="" id="" value="1"></p>
+  <p><span>Border-color</span> <input type="color" name="" id=""></p>
+  <p><span>Border-style</span> 
+    <select name="" id="">
+      <option selected value="">Solid</option>
+      <option value="">Dashed</option>
+      <option value="">Dotted</option>
+  </select></p>
+  <p><span>Border-radius</span> <input type="number" name="" id="" value="30"></p>
+  <p><span>Padding</span> vertical :<input type="number" name="" id="" style="margin-right: 5px;"> horizontal :<input type="number" name="" id=""></p>
+  <hr>
+  <p><span>Text width</span> <input type="range" name="" id=""><input type="number" name="" id=""></p>
+  <p><span>Text height</span> <input type="range" name="" id=""><input type="number" name="" id=""></p>
+  <p><span>Font-size</span> <input type="number" name="" id="" value="5"></p>
+  <hr>
+  <p><span>Image </span> width :<input type="number" name="" id="" style="margin-right: 5px;" value="50"> height :<input type="number" name="" id="" value="50"></p>
+  
 </div>
 
 
